@@ -18,7 +18,7 @@ const playMusic = () => {
   music.play();
   play.classList.replace("fa-play", "fa-pause");
   img.classList.add("anime");
-  play.title = "pause";
+  play.title = "暂停";
 };
 
 const pauseMusic = () => {
@@ -26,7 +26,7 @@ const pauseMusic = () => {
   music.pause();
   play.classList.replace("fa-pause", "fa-play");
   img.classList.remove("anime");
-  play.title = "play";
+  play.title = "播放";
 };
 
 play.addEventListener("click", () => {
@@ -59,27 +59,45 @@ const prevSong = () => {
 // Looping a music
 
 const replaySong = () => {
-  loop.classList.toggle("active");
-  if (loop.classList.contains("active")) {
-    music.loop = true;
-    loop.title = "Unloop";
-  } else {
-    music.loop = false;
-    loop.title = "Loop";
-    music.addEventListener("ended", nextSong);
-  }
+  // loop.classList.toggle("active");
+  // if (loop.classList.contains("active")) {
+  //   music.loop = true;
+  //   loop.title = "Unloop";
+  // } else {
+  //   music.loop = false;
+  //   loop.title = "Loop";
+  //   music.addEventListener("ended", nextSong);
+  // }
+    changeSongs();
 };
 
-// mute the audio
+// 切换歌单
+const changeSongs = () => {
+    if (songs == songs1) {
+        songs = songs2;
+    } else if (songs == songs2) {
+        songs = songs3;
+    } else if (songs == songs3) {
+        songs = songs4;
+    } else if (songs == songs4) {
+        songs = songs2;
+    }
+    songIndex = 0;
+    loadSong(songs[0]);
+    playMusic();
+};
+
+
+// 静音
 
 const muteAudio = () => {
   mute.classList.toggle("active");
   if (mute.classList.contains("active")) {
     music.muted = true;
-    mute.title = "Unmute";
+    mute.title = "取消静音";
   } else {
     music.muted = false;
-    mute.title = "mute";
+    mute.title = "静音";
   }
 };
 

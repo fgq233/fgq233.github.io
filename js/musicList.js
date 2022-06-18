@@ -49,5 +49,6 @@ const songs3 = [
     {type: "1", url: "040.mp3", title: "风的季节 - Soler"},
 
 ];
-const song4 = [...songs1, ...songs2, ...songs3];
-const songs = songs2;
+const songs4 = [...songs1, ...songs2, ...songs3];
+let songs = songs2;
+
