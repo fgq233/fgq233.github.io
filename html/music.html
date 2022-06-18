@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/plugin/font1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/music.css">
+    <title>范老师的Music</title>
+</head>
+
+<body onload="onloadFun();">
+<div class="main_div">
+    <div class="music_container">
+        <h4 id="title"></h4>
+        <div class="img_container">
+            <img src="../imgs/002.jpg" alt="music background">
+        </div>
+        <audio src="" id="audio"></audio>
+
+        <!-- Progress bar -->
+        <div class="progressbar_container" id="progressbar_container">
+            <div class="progress_duration_meter">
+                <div id="current_time">00:00</div>
+                <div id="duration">00:00</div>
+            </div>
+            <div class="progress_div" id="progress_div">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="music_controls">
+            <i class="fa fa-volume-down" onclick="muteAudio();" id="mute" title="Mute"></i>
+            <i class="fa fa-backward" id="prev" title="Previous"></i>
+            <i class="fa fa-play main_button" id="play" title="Play"></i>
+            <i class="fa fa-forward" id="next" title="Next"></i>
+            <i class="fa fa-retweet" onclick="replaySong();" id="loop" title="Loop"></i>
+        </div>
+    </div>
+</div>
+
+<script src="../js/musicList.js"></script>
+<script src="../js/music.js"></script>
+</body>
+
+</html>
