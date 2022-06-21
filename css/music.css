@@ -16,6 +16,7 @@ html {
 .main_div {
     width: 100vw;
     height: 100vh;
+    background-color: #272833;
     background-image: url("../imgs/002.jpg");
     position: relative;
 }
