@@ -1,5 +1,15 @@
-//古风
+//纯音乐
 const songs1 = [
+    {type: "1", url: "001.mp3", title: "夜的钢琴曲5 - 承利"},
+    {type: "1", url: "027.mp3", title: "Hoaprox - Ngẫu Hứng"},
+    {type: "1", url: "029.mp3", title: "Friendships"},
+    {type: "1", url: "031.mp3", title: "Alan Walker - Faded"},
+    {type: "1", url: "034.mp3", title: "A_Hisa - Caravan"},
+    {type: "1", url: "035.mp3", title: "Windy Hilln"},
+
+];
+//古风
+const songs2 = [
     {type: "1", url: "033.flac", title: "旺仔小乔 - 樱花树下的约定"},
     {type: "1", url: "012.mp3", title: "买辣椒也用券 - 起风了"},
     {type: "1", url: "037.mp3", title: "牵丝戏 - 银临、Aki阿杰"},
@@ -18,16 +28,6 @@ const songs1 = [
     {type: "1", url: "018.mp3", title: "后弦、柳岩 - 孙尚香"},
     {type: "1", url: "022.mp3", title: "花粥 - 归去来兮"},
     {type: "1", url: "032.mp3", title: "聆音 - 明月天涯"},
-];
-//纯音乐
-const songs2 = [
-    {type: "1", url: "001.mp3", title: "夜的钢琴曲5 - 承利"},
-    {type: "1", url: "027.mp3", title: "Hoaprox - Ngẫu Hứng"},
-    {type: "1", url: "029.mp3", title: "Friendships"},
-    {type: "1", url: "031.mp3", title: "Alan Walker - Faded"},
-    {type: "1", url: "034.mp3", title: "A_Hisa - Caravan"},
-    {type: "1", url: "035.mp3", title: "Windy Hilln"},
-
 ];
 //曾经爱听的
 const songs3 = [
@@ -49,6 +49,5 @@ const songs3 = [
     {type: "1", url: "040.mp3", title: "风的季节 - Soler"},
 
 ];
-const songs4 = [...songs1, ...songs2, ...songs3];
-let songs = songs2;
+let songs = songs1;
 
