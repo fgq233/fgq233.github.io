@@ -78,9 +78,7 @@ const changeSongs = () => {
     } else if (songs == songs2) {
         songs = songs3;
     } else if (songs == songs3) {
-        songs = songs4;
-    } else if (songs == songs4) {
-        songs = songs2;
+        songs = songs1;
     }
     songIndex = 0;
     loadSong(songs[0]);
