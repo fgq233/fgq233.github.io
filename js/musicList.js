@@ -1,7 +1,7 @@
 //纯音乐
 const songs1 = [
     {type: "1", url: "101.mp3", title: "夜的钢琴曲5 - 承利"},
-    {type: "1", url: "102.flac", title: "阿梨粤,R7 - 秒针 (Dj版)"}
+    {type: "1", url: "102.mp3", title: "阿梨粤,R7 - 秒针 (Dj版)"}
 
 ];
 //古风
