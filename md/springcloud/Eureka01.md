@@ -1,4 +1,3 @@
-# Eureka注册中心原理
 在Eureka架构中，微服务角色分两类：
 1. EurekaServer：服务端(注册中心)
     - 记录服务信息
