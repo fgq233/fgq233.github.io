@@ -60,7 +60,8 @@ eureka:
      return new RestTemplate();
  }
  
- // 利用RestTemplate发起http请求，实现远程服务调用，这里调用serviceXXX服务
+ // 利用RestTemplate发起http请求，实现远程服务调用
+ // 这里用服务提供者的服务名称 serviceXXX 远程调用
   String url = "http://serviceXXX/test";
   restTemplate.getForObject(url, String.class);
 ```
