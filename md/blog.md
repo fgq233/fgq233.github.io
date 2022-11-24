@@ -6,5 +6,5 @@
 
 [001]: https://fgq233.github.io/md/springcloud/index
 [002]: https://fgq233.github.io/md/es6/index
-[03]: https://fgq233.github.io/md/oracle/index
-[04]: https://fgq233.github.io/md/mysql/index
+[003]: https://fgq233.github.io/md/springcloud/index
+[004]: https://fgq233.github.io/md/springcloud/index
