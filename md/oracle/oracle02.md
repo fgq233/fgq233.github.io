@@ -25,17 +25,17 @@ SELECT *
 * 用于查询语句中：
 ```
 单个
-with temp as
- (select ...)
-select ...
-
+    with temp as
+     (select ...)
+    select ...
 多个
-with temp1 as (select ...),
-     temp2 as (select ...),
-     temp3 as (select ...)
-select ...
-
+    with temp1 as (select ...),
+         temp2 as (select ...),
+         temp3 as (select ...)
+    select ...
 ```
+
+
 * 用于插入语句中：
 ```
 insert into tab_name
@@ -44,6 +44,7 @@ insert into tab_name
    (select ...)            --with as 临时数据
    (select ... from ...);  --插入数据
 ```
+
 
 ### 3、合并查询
 ```
