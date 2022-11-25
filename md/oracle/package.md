@@ -5,9 +5,7 @@
 ```
 create or replace package pkg_name   
 {is|as}
- 
--- 在这里定义包规范的公用组件
-  
+    -- 定义包规范的公用组件
 end;
 ```
 
@@ -17,9 +15,7 @@ end;
 ```
 create or replace package body pkg_name   
 {is|as}
- 
--- 在这里实现包规范中定义的过程、函数，定义私有组件
-  
+    -- 实现包规范中定义的过程、函数，定义私有组件
 end;
 ```
 
