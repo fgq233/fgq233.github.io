@@ -2,20 +2,20 @@
 ### 一、组成结构
 ```
 create [or replace] function function_name
-( 
-  param1,
-  param2  
-  ...
-) 
+( param1, param2  ...) 
 return datatype
 {is | as}
-
-PL/SQL块(至少要包含一条RETURN 语句)
+    定义参数(可省略)
+begin
+ ... 函数体(至少要包含一条RETURN 语句)
+end;
 ```
-* or replace：覆盖同名函数function_name：
+* or replace：覆盖同名函数
 * 参数：有3类：输入参数(默认)(in)、输出参数(out)、输入输出参数(in out)
 * datatype：返回值的数据类型
 * {is | as}：二选一、两者没啥区别
+
+
 
 ### 二、示例
 #### 1、无参函数
