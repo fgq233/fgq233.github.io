@@ -70,6 +70,6 @@ END;
 * 行级触发器可以使用：old、:new访问变更前后的数据，而语句级触发器不可以
 
 如下：
-* 行级触发器 触发操作为 INSERT 可以使用：new，不可以使用：old
-* 行级触发器 触发操作为 UPDATE 可以使用：old、：new
-* 行级触发器 触发操作为 DELETE 可以使用：old，不可以使用：new
+* 行级触发器 触发操作为 INSERT 可以使用:new，不可以使用:old
+* 行级触发器 触发操作为 UPDATE 可以使用:old、:new
+* 行级触发器 触发操作为 DELETE 可以使用:old，不可以使用:new
