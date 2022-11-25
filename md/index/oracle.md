@@ -21,13 +21,6 @@
 
 
 
-
-
-
-
-
-
-
 [01]: https://fgq233.github.io/md/oracle/oracle01
 [02]: https://fgq233.github.io/md/oracle/oracle02
 [03]: https://fgq233.github.io/md/oracle/oracle03
