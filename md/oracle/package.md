@@ -55,23 +55,20 @@ create or replace PACKAGE BODY xxx is
 
     --实现 add_product  
     PROCEDURE add_product(in_name VARCHAR2, in_address VARCHAR2 DEFAULT v_address)
-    IS 
-    BEGIN
+    IS BEGIN
        ...
     END;      
 
     --实现 del_category 
     PROCEDURE del_category(in_cid NUMBER)
-    IS
-    BEGIN
+    IS BEGIN
        ...
     END;
 
     --实现 get_cname 
     FUNCTION  get_cname(in_cid NUMBER) 
       RETURN VARCHAR2
-    IS
-    BEGIN
+    IS BEGIN
       ...
     END;
     
@@ -84,9 +81,9 @@ end;
 * 同名的存储过程、函数必须有不同的输入参数
 * 同名的函数返回值数据类型必须一致
 ```
-PROCEDURE delXXX(in_cid NUMBER)；
-PROCEDURE delXXX(in_cname VARCHAR2)；
+PROCEDURE delXXX(in_cid NUMBER);
+PROCEDURE delXXX(in_cname VARCHAR2);
 
-FUNCTION  getXXX(in_pid NUMBER)  RETURN NUMBER；
-FUNCTION  getXXX(in_name VARCHAR2) RETURN NUMBER；
+FUNCTION  getXXX(in_pid NUMBER)  RETURN NUMBER;
+FUNCTION  getXXX(in_name VARCHAR2) RETURN NUMBER;
 ```
