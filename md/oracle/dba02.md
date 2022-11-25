@@ -3,6 +3,7 @@
 * 1、系统权限：系统规定用户使用数据库的权限。
 * 2、对象权限：某种权限用户对其它用户的表或视图的存取权限
 * 3、角色权限：多个权限集合，简化权限的管理，可以包含系统权限、对象权限
+
 ```
 查询用户拥有哪里权限：
 SQL> select * from dba_role_privs;
@@ -22,7 +23,8 @@ SQL> select * from session_privs;
 注意：
 * 系统权限只能由DBA用户授出：sys, system(最开始只能是这两个用户)
 * 对于普通用户：授予connect, resource权限
-* 对于DBA管理用户：授予connect，resource, dba权限。
+* 对于DBA管理用户：授予connect，resource, dba权限
+
 ```
 授权命令：
 grant connect, resource, dba to 用户名1 [,用户名2]…;
