@@ -3,5 +3,5 @@
 
 
 [01]: https://fgq233.github.io/md/es6/01
-[01]: https://fgq233.github.io/md/es6/02
+[02]: https://fgq233.github.io/md/es6/02
  
