@@ -12,3 +12,5 @@
 [06]: https://fgq233.github.io/md/oracle/06
 [07]: https://fgq233.github.io/md/oracle/07
 [08]: https://fgq233.github.io/md/oracle/08
+[09]: https://fgq233.github.io/md/oracle/09
+[10]: https://fgq233.github.io/md/oracle/10
