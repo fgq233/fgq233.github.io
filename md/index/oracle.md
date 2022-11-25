@@ -11,6 +11,7 @@
 11. [DBA-创建用户][11]
 12. [DBA-授权][12]
 13. [DBA-查询][13]
+14. [DBA-解锁][14]
 
 
 
@@ -40,3 +41,4 @@
 [11]: https://fgq233.github.io/md/oracle/dba01
 [12]: https://fgq233.github.io/md/oracle/dba02
 [13]: https://fgq233.github.io/md/oracle/dba03
+[14]: https://fgq233.github.io/md/oracle/dba04

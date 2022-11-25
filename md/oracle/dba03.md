@@ -1,4 +1,3 @@
-### 查询
 ###### 1、查询服务端(Server)字符集
 ```
 select  value$  from  sys.props$  where  name = 'NLS_CHARACTERSET' ;
