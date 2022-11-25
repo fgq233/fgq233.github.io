@@ -9,6 +9,7 @@
 9. [触发器][09]
 10. [异常][10]
 11. [DBA-创建用户][11]
+12. [DBA-授权][12]
 
 
 
@@ -35,4 +36,5 @@
 [08]: https://fgq233.github.io/md/oracle/cursor
 [09]: https://fgq233.github.io/md/oracle/trigger
 [10]: https://fgq233.github.io/md/oracle/exception
-[11]: https://fgq233.github.io/md/oracle/exception
+[11]: https://fgq233.github.io/md/oracle/dba01
+[12]: https://fgq233.github.io/md/oracle/dba02
