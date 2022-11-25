@@ -6,6 +6,8 @@
 6. [存储过程][06]
 7. [包][07]
 8. [游标][08]
+9. [触发器][09]
+10. [异常][10]
 
 
 [01]: https://fgq233.github.io/md/oracle/oracle01
@@ -16,5 +18,5 @@
 [06]: https://fgq233.github.io/md/oracle/procedure
 [07]: https://fgq233.github.io/md/oracle/package
 [08]: https://fgq233.github.io/md/oracle/cursor
-[09]: https://fgq233.github.io/md/oracle/09
-[10]: https://fgq233.github.io/md/oracle/10
+[09]: https://fgq233.github.io/md/oracle/trigger
+[10]: https://fgq233.github.io/md/oracle/exception
