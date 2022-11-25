@@ -9,7 +9,7 @@
 * [Windows][09]
 * Linux
 
-[01]: https://fgq233.github.io/md/springcloud/index
-[02]: https://fgq233.github.io/md/es6/index
-[04]: https://fgq233.github.io/md/oracle/index
-[09]: https://fgq233.github.io/md/win/index
+[01]: https://fgq233.github.io/md/index/springcloud
+[02]: https://fgq233.github.io/md/index/es6
+[04]: https://fgq233.github.io/md/index/oracle
+[09]: https://fgq233.github.io/md/index/win

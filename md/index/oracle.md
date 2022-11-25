@@ -5,10 +5,10 @@
 5. [函数][05]
 
 
-[01]: https://fgq233.github.io/md/oracle/01
-[02]: https://fgq233.github.io/md/oracle/02
-[03]: https://fgq233.github.io/md/oracle/03
-[04]: https://fgq233.github.io/md/oracle/04
+[01]: https://fgq233.github.io/md/oracle/oracle01
+[02]: https://fgq233.github.io/md/oracle/oracle02
+[03]: https://fgq233.github.io/md/oracle/oracle03
+[04]: https://fgq233.github.io/md/oracle/oracle04
 [05]: https://fgq233.github.io/md/oracle/function
 [06]: https://fgq233.github.io/md/oracle/06
 [07]: https://fgq233.github.io/md/oracle/07
