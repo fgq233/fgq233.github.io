@@ -1,77 +1,96 @@
-## Oracle中存储过程
+## Oracle中包
 ### 一、组成结构
+包由包规范、包体组成
+#### 1、包规范
 ```
-create [or replace] procedure procedure_name
-( param1, param2  ...) 
-{is | as}
-    定义参数(可省略)
-begin
- ...... 
+create or replace package pkg_name   
+{is|as}
+ 
+-- 在这里定义包规范的公用组件
+  
 end;
 ```
-* or replace：覆盖同名存储过程
-* 参数：有3类：输入参数(默认)(in)、输出参数(out)、输入输出参数(in out)
-* datatype：返回值的数据类型
-* {is | as}：二选一、两者没啥区别
-* 创建存储过程需要有 CREATE PROCEDURE 权限
+
+#### 2、包体
+* 包体用于实现包规范中定义的过程、函数，
+* 可以单独定义私有组件，但只能在包内使用，不能在其它子程序中使用
+```
+create or replace package body pkg_name   
+{is|as}
+ 
+-- 在这里实现包规范中定义的过程、函数，定义私有组件
+  
+end;
+```
+
 
 
 
 ### 二、示例
-#### 1、无参存储过程
+#### 1、包规范
 ```
-create or replace procedure xxx 
-is
-begin
-  DBMS_OUTPUT.PUT_LINE(666);
-end xxx;
-```
+create or replace package xxx is
+  
+    v_address VARCHAR2(20) := '中国';       
 
+    PROCEDURE add_product(in_name VARCHAR2, in_address VARCHAR2 DEFAULT v_address);
 
-#### 2、输入参数 in
-```
-create or replace procedure xxx
-(
-  in_uuid   VARCHAR2,
-  in_name   NUMBER, 
-  in_age    VARCHAR2 DEFAULT '18'
-) 
-is
-begin
-  insert into ppp(uuid, name, age) values(in_uuid, in_name, in_age);
-  commit;
-end xxx;
+    PROCEDURE del_category(in_cid NUMBER);
+    
+    FUNCTION  get_cname(in_cid NUMBER) RETURN VARCHAR2;
+     
+end;
 ```
 
 
-
-#### 3、输出参数 out
-一般情况下，函数只需要返回单个数据，当需要返回多个数据时，就需要定义输出参数
+#### 2、包体 
 ```
-create or replace procedure xxx
-(
-  in_uuid   VARCHAR2,
-  out_age   OUT VARCHAR2
-) 
-is
-begin
-  select age into out_age from ppp where uuid = in_uuid;
-end xxx;
+create or replace PACKAGE BODY xxx is
+     
+    --私有组件: 
+    function  check_fun(in_cid NUMBER) 
+      return boolean
+    is
+      v_count NUMBER;
+    begin
+      return true;
+    end;    
+       
+
+    --实现 add_product  
+    PROCEDURE add_product(in_name VARCHAR2, in_address VARCHAR2 DEFAULT v_address)
+    IS 
+    BEGIN
+       ...
+    END;      
+
+    --实现 del_category 
+    PROCEDURE del_category(in_cid NUMBER)
+    IS
+    BEGIN
+       ...
+    END;
+
+    --实现 get_cname 
+    FUNCTION  get_cname(in_cid NUMBER) 
+      RETURN VARCHAR2
+    IS
+    BEGIN
+      ...
+    END;
+    
+end;
 ```
 
 
-
-#### 4、输入输出参数
-一个参数既是输入参数，又是输出参数，就可以定义为 in out .
+### 三、包重载
+包重载指包内有多个相同名称的子程序
+* 同名的存储过程、函数必须有不同的输入参数
+* 同名的函数返回值数据类型必须一致
 ```
-create or replace procedure xxx
-(
-  v_num1   IN OUT  NUMBER,
-  v_num2   IN OUT  NUMBER
-) 
-is
-begin
-  v_num1 := v_num1 - v_num2;
-  v_num2 := v_num1 + v_num2;
-end xxx;
+PROCEDURE delXXX(in_cid NUMBER)；
+PROCEDURE delXXX(in_cname VARCHAR2)；
+
+FUNCTION  getXXX(in_pid NUMBER)  RETURN NUMBER；
+FUNCTION  getXXX(in_name VARCHAR2) RETURN NUMBER；
 ```
