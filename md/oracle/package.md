@@ -77,9 +77,6 @@ end;
 
 
 ### 三、包重载
-包重载指包内有多个相同名称的子程序
-* 同名的存储过程、函数必须有不同的输入参数
-* 同名的函数返回值数据类型必须一致
 ```
 PROCEDURE delXXX(in_cid NUMBER);
 PROCEDURE delXXX(in_cname VARCHAR2);
@@ -87,3 +84,6 @@ PROCEDURE delXXX(in_cname VARCHAR2);
 FUNCTION  getXXX(in_pid NUMBER)  RETURN NUMBER;
 FUNCTION  getXXX(in_name VARCHAR2) RETURN NUMBER;
 ```
+包重载指包内有多个相同名称的子程序
+* 同名的存储过程、函数必须有不同的输入参数
+* 同名的函数返回值数据类型必须一致
