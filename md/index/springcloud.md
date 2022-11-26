@@ -9,6 +9,8 @@
 
 4. ###### **Nacos**
 -  [Nacos安装][007]
+-  [Nacos注册中心][008]
+-  [Nacos配置中心][009]
 
 
 [001]: https://fgq233.github.io/md/springcloud/all
@@ -18,5 +20,7 @@
 [005]: https://fgq233.github.io/md/springcloud/Ribbon2
 [006]: https://fgq233.github.io/md/springcloud/Ribbon3
 [007]: https://fgq233.github.io/md/springcloud/nacos1
+[008]: https://fgq233.github.io/md/springcloud/nacos2
+[009]: https://fgq233.github.io/md/springcloud/nacos3
  
  
