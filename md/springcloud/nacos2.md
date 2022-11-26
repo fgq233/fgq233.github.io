@@ -80,5 +80,5 @@ spring:
     nacos:
       server-addr: http://127.0.0.1:8848
       discovery:
-        ephemeral: false # 设置为非临时实例
+        ephemeral: false # 设置为永久实例
 ```
