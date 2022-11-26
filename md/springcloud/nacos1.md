@@ -3,7 +3,6 @@
 * Nacos官网：https://nacos.io
 * GitHub主页：https://github.com/alibaba/nacos
 * 下载页：https://github.com/alibaba/nacos/releases
-* 下载页：https://github.com/alibaba/nacos/releases
 
 #### 2. 解压
 将下载的包解压到任意非中文目录下
