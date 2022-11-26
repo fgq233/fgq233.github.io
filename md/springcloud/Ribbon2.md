@@ -1,8 +1,6 @@
 #### 一、IRule接口
 Ribbon中负载均衡规则是一个叫做IRule的接口来定义的，其每个子接口都是一种负载均衡策略：
 
-![IRule接口](https://fgq233.github.io/imgs/springcloud/ribbon3.png)
-
 
 | 内置负载均衡规则类 |  策略描述 |
 | :-----|  :----- |
