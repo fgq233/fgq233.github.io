@@ -6,11 +6,11 @@ Ribbon中负载均衡规则是一个叫做IRule的接口来定义的，其每个
 
 | 内置负载均衡规则类 |  策略描述 |
 | :-----|  :----- |
-| RoundRobinRule |  简单轮询服务列表来选择服务器。它是Ribbon默认的负载均衡规则 |
-| ZoneAvoidanceRule |  以区域可用的服务器为基础进行服务器的选择。使用Zone对服务器进行分类，这个Zone可以理解为一个机房、一个机架等，而后再对Zone内的多个服务做轮询 |
-| WeightedResponseTimeRule |  为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小，这个规则会随机选择服务器，这个权重值会影响服务器的选择 |
-| BestAvailableRule |  忽略那些短路的服务器，并选择并发数较低的服务器 |
-| RandomRule |  随机选择一个可用的服务器 |
+| RoundRobinRule |  轮询策略，默认的策略 |
+| RandomRule |  随机策略 |
+| ZoneAvoidanceRule |  给服务器分区域，而后再对Zone内的多个服务做轮询 |
+| WeightedResponseTimeRule |  为每个服务器加权重轮询 |
+| BestAvailableRule |  过滤故障服务器，选择并发数较低的服务器 |
 | RetryRule |  重试机制的选择逻辑 |
 | AvailabilityFilteringRule |  过滤短路、并发过高的服务器 |
 
