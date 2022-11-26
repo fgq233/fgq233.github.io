@@ -19,14 +19,14 @@ public class EurekaApplication {
 ###### 3.yml配置
 ```
 server:
-  port: 8081   # 服务端口
+  port: 8088   # 服务端口
 spring:
   application:
     name: eurekaserver   # 服务名称
 eureka:
   client:
     service-url:   #eureka的地址信息(将自己也注册到注册中心，集群之间通信使用)
-      defaultZone: http://127.0.0.1:8081/eureka
+      defaultZone: http://127.0.0.1:8088/eureka
 ```
  
 #### 二. 服务注册与发现
@@ -40,14 +40,14 @@ eureka:
 ###### 2. yml配置
 ```
 server:
-  port: 8021
+  port: 8081
 spring:
   application:
-    name: serviceXXX
+    name: orderservice     --服务名
 eureka:
   client:
     service-url:  
-      defaultZone: http://127.0.0.1:8081/eureka
+      defaultZone: http://127.0.0.1:8088/eureka
 ```
 通过步骤1、2将服务注册到注册中心
 ###### 3. 服务发现
@@ -60,9 +60,8 @@ eureka:
  }
  
  // 利用RestTemplate发起http请求，实现远程服务调用
- // 这里用服务提供者的服务名称 serviceXXX 远程调用
-  String url = "http://serviceXXX/test";
-  restTemplate.getForObject(url, String.class);
+  String url = "http://userservice/user/1";
+  restTemplate.getForObject(url, User.class);
 ```
 
  
