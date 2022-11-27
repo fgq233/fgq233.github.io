@@ -121,6 +121,7 @@ spring:
       
 ### 四. 配置中心热更新
 * 如果要实现 nacos 配置文件修改后，服务无需重启就可以感知，有2种方式：
+
 ##### 1. 在@Value注入的变量所在类上添加注解@RefreshScope
 ```
 @RestController
@@ -139,7 +140,7 @@ public class UserController {
 @ConfigurationProperties(prefix = "pattern")
 public class PatternProperties {
     private String dateformat;
-    private String envSharedValue;
-    private String name;
+    private String ext;
+    private String shared;
 }
 ```
