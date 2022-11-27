@@ -26,23 +26,6 @@
 * 在浏览器输入地址：http://127.0.0.1:8848/nacos，默认的账号和密码都是nacos
 
 
-#### 6. 项目中引入 Nacos 依赖
-父工程引入 SpringCloudAlibaba 依赖：
-```
-<dependency>
-    <groupId>com.alibaba.cloud</groupId>
-    <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-    <version>2.2.6.RELEASE</version>
-    <type>pom</type>
-    <scope>import</scope>
-</dependency>
-```
-客户端引入 nacos-discovery 依赖：
-```
-<dependency>
-    <groupId>com.alibaba.cloud</groupId>
-    <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-</dependency>
-```
+
 
  
