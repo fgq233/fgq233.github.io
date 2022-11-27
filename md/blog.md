@@ -1,15 +1,16 @@
-* [SpringCloud微服务系列][01]
-* [ECMAScript6][02]
+* [SpringCloud微服务系列][springcloud]
+* [ECMAScript6][es6]
 * Java
-* [Oracle][04]
+* Java设计模式
+* [Oracle][oracle]
 * Mysql
 * Android
 * React Native
 * IDEA
-* [Windows][09]
+* [Windows][win]
 * Linux
 
-[01]: https://fgq233.github.io/md/index/springcloud
-[02]: https://fgq233.github.io/md/index/es6
-[04]: https://fgq233.github.io/md/index/oracle
-[09]: https://fgq233.github.io/md/index/win
+[springcloud]: https://fgq233.github.io/md/index/springcloud
+[es6]: https://fgq233.github.io/md/index/es6
+[oracle]: https://fgq233.github.io/md/index/oracle
+[win]: https://fgq233.github.io/md/index/win
