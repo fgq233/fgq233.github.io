@@ -15,9 +15,9 @@
 
 #### 4. 启动
 * Nacos 依赖于JDK运行，无论 windows 还是 Linux 都需要安装JDK
-* Nacos 默认以集群方式启动 (MODE="cluster")
+* Nacos 启动方式有2种，集群模式(默认，MODE="cluster")、单机模式
+* 集群模式需要配置mysql数据库(conf目录下有mysql数据库脚本)，单机模式用的是内嵌的derby，无需配置
 * 开发时可以单机启动，修改为standalone，或者在bin目录cmd窗口执行命令：
-
 ```
   startup.cmd -m standalone
 ```
