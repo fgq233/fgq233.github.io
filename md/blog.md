@@ -1,5 +1,5 @@
 * [SpringCloud微服务系列][springcloud]
-* [ECMAScript6][es6]
+* [JS][js]
 * Java
 * Java设计模式
 * [Oracle][oracle]
@@ -11,6 +11,6 @@
 * Linux
 
 [springcloud]: https://fgq233.github.io/md/index/springcloud
-[es6]: https://fgq233.github.io/md/index/es6
+[js]: https://fgq233.github.io/md/index/js
 [oracle]: https://fgq233.github.io/md/index/oracle
 [win]: https://fgq233.github.io/md/index/win
