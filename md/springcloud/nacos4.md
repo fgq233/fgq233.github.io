@@ -13,7 +13,7 @@
 
 
 ### 二. 集群搭建步骤
-* 准备3台 nacos 服务器节点
+* 准备多台 nacos 服务器节点
 * 下载nacos安装包
 * 搭建数据库，初始化nacos数据库表结构
 * 配置、启动nacos
@@ -24,7 +24,6 @@
 * 注意：Nacos 2.0+版本新增了gRPC，这会导致端口偏移
 * 需要的端口是8841，但是却需要额外占用9841（偏移1000）和9842（偏移1001）
 * 需要的端口是8842，但是却需要额外占用9842（偏移1000）和9843（偏移1001）
-* 需要的端口是8843，但是却需要额外占用9843（偏移1000）和9844（偏移1001）
 * 所以如果同一台机器模拟，每个端口需要至少相差2，不然会端口冲突，启动失败
 
 | 节点   | ip         | port |
@@ -51,20 +50,21 @@
 127.0.0.1:8845
 ```
 
-* b) 在 application.properties 中配置 端口，mysql 数据库，同样方式再复制2个节点并调整端口
+* b) 在 application.properties 中配置 端口，mysql 数据库，同样方式再操作2次并调整端口
 ```
 server.port=8841        
 spring.datasource.platform=mysql
 db.num=1
 db.url.0=jdbc:mysql://127.0.0.1:3306/nacos?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
-db.user.0=nacos
-db.password.0=nacos
+db.user.0=root
+db.password.0=12345678
 ```
 
 * c) 分别以集群模式启动3个nacos节点
 
 #### 5. Nginx反向代理
 * 下载 Nginx 安装包并解压，修改conf/nginx.conf文件，然后启动 nginx.exe，配置如下：
+
 ```
 # nacos集群节点配置
 upstream nacos-cluster {
@@ -85,7 +85,8 @@ server {
 ```
 
 * 访问 http://127.0.0.1/nacos 成功，集群搭建完成
-* 修改项目中 Nacos 地址配置，
+* 修改项目中 Nacos 地址配置
+
 ```
 spring:
   cloud:
