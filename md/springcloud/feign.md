@@ -11,8 +11,8 @@
 </dependency>
 ```
 
-####2. 启动类添加 @EnableFeignClients 注解
-####3. 编写 Feign 客户端
+#### 2. 启动类添加 @EnableFeignClients 注解
+#### 3. 编写 Feign 客户端
 ```
 @FeignClient(value = "userservice")
 public interface UserClient {
