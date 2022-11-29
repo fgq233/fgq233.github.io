@@ -188,9 +188,10 @@ feign:
 * a) 创建一个module，feign-api，引入feign的starter依赖
 * b) 将客户端UserClient、实体User、配置DefaultFeignConfiguration都移过去
 * c) 哪个服务需要使用远程调用，引入feign-api依赖
+
 ```
 <dependency>
-    <groupId>cn.itcast.demo</groupId>
+    <groupId>cn.feign.api</groupId>
     <artifactId>feign-api</artifactId>
     <version>1.0</version>
 </dependency>
