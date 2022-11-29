@@ -13,6 +13,7 @@
 -  [Nacos配置中心][009]
 -  [Nacos集群搭建][010]
 
+5. ###### [Feign 远程调用][011]
 
 [001]: https://fgq233.github.io/md/springcloud/all
 [002]: https://fgq233.github.io/md/springcloud/Eureka1
@@ -24,5 +25,6 @@
 [008]: https://fgq233.github.io/md/springcloud/nacos2
 [009]: https://fgq233.github.io/md/springcloud/nacos3
 [010]: https://fgq233.github.io/md/springcloud/nacos4
+[011]: https://fgq233.github.io/md/springcloud/feign
  
  
