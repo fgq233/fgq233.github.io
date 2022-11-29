@@ -124,6 +124,7 @@ public class XFeignConfiguration  {
 
 
 * c) 局部生效：放到对应的 @FeignClient 注解中
+
 ``` 
 @FeignClient(value = "userservice", configuration = XFeignConfiguration.class) 
 ```
