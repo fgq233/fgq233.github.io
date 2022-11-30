@@ -29,8 +29,10 @@ public interface UserClient {
 * value：服务名称
 * name：服务名称，与 value 作用相同
 * path：请求接口的统一前缀，相当于Controller类上@RequestMapping("/user")
+* url：请求地址，设置了url，name会不生效
 * configuration：Feign配置，可以自定义Feign的Encoder、Decoder、LogLevel、Contract
-* fallback: 定义容错的处理类，当远程调用失败或超时时，会调用对应接口的容错逻辑，fallback指定的类必须实现FeignClient接口
+* fallback: 定义容错的处理类
+* fallbackFactory: 定义容错处理工厂类，当远程调用失败或超时时，会调用对应接口的容错逻辑
 
 ```
 工厂类熔断：
