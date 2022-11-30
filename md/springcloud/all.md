@@ -6,7 +6,7 @@
 * **Nacos、SpringCloudConfig**
 
 ## 3、网关路由
-* **SpringcloudGateway、Zuul**
+* **Gateway、Zuul**
 
 ## 4、服务远程调用
 * **Feign、Dubbo**
