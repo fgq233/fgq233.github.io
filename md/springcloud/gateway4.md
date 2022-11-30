@@ -27,6 +27,7 @@ Origin: https://www.spring.io
 
 * Origin字段用来说明本次请求来自哪个源 (协议 + 域名 + 端口)，服务器根据这个值，决定是否同意这次请求
 * 如果Origin指定的域名在许可范围内，服务器返回的响应，会多出几个头信息字段
+
 ```
 Access-Control-Allow-Origin: https://www.spring.io
 Access-Control-Allow-Credentials: true
