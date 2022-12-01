@@ -12,7 +12,7 @@ function initBlog() {
             }
 
             if (item.child.length) {
-                divHtml += `<li><h6>${item.title}</h6>`;
+                divHtml += `<li><h5>${item.title}</h5>`;
                 item.child.map((childItem, idx) => {
                     if (idx === 0) {
                         divHtml += `<ul>`;
