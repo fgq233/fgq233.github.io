@@ -1,4 +1,4 @@
-* [SpringCloud微服务系列][springcloud]
+* [SpringCloud微服务系列][cloud]
 * Java
 * Java设计模式
 * [Oracle][oracle]
@@ -11,6 +11,7 @@
 * Linux
 
 [springcloud]: https://fgq233.github.io/md/index/springcloud
+[cloud]: https://fgq233.github.io/html/cloud
 [js]: https://fgq233.github.io/md/index/js
 [oracle]: https://fgq233.github.io/md/index/oracle
 [win]: https://fgq233.github.io/md/index/win

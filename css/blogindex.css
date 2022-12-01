@@ -1,0 +1,17 @@
+/*栅格*/
+.rxui-row{padding:10px;}
+.rxui-col-md1{ width: 8.333333%; }
+.rxui-col-md2{ width: 16.666666%;}
+.rxui-col-md3{ width: 25%;}
+.rxui-col-md4{ width: 33.333333%;}
+.rxui-col-md5{ width: 41.666666%;}
+.rxui-col-md6{ width: 50%;}
+.rxui-col-md7{ width: 58.333333%;}
+.rxui-col-md8{ width: 66.666666%;}
+.rxui-col-md9{ width: 75%;}
+.rxui-col-md10{ width: 83.333333%;}
+.rxui-col-md11{ width: 91.666666%;}
+.rxui-col-md12{ width: 100%;}
+.rxui-col-md1,.rxui-col-md2,.rxui-col-md3,.rxui-col-md4,.rxui-col-md5,.rxui-col-md6,.rxui-col-md7,.rxui-col-md8,.rxui-col-md9,.rxui-col-md10,.rxui-col-md11,.rxui-col-md12{
+    float:left; height:auto;
+}
