@@ -68,5 +68,40 @@ spring:
 
 #### 4. 配置项目需要的过滤器 filters
 #### 5. 启动网关服务、测试
-* 测试 http://localhost:10010/order/101
-* 测试 http://localhost:10010/user/1
+* 测试 http://localhost:10010/user/1 ，会自动路由到 http://localhost:8081/user/1
+
+
+### 三. 路由配置
+#### 1. 基于java代码路由配置
+```
+@Configuration
+public class RouterConfig {
+
+    @Bean
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("order-service", r -> r.path("/order/**").uri("lb://orderservice"))
+                .route("user-service", r -> r.path("/user/**").uri("lb://userservice"))
+                .build();
+    }
+}
+```
+
+这种效果和yml配置是一样的
+
+
+#### 2. 自动路由
+```
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true             # 开启自动路由
+          lower-case-service-id: true
+```
+
+* 开启自动路由后，用不用配置routers了
+* gateway 会自动从注册中心动态创建路由routers，利用微服务名称进行路由，同时会负载均衡
+* 自动路由生成默认的routers：lb://服务名 , path=/服务名/**
+* 测试 http://localhost:10010/userservice/user/1 ，会自动路由到 http://localhost:8081/user/1
