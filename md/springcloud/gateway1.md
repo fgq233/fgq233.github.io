@@ -101,7 +101,7 @@ spring:
           lower-case-service-id: true
 ```
 
-* 开启自动路由后，用不用配置routers了
+* 开启自动路由后，就不用配置routers了
 * gateway 会自动从注册中心动态创建路由routers，利用微服务名称进行路由，同时会负载均衡
 * 自动路由生成默认的routers：lb://服务名 , path=/服务名/**
 * 测试 http://localhost:10010/userservice/user/1 ，会自动路由到 http://localhost:8081/user/1
