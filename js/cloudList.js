@@ -22,6 +22,14 @@ const blogList1 = [
         ]
     },
     {url: "https://fgq233.github.io/md/springcloud/all", title: "Feign 远程调用", child: []},
+    {
+        url: "", title: "网关 Gateway", child: [
+            {url: "https://fgq233.github.io/md/springcloud/gateway1", title: "Gateway-使用步骤"},
+            {url: "https://fgq233.github.io/md/springcloud/gateway2", title: "Gateway-断言工厂"},
+            {url: "https://fgq233.github.io/md/springcloud/gateway3", title: "Gateway-过滤器工厂"},
+            {url: "https://fgq233.github.io/md/springcloud/gateway4", title: "Gateway-跨域问题"},
+        ]
+    },
 ];
 
 const blogList2 = [];
