@@ -93,8 +93,8 @@ http {
         #access_log  logs/host.access.log  main;        # 服务日志  
 
         location / {                                # 匹配以 / 开头的
-            root   html;                            # 文件的存放根目录   
-            index  index.html index.htm;            # index 指令匹配文件
+            root   html;                            # root指令：文件的存放根目录   
+            index  index.html index.htm;            # index指令：匹配返回的资源文件
         }
         
         location / admin {          # 匹配以 /admin 开头的请求
@@ -180,7 +180,6 @@ Location配置支持普通字符串匹配和正则匹配，优先级从先到后
 | 7      | /           |   通用匹配，任何请求都会匹配到 |
 
 #### 6、Nginx提供的全局变量
-Location配置支持普通字符串匹配和正则匹配，优先级如下：
 * $args, 请求中的参数
 * $content_length, HTTP请求信息里的"Content-Length"
 * $content_type, 请求信息里的"Content-Type"
