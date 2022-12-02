@@ -163,10 +163,8 @@ public class BaseFeignConfig {
      */
     @Bean
     @ConditionalOnMissingBean(FeignRequestInterceptor.class)  # 保证只有一个同类型的Bean注入
-    public RequestInterceptor feignRequestInterceptor() {
-        FeignRequestInterceptor interceptor = new FeignRequestInterceptor();
-        log.info("FeignRequestInterceptor [{}]", interceptor);
-        return interceptor;
+    public RequestInterceptor feignRequestInterceptor() { 
+        return new FeignRequestInterceptor();
     }
 
     public static class FeignRequestInterceptor implements RequestInterceptor {
