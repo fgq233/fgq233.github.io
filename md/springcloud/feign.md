@@ -188,7 +188,6 @@ public class BaseFeignConfig {
             Enumeration<String> enumeration2 = request.getParameterNames();
             if (enumeration2 != null) {
                 String key;
-                ;
                 while (enumeration2.hasMoreElements()) {
                     key = enumeration2.nextElement();
                     template.query(key, request.getParameter(key));
