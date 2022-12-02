@@ -21,7 +21,8 @@ const blogList1 = [
             {url: "https://fgq233.github.io/md/springcloud/nacos4", title: "Nacos集群搭建"},
         ]
     },
-    {url: "https://fgq233.github.io/md/springcloud/all", title: "Feign 远程调用", child: []},
+    {url: "https://fgq233.github.io/md/springcloud/nginx", title: "Nginx", child: []},
+    {url: "https://fgq233.github.io/md/springcloud/feign", title: "Feign 远程调用", child: []},
     {
         url: "", title: "网关 Gateway", child: [
             {url: "https://fgq233.github.io/md/springcloud/gateway1", title: "Gateway-使用步骤"},
