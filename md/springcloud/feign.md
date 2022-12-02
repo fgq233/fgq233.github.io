@@ -142,8 +142,8 @@ public class XFeignConfiguration  {
 #### 1、自定义feign拦截器步骤
 * 实现 feign.RequestInterceptor接口；
 * 实现方法 apply(RequestTemplate template)；
-* 设置header属性：template.header(name，values)；
-* 设置param属性：template.query(name，values)；
+* 设置header属性(可选)：template.header(name，values)；
+* 设置param属性(可选)：template.query(name，values)；
 
 ```
 public interface RequestInterceptor {
