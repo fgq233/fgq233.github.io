@@ -1,5 +1,5 @@
 const blogList1 = [
-    {url: "https://fgq233.github.io/md/springcloud/all", title: "常用微服务组件利", child: []},
+    {url: "https://fgq233.github.io/md/springcloud/all", title: "常用微服务组件", child: []},
     {
         url: "", title: "常用微服务组件利", child: [
             {url: "https://fgq233.github.io/md/springcloud/Eureka1", title: "Eureka注册中心原理"},
