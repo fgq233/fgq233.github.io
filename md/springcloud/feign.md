@@ -118,10 +118,15 @@ public class XFeignConfiguration  {
 }
 ```
 
-* b) 全局生效：放到启动类的 @EnableFeignClients 注解中
+* b) 全局生效：放到启动类的 @EnableFeignClients 注解中、或者在配置类上添加注解@Configuration
 
 ```
 @EnableFeignClients(defaultConfiguration = XFeignConfiguration.class) 
+
+@Configuration
+public class XFeignConfiguration  {
+    ...
+}
 ```
 
 
@@ -132,8 +137,74 @@ public class XFeignConfiguration  {
 ```
 
 
+### 三、Feign 自定义拦截器
+* Feign在发起http请求前，每次都会去执行拦截器中的逻辑，我们可以在拦截器里面做一个通用处理
+#### 1、自定义feign拦截器步骤
+* 实现 feign.RequestInterceptor接口；
+* 实现方法 apply(RequestTemplate template)；
+* 设置header属性：template.header(name，values)；
+* 设置param属性：template.query(name，values)；
 
-### 三、Feign 修改http请求框架
+```
+public interface RequestInterceptor {
+  /**
+   * Called for every request. Add data using methods on the supplied {@link RequestTemplate}.
+   */
+  void apply(RequestTemplate template);
+}
+```
+
+#### 2、示例
+```
+@Configuration  // 全局配置
+public class BaseFeignConfig {
+    /**
+     * Feign请求拦截器注入
+     */
+    @Bean
+    @ConditionalOnMissingBean(FeignRequestInterceptor.class)  # 保证只有一个同类型的Bean注入
+    public RequestInterceptor feignRequestInterceptor() {
+        FeignRequestInterceptor interceptor = new FeignRequestInterceptor();
+        log.info("FeignRequestInterceptor [{}]", interceptor);
+        return interceptor;
+    }
+
+    public static class FeignRequestInterceptor implements RequestInterceptor {
+        @Override
+        public void apply(RequestTemplate template) {
+            // 传递Feign客户端所有请求头
+            HttpServletRequest request = ((ServletRequestAttributes)
+                    RequestContextHolder.getRequestAttributes()).getRequest();
+            Enumeration<String> enumeration = request.getHeaderNames();
+            if (enumeration != null) {
+                String key;
+                while (enumeration.hasMoreElements()) {
+                    key = enumeration.nextElement();
+                    if (key.equalsIgnoreCase("content-length") || key.equalsIgnoreCase("content-type")) {
+                        continue;
+                    }
+                    template.header(key, request.getHeader(key));
+                }
+            }
+            // 传递Feign客户端所有请求参数
+            Enumeration<String> enumeration2 = request.getParameterNames();
+            if (enumeration2 != null) {
+                String key;
+                ;
+                while (enumeration2.hasMoreElements()) {
+                    key = enumeration2.nextElement();
+                    template.query(key, request.getParameter(key));
+                }
+            }
+        }
+    }
+}
+```
+
+* 可以全局生效、局部生效，参考日志配置 
+
+
+### 四、Feign 修改http请求框架
 Feign底层发起http请求依赖于其它的框架，主要是：
 * URLConnection：默认实现，不支持连接池
 * Apache HttpClient ：支持连接池
@@ -179,33 +250,3 @@ feign:
 ```
  
  
-### 四、Feign 实践
-#### 1. 基于继承
-
-* 定义一个API接口，利用定义方法，并基于SpringMVC注解做声明
-* Feign客户端和Controller都集成该接口
-
-
-#### 2. 基于模块
-* a) 创建一个module，feign-api，引入feign的starter依赖
-* b) 将客户端UserClient、实体User、配置DefaultFeignConfiguration都移过去
-* c) 哪个服务需要使用远程调用，引入feign-api依赖
-
-```
-<dependency>
-    <groupId>cn.feign.api</groupId>
-    <artifactId>feign-api</artifactId>
-    <version>1.0</version>
-</dependency>
-```
-
-* 注意：feign 抽取为单独模块后，使用服务的包名和 feign-api 模块包名不一样，会扫描不到客户端，
-需要指定 feign 扫描包
-
-```
-扫描某个目录下的
-@EnableFeignClients(basePackages = "cn.feign.api.clients")
-
-扫描单个客户端
-@EnableFeignClients(clients = {UserClient.class})
-```
