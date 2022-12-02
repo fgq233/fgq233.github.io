@@ -75,7 +75,7 @@ upstream nacos-cluster {
 
 # Nginx反向代理配置
 server {
-    listen       80;          # 监听localhost的80端口   
+    listen       80;          # 监听localhost的8080端口   
     server_name  localhost;     
 
     location /nacos {         # 路径匹配
