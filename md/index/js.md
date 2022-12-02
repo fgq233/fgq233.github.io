@@ -2,6 +2,6 @@
 2. [ES6 字符串扩展][02]
 
 
-[01]: https://fgq233.github.io/md/es6/es01
-[02]: https://fgq233.github.io/md/es6/es02
+[01]: https://fgq233.github.io/md/js/es01
+[02]: https://fgq233.github.io/md/js/es02
  
