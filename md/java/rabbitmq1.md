@@ -1,7 +1,7 @@
 ###  一、RabbitMQ中的角色
 * publisher：生产者，消息发布者，将消息发送到队列queue
 * consumer：消费者，订阅队列，处理队列中的消息
-* exchange个：交换机，负责消息路由
+* exchange：交换机，负责消息路由
 * queue：队列，负责接受并缓存消息
 * virtualHost：虚拟主机，隔离不同租户的exchange、queue、消息的隔离
  
