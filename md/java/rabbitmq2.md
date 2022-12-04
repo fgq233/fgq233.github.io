@@ -165,7 +165,7 @@ public class FanoutConfig {
 
 * Direct Exchange 会将接收到的消息根据规则路由到指定的Queue，因此称为路由模式(Routing)
 * A：发布者发送消息时，指定消息的RoutingKey 
-* B：每一个 Queue 都与 Exchange 设置一个 RoutingKey
+* B：每一个 Queue 都要与 Exchange 设置 BindingKey
 * C：Exchange 将消息路由到 BindingKey 与消息队列 RoutingKey 一致的队列
 
 * 基于@Bean的方式声明队列和交换机比较麻烦，Spring还提供了基于注解方式来声明
