@@ -1,5 +1,5 @@
 1. ###### MQ
--  [MQ][mq]
+-  [MQ简介][mq]
 -  [RabbitMQ 使用步骤][RabbitMQ1]
 -  [RabbitMQ 五种消息模型][RabbitMQ2]
 -  [RabbitMQ 消息转换器][RabbitMQ3]
