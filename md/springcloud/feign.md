@@ -82,7 +82,7 @@ public class Hysitx implements UserClient {
 * SpringBoot 实现了Feign 自动装配，同时支持自定义下列配置：
 
 | 类型                   | 作用             | 说明                                                   |
-| ---------------------- | ---------------- | ------------------------------------------------------ |
+| ---------------------- | ---------------- | ---------------------- |
 | feign.Logger.Level | 修改日志级别     | 包含四种不同的级别：NONE(默认)、BASIC、HEADERS、FULL        |
 | feign.codec.Decoder | 响应结果的解析器 | http远程调用的结果做解析，例如解析json字符串为java对象 |
 | feign.codec.Encoder | 请求参数编码    | 将请求参数编码，便于通过http请求发送                  |

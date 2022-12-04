@@ -19,7 +19,7 @@ DML触发器针对表的，当对表执行INSERT、UPDATE、DELETE操作时可�
 * 触发限制(可选)：条件为 true 时该触发器才会触发
 * 触发动作：触发器要执行的代码
 
-![触发器](https://fgq233.github.io/imgs/other/trigger1.png)
+![触发器](https://fgq233.github.io/imgs/other/trigger.png)
 
 #### 1、语句级触发器
 ```
