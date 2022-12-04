@@ -6,14 +6,12 @@
 -  [Ribbon负载均衡原理][Ribbon1]
 -  [Ribbon负载均衡策略][Ribbon2]
 -  [Ribbon懒加载][Ribbon3]
-
-4. ###### Nacos
+4. ###### [Nginx][nginx]
+5. ###### Nacos
 -  [Nacos安装][nacos1]
 -  [Nacos注册中心][nacos2]
 -  [Nacos配置中心][nacos3]
 -  [Nacos集群搭建][nacos4]
-
-5. ###### [Nginx][nginx]
 6. ###### [Feign远程调用][feign]
 7. ###### 网关 Gateway
 -  [Gateway-使用步骤][gateway1]
