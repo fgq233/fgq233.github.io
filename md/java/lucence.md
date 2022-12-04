@@ -1,22 +1,37 @@
-####  1、lucene 索引结构图
-lucene 在存储它的全文索引结构时，是有层次结构的，这涉及到5个层次：
-![RabbitMQ](https://fgq233.github.io/imgs/other/lucene1.png)
+####  一、lucene 索引存储结构
+lucene 在存储它的全文索引结构时，是有层次结构的，主要是5个层次：
+* 索引(Index)
+* 段(Segment)
+* 文档(Document)
+* 域(Field)
+* 词(Term)
+
+![lucene1](https://fgq233.github.io/imgs/other/lucence1.png)
 
 
-索引(Index)；段(Segment)；文档(Document)；域(Field)；词(Term)，他们的关系如下图所示：（lucene 索引存储结构概念图）
+
+####  二、实例说明
+![lucene2](https://fgq233.github.io/imgs/other/lucence2.png)
+
+###### 1. 索引(Index)
+* 每个索引都是放在同一个文件夹中，文件夹中的所有文件构成一个索引
+
+###### 2. 段(Segment)
+* segment_5: 该文件保存的段的元数据信息，每个索引包含了多个段
+* segment.gen: 保存了段的属性信息，存在多个segment_N时选择打开哪一个，Lucene会选择generation最大的
+* 段的作用是：为新加入的文档创建单独的段结构、合并已经存在的段
+* Lucene采用的增量索引的模式写入文件，即新的文件都会放在一个新的段中，然后周期性的对以前的段进行合并
 
 
-####  2、AMQP
-* AMQP：Advanced Message Queuing Protocol，一个提供统一消息服务的应用层标准高级消息队列协议，
-是应用层协议的一个开放标准，为面向消息的中间件设计
-* 该协议与语言、平台无关
+###### 3. 文档(Document)
+* 文档是建立索引的基本单位，不同的文档是保存在不同的段中的，一个段可以包含多篇文档
+* 新添加的文档是单独保存在一个新生成的段中，随着段的合并，不同的文档合并到同一个段中
 
-####  3、Spring AMQP
-基于AMQP协议封装的一套API规范，十分方便
+###### 4. 域(Field)
+* 一篇文档包含不同类型的信息，可以分开索引，比如标题，时间，作者等，都可以保存在不同的域里
+* 不同域的索引方式可以不同
+
+###### 5. 词(Term)
+* 词是索引的最小单位，是经过词法分析和语言处理后的字符串
 
 
-* 自动声明队列、交换机及其绑定关系
-
-* 基于注解的监听器模式，异步接收消息
-
-* 封装了模板Template工具，用于发送消息 
