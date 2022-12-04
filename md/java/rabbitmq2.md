@@ -105,7 +105,7 @@ spring:
 
 ####  3、Fanout Exchange
 * Fanout Exchange 会将接收到的消息广播到每一个跟其绑定的queue
-* 注意：绑定的时候是按照类型的名称注入，所以Queue、FanoutExchange的key值必须和队列方法名一致
+* 注意：绑定的时候是按照类型的名称注入，所以Queue、FanoutExchange的key值必须和方法名一致
 
 ```
 声明队列、交换机
