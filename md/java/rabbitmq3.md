@@ -10,8 +10,9 @@ SpringAMQP会帮我们序列化为字节后发送
 
 #### 三、自定义接收消息类型
 * 定义一个MessageConverter 类型的类，然后Bean注入
+* 注意：发送方与接收方必须使用相同的 MessageConverter
 
-##### 1、引入jackson，生产者、消费者注入自定义的 MessageConverter
+##### 1、引入jackson，注入自定义MessageConverter
 ```
 生产者消费者都需要
 
@@ -31,7 +32,7 @@ public MessageConverter jsonMessageConverter(){
 ```
 生产者和消费者声明队列：
 @Configuration
-public class FanoutConfig {
+public class QueueConfig {
     @Bean
     public Queue queue(){
         return new Queue("object.queue");
