@@ -28,14 +28,14 @@
 ###  三、SpringAMQP 中 RabbitMQ使用步骤
 #### 1、安装 erl、rabbitmq
 * 安装 erl，同时将 bin目录 配到环境变量
-* 安装 rabbitmq，同时将 sbin目录 配到环境变量
+* 安装 rabbitmq，同时将 sbin目录 配到环境变量，rabbitmqctl status 命令检测是否安装成功
 * RabbitMQ服务端默认端口是：5672
 * RabbitMQ图形界面默认端口是：15672，默认用户名密码都是 guest，使用前需要开启
 
 ```
 rabbitmq-plugins.bat enable rabbitmq_management
 ```
-* RabbitMQ图形界面创建用户，同时分配虚拟主机权限
+* RabbitMQ图形界面创建用户，同时分配虚拟主机权限，然后重启 rabbitmq 服务
 
 
 
@@ -63,3 +63,10 @@ spring:
     password: 123456    # 密码
 ```
  
+ 
+#### 4、声明队列、交换机(跟据需求可选)
+
+#### 5、发送消息
+
+#### 6、监听消息
+
