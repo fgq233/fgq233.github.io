@@ -13,6 +13,8 @@
    * 布尔：boolean
    * 日期：date
    * 对象：object
+   * 地理坐标：geo_point，单个经纬度确定的一个点，如 "32.22, 122.33"
+   * 地理坐标：geo_shape，多个geo_point形成的复杂图形
 *  index：是否创建索引，默认为true
 *  analyzer：使用哪种分词器
 *  properties：该字段的子字段
