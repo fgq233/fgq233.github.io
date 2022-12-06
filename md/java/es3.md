@@ -15,9 +15,10 @@
    * 对象：object
    * 地理坐标：geo_point，单个经纬度确定的一个点，如 "32.22, 122.33"
    * 地理坐标：geo_shape，多个geo_point形成的复杂图形
-*  index：是否创建索引，默认为true
+*  index：是否创建索引，默认为true，对于不参与搜索的值设为false
 *  analyzer：使用哪种分词器
 *  properties：该字段的子字段
+*  copy_to：组合属性，其目的是将多字段的值 利用copy_to合并，提供给用户组合搜索
 
 
 
@@ -38,9 +39,19 @@ PUT /fgq
 {
   "mappings": {
     "properties": {
-      "info": {
+      "all": {
         "type": "text",
         "analyzer": "ik_smart"
+      },
+      "info": {
+        "type": "text",
+        "analyzer": "ik_smart",
+        "copy_to": "all"
+      },
+      "address": {
+        "type": "text",
+         "analyzer": "ik_smart",
+         "copy_to": "all"
       },
       "name": {
         "properties": {
