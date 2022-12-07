@@ -11,7 +11,7 @@
 -  [elasticsearch-2 Windows下环境安装][es2]
 -  [elasticsearch-3 DSL语法对索引库、文档增删改查][es3]
 -  [elasticsearch-4 RestClient对索引库、文档增删改查][es4]
--  [elasticsearch-5 DSL语法][es5]
+-  [elasticsearch-5 DSL查询语法][es5]
 -  [elasticsearch-6 RestClient对文档进行复杂查询][es6]
 
 
