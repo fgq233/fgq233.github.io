@@ -6,6 +6,7 @@
 * Kibana：为 Elasticsearch 和 Logstash 提供数据可视化的界面
 
 #### 2. Elasticsearch 与关系型数据库对比
+
 | MySQL | Elasticsearch | 说明  |
 | --------- | ---------- | -------- |
 | Table     | Index      | 索引(index)：相同类型文档的集合，类似关系型数据库的表(table)        |
