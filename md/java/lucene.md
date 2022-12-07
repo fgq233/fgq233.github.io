@@ -7,8 +7,6 @@ lucene 在存储它的全文索引结构时，是有层次结构的，主要是5
 
 
 ####  二、实例说明
-![lucene2](https://fgq233.github.io/imgs/other/lucene2.png)
-
 ###### 1. 索引(Index)
 * 每个索引都是放在同一个文件夹中，文件夹中的所有文件构成一个索引
 
