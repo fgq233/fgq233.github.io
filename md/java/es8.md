@@ -103,10 +103,6 @@ PUT /test
         "my_analyzer": {
           "tokenizer": "ik_max_word",
           "filter": "py"
-        },
-        "completion_analyzer": {
-          "tokenizer": "keyword",
-          "filter": "py"
         }
       },
       "filter": {
@@ -127,8 +123,7 @@ PUT /test
       "name": {
         "type": "text",
         "analyzer": "my_analyzer",
-        "search_analyzer": "ik_smart",
-        "copy_to": "all"
+        "search_analyzer": "ik_smart"
       }
     }
   }
