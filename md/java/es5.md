@@ -1,6 +1,6 @@
 ###  DSL 简单查询、复合查询
 * Elasticsearch提供了基于JSON的DSL（Domain Specific  Language）来定义查询
-* [DSL官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/query*dsl.html)
+* [DSL官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
 
 
 ###  一. 简单查询、复合查询
