@@ -153,7 +153,6 @@ request.source().highlighter(new HighlightBuilder().field("name").requireFieldMa
     ]
   }
 }
-
 ```
 
 
