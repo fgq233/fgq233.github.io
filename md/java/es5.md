@@ -334,6 +334,9 @@ GET /hotel/_search
 ```
 
 
+
+
+
 ###  八. 处理查询结果：排序
 * ES 默认是根据相关度算分（_score）来排序，但是也支持自定义方式排序
 [搜索结果排序](https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html)
@@ -401,6 +404,10 @@ GET /hotel/_search
 ```
 
 
+
+
+
+
 ###  九. 处理查询结果：分页
 ES 默认情况下只返回top10的数据，要查询更多数据就需要修改分页参数，通过修改from、size参数来控制分页结果：
 * from：从第几个文档开始，默认为0
@@ -426,6 +433,8 @@ GET /hotel/_search
 * 针对深度分页，ES提供了两种解决方案：
   * search after：分页时需要排序，原理是从上一次的排序值开始，查询下一页数据。官方推荐
   * scroll：原理将排序后的文档id形成快照，保存在内存，官方不推荐
+
+
 
 
 
