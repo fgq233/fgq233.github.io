@@ -13,8 +13,8 @@
 -  [elasticsearch-4 RestClient对索引库、文档操作][es4]
 -  [elasticsearch-5 DSL查询][es5]
 -  [elasticsearch-6 RestClient查询][es6]
--  [elasticsearch-7 聚合查询][es6]
--  [elasticsearch-8 自动补全查询][es6]
+-  [elasticsearch-7 聚合查询][es7]
+-  [elasticsearch-8 自动补全查询][es8]
 
 
 
@@ -39,3 +39,5 @@
 [es4]: https://fgq233.github.io/md/java/es4
 [es5]: https://fgq233.github.io/md/java/es5
 [es6]: https://fgq233.github.io/md/java/es6
+[es7]: https://fgq233.github.io/md/java/es7
+[es8]: https://fgq233.github.io/md/java/es8
