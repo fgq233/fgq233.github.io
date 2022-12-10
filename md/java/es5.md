@@ -269,40 +269,7 @@ GET /hotel/_search
 
 
 
-
-
-###  六. 复合查询：算分函数查询  function score
-* 当使用match查询时，文档结果会根据与搜索词条的关联度打分（_score），返回结果时按照分值降序排列
-* ES中打分算法，早期使用的是TF-IDF算法，5.1版本后，将算法改进为BM25算法
-
-function score 查询中包含四部分内容：
-
-* 原始查询条件：query部分，基于这个条件搜索文档，并且基于BM25算法给文档打分，原始算分（query score)
-* 过滤条件：filter部分，符合该条件的文档才会重新算分
-* 算分函数：符合filter条件的文档要根据这个函数做运算，得到的函数算分（function score），有四种函数
-  * weight：结果是常量值
-  * field_value_factor：以文档中的某个字段值作为结果
-  * random_score：随机数作为结果
-  * script_score：自定义算分函数算法
-* 运算模式：包括：
-  * multiply：相乘
-  * replace：用function score替换query score
-  * 其它，例如：sum、avg、max、min
-
-![function score查询语法](https://fgq233.github.io/imgs/java/es1.png)
-
-运行流程如下：
-
-* 1）根据**原始条件**查询搜索文档，并且计算相关性算分，称为**原始算分**（query score）
-* 2）根据**过滤条件**，过滤文档
-* 3）符合**过滤条件**的文档，基于**算分函数**运算，得到**函数算分**（function score）
-* 4）将**原始算分**（query score）和**函数算分**（function score）基于**运算模式**做运算，得到最终结果
-
- 
-
-
-
-###  七. 复合查询：布尔查询  bool
+###  六. 复合查询：布尔查询  bool
 布尔查询是一个或多个查询子句的组合，每一个子句就是一个**子查询**，组合方式有：
 
 * must：必须匹配每个子查询，类似“与”
@@ -337,7 +304,45 @@ GET /hotel/_search
 
 
 
-###  八. 处理查询结果：排序
+
+###  七. 复合查询：算分函数查询  function score
+* 当使用match查询时，文档结果会根据与搜索词条的关联度打分（_score），返回结果时按照分值降序排列
+* ES中打分算法，早期使用的是TF-IDF算法，5.1版本后，将算法改进为BM25算法
+
+function score 查询中包含四部分内容：
+
+* 原始查询条件：query部分，基于这个条件搜索文档，并且基于BM25算法给文档打分，原始算分（query score)
+* 过滤条件：filter部分，符合该条件的文档才会重新算分
+* 算分函数：符合filter条件的文档要根据这个函数做运算，得到的函数算分（function score），有四种函数
+  * weight：结果是常量值
+  * field_value_factor：以文档中的某个字段值作为结果
+  * random_score：随机数作为结果
+  * script_score：自定义算分函数算法
+* 运算模式：包括：
+  * multiply：相乘
+  * replace：用function score替换query score
+  * 其它，例如：sum、avg、max、min
+
+![function score查询语法](https://fgq233.github.io/imgs/java/es1.png)
+
+运行流程如下：
+
+* 1）根据**原始条件**查询搜索文档，并且计算相关性算分，称为**原始算分**（query score）
+* 2）根据**过滤条件**，过滤文档
+* 3）符合**过滤条件**的文档，基于**算分函数**运算，得到**函数算分**（function score）
+* 4）将**原始算分**（query score）和**函数算分**（function score）基于**运算模式**做运算，得到最终结果
+
+ 
+
+
+
+
+
+
+
+
+
+###  八. 搜索结果处理：排序
 * ES 默认是根据相关度算分（_score）来排序，但是也支持自定义方式排序
 [搜索结果排序](https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html)
 * 可以排序字段类型有：keyword类型、数值类型、地理坐标类型、日期类型等
@@ -408,7 +413,7 @@ GET /hotel/_search
 
 
 
-###  九. 处理查询结果：分页
+###  九. 搜索结果处理：分页
 ES 默认情况下只返回top10的数据，要查询更多数据就需要修改分页参数，通过修改from、size参数来控制分页结果：
 * from：从第几个文档开始，默认为0
 * size：总共查询几个文档
@@ -439,7 +444,7 @@ GET /hotel/_search
 
 
 
-###  十. 处理查询结果：高亮
+###  十. 搜索结果处理：高亮
 高亮显示的实现分为两步：
 
 * 给文档中的所有关键字都添加一个标签，ES默认加的是`<em>`标签
@@ -472,17 +477,4 @@ GET /hotel/_search
 * 默认情况下，**高亮的字段，必须与搜索指定的字段一致**，否则无法高亮
 * 如果要对非搜索字段高亮，则需要添加一个属性：required_field_match=false
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
