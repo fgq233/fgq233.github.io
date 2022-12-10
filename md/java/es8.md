@@ -177,7 +177,7 @@ PUT /test
 ####  2. 重新导入索引库数据
 ```
 // 实体中定义自动补全字段 suggestion 
-private List<String> suggestion = Arrays.asList(this.brand, this.address);
+private List<String> suggestion = Arrays.asList(this.brand, this.business, this.city);
 
 // 使用 BulkRequest 将测试数据重新全部导入到索引库
 ```
@@ -207,9 +207,6 @@ GET /索引库名/_search
 
 ####  4. RestClient 自动补全查询
 ```
-实体中定义自动补全字段
-private List<String> suggestion = Arrays.asList(this.brand, this.business, this.city);
-
 // 1.准备请求
 SearchRequest request = new SearchRequest("hotel");
 // 2.请求参数
