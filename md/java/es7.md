@@ -26,6 +26,7 @@ ES 聚合常见的有三类：
 ### 二. 桶（Bucket）聚合
 #### 1. DSL 语法
 *  聚合三要素：聚合名称、聚合类型、聚合字段
+*  aggs代表聚合，与query同级，此时query的作用是限定聚合的的文档范围
 
 ```
 GET /hotel/_search
@@ -43,12 +44,11 @@ GET /hotel/_search
 
 
 
-#### 2. 限定聚合范围
+#### 2. 聚合可配置的属性
 默认Bucket聚合会统计Bucket内的文档数量，记为_count，并且按照_count降序排序
 
-* query：添加查询条件
-* size： 聚合可配置的属性，只取前n条
-* order：聚合可配置的属性，排序
+* size： 聚合属性，只取前n条
+* order：聚合属性，排序
 
 ```
 GET /hotel/_search
