@@ -26,7 +26,7 @@ ES 聚合常见的有三类：
 ### 二. 桶（Bucket）聚合
 #### 1. DSL 语法
 *  聚合三要素：聚合名称、聚合类型、聚合字段
-*  aggs代表聚合，与query同级，此时query的作用是限定聚合的的文档范围
+*  aggs代表聚合，与query同级，此时query的作用是限定聚合的文档范围
 
 ```
 GET /hotel/_search
