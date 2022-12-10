@@ -217,7 +217,7 @@ request.source().suggest(new SuggestBuilder()
                         .completionSuggestion("suggestion")
                         .size(10)
                         .skipDuplicates(true)
-                        .prefix("s")
+                        .prefix("sh")
         ));
 // 3.发出请求
 SearchResponse response = client.search(request, RequestOptions.DEFAULT);
