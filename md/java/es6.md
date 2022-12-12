@@ -81,7 +81,6 @@ request.source().query(builder);
 
 
 ### 三、搜索结果处理：排序、分页、高亮
-####  1. 分页： sort
 ```
 // 在准备请求参数之后处理
 request.source().query(QueryBuilders.matchQuery("name", "银湖路大润发"));  
