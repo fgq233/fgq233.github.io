@@ -170,6 +170,7 @@ SearchHit[] hits = searchHits.getHits();
 for (SearchHit hit : hits) {
     // 获取文档数据
     String json = hit.getSourceAsString();
+    // Map<String, Object> map = hit.getSourceAsMap();  文档数据还可以解析为Map
     // 文档数据反序列化
     Hotel hotel = JSON.parseObject(json, Hotel.class);
     
