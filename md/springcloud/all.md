@@ -14,5 +14,5 @@
 ## 5、服务链路跟踪
 * **Zipkin、Sleuth**
 
-## 6、监控、容错、保护
-* **Hystix、Sentinel**
+## 6、服务保护（熔断降级、限流、容错、实时监控）
+* **Sentinel、Resilience4j、Hystix(停止更新)**
