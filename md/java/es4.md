@@ -153,7 +153,7 @@ BulkProcessor.Builder builder = BulkProcessor.builder((bulkRequest, bulkResponse
 
         // 并发请求数, 默认是1, 表示允许执行1个并发请求, 积累bulk requests和发送bulk是异步的, 其数值表示发送bulk的并发线程数, 若设置为0表示二者同步
         builder.setConcurrentRequests(0);
-        // 重试策略。初始等待3秒，后面指数级递增，最多重试3次
+        // 重试策略。初始等待3秒，最多重试3次
         builder.setBackoffPolicy(BackoffPolicy.constantBackoff(TimeValue.timeValueSeconds(3), 3));
         BulkProcessor processor = builder.build();
 ```
