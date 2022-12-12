@@ -163,11 +163,13 @@ POST /{索引库名}/_update/文档id
 
 
 ###  四. 文档-动态映射 
+#### 1. 动态映射
 * 当我们向ES中插入文档时，如果文档中字段没有对应的mapping，ES会帮助我们字段设置mapping，规则如下：
 
 | JSON字段类型 | mapping属性值 |
 | --------- | ---------- |
-| 字符串     | 日期格式字符串：mapping为date类型      |
+| 字符串     | 日期格式字符串：通过了date检测，则mapping为date类型  |
+| 字符串     | 数字格式字符串：通过了numeric检测，则为Number      |
 | 字符串     | 普通字符串：mapping为text类型，并添加keyword类型子字段 |
 | 布尔值     | boolean    |
 | 浮点数     | float   |
@@ -177,3 +179,60 @@ POST /{索引库名}/_update/文档id
 | 空值       | 忽略        |
 
 * 类似于：向表里插入数据时，没有该字段，会自动创建字段并设置字段类型
+
+#### 2. 手动控制动态映射
+* 可在mappings 下通过 dynamic来手动控制，也可以为某个字段定制
+  * true：默认值，动态添加字段
+  * false：新检测到的字段将被忽略，这些字段将不会添加到映射中、不会被索引、无法搜索，但仍会出现在返回点击的源字段中，索引库必须显式添加新字段
+  * strict：严格模式，如果碰到陌生字段，抛出异常
+  
+```
+{
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "address": {
+        "dynamic": "true",
+        "type": "text"
+      }
+    }
+  }
+}
+```
+
+#### 3. date_detection 日期探测
+* 默认会按照一定格式识别date，比如yyyy-MM-dd，但是如果某个未知字段先过来一个日期格式值，
+就会被自动dynamic mapping成date，后面再来一个普通字符串值，就会报错
+* 可以通过 date_detection关闭日期自动探测，手动指定某个field为date类型
+
+```
+{
+  "mappings": {
+    "date_detection": false, 
+    "properties": {
+      "cjsj": {
+        "type": "date"
+      }
+    }
+  }
+}
+```
+
+* 日期格式可以通过 dynamic_date_formats自定义日期格式语法
+
+```
+{
+  "mappings": {
+    "dynamic_date_formats": ["yyyy-MM-dd", "yyyy/MM/dd", "yyyyMMdd"], 
+    "properties": {
+      "cjsj": {
+        "type": "date"
+      }
+    }
+  }
+}
+```
+
+
+#### 4. numeric_detection 数字探测
+* 默认情况下，数字自动探测是关闭的，可以通过 numeric_detection 启用
