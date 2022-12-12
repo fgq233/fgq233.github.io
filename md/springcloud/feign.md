@@ -63,7 +63,7 @@ public class UserClientFallback implements UserClient {
     }
 }
 
-Feign整合Sentinel熔断措施，需要开启：
+Feign整合Sentinel，需要开启：
 feign:
   sentinel:
     enabled: true
