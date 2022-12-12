@@ -181,7 +181,7 @@ POST /{索引库名}/_update/文档id
 * 类似于：向表里插入数据时，没有该字段，会自动创建字段并设置字段类型
 
 #### 2. 手动控制动态映射
-* 可在mappings 下通过 dynamic来手动控制，也可以为某个字段定制
+* 可在mappings 下通过 dynamic来手动控制，也可以为某个object类型字段定制
   * true：默认值，动态添加字段
   * false：新检测到的字段将被忽略，这些字段将不会添加到映射中、不会被索引、无法搜索，但仍会出现在返回点击的源字段中，索引库必须显式添加新字段
   * strict：严格模式，如果碰到陌生字段，抛出异常
@@ -193,7 +193,7 @@ POST /{索引库名}/_update/文档id
     "properties": {
       "address": {
         "dynamic": "true",
-        "type": "text"
+        "type": "object"
       }
     }
   }
