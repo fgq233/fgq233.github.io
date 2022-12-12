@@ -33,6 +33,8 @@ const blogList1 = [
     },
 ];
 
-const blogList2 = [];
+const blogList2 = [
+    {url: "https://fgq233.github.io/md/springcloud/sentinel", title: "Sentinel", child: []},
+];
 const blogList3 = [];
 const blogList4 = [];

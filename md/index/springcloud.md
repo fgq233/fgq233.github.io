@@ -19,6 +19,7 @@
 -  [Gateway-过滤器工厂][gateway3]
 -  [Gateway-跨域问题][gateway4]
 
+8. ###### [Sentinel][sentinel]
 
 [all]: https://fgq233.github.io/md/springcloud/all
 [nginx]: https://fgq233.github.io/md/springcloud/nginx
@@ -36,5 +37,6 @@
 [gateway2]: https://fgq233.github.io/md/springcloud/gateway2
 [gateway3]: https://fgq233.github.io/md/springcloud/gateway3
 [gateway4]: https://fgq233.github.io/md/springcloud/gateway4
+[sentinel]: https://fgq233.github.io/md/springcloud/sentinel
  
  

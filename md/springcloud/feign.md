@@ -37,7 +37,7 @@ public interface UserClient {
 ```
 工厂类熔断：
 @Component
-public class Hysitx implements FallbackFactory<UserClient> {
+public class UserClientFallbackFactory implements FallbackFactory<UserClient> {
     
     @Override
     public UserClient errReturn(Throwable throwable) {
@@ -55,13 +55,20 @@ public class Hysitx implements FallbackFactory<UserClient> {
 
 普通类熔断：
 @Component
-public class Hysitx implements UserClient {
+public class UserClientFallback implements UserClient {
     @Override
     public User findById(Long id) {
         System.out.println("接口调用失败");
         return null;
     }
 }
+```
+
+* Feign整合Sentinel，需要开启`feign.sentinel.enabled`
+```
+feign:
+  sentinel:
+    enabled: true
 ```
 
 
