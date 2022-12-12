@@ -151,7 +151,7 @@ BulkProcessor.Builder builder = BulkProcessor.builder((bulkRequest, bulkResponse
         // 强制bulk操作时间,自上次操作后,6s后有数据就flush
         builder.setFlushInterval(TimeValue.timeValueSeconds(6));
 
-        // 并发请求数, 默认是1, 表示允许执行1个并发请求, 积累bulk requests和发送bulk是异步的, 其数值表示发送bulk的并发线程数, 若设置为0表示二者同步
+        // 并发请求数
         builder.setConcurrentRequests(0);
         // 重试策略。初始等待3秒，最多重试3次
         builder.setBackoffPolicy(BackoffPolicy.constantBackoff(TimeValue.timeValueSeconds(3), 3));
