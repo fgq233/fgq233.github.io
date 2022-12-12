@@ -171,7 +171,7 @@ for (SearchHit hit : hits) {
     // 获取文档数据
     String json = hit.getSourceAsString();
     // 文档数据反序列化
-    HotelDoc hotel = JSON.parseObject(json, Hotel.class);
+    Hotel hotel = JSON.parseObject(json, Hotel.class);
     
     // 处理高亮结果
     // 获取高亮map
