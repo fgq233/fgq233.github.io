@@ -153,7 +153,7 @@ BulkProcessor.Builder builder = BulkProcessor.builder((bulkRequest, bulkResponse
 
         // 并发请求数
         builder.setConcurrentRequests(0);
-        // 重试策略。初始等待3秒，最多重试3次
+        // 重试策略,初始等待3秒，最多重试3次
         builder.setBackoffPolicy(BackoffPolicy.constantBackoff(TimeValue.timeValueSeconds(3), 3));
         BulkProcessor processor = builder.build();
 ```
