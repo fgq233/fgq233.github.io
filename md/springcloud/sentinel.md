@@ -57,11 +57,13 @@
 
 
 #### 4. 默认配置
+
 |  配置项  | 默认值 | 说明 |
 | ------ | ----------| ---- |
 | server.port | 8080 | 服务端口 |
 | sentinel.dashboard.auth.username | sentinel | 默认用户名 |
 | sentinel.dashboard.auth.password | sentinel | 默认密码 |
+
 
 * `java -jar sentinel-dashboard-1.8.6.jar -Dserver.port=8888`
 
