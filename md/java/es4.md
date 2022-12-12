@@ -118,7 +118,7 @@ client.update(request, RequestOptions.DEFAULT);
 
 #### 5. 批量操作 BulkProcessor
 * 默认BulkRequest是所有数据一次性执行，没有限制，如果一次性大量数据请求，容易出问题
-* ES 提供了 BulkProcessor 批量处理的客户端，用来分批次处理大量数据
+* ES 提供了 BulkProcessor 批量处理客户端，用来分批次处理大量数据
 
 ```
 BulkProcessor.Builder builder = BulkProcessor.builder((bulkRequest, bulkResponseActionListener) -> {
