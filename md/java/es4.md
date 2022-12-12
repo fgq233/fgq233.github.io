@@ -116,3 +116,64 @@ request.doc(
 client.update(request, RequestOptions.DEFAULT);
 ```
 
+#### 5. 批量操作 BulkProcessor
+* 默认BulkRequest是所有数据一次性执行，没有限制，如果一次性大量数据请求，容易出问题
+* ES 提供了 BulkProcessor 批量处理的客户端，用来分批次处理大量数据
+
+```
+BulkProcessor.Builder builder = BulkProcessor.builder((bulkRequest, bulkResponseActionListener) -> {
+            client.bulkAsync(bulkRequest, RequestOptions.DEFAULT, bulkResponseActionListener);
+        }, new BulkProcessor.Listener() {
+            @Override
+            public void beforeBulk(long executionId, BulkRequest request) {
+                log.info("1. 批次{},请求数量{}", executionId, request.numberOfActions());
+            }
+
+            @Override
+            public void afterBulk(long executionId, BulkRequest request, BulkResponse response) {
+                // 在每次执行BulkRequest后调用，通过此方法可以获取BulkResponse是否包含错误
+                if (response.hasFailures()) {
+                    log.error("2. 批次{},包含错误", executionId);
+                } else {
+                    log.info("2. 批次{},请求数量{},花费时间{}", executionId, request.numberOfActions(), response.getTook().getMillis());
+                }
+            }
+
+            @Override
+            public void afterBulk(long executionId, BulkRequest request, Throwable failure) {
+                log.error("3. 批次{},请求数量{},批量操作失败,失败信息{}", executionId, request.numberOfActions(), failure.getMessage());
+            }
+        });
+        // 2000个数据触发flush
+        builder.setBulkActions(2000);
+        // 强制bulk操作大小, bulk数据每达到5MB触发flush
+        builder.setBulkSize(new ByteSizeValue(5L, ByteSizeUnit.MB));
+        // 强制bulk操作时间,自上次操作后,6s后有数据就flush
+        builder.setFlushInterval(TimeValue.timeValueSeconds(6));
+
+        // 并发请求数, 默认是1, 表示允许执行1个并发请求, 积累bulk requests和发送bulk是异步的, 其数值表示发送bulk的并发线程数, 若设置为0表示二者同步
+        builder.setConcurrentRequests(0);
+        // 重试策略。初始等待3秒，后面指数级递增，最多重试3次
+        builder.setBackoffPolicy(BackoffPolicy.constantBackoff(TimeValue.timeValueSeconds(3), 3));
+        BulkProcessor processor = builder.build();
+```
+
+* 大量数据来了之后，只要放进BulkProcessor，就会自动分批次处理了
+
+```
+processor.add(new IndexRequest(INDEX_NAME, "_doc", "666").source(JSON.toJSONString(hotel), XContentType.JSON));
+
+// 手动刷新
+processor.flush();
+```
+
+
+* 关闭
+
+```
+try {
+    processor.awaitClose(30, TimeUnit.SECONDS);
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+```
