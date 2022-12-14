@@ -38,7 +38,7 @@ const blogList2 = [
     {
         url: "", title: "分布式事务 Seata", child: [
             {url: "https://fgq233.github.io/md/springcloud/seata1", title: "分布式事务理论基础"},
-            {url: "https://fgq233.github.io/md/springcloud/seata2", title: "Seata-部署与集成"},
+            {url: "https://fgq233.github.io/md/springcloud/seata2", title: "Seata-部署、集成"},
             {url: "https://fgq233.github.io/md/springcloud/seata3", title: "Seata-XA、AT模式"},
             {url: "https://fgq233.github.io/md/springcloud/seata4", title: "Seata-TCC模式、SAGA模式"},
             {url: "https://fgq233.github.io/md/springcloud/seata5", title: "Seata-集群搭建"},
