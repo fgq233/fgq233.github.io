@@ -82,7 +82,6 @@ config {
 #### 4. 在nacos 配置中心添加配置
 
 * 根据步骤3的config {...}内容在nacos 配置中心添加配置 seataServer.properties
-* 根据步骤3的config {...}内容在nacos 配置中心添加配置 seataServer.properties
 * 更多配置参考：https://seata.io/zh-cn/docs/user/configurations.html
 
 
@@ -106,6 +105,7 @@ store.redis.host=127.0.0.1
 store.redis.port=9002
 store.redis.database=1
 store.redis.password=123456
+
 # my-service-group为 yml中事务分组 seata.tx-service-group配置值，值为seata.registry.nacos.cluster配置值
 service.vgroupMapping.my-service-group=seata-tc
 ```
@@ -161,18 +161,10 @@ seata:
       server-addr: 127.0.0.1:8848
       group : "SEATA_GROUP"
       namespace: ""
-      username: "nacos"
-      password: "nacos"
-  config:                               # 配置中心，参考registry.conf的config
-    type: nacos
-    nacos:
-      server-addr: 127.0.0.1:8848
-      group : "SEATA_GROUP"
-      namespace: ""
+      cluster: AAA
       username: "nacos"
       password: "nacos"
   tx-service-group: my-service-group    # 事务分组配置
-  enable-auto-data-source-proxy: true
   service:
     vgroup-mapping:                    
       my-service-group: default         # 事务分组与集群映射关系(等号右侧的集群名需要与Seata-server注册到Nacos的cluster保持一致)
