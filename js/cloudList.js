@@ -22,7 +22,7 @@ const blogList1 = [
             {url: "https://fgq233.github.io/md/springcloud/nacos4", title: "Nacos集群搭建"},
         ]
     },
-    {url: "https://fgq233.github.io/md/springcloud/feign", title: "Feign 远程调用", child: []},
+    {url: "https://fgq233.github.io/md/springcloud/feign", title: "远程调用 Feign", child: []},
     {
         url: "", title: "网关 Gateway", child: [
             {url: "https://fgq233.github.io/md/springcloud/gateway1", title: "Gateway-使用步骤"},
@@ -30,11 +30,20 @@ const blogList1 = [
             {url: "https://fgq233.github.io/md/springcloud/gateway3", title: "Gateway-过滤器工厂"},
             {url: "https://fgq233.github.io/md/springcloud/gateway4", title: "Gateway-跨域问题"},
         ]
-    },
+    }
 ];
 
 const blogList2 = [
     {url: "https://fgq233.github.io/md/springcloud/sentinel", title: "Sentinel", child: []},
+    {
+        url: "", title: "分布式事务 Seata", child: [
+            {url: "https://fgq233.github.io/md/springcloud/seata1", title: "分布式事务理论基础"},
+            {url: "https://fgq233.github.io/md/springcloud/seata2", title: "Seata-搭建与集成"},
+            {url: "https://fgq233.github.io/md/springcloud/seata3", title: "Seata-XA、AT模式"},
+            {url: "https://fgq233.github.io/md/springcloud/seata4", title: "Seata-TCC模式、SAGA模式"},
+            {url: "https://fgq233.github.io/md/springcloud/seata5", title: "Seata-集群搭建"},
+        ]
+    },
 ];
 const blogList3 = [];
 const blogList4 = [];
