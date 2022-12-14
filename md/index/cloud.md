@@ -23,7 +23,7 @@
 
 9. ###### 分布式事务 Seata 
 -  [分布式事务理论基础][seata1]
--  [Seata-搭建与集成][seata2]
+-  [Seata-部署与集成][seata2]
 -  [Seata-XA、AT模式][seata3]
 -  [Seata-TCC模式、SAGA模式][seata4]
 -  [Seata-集群搭建][seata5]
