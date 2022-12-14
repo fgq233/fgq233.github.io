@@ -42,6 +42,16 @@ public class SpringRabbitListener {
 }
 ```
 
+* 若不想手动声明队列，可以通过注解模式在消费者中声明
+
+```
+消费者(注解模式)
+    @RabbitListener(queuesToDeclare = @Queue("test.queue"))
+    public void listener(String msg) {
+        System.out.println(msg);
+    }
+```
+
 
 ####  2、工作消息队列 WorkQueue
 ![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ2.png)
