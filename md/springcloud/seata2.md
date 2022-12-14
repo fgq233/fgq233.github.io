@@ -105,9 +105,6 @@ store.redis.host=127.0.0.1
 store.redis.port=9002
 store.redis.database=1
 store.redis.password=123456
-
-# my-service-group为 yml中事务分组 seata.tx-service-group配置值，值为seata.registry.nacos.cluster配置值
-service.vgroupMapping.my-service-group=seata-tc
 ```
   
 #### 5. 新建seata 数据库 或 Redis
