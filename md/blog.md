@@ -11,7 +11,7 @@
 * Linux
 
 [cloudHtml]: https://fgq233.github.io/html/cloud
-[cloudMd]: https://fgq233.github.io/md/index/springcloud
+[cloudMd]: https://fgq233.github.io/md/index/cloud
 [java]: https://fgq233.github.io/md/index/java
 [js]: https://fgq233.github.io/md/index/js
 [oracle]: https://fgq233.github.io/md/index/oracle
