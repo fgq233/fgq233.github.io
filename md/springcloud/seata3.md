@@ -39,6 +39,7 @@ seata:
 
 
 2）给发起全局事务的入口方法添加 @GlobalTransactional注解
+
 3）重启服务、测试
 
 
@@ -80,6 +81,7 @@ seata:
 
 
 2）给发起全局事务的入口方法添加 @GlobalTransactional注解
+
 3）重启服务、测试
 
 
