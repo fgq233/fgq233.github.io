@@ -115,7 +115,7 @@ service.vgroupMapping.my-service-group=seata-tc
 * global_table：全局事务
 * branch_table：分支事务
 * lock_table：锁相关的信息
-* undo_log：AT模式下保存快照数据
+* undo_log：AT模式下保存快照数据，需要放到微服务库下，而不是seata库
 
 #### 5. 启动
 * 启动 bin目录下 seata-server.bat
