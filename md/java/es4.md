@@ -25,9 +25,18 @@
 
 ####  2. 连接
 ```
+# 无密码模式
 RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(
         HttpHost.create("http://127.0.0.1:9200")
 ));
+
+# xpack 安全模式
+RestClientBuilder builder = RestClient.builder(HttpHost.create("http://127.0.0.1:9200"));
+CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("elastic", "elastic666"));
+builder.setHttpClientConfigCallback((HttpAsyncClientBuilder httpAsyncClientBuilder) ->
+        httpAsyncClientBuilder.setDefaultCredentialsProvider(credentialsProvider));
+RestHighLevelClient client =  new RestHighLevelClient(builder);
 ```
 
 ####  3. 业务代码
