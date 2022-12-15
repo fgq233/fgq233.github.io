@@ -105,12 +105,12 @@ elasticsearch.password: "elastic666"
 # 去除 kibana 启动时的 warning
 xpack.reporting.encryptionKey: "a_random_string"
 xpack.security.encryptionKey: "something_at_least_32_characters"
-xpack.encryptedSavedObjects.encryptionKey: 'something_at_least_32_characters'
+xpack.encryptedSavedObjects.encryptionKey: "something_at_least_32_characters"
 ```
 
 * 启动后，访问ES需要输入elastic用户的密码，这个账号是全局管理权限
 * 如果需要创建kibana的只读用户，可以通过管理–用户–新建用户，对用户进行角色授权即可
-* 用户名和密码可以采用密文的方式，如下将用户名密码添加到keystore，然后把明文用户名密码去掉：
+* 用户名和密码可以采用密文的方式，如下将用户名密码添加到keystore，然后把配置文件中明文用户名密码去掉：
 
 ```
 bin/kibana-keystore --allow-root create
