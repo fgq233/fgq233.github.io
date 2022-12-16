@@ -65,7 +65,20 @@ PUT /fgq
       }
     }
   }
-} 
+}
+
+# 设置默认分词器
+PUT /fgq
+{
+  "settings": {
+    "index": {
+      "analysis.analyzer.default.type": "ik_max_word"
+    }
+  },
+  "mappings": {
+    ...
+  }
+}
 ```
 
 ####  2. 查看索引库
