@@ -18,9 +18,7 @@
 -  [Gateway-断言工厂][gateway2]
 -  [Gateway-过滤器工厂][gateway3]
 -  [Gateway-跨域问题][gateway4]
-
 8. ###### [Sentinel][sentinel]
-
 9. ###### 分布式事务 Seata 
 -  [分布式事务理论基础][seata1]
 -  [Seata-部署、集成][seata2]
@@ -28,6 +26,14 @@
 -  [Seata-TCC模式、SAGA模式][seata4]
 -  [Seata-集群搭建][seata5]
 
+10. ###### 分布式缓存 Redis 
+-  [Redis-持久化][redis1]
+
+
+[redis1]: https://fgq233.github.io/md/springcloud/redis1
+[redis2]: https://fgq233.github.io/md/springcloud/redis2
+[redis3]: https://fgq233.github.io/md/springcloud/redis3
+[redis4]: https://fgq233.github.io/md/springcloud/redis4
 [all]: https://fgq233.github.io/md/springcloud/all
 [nginx]: https://fgq233.github.io/md/springcloud/nginx
 [feign]: https://fgq233.github.io/md/springcloud/feign
