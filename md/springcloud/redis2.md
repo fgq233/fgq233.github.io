@@ -55,7 +55,7 @@ replicaof 127.0.0.1 7001
 * 2、master节点判断replid，发现不一致，拒绝增量同步
 * 3、master将完整内存数据生成RDB，发送RDB到slave
 * 4、slave清空本地数据，加载master的RDB
-* 5、master将RDB期间的命令记录在repl_baklog，并持续将log中的命令发送给slave
+* 5、master将RDB期间的命令记录在repl_backlog，并持续将log中的命令发送给slave
 * 6、slave执行接收到的命令，保持与master之间的同步
 
 
@@ -65,7 +65,7 @@ replicaof 127.0.0.1 7001
 * Replication Id：简称replid，数据集的标记，id一致则说明是同一数据集，
 每一个master都有唯一的replid，slave则会继承master节点的replid
 
-* offset：偏移量，随着记录在repl_baklog中的数据增多而逐渐增大，slave完成同步时也会记录当前同步的offset,
+* offset：偏移量，随着记录在repl_backlog中的数据增多而逐渐增大，slave完成同步时也会记录当前同步的offset,
 如果slave的offset小于master的offset，说明slave数据落后于master，需要更新
 
 #### 2. 全量、增量判断原理
