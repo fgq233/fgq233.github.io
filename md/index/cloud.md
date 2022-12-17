@@ -28,6 +28,7 @@
 
 10. ###### 分布式缓存 Redis 
 -  [Redis-持久化][redis1]
+-  [Redis-主从集群][redis2]
 
 
 [redis1]: https://fgq233.github.io/md/springcloud/redis1
