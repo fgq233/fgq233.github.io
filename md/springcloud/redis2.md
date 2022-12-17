@@ -5,13 +5,16 @@
 
 ### 一. 搭建主从集群 
 #### 1. 模拟3台集群中的服务器
+
 | IP   | PORT         | 角色 |
 | ------ | ----------| ---- |
 | 127.0.0.1 | 7001 | master |
 | 127.0.0.1 | 7002 | slave |
 | 127.0.0.1 | 7003 | slave |
 
+
 模拟3份服务器，复制3份redis 安装包
+
 
 ![Redis主从集群](https://fgq233.github.io/imgs/springcloud/redis1.png)
 
