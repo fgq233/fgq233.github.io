@@ -68,13 +68,13 @@ replicaof 127.0.0.1 7001
 * offset：偏移量，随着记录在repl_backlog中的数据增多而逐渐增大，slave完成同步时也会记录当前同步的offset,
 如果slave的offset小于master的offset，说明slave数据落后于master，需要更新
 
-#### 2. 全量、增量判断原理
+#### 3. 全量、增量判断原理
 * slave做数据同步，必须向master声明自己的replid和offset，master才可以判断到底需要同步哪些数据
 * 首次：首次replid不一致，说明这是一个全新的slave，要做全量同步
 * 后续：replid一致，根据offset做增量同步，只更新slave与master存在差异的部分数据
 
 
-#### 3.repl_backlog文件
+#### 4.repl_backlog文件
 * 这个文件是一个固定大小的数组，只不过数组是环形，角标到达数组末尾后，会再次从0开始读写，
 数组头部的数据会被覆盖
 
@@ -86,7 +86,7 @@ replicaof 127.0.0.1 7001
 
 
 
-#### 4. 主从集群同步优化
+#### 5. 主从集群同步优化
 
 
 * 在master中配置 `repl-diskless-sync yes` 启用无磁盘复制，避免全量同步时的磁盘IO
