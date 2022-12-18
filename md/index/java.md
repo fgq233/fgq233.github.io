@@ -1,11 +1,13 @@
-1. ###### MQ
+1. ###### Stream 流
+
+2. ###### MQ
 -  [MQ简介][mq]
 -  [RabbitMQ 使用步骤][rabbitmq1]
 -  [RabbitMQ 五种消息模型][rabbitmq2]
 -  [RabbitMQ 消息转换器][rabbitmq3]
 
  
-2. ###### 全文检索
+3. ###### 全文检索
 -  [Lucene中的基本概念][lucene]
 -  [elasticsearch-1 基本概念][es1]
 -  [elasticsearch-2 Windows下环境安装][es2]
@@ -28,6 +30,7 @@
 
 
 
+[stream]: https://fgq233.github.io/md/java/stream
 [mq]: https://fgq233.github.io/md/java/mq
 [rabbitmq1]: https://fgq233.github.io/md/java/rabbitmq1
 [rabbitmq2]: https://fgq233.github.io/md/java/rabbitmq2
