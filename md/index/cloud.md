@@ -30,6 +30,7 @@
 -  [Redis-持久化][redis1]
 -  [Redis-主从集群][redis2]
 -  [Redis-哨兵集群][redis3]
+-  [Redis-分片集群][redis4]
 
 
 [redis1]: https://fgq233.github.io/md/springcloud/redis1

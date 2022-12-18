@@ -19,7 +19,7 @@ const blogList1 = [
             {url: "https://fgq233.github.io/md/springcloud/nacos1", title: "Nacos安装"},
             {url: "https://fgq233.github.io/md/springcloud/nacos2", title: "Nacos注册中心"},
             {url: "https://fgq233.github.io/md/springcloud/nacos3", title: "Nacos配置中心"},
-            {url: "https://fgq233.github.io/md/springcloud/nacos4", title: "Nacos集群搭建"},
+            {url: "https://fgq233.github.io/md/springcloud/nacos4", title: "Nacos集群搭建"}
         ]
     },
     {url: "https://fgq233.github.io/md/springcloud/feign", title: "远程调用 Feign", child: []},
@@ -28,7 +28,7 @@ const blogList1 = [
             {url: "https://fgq233.github.io/md/springcloud/gateway1", title: "Gateway-使用步骤"},
             {url: "https://fgq233.github.io/md/springcloud/gateway2", title: "Gateway-断言工厂"},
             {url: "https://fgq233.github.io/md/springcloud/gateway3", title: "Gateway-过滤器工厂"},
-            {url: "https://fgq233.github.io/md/springcloud/gateway4", title: "Gateway-跨域问题"},
+            {url: "https://fgq233.github.io/md/springcloud/gateway4", title: "Gateway-跨域问题"}
         ]
     }
 ];
@@ -41,7 +41,15 @@ const blogList2 = [
             {url: "https://fgq233.github.io/md/springcloud/seata2", title: "Seata-部署、集成"},
             {url: "https://fgq233.github.io/md/springcloud/seata3", title: "Seata-XA、AT模式"},
             {url: "https://fgq233.github.io/md/springcloud/seata4", title: "Seata-TCC模式、SAGA模式"},
-            {url: "https://fgq233.github.io/md/springcloud/seata5", title: "Seata-集群搭建"},
+            {url: "https://fgq233.github.io/md/springcloud/seata5", title: "Seata-集群搭建"}
+        ]
+    },
+    {
+        url: "", title: "分布式存储 Redis", child: [
+            {url: "https://fgq233.github.io/md/springcloud/redis1", title: "Redis-持久化"},
+            {url: "https://fgq233.github.io/md/springcloud/redis2", title: "Redis-主从集群"},
+            {url: "https://fgq233.github.io/md/springcloud/redis3", title: "Redis-哨兵集群"},
+            {url: "https://fgq233.github.io/md/springcloud/redis4", title: "Redis-分片集群"}
         ]
     },
 ];

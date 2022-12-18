@@ -28,7 +28,7 @@
   * 最后，sentinel将故障节点标记为slave，当故障节点恢复后会自动成为新的master的slave节点
 
 
-### 二. 搭建哨兵集群
+### 二. 搭建 Sentinel哨兵集群
 略
 
 
