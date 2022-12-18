@@ -1,4 +1,4 @@
-1. [Oracle中单行函数][oracle01]
+1. [Oracle中函数][oracle01]
 2. [分页查询、合并查询、with as][oracle02]
 3. [Oracle中的null值][oracle03]
 4. [逻辑控制语句][oracle04]
