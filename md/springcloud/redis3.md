@@ -28,9 +28,11 @@
   * 最后，sentinel将故障节点标记为slave，当故障节点恢复后会自动成为新的master的slave节点
 
 
+### 二. 搭建哨兵集群
+略
 
 
-### 二. Spring Boot 集成哨兵集群 
+### 三. Spring Boot 集成哨兵集群 
 * 在Sentinel集群监管下的Redis主从集群，其节点会因为自动故障转移而发生变化，Redis的客户端必须感知这种变化，
 及时更新连接信息
 * RedisTemplate 底层利用 lettuce 实现了节点的感知和自动切换
@@ -43,7 +45,7 @@
 </dependency>
 ```
 
-### 2. yml配置Redis地址
+#### 2. yml配置Redis地址
 ```yaml
 spring:
   redis:
@@ -58,7 +60,7 @@ spring:
 * 注意：这里配置的是 哨兵Sentinel集群地址
 
 
-### 3. 配置读写分离策略
+#### 3. 配置读写分离策略
 在启动类中添加一个新的bean：
 
 ```
