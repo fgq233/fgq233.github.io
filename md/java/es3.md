@@ -116,7 +116,8 @@ PUT /索引库名/_mapping
 }
 ```
 
-#### 5. 文档数据迁移索引库
+#### 5. 重建索引 _reindex
+* `reindex` 会把文档数据从旧索引库复制到新索引库
 * `wait_for_completion = false` 表示异步执行
 
 ```
