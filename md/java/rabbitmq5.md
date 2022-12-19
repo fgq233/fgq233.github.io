@@ -114,7 +114,7 @@ rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 * 3）RabbitMQ删除消息
 * 4）消费者宕机，消息尚未处理
 
-这样消息就丢失了，因此消费者返回ACK的时机非常重要，SpringAMQP则允许配置三种确认模式：
+这样消息就丢失了，因此消费者返回 ack 的时机非常重要，SpringAMQP允许配置三种确认模式：
 
 ```
 spring:
