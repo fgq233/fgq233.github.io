@@ -132,6 +132,7 @@ POST /_reindex?wait_for_completion=false
 ```
 
 * 如果程序中使用的是索引别名，则需要新增一个别名指向新索引库，删除旧别名
+
 ```
 POST /_aliases
 {
