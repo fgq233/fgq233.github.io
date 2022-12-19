@@ -128,17 +128,13 @@ spring:
 * auto：自动ack，由spring监测listener代码是否出现异常，没有异常则返回ack，抛出异常则返回nack
 * none：关闭ack，MQ假定消费者获取消息后会成功处理，因此消息投递后立即被删除（不可靠，可能丢失消息）
 
-一般使用默认的auto即可
+> 默认值为auto，使用 Spring 的retry 重试机制
 
 
 
 #### 2. 消费失败重试机制
-* 当消费者出现异常后，消息会不断requeue（重入队）到队列，再重新发送给消费者，
-然后再次异常，再次requeue，无限循环，导致mq的消息处理飙升，带来不必要的压力
-
-* 可以利用 Spring 的retry机制，在消费者出现异常时利用本地重试，而不是无限制的requeue到mq队列
-
-修改消费者服务的 application.yml文件，添加内容：
+* 重试机制为 auto 默认开启，当消费者出现异常后，消息会不断requeue（重入队）到队列，再重新发送给消费者，
+然后再次异常，再次requeue，无限循环，直到消费成功，所以要使用重试机制一定要有相关配置：
 
 ```
 spring:
@@ -153,13 +149,13 @@ spring:
           stateless: true           # 默认值为true无状态，false是有状态，如果业务中包含事务，这里改为false
 ```
  
-* 在重试达到最大次数后，如果还是失败的，SpringAMQP 默认会抛出异常 AmqpRejectAndDontRequeueException，
+* 在重试达到最大次数后，如果还是失败的，会抛出异常 `AmqpRejectAndDontRequeueException`，
 此时返回ack，mq删除消息
 
 
 
 #### 3. 重试策略
-在开启重试模式后，重试次数耗尽，如果消息依然失败，则需要有`MessageRecovery接口`来处理，它包含三种策略：
+重试策略可以通过 `MessageRecovery接口`来定制，它包含三种策略：
 
 * `RejectAndDontRequeueRecoverer`：重试耗尽后，直接reject，丢弃消息，默认就是这种方式
 
@@ -174,29 +170,33 @@ spring:
 ```
 @Configuration
 public class ErrorMsgConfig {
+
+    private static String errorExchange = "error-direct-exchange";
+    private static String errorQueue = "error-queue";
+    private static String errorRoutingKey = "error-routing-key";
     
     // 定义专门处理的交换机
     @Bean
     public DirectExchange errorExchange(){
-        return new DirectExchange("error.direct");
+        return new DirectExchange(errorExchange);
     }
     
     // 定义专门处理的队列
     @Bean
     public Queue errorQueue(){
-        return new Queue("error.queue");
+        return new Queue(errorQueue);
     }
 
     // 绑定队列和交换机
     @Bean
     public Binding errorMsgBinding(){
-        return BindingBuilder.bind(errorQueue()).to(errorExchange()).with("error");
+        return BindingBuilder.bind(errorQueue()).to(errorExchange()).with(errorRoutingKey);
     }
 
     // 定义失败重试策略
     @Bean
     public MessageRecoverer republishMessageRecoverer(RabbitTemplate rabbitTemplate){
-        return new RepublishMessageRecoverer(rabbitTemplate, "error.direct", "error");
+        return new RepublishMessageRecoverer(rabbitTemplate, errorExchange, errorRoutingKey);
     }
 }
 ```
