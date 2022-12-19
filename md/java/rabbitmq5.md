@@ -103,7 +103,7 @@ rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 
 ### 二、消费者确认机制
 #### 1. 三种确认模式
-* RabbitMQ 通过消费者回执来确认消费者是否成功处理消息的，
+* RabbitMQ 通过消费者回执来确认是否成功处理消息，
 在消费者获取消息后，向 RabbitMQ 发送 ack 回执，表明自己已经处理消息，
 而RabbitMQ确认消息被消费者消费后会立刻删除
 
