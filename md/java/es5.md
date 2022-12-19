@@ -6,16 +6,13 @@
 ###  一. 简单查询、复合查询
 ####  1. DSL查询的语法
 ```
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "查询类型": {
-      "查询条件": "条件值"
-    },
-    "sort": {...},
-    "from": 条件值,
-    "size": 条件值,
-    "highlight": {...}
+  "query": {},
+  "sort": {},
+  "from": 1,
+  "size": 10,
+  "highlight": {}
 }
 ```
 
@@ -54,12 +51,11 @@ GET /索引库名/_search
 * 没有查询条件
 
 ```
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "match_all": {
-    }
-  }
+  "query": {
+    "match_all": {}
+  }
 }
 ```
 
@@ -73,23 +69,26 @@ GET /索引库名/_search
 
 ####  1. 语法
 ```
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "match": {
-      "FIELD": "TEXT"
-    }
-  }
+  "query": {
+    "match": {
+      "FIELD": "TEXT"
+    }
+  }
 }
 
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "multi_match": {
-      "query": "TEXT",
-      "fields": ["FIELD1", " FIELD2"]
-    }
-  }
+  "query": {
+    "multi_match": {
+      "query": "TEXT",
+      "fields": [
+        "FIELD1",
+        " FIELD2"
+      ]
+    }
+  }
 }
 ```
 
@@ -134,27 +133,27 @@ GET /hotel/_search
 
 ####  1. 语法
 ```
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "term": {
-      "FIELD": {
-        "value": "VALUE"
-      }
-    }
-  }
+  "query": {
+    "term": {
+      "FIELD": {
+        "value": "VALUE"
+      }
+    }
+  }
 }
 
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "range": {
-      "FIELD": {
-        "gte": 10,
-        "lte": 20 
-      }
-    }
-  }
+  "query": {
+    "range": {
+      "FIELD": {
+        "gte": 10,
+        "lte": 20
+      }
+    }
+  }
 }
 ```
 
@@ -198,22 +197,22 @@ GET /hotel/_search
 
 ####  1. 语法
 ```
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {
-    "geo_bounding_box": {
-      "FIELD": {
-        "top_left": { 
-          "lat": 纬度,
-          "lon": 经度
-        },
-        "bottom_right": { 
-          "lat": 纬度,
-          "lon": 经度
-        }
-      }
-    }
-  }
+  "query": {
+    "geo_bounding_box": {
+      "FIELD": {
+        "top_left": {
+          "lat": 纬度,
+          "lon": 经度
+        },
+        "bottom_right": {
+          "lat": 纬度,
+          "lon": 经度
+        }
+      }
+    }
+  }
 }
 
 GET /索引库名/_search
@@ -276,25 +275,49 @@ GET /hotel/_search
 * filter：必须匹配，**不参与算分**
 
 ```
-GET /hotel/_search
+GET /hotel/_search
 {
-  "query": {
-    "bool": {
-      "must": [
-        {"term": {"city": "上海" }}
-      ],
-      "should": [
-        {"term": {"brand": "万达" }},
-        {"term": {"brand": "希尔顿" }}
-      ],
-      "must_not": [
-        { "range": { "price": { "lte": 500 } }}
-      ],
-      "filter": [
-        { "range": {"score": { "gte": 45 } }}
-      ]
-    }
-  }
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "city": "上海"
+          }
+        }
+      ],
+      "should": [
+        {
+          "term": {
+            "brand": "万达"
+          }
+        },
+        {
+          "term": {
+            "brand": "希尔顿"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "range": {
+            "price": {
+              "lte": 500
+            }
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "score": {
+              "gte": 45
+            }
+          }
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -350,27 +373,29 @@ function score 查询中包含4部分内容：
 
 ####  1. 语法
 ```
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {...},
-  "sort": [
-    {"FIELD": "desc"} 
-  ]
+  "query": {},
+  "sort": [
+    {
+      "FIELD": "desc"
+    }
+  ]
 }
 
 地理位置排序
-GET /索引库名/_search
+GET /索引库名/_search
 {
-  "query": {...},
-  "sort": [
-    {
-      "_geo_distance" : {
-          "FIELD" : "纬度，经度", // 排序字段、目标坐标点
-          "order" : "asc",       // 排序方式
-          "unit" : "km"          // 排序的距离单位
-      }
-    }
-  ]
+  "query": {},
+  "sort": [
+    {
+      "_geo_distance": {
+        "FIELD": "纬度，经度",    // 排序字段为目标坐标点
+        "order": "asc",         // 排序方式
+        "unit": "km"            // 排序的距离单位
+      }
+    }
+  ]
 }
 ```
 
@@ -421,11 +446,11 @@ ES 默认情况下只返回top10的数据，要查询更多数据就需要修改
 
 ####  1. 语法
 ```
-GET /hotel/_search
+GET /索引库名/_search
 {
-  "query": {...},
-  "from": 0,     
-  "size": 10     
+  "query": {},
+  "from": 0,
+  "size": 10
 }
 ```
 
@@ -450,21 +475,21 @@ GET /hotel/_search
 
 ####  1. 语法
 ``` 
-GET /hotel/_search
+GET /索引库名/_search
 {
-  "query": {
-    "match": {
-      "FIELD": "TEXT"   // 查询条件：高亮一定要使用全文检索查询
-    }
-  },
-  "highlight": {
-    "fields": {         // 指定要高亮的字段
-      "FIELD": {
-        "pre_tags": "<em>",     // 高亮字段的前置标签
-        "post_tags": "</em>"    // 高亮字段的后置标签
-      }
-    }
-  }
+  "query": {            // 查询条件：高亮一定要使用全文检索查询
+    "match": {
+      "FIELD": "TEXT"
+    }
+  },
+  "highlight": {      
+    "fields": {                 // 指定要高亮的字段
+      "FIELD": {
+        "pre_tags": "<em>",    // 高亮字段的前置标签
+        "post_tags": "</em>"   // 高亮字段的后置标签
+      }
+    }
+  }
 }
 ```
 
@@ -475,4 +500,3 @@ GET /hotel/_search
 * 默认情况下，**高亮的字段，必须与搜索指定的字段一致**，否则无法高亮
 * 如果要对非搜索字段高亮，则需要添加一个属性：required_field_match=false
 
- 
