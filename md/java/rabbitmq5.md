@@ -26,7 +26,7 @@
   
   
   
-#### 2. yml添加配置，开启功能 ack
+#### 2. yml添加配置，开启确认机制 
 ```yaml
 spring:
   rabbitmq:
