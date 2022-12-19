@@ -128,7 +128,7 @@ spring:
 * auto：自动ack，由spring监测listener代码是否出现异常，没有异常则返回ack，抛出异常则返回nack
 * none：关闭ack，MQ假定消费者获取消息后会成功处理，因此消息投递后立即被删除（不可靠，可能丢失消息）
 
-> 默认值为auto，使用 Spring 的retry 重试机制
+> 默认模式为auto，使用了 Spring 的retry 重试机制
 
 
 
