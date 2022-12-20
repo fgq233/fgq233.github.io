@@ -8,23 +8,23 @@
     * 单个消息TTL：单个消息的过期时间
 * 队列中的消息如果超时未消费，则会变为死信，当队列、消息都设置了TTL时，任意一个到期就会成为死信
 
-####  2. 准备消息时：设置TTL
+####  2. 消息设置TTL
 ```
 Message message = MessageBuilder
         .withBody("Hello, SpringAMQP!".getBytes(StandardCharsets.UTF_8))
-        .setExpiration("5000")
+        .setExpiration("5000")   // 设置消息的超时时间，5秒
         .build();
 ```
 
 * `setExpiration` 方法设置TTL
 
 
-####  3. 声明队列时：设置TTL
+####  3. 队列设置TTL
 ```
 @Bean
 public Queue ttlQueue(){
     return QueueBuilder.durable("ttl.queue") 
-        .ttl(10000) // 设置队列的超时时间，10秒
+        .ttl(5000) // 设置队列的超时时间，5秒
         .build();
 }
 ```
