@@ -121,7 +121,17 @@ spring:
       
 ### 四. 配置中心热更新
 * 如果要实现 nacos 配置文件修改后，服务无需重启就可以感知，有2种方式：
-* 注意： 共享配置、扩展配置不支持热更新
+* 注意： 共享配置、扩展配置要支持热更新必须添加 `refresh = true`
+
+```
+shared-configs[0]:
+  dataId: shared.yaml
+  refresh: true
+  
+extension-configs[0]:
+  dataId: extension.yaml
+  refresh: true 
+```
 
 ##### 1. 在@Value注入的变量所在类上添加注解@RefreshScope
 ```
@@ -145,3 +155,5 @@ public class PatternProperties {
     private String shared;
 }
 ```
+
+
