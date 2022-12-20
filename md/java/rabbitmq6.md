@@ -106,7 +106,7 @@ public Binding dlBinding(){
 @RabbitListener(bindings = @QueueBinding(
     value = @Queue(name = "dl.ttl.queue", durable = "true"),
     exchange = @Exchange(name = "dl.ttl.exchange"),
-    key = "ttl"
+    key = "dl"
 ))
 public void listenDlQueue(String msg){
     log.info("接收到延迟消息：{}", msg);
