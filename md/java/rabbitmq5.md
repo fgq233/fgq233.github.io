@@ -45,37 +45,43 @@ spring:
 * `template.mandatory`：定义消息路由失败时的策略，true调用ReturnCallback，false则直接丢弃消息
 
 
-#### 3. 生产者服务中定义 ReturnCallback
-* 每个RabbitTemplate只能配置一个ReturnCallback，因此需要在项目加载时配置
-* 处理消息投递到交换机了，但是没有路由到队列的逻辑
+#### 3. 定义 ConfirmCallback
+* 为了监测消息是否到达交换机，可以给 RabbitTemplate 设置 ConfirmCallback
+* ConfirmCallback可以定义成全局的，也可以为单个消息个性化设置
 
-```java
+```
+// 全局设置
 @Configuration
-public class MqReturnConfig implements ApplicationContextAware {
+public class MqCommonConfig implements ApplicationContextAware {
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        // 获取RabbitTemplate
-        RabbitTemplate rabbitTemplate = applicationContext.getBean(RabbitTemplate.class);
-        // 设置ReturnCallback
-        rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
-            // 投递失败，记录日志
-            log.info("消息发送失败，应答码{}，原因{}，交换机{}，路由键{},消息{}",
-                     replyCode, replyText, exchange, routingKey, message.toString());
-            // 如果有业务需要，可以重发消息
+        RabbitTemplate template = applicationContext.getBean(RabbitTemplate.class);
+
+        template.setConfirmCallback((correlationData, ack, cause) -> {
+            String correlationId = correlationData == null ? "null" : correlationData.getId();
+            Message message = correlationData == null ? null : correlationData.getReturnedMessage();
+            if (ack) {
+                log.info("消息到达交换机，消息ID => {}", correlationId);
+            } else {
+                log.info("消息未到达交换机, 消息ID => {}，原因：{}，消息内容：{}", correlationId, cause, message);
+            }
         });
     }
 }
+
+String message = "Hello, Spring AMQP!";
+CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+rabbitTemplate.convertAndSend("test.direct", "test.direct", message, correlationData);
 ```
- 
-#### 4. 定义 ConfirmCallback
-* ConfirmCallback需要在发送消息时指定，因为每个业务处理confirm成功或失败的逻辑不一定相同
+
+* 全局的需要对correlationData进行判空，因为发送消息时，如果没有传递一个CorrelationData对象，
+回调中correlationData参数就为空
 
 ```
-// 1.消息体
+// 单个消息设置
 String message = "Hello, Spring AMQP!";
-// 2.全局唯一的消息ID，需要封装到CorrelationData中
 CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-// 3.添加callback
 correlationData.getFuture().addCallback(
     result -> {
         if(result.isAck()){
@@ -88,11 +94,35 @@ correlationData.getFuture().addCallback(
     },
     ex -> log.error("消息发送异常, ID:{}, 原因{}",correlationData.getId(),ex.getMessage())
 );
-// 4.发送消息
 rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 ```
-  
+
 * 确认机制发送消息时，必须给每个消息指定一个全局唯一ID，用来区分不同消息，避免 ack 冲突
+
+
+
+#### 4 定义 ReturnCallback
+* 处理消息投递到交换机了，但是没有路由到队列的逻辑
+* 每个RabbitTemplate只能配置一个ReturnCallback，因此需要在项目加载时配置
+
+```
+@Configuration
+public class MqCommonConfig  implements ApplicationContextAware {
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        RabbitTemplate template = applicationContext.getBean(RabbitTemplate.class);
+        template.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
+            // 投递失败，记录日志
+            log.info("消息发送失败，应答码{}，原因{}，交换机{}，路由键{}，消息{}",
+                    replyCode, replyText, exchange, routingKey, message.toString());
+            // 如果有业务需要，可以重发消息
+            // template.convertAndSend(exchange, routingKey, message.getBody());
+        });
+    }
+}
+```
+ 
+
 
 
 
