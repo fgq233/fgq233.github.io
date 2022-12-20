@@ -101,7 +101,7 @@ rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 
 
 
-#### 4 定义 ReturnCallback
+#### 4. 定义 ReturnCallback
 * 处理消息投递到交换机了，但是没有路由到队列的逻辑
 * 每个RabbitTemplate只能配置一个ReturnCallback，因此需要在项目加载时配置
 
