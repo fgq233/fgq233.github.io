@@ -115,8 +115,6 @@ public void listenDlQueue(String msg){
 
 
 #### 2. 声明普通交换机、队列，并且指定TTL、死信交换机 
-* 要给队列设置超时时间，需要在声明队列时配置x-message-ttl属性：
-
 ```
 @Bean
 public Queue ttlQueue(){
