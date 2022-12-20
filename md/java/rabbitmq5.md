@@ -72,7 +72,7 @@ public class MqCommonConfig implements ApplicationContextAware {
 
 String message = "Hello, Spring AMQP!";
 CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-rabbitTemplate.convertAndSend("test.direct", "test.direct", message, correlationData);
+rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 ```
 
 * 全局的需要对correlationData进行判空，因为发送消息时，如果没有传递一个CorrelationData对象，
@@ -112,8 +112,8 @@ public class MqCommonConfig  implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         RabbitTemplate template = applicationContext.getBean(RabbitTemplate.class);
         template.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
-            // 投递失败，记录日志
-            log.info("消息发送失败，应答码{}，原因{}，交换机{}，路由键{}，消息{}",
+            // 路由失败
+            log.info("消息路由失败，应答码{}，原因{}，交换机{}，路由键{}，消息{}",
                     replyCode, replyText, exchange, routingKey, message.toString());
             // 如果有业务需要，可以重发消息
             // template.convertAndSend(exchange, routingKey, message.getBody());
