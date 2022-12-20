@@ -4,7 +4,7 @@
 ####  1. 概念
 * Time-To-Live，存活时间
 * 在准备消息时，或者声明队列时，可以设置TTL
-* 队列中的消息如果超时未消费，则会变为死信
+* 队列中的消息如果超时未消费，则会变为死信，当队列、消息都设置了TTL时，任意一个到期就会成为死信
 
 ####  2. 准备消息时：设置TTL
 ```
@@ -96,13 +96,14 @@ public Binding dlBinding(){
 * 当消息TTL超时未被消费(`没有消费者`)，成为死信，投递到死信交换机、路由到死信队列，被死信队列的消费者消费，
 达到消息延迟的效果
 
+
 #### 1. 声明死信交换机、死信队列
 * 在`consumer`服务中，定义一个新的消费者，声明死信交换机、死信队列
 
 ```
 @RabbitListener(bindings = @QueueBinding(
     value = @Queue(name = "dl.ttl.queue", durable = "true"),
-    exchange = @Exchange(name = "dl.ttl.direct"),
+    exchange = @Exchange(name = "dl.ttl.exchange"),
     key = "ttl"
 ))
 public void listenDlQueue(String msg){
@@ -119,8 +120,8 @@ public void listenDlQueue(String msg){
 public Queue ttlQueue(){
     return QueueBuilder.durable("ttl.queue") 
         .ttl(5000) // 设置队列的超时时间，5秒
-        .deadLetterExchange("dl.ttl.direct") // 指定死信交换机
-        .deadLetterRoutingKey("dl")          // 死信交换机 RoutingKey
+        .deadLetterExchange("dl.ttl.exchange") // 指定死信交换机
+        .deadLetterRoutingKey("dl")            // 死信交换机 RoutingKey
         .build();
 }
 
@@ -133,11 +134,13 @@ public Binding ttlBinding(){
     return BindingBuilder.bind(ttlQueue()).to(ttlExchange()).with("ttl");
 }
 ```
-
-注意，这个队列设定了死信交换机为`dl.ttl.direct`
-
-
-
+ 
+#### 3. 发送消息 
+```
+String msg = "Hello, ttl queue";
+CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
+rabbitTemplate.convertAndSend("ttl.direct", "ttl", msg, correlationData);
+```
 
 
 

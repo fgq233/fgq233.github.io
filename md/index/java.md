@@ -7,6 +7,7 @@
 -  [RabbitMQ 消息转换器][rabbitmq3]
 -  [RabbitMQ 持久化][rabbitmq4]
 -  [RabbitMQ 消息确认机制][rabbitmq5]
+-  [RabbitMQ TTL + 死信][rabbitmq6]
 
  
 3. ###### 全文检索
@@ -39,6 +40,7 @@
 [rabbitmq3]: https://fgq233.github.io/md/java/rabbitmq3
 [rabbitmq4]: https://fgq233.github.io/md/java/rabbitmq4
 [rabbitmq5]: https://fgq233.github.io/md/java/rabbitmq5
+[rabbitmq6]: https://fgq233.github.io/md/java/rabbitmq6
 [lucene]: https://fgq233.github.io/md/java/lucene
 [es1]: https://fgq233.github.io/md/java/es1
 [es2]: https://fgq233.github.io/md/java/es2
