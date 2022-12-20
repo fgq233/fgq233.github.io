@@ -29,7 +29,7 @@ public Queue ttlQueue(){
 }
 ```
 
-* `ttl()` 方法设置TTL本质是 添加了 `x-message-ttl` 参数
+* `ttl()` 方法设置TTL本质是 添加了 `x-message-ttl` 属性
 
 
 
