@@ -192,19 +192,21 @@ spring:
 
 * `ImmediateRequeueMessageRecoverer`：重试耗尽后，返回nack，消息重新入队
 
-* `RepublishMessageRecoverer`：重试耗尽后，将失败消息投递到指定的交换机
+* `RepublishMessageRecoverer`：重试耗尽后，消费者将失败消息投递到指定的交换机
 
 
-推荐方案是`RepublishMessageRecoverer`，失败后将消息投递到一个指定的专门存放异常消息的队列，
-后续由人工集中处理
+推荐方案是`RepublishMessageRecoverer`，失败后将消息投递到一个指定的专门存放异常消息的队列
+
+![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ8.png)
+
 
 ```
 @Configuration
 public class ErrorMsgConfig {
 
-    private static String errorExchange = "error-direct-exchange";
-    private static String errorQueue = "error-queue";
-    private static String errorRoutingKey = "error-routing-key";
+    private static String errorExchange = "error.direct";
+    private static String errorQueue = "error.queue";
+    private static String errorRoutingKey = "error.routing.key";
     
     // 定义专门处理的交换机
     @Bean
