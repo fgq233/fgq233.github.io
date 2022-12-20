@@ -36,9 +36,68 @@ public Queue ttlQueue(){
 * 消息队列满了，无法投递，最早的消息就可能成为死信
 
 
-#### 2. 死信交换机
+#### 2. 死信交换机、死信队列
 * 如果包含死信的队列配置了`dead-letter-exchange`属性，指定了一个交换机，
 那么队列中的死信就会投递到这个交换机中，而这个交换机称为死信交换机 (`Dead Letter Exchange`，简称DLX)
 
+* 如果死信交换机也绑定了一个队列，则消息最终会进入这个存放死信的队列
+
 ![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ9.png)
+
+
+#### 3. 定义死信交换机、死信队列
+* 在失败重试策略中，默认的策略`RejectAndDontRequeueRecoverer`会在本地重试次数耗尽后，
+发送`reject`给`RabbitMQ`，消息变成死信，被丢弃
+
+* 此时可以使用 `deadLetterExchange()` 定义死信交换机、死信队列，这样消息变成死信后也不会丢弃，
+而是最终投递到死信交换机，路由到死信队列
+
+```
+// 声明普通的队列，并且为其指定死信交换机：dl.direct
+@Bean
+public Queue simpleQueue2(){
+    return QueueBuilder.durable("simple.queue") 
+        .deadLetterExchange("dl.direct")    // 指定死信交换机
+        .build();
+}
+
+// 声明死信交换机 dl.direct
+@Bean
+public DirectExchange dlExchange(){
+    return new DirectExchange("dl.direct");
+}
+
+// 声明存储死信的队列 dl.queue
+@Bean
+public Queue dlQueue(){
+    return new Queue("dl.queue", true);
+}
+
+// 将死信队列与死信交换机绑定
+@Bean
+public Binding dlBinding(){
+    return BindingBuilder.bind(dlQueue()).to(dlExchange()).with("dl");
+}
+```
+
+* 最后只要给死信队列定义消费者，就能重新消费死信了
+* 这个逻辑和重试策略 `RepublishMessageRecoverer` 很像，不同的是死信是队列投递的，
+而 `RepublishMessageRecoverer` 的消息是消费者投递的
+
+
+
+#### 4. TTL + 死信交换机实现消息延迟的效果
+队列中的消息如果超时未消费，则会变为死信，TTL 超时分为两种情况：
+
+* 消息所在的队列设置了超时时间
+* 消息本身设置了超时时间
+
+
+
+
+
+
+
+
+
 
