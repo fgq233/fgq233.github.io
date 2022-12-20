@@ -4,6 +4,7 @@
 ####  1. 概念
 * Time-To-Live，存活时间
 * 在准备消息时，或者声明队列时，可以设置TTL
+* 队列中的消息如果超时未消费，则会变为死信
 
 ####  2. 准备消息时：设置TTL
 ```
@@ -25,6 +26,9 @@ public Queue ttlQueue(){
         .build();
 }
 ```
+
+
+
 
 
 ###  二、死信
@@ -86,13 +90,51 @@ public Binding dlBinding(){
 
 
 
-#### 4. TTL + 死信交换机实现消息延迟的效果
-队列中的消息如果超时未消费，则会变为死信，TTL 超时分为两种情况：
+### 三. TTL + 死信交换机实现消息延迟的效果
+![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ10.png)
 
-* 消息所在的队列设置了超时时间
-* 消息本身设置了超时时间
+* 当消息TTL超时未被消费(`没有消费者`)，成为死信，投递到死信交换机、路由到死信队列，被死信队列的消费者消费，
+达到消息延迟的效果
+
+#### 1. 声明死信交换机、死信队列
+* 在`consumer`服务中，定义一个新的消费者，声明死信交换机、死信队列
+
+```
+@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(name = "dl.ttl.queue", durable = "true"),
+    exchange = @Exchange(name = "dl.ttl.direct"),
+    key = "ttl"
+))
+public void listenDlQueue(String msg){
+    log.info("接收到延迟消息：{}", msg);
+}
+```
 
 
+#### 2. 声明普通交换机、队列，并且指定TTL、死信交换机 
+* 要给队列设置超时时间，需要在声明队列时配置x-message-ttl属性：
+
+```
+@Bean
+public Queue ttlQueue(){
+    return QueueBuilder.durable("ttl.queue") 
+        .ttl(5000) // 设置队列的超时时间，5秒
+        .deadLetterExchange("dl.ttl.direct") // 指定死信交换机
+        .deadLetterRoutingKey("dl")          // 死信交换机 RoutingKey
+        .build();
+}
+
+@Bean
+public DirectExchange ttlExchange(){
+    return new DirectExchange("ttl.direct");
+}
+@Bean
+public Binding ttlBinding(){
+    return BindingBuilder.bind(ttlQueue()).to(ttlExchange()).with("ttl");
+}
+```
+
+注意，这个队列设定了死信交换机为`dl.ttl.direct`
 
 
 
