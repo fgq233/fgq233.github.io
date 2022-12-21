@@ -154,19 +154,17 @@ spring:
         acknowledge-mode: auto # 默认就是auto
 ```
 
-* manual：手动ack，需要在业务代码结束后，手动调用api发送ack
-* auto：自动ack，由spring监测listener代码是否出现异常，没有异常则返回ack，抛出异常则返回nack
-* none：关闭ack，MQ假定消费者获取消息后会成功处理，因此消息投递后立即被删除（不可靠，可能丢失消息）
+* **manual**：手动ack，需要在业务代码结束后，手动调用api发送ack
+* **auto**：自动ack，由spring监测listener代码是否出现异常，没有异常则返回ack，抛出异常则返回nack
+* **none**：关闭ack，MQ假定消费者获取消息后会成功处理，因此消息投递后立即被删除（不可靠，可能丢失消息）
 
-> 默认模式为auto，使用了 Spring 的retry 重试机制
+> 默认模式为auto，使用了 Spring 的retry 重试机制，消费失败后， 消息会不断requeue（重入队）到队列，
+再重新发送给消费者， 然后再次异常，再次requeue， 无限循环，直到消费成功，
+所以使用默认模式 auto，重试机制一定要有相关配置
 
 
 
-#### 2. 消费失败重试机制
-* 确认机制为 auto时，消费失败后，重试策略默认是开启的，当消费者出现异常后，
-消息会不断requeue（重入队）到队列，再重新发送给消费者，
-然后再次异常，再次requeue，无限循环，直到消费成功，所以使用重试机制一定要有相关配置：
-
+#### 2. 重试机制配置
 ```
 spring:
   rabbitmq:
@@ -180,8 +178,8 @@ spring:
           stateless: true           # 默认值为true无状态，false是有状态，如果业务中包含事务，这里改为false
 ```
  
-* 在重试达到最大次数后，如果还是失败的，会抛出异常 `AmqpRejectAndDontRequeueException`，
-此时返回ack，mq删除消息
+* 默认重试机制策略为`RejectAndDontRequeueRecoverer`，添加如上配置后，在重试达到最大次数后，如果还是失败的，
+会抛出异常 `AmqpRejectAndDontRequeueException`， 此时返回ack，mq删除消息
 
 
 
@@ -235,3 +233,36 @@ public class ErrorMsgConfig {
 ```
   
 * 上面达到最大重试次数后，若还是失败，会将消息发送到交换机 error.direct 交换机上
+
+#### 4. 使用手动模式 manual
+* 当 `acknowledge-mode` 配置为 `manual` 手动模式后，就需要消费者手动控制 `ack`
+
+```
+/**
+ * deliveryTag 消息投递序号
+ * multiple 是否批量应答，值为 true则会一次性 ack/ nack所有小于当前消息deliveryTag的消息
+ * requeue 是否重新入队，值为 true表示重新投入队列中
+ */
+
+// 成功消费，返回ack，消息会被 mq 删除             
+void basicAck(long deliveryTag, boolean multiple) 
+
+// 失败消费，返回ncck，根据 requeue 决定是否重新入队
+void basicNack(long deliveryTag, boolean multiple, boolean requeue)
+
+// 拒绝消息，根据 requeue 决定是否重新入队
+void basicReject(long deliveryTag, boolean requeue)
+
+
+
+@RabbitListener(queuesToDeclare = @Queue("test.manual"))
+public void testManual(Channel channel, Message message) throws IOException {
+    try {
+        // ...... 业务逻辑
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+    } catch (Exception e){
+        // ...... 业务逻辑
+        channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,  true);
+    }
+}
+```
