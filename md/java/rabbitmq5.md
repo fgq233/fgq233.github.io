@@ -241,7 +241,7 @@ public class ErrorMsgConfig {
 /**
  * deliveryTag 消息投递序号
  * multiple 是否批量应答，值为 true则会一次性 ack/ nack所有小于当前消息deliveryTag的消息
- * requeue 是否重新入队，值为 true表示重新投入队列中
+ * requeue 是否重新入队，值为 true表示重新投入队列中，为false 时消息丢弃，变成死信
  */
 
 // 成功消费，返回ack，消息会被 mq 删除             
@@ -266,3 +266,6 @@ public void testManual(Channel channel, Message message) throws IOException {
     }
 }
 ```
+
+* 注意：如果发生异常，然后 requeue 重新入队，消息会放在队列头部，然后接下来一直再消费异常，会造成死循环，
+CPU和内存很快就爆了，所以推荐异常时也使用 `basicAck` ，然后将异常信息记录到数据库中
