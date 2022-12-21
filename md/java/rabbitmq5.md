@@ -273,5 +273,26 @@ public class Receiver {
 ```
 
 
-* 注意：如果发生异常，然后 requeue 重新入队，消息会放在队列头部，然后接下来一直再消费异常，会造成死循环，
-CPU和内存很快就爆了，所以推荐异常时也使用 `basicAck` ，然后将异常信息记录到数据库中
+* 死循环问题：如果代码有异常且设置了重新入队，就会造成下面这种死循环
+> 异常 > nack > 重新入队 > 异常 > nack > 重新入队 ..... 
+
+```
+@RabbitHandler
+public void testManual(Channel channel, Message message) throws IOException {
+    try {
+        // ...业务逻辑
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+    } catch (Exception e) {
+        if (message.getMessageProperties().getRedelivered()) {
+            // 消息已重复处理失败, 拒绝接受消息, 消息变为死信
+            // 此处可以将异常数据记录在数据库中
+            channel.basicReject(message.getMessageProperties().getDeliveryTag(), false);
+        } else {
+            // 返回 nack, 重新入队
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+        }
+    }
+}
+```
+
+* message.getMessageProperties().getRedelivered() 首次异常为false，第二次异常为true
