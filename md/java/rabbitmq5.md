@@ -275,6 +275,8 @@ public class Receiver {
 
 * 死循环问题：如果代码有异常且设置了重新入队，就会造成下面这种死循环
 > 异常 > nack > 重新入队 > 异常 > nack > 重新入队 ..... 
+* 所以一定不能一直入队，可以通过 message.getMessageProperties().getRedelivered() 判断
+该方法返回值首次异常时为false，第二次异常时为true，解决方式可以这样：
 
 ```
 @RabbitHandler
@@ -295,4 +297,4 @@ public void testManual(Channel channel, Message message) throws IOException {
 }
 ```
 
-* message.getMessageProperties().getRedelivered() 首次异常为false，第二次异常为true
+ 
