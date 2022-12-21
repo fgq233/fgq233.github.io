@@ -255,17 +255,23 @@ void basicReject(long deliveryTag, boolean requeue)
 
 
 
-@RabbitListener(queuesToDeclare = @Queue("test.manual"))
-public void testManual(Channel channel, Message message) throws IOException {
-    try {
-        // ...... 业务逻辑
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-    } catch (Exception e){
-        // ...... 业务逻辑
-        channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,  true);
+@Component
+@RabbitListener(queues = "test.manual")
+public class Receiver {
+
+    @RabbitHandler
+    public void testManual(Channel channel, Message message) {
+        try {
+            // 业务逻辑
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        } catch (Exception e){
+            // 业务逻辑
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,  true);
+        }
     }
 }
 ```
+
 
 * 注意：如果发生异常，然后 requeue 重新入队，消息会放在队列头部，然后接下来一直再消费异常，会造成死循环，
 CPU和内存很快就爆了，所以推荐异常时也使用 `basicAck` ，然后将异常信息记录到数据库中

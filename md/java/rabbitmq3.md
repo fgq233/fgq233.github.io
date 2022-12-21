@@ -51,3 +51,39 @@ public class QueueConfig {
         System.out.println(msg);
     }
 ```
+
+
+#### 四、RabbitListener 搭配 RabbitHandler
+```
+@Component
+@RabbitListener(queues = "test.queue")
+public class Receiver {
+
+    @RabbitHandler
+    public void testHandler1(String msg) {
+    }
+
+    @RabbitHandler
+    public void testHandler2(Map<String, Object> msg) {
+    }
+}
+```
+
+* @RabbitListener 可以标注在类上面，需配合 @RabbitHandler 注解一起使用
+
+* @RabbitListener 标注在类上面，表示收到消息的时候，就交给 @RabbitHandler 的方法处理，
+具体使用哪个方法处理，根据 MessageConverter 转换后的参数类型来决定，这样一个队列就能接收不同类型参数消息了
+
+* @RabbitHandler 也可以使用 Message 处理所有类型参数
+
+```
+@Component
+@RabbitListener(queues = "test.queue")
+public class Receiver {
+    
+    @RabbitHandler
+    public void testManual(Channel channel, Message message) throws IOException {
+    }
+    
+}
+```
