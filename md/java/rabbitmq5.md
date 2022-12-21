@@ -235,7 +235,7 @@ public class ErrorMsgConfig {
 * 上面达到最大重试次数后，若还是失败，会将消息发送到交换机 error.direct 交换机上
 
 #### 4. 使用手动模式 manual
-* 当 `acknowledge-mode` 配置为 `manual` 手动模式后，就需要消费者手动控制 `ack`
+* 当 `acknowledge-mode` 配置为 `manual` 手动模式后，就需要消费者手动控制 `ack` 
 
 ```
 /**
@@ -250,7 +250,7 @@ void basicAck(long deliveryTag, boolean multiple)
 // 失败消费，返回ncck，根据 requeue 决定是否重新入队
 void basicNack(long deliveryTag, boolean multiple, boolean requeue)
 
-// 拒绝消息，根据 requeue 决定是否重新入队
+// 拒绝消息，根据 requeue 决定是否重新入队，和 basicNack 很像，只不过不能批量处理
 void basicReject(long deliveryTag, boolean requeue)
 
 
