@@ -2,12 +2,13 @@
 
 2. ###### MQ
 -  [MQ简介][mq]
--  [RabbitMQ 使用步骤][rabbitmq1]
--  [RabbitMQ 五种消息模型][rabbitmq2]
--  [RabbitMQ 消息转换器][rabbitmq3]
--  [RabbitMQ 持久化][rabbitmq4]
--  [RabbitMQ 消息确认机制][rabbitmq5]
--  [RabbitMQ TTL + 死信][rabbitmq6]
+-  [RabbitMQ-1 使用步骤][rabbitmq1]
+-  [RabbitMQ-2 五种消息模型][rabbitmq2]
+-  [RabbitMQ-3 消息转换器][rabbitmq3]
+-  [RabbitMQ-4 持久化][rabbitmq4]
+-  [RabbitMQ-5 消息确认机制][rabbitmq5]
+-  [RabbitMQ-6 TTL + 死信][rabbitmq6]
+-  [RabbitMQ-7 延迟队列][rabbitmq7]
 
  
 3. ###### 全文检索
