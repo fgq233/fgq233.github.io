@@ -42,6 +42,7 @@
 [rabbitmq4]: https://fgq233.github.io/md/java/rabbitmq4
 [rabbitmq5]: https://fgq233.github.io/md/java/rabbitmq5
 [rabbitmq6]: https://fgq233.github.io/md/java/rabbitmq6
+[rabbitmq7]: https://fgq233.github.io/md/java/rabbitmq7
 [lucene]: https://fgq233.github.io/md/java/lucene
 [es1]: https://fgq233.github.io/md/java/es1
 [es2]: https://fgq233.github.io/md/java/es2
