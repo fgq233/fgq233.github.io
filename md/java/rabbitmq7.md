@@ -92,7 +92,7 @@ rabbitTemplate.convertAndSend("delay.direct", "delay", message, correlationData)
 
 
 ####  5. 与 Return CallBck 兼容
-* 因为 `DelayExchange` 是把消息放在交换机存储，没有立即发送到队列，
+* `DelayExchange` 是把消息放在交换机存储，没有立即发送到队列，
 所以 Return CallBck 会收到路由失败结果，通过下列方式兼容：
 
 ```
