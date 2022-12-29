@@ -247,7 +247,7 @@ public class ErrorMsgConfig {
 // 成功消费，返回ack，消息会被 mq 删除             
 void basicAck(long deliveryTag, boolean multiple) 
 
-// 失败消费，返回ncck，根据 requeue 决定是否重新入队
+// 失败消费，返回nack，根据 requeue 决定是否重新入队
 void basicNack(long deliveryTag, boolean multiple, boolean requeue)
 
 // 拒绝消息，根据 requeue 决定是否重新入队，和 basicNack 很像，只不过不能批量处理
