@@ -9,6 +9,7 @@
 -  [RabbitMQ-5 消息确认机制][rabbitmq5]
 -  [RabbitMQ-6 TTL + 死信][rabbitmq6]
 -  [RabbitMQ-7 延迟队列][rabbitmq7]
+-  [RabbitMQ-8 惰性队列][rabbitmq8]
 
  
 3. ###### 全文检索
@@ -43,6 +44,7 @@
 [rabbitmq5]: https://fgq233.github.io/md/java/rabbitmq5
 [rabbitmq6]: https://fgq233.github.io/md/java/rabbitmq6
 [rabbitmq7]: https://fgq233.github.io/md/java/rabbitmq7
+[rabbitmq8]: https://fgq233.github.io/md/java/rabbitmq8
 [lucene]: https://fgq233.github.io/md/java/lucene
 [es1]: https://fgq233.github.io/md/java/es1
 [es2]: https://fgq233.github.io/md/java/es2
