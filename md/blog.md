@@ -1,6 +1,6 @@
 * [SpringCloud微服务系列][cloudHtml]       [~][cloudMd]
 * [Java中间件 & 框架][javaHtml]            [~][javaMd]
-* Java设计模式
+* [Java设计模式][mode]           
 * [Oracle][oracle]
 * [Mysql][mysql]
 * [JS][js]
@@ -18,3 +18,4 @@
 [oracle]: https://fgq233.github.io/md/index/oracle
 [mysql]: https://fgq233.github.io/md/index/mysql
 [win]: https://fgq233.github.io/md/index/win
+[mode]: https://fgq233.github.io/md/index/mode
