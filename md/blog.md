@@ -1,5 +1,5 @@
 * [SpringCloud微服务系列][cloudHtml]       [~][cloudMd]
-* [Java][javaHtml]                       [~][javaMd]
+* [Java中间件&框架][javaHtml]                       [~][javaMd]
 * Java设计模式
 * [Oracle][oracle]
 * [Mysql][mysql]
