@@ -1,4 +1,5 @@
 1. [Java 设计模式][designMode]
+2. [单例模式][mode1]
 
 
 [designMode]: https://fgq233.github.io/md/mode/designMode
