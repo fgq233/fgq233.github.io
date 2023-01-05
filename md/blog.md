@@ -12,7 +12,7 @@
 
 [cloudHtml]: https://fgq233.github.io/html/blog?key=cloud
 [cloudMd]: https://fgq233.github.io/md/index/cloud
-[javaHtml]: https://fgq233.github.io/md/index/blog?key=java
+[javaHtml]: https://fgq233.github.io/html/blog?key=java
 [javaMd]: https://fgq233.github.io/md/index/java
 [js]: https://fgq233.github.io/md/index/js
 [oracle]: https://fgq233.github.io/md/index/oracle

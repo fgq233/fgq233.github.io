@@ -3,7 +3,7 @@ function initBlog() {
     let blogList2 = [];
     let blogList3 = [];
     let blogList4 = [];
-    let key = GetQueryString("key");
+    let key = getQueryString("key");
     if (key === "cloud") {
         blogList1 = cloudList1;
         blogList2 = cloudList2;
@@ -60,7 +60,7 @@ function initBlog() {
 /**
  * 采用正则表达式获取地址栏参数
  */
-function GetQueryString(name) {
+function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
