@@ -1,4 +1,4 @@
-const blogList1 = [
+const cloudList1 = [
     {url: "https://fgq233.github.io/md/springcloud/all", title: "常用微服务组件", child: []},
     {
         url: "", title: "Eureka", child: [
@@ -33,7 +33,7 @@ const blogList1 = [
     }
 ];
 
-const blogList2 = [
+const cloudList2 = [
     {url: "https://fgq233.github.io/md/springcloud/sentinel", title: "Sentinel", child: []},
     {
         url: "", title: "分布式事务 Seata", child: [
@@ -44,14 +44,6 @@ const blogList2 = [
             {url: "https://fgq233.github.io/md/springcloud/seata5", title: "Seata-集群搭建"}
         ]
     },
-    {
-        url: "", title: "分布式存储 Redis", child: [
-            {url: "https://fgq233.github.io/md/springcloud/redis1", title: "Redis-持久化"},
-            {url: "https://fgq233.github.io/md/springcloud/redis2", title: "Redis-主从集群"},
-            {url: "https://fgq233.github.io/md/springcloud/redis3", title: "Redis-哨兵集群"},
-            {url: "https://fgq233.github.io/md/springcloud/redis4", title: "Redis-分片集群"}
-        ]
-    },
 ];
-const blogList3 = [];
-const blogList4 = [];
+const cloudList3 = [];
+const cloudList4 = [];

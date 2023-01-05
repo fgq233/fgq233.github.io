@@ -1,6 +1,8 @@
 1. ###### [Stream 流][stream]    
+2. ###### [Exception 详细信息获取][exception]    
+3. ###### [Nginx][nginx]
 
-2. ###### MQ
+4. ###### MQ
 -  [MQ简介][mq]
 -  [RabbitMQ-1 使用步骤][rabbitmq1]
 -  [RabbitMQ-2 五种消息模型][rabbitmq2]
@@ -12,7 +14,7 @@
 -  [RabbitMQ-8 惰性队列][rabbitmq8]
 
  
-3. ###### 全文检索
+5. ###### 全文检索
 -  [Lucene中的基本概念][lucene]
 -  [elasticsearch-1 基本概念][es1]
 -  [elasticsearch-2 Windows下环境安装][es2]
@@ -24,6 +26,11 @@
 -  [elasticsearch-8 自动补全查询][es8]
 
 
+6. ###### Redis
+-  [Redis-持久化][redis1]
+-  [Redis-主从集群][redis2]
+-  [Redis-哨兵集群][redis3]
+-  [Redis-分片集群][redis4]
 
 
 
@@ -32,10 +39,13 @@
 
 
 
-
-
-
+[nginx]: https://fgq233.github.io/md/java/nginx
+[redis1]: https://fgq233.github.io/md/java/redis1
+[redis2]: https://fgq233.github.io/md/java/redis2
+[redis3]: https://fgq233.github.io/md/java/redis3
+[redis4]: https://fgq233.github.io/md/java/redis4
 [stream]: https://fgq233.github.io/md/java/stream
+[exception]: https://fgq233.github.io/md/java/exception
 [mq]: https://fgq233.github.io/md/java/mq
 [rabbitmq1]: https://fgq233.github.io/md/java/rabbitmq1
 [rabbitmq2]: https://fgq233.github.io/md/java/rabbitmq2

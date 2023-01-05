@@ -1,5 +1,5 @@
 * [SpringCloud微服务系列][cloudHtml]       [~][cloudMd]
-* [Java][java]
+* [Java][javaHtml]                       [~][javaMd]
 * Java设计模式
 * [Oracle][oracle]
 * [Mysql][mysql]
@@ -10,9 +10,10 @@
 * [Windows][win]
 * Linux
 
-[cloudHtml]: https://fgq233.github.io/html/cloud
+[cloudHtml]: https://fgq233.github.io/html/blog?key=cloud
 [cloudMd]: https://fgq233.github.io/md/index/cloud
-[java]: https://fgq233.github.io/md/index/java
+[javaHtml]: https://fgq233.github.io/md/index/blog?key=java
+[javaMd]: https://fgq233.github.io/md/index/java
 [js]: https://fgq233.github.io/md/index/js
 [oracle]: https://fgq233.github.io/md/index/oracle
 [mysql]: https://fgq233.github.io/md/index/mysql
