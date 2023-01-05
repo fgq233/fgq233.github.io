@@ -13,7 +13,6 @@ const cloudList1 = [
             {url: "https://fgq233.github.io/md/springcloud/Ribbon3", title: "Ribbon懒加载"}
         ]
     },
-    {url: "https://fgq233.github.io/md/springcloud/nginx", title: "Nginx", child: []},
     {
         url: "", title: "Nacos", child: [
             {url: "https://fgq233.github.io/md/springcloud/nacos1", title: "Nacos安装"},
