@@ -104,7 +104,7 @@ clientPort=2181
 #### 4. 创建 myid 文件
 * 在每个ZooKeeper 的 `data` 目录下创建一个 `myid` 文件，内容分别是1、2、3 ，这个文件记录每个服务器的ID
 
-#### 5. 创建 myid 文件
+#### 5. 配置集群服务器IP列表
 * 在每个ZooKeeper 的 zoo.cfg 配置客户端访问端口（clientPort）和集群服务器IP列表
 
 ```
