@@ -33,7 +33,7 @@ const cloudList1 = [
 ];
 
 const cloudList2 = [
-    {url: "https://fgq233.github.io/md/springcloud/sentinel", title: "Sentinel", child: []},
+    {url: "https://fgq233.github.io/md/springcloud/sentinel", title: "微服务保护 Sentinel", child: []},
     {
         url: "", title: "分布式事务 Seata", child: [
             {url: "https://fgq233.github.io/md/springcloud/seata1", title: "分布式事务理论基础"},

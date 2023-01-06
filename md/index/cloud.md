@@ -17,7 +17,7 @@
 -  [Gateway-断言工厂][gateway2]
 -  [Gateway-过滤器工厂][gateway3]
 -  [Gateway-跨域问题][gateway4]
-7. ###### [Sentinel][sentinel]
+7. ###### [微服务保护 Sentinel][sentinel]
 8. ###### 分布式事务 Seata 
 -  [分布式事务理论基础][seata1]
 -  [Seata-部署、集成][seata2]
