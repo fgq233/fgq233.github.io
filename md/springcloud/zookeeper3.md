@@ -153,13 +153,13 @@ pathChildrenCache.getListenable().addListener(new PathChildrenCacheListener() {
         // 根据 type 判断事件类型
         PathChildrenCacheEvent.Type type = event.getType();
         if (type.equals(PathChildrenCacheEvent.Type.CHILD_ADDED)) {
-            System.out.println("新增了节点！！！");
+            System.out.println("新增了节点");
         } else if (type.equals(PathChildrenCacheEvent.Type.CHILD_UPDATED)) {
-            System.out.println("节点数据更新了！！！");
+            System.out.println("节点数据更新了");
             byte[] data = event.getData().getData();
             System.out.println(new String(data));
         } else if (type.equals(PathChildrenCacheEvent.Type.CHILD_REMOVED)) {
-            System.out.println("删除了节点！！！");
+            System.out.println("删除了节点");
         }
     }
 });
@@ -170,7 +170,7 @@ pathChildrenCache.start();
     
 #### 4. TreeCache
 ```
-//1. 创建监听器
+//1. 创建 TreeCache 对象
 TreeCache treeCache = new TreeCache(client, "/app2");
 
 //2. 注册监听
@@ -182,13 +182,13 @@ treeCache.getListenable().addListener(new TreeCacheListener() {
         // 根据 type 判断事件类型
         TreeCacheEvent.Type type = event.getType();
         if (type.equals(TreeCacheEvent.Type.NODE_ADDED)) {
-            System.out.println("新增了节点！！！");
+            System.out.println("新增了节点");
         } else if (type.equals(TreeCacheEvent.Type.NODE_UPDATED)) {
-            System.out.println("节点数据更新了！！！");
+            System.out.println("节点数据更新了");
             byte[] data = event.getData().getData();
             System.out.println(new String(data));
         } else if (type.equals(TreeCacheEvent.Type.NODE_REMOVED)) {
-            System.out.println("删除了节点！！！");
+            System.out.println("删除了节点");
         }
     }
 });
