@@ -83,7 +83,7 @@
 ###  四、 ES开启 xpack(单机版)
 * 解压的ES默认是没有账号与密码，通过ip:端口就能直接访问，不安全
 
-####  1、 ES 开启 xpack
+####  1、 ES 开启 xpack、SSL传输
 * 配置 elasticsearch.yml
 
 ```
