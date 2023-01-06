@@ -77,8 +77,8 @@ client.getData().storingStatIn(status).forPath("/app1");
 
 #### 3. 改
 ```
-// 查询节点数据
-client.setData().forPath("/app1", "itcast".getBytes());
+// 修改节点数据
+client.setData().forPath("/app1", "fgq666".getBytes());
 
 // 根据版本修改
 Stat status = new Stat();
