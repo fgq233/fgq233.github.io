@@ -109,7 +109,7 @@ client.delete().guaranteed().inBackground(new BackgroundCallback() {
 ```
 
 
-### 三、Watcher 监听事件
+### 四、Watcher 监听事件
 #### 1. 发布/订阅功能
 * ZK 中引入了Watcher 机制来实现了发布/订阅功能
 * ZK 允许用户在指定节点上注册一些Watcher，并且在一些特定事件触发的时候，
