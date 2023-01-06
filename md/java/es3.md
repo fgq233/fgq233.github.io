@@ -116,7 +116,15 @@ PUT /索引库名/_mapping
 }
 ```
 
-#### 5. 重建索引 _reindex
+#### 5. 查询所有索引信息
+```
+GET /_cat/indices
+```
+
+* 查询出来的是所有索引的名称、索引文件夹名称、大小
+
+
+#### 6. 重建索引 _reindex
 * `reindex` 会把文档数据从旧索引库复制到新索引库
 * `wait_for_completion = false` 表示异步执行
 
