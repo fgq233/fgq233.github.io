@@ -44,9 +44,9 @@
 * 启动成功后访问：[http://localhost:5601](http://localhost:5601)
 
 
-####  2、中文界面
-* 修改 config\kibana.yml 文件，将 i18n.locale: “en”, 改为 i18n.locale: “zh-CN”
-
+####  2、kibana.yml 其他设置
+* 中文界面：`i18n.locale: "zh-CN"`
+* ES的IP：`elasticsearch.hosts: ["http://127.0.0.1:9200"]`,当 ES 和 kibana 不在同一台服务器时需要设置
 
 ####  三、 IK中文分词器
 ####  1、 下载、安装
