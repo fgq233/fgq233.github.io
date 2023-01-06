@@ -25,8 +25,12 @@
 配置服务的好处是可以让 Elasticsearch 自动启动
 
 ####  3、elasticsearch.yml 其他配置
-* 默认端口 `http.port`
-
+* 节点名称 `node.name: node-1`
+* 端口 `http.port: 9200`
+* ip设置 `network.host: 0.0.0.0`，设置ip后必须开启下列设置之一
+  * `discovery.seed_hosts: ["127.0.0.1", "[::1]"]`
+  * `discovery.seed_providers`
+  * `cluster.initial_master_nodes: ["node-1", "node-2"]` 
 
 
 
@@ -85,6 +89,9 @@
 ```
 # 开启 xpack 安全认证机制
 xpack.security.enabled: true
+
+# 启用SSL传输
+xpack.security.transport.ssl.enabled: true
 ```
 
 ####  2、ES 设置密码
@@ -136,12 +143,12 @@ bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12       #使用证书生
 * 将文件复制到config目录下、以及集群中其它所有节点config目录下
 
 
-####  2、 ES 开启 xpack、集群传输
+####  2、 ES 开启 xpack、SSL传输
 ```
 # 开启 xpack 安全认证机制
 xpack.security.enabled: true
 
-# 开启集群传输
+# 开启SSL传输
 xpack.security.transport.ssl.enabled: true
 xpack.security.transport.ssl.verification_mode: certificate
 xpack.security.transport.ssl.keystore.path: elastic-stack-ca.p12
