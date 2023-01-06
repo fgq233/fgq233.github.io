@@ -57,8 +57,8 @@ ZNode 节点可以分为四大类：
   
 
 #### 2. 解压
-* windows 系统上 解压会报错，可以打开Windows上的Linux环境，`win + R，然后cd 进入文件目录输入：PowerShell`
-* tar -zxvf xxx.gz
+* windows 系统上 解压会报错，可以打开Windows上的Linux环境，`win + R，输入：PowerShell`
+* cd 进入文件目录，解压 `tar -zxvf xxx.gz`
 
 #### 3. 配置文件
 * 将 `conf` 目录下 `zoo_sample.cfg` 复制一份，修改名称为 `zoo.cfg`
