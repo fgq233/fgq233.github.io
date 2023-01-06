@@ -96,7 +96,7 @@ bin/elasticsearch-setup-passwords interactive           # 手动生成
 * 需要先启动 ES，然后才能为elastic、kibana、logstash等账号设置密码
 * 设置过一次就不能再执行了，按照下面步骤重新设置
   * 注释掉  `xpack.security.enabled: true`, 重启 ES 服务
-  * 查询`GET /_cat/indices`，有个索引 `.security-7`，,删除此索引回到无密码状态
+  * 查询`GET /_cat/indices`，有个索引 `.security-7`，,删除此索引 `DELETE /.security-7` 回到无密码状态
   * 从步骤 1 开始重新设置
 
 
