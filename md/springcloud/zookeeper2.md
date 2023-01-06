@@ -4,10 +4,10 @@
 
 ### 一、服务端 zkServer 常用命令
 
-* 启动服务: ./zkServer.cmd start
-* 查看服务状态: ./zkServer.cmd status
-* 停止服务: ./zkServer.cmd stop 
-* 重启服务: ./zkServer.cmd restart 
+* 启动服务: ./zkServer.sh start
+* 查看服务状态: ./zkServer.sh status
+* 停止服务: ./zkServer.sh stop 
+* 重启服务: ./zkServer.sh restart 
  
  
  
