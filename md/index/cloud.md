@@ -25,17 +25,17 @@
 -  [Seata-TCC模式、SAGA模式][seata4]
 -  [Seata-集群搭建][seata5]
 9. ###### ZooKeeper
--  [ZooKeeper-1 介绍][zooKeeper1]
--  [ZooKeeper-2 常用命令][zooKeeper2]
--  [ZooKeeper-3 Java API][zooKeeper3]
--  [ZooKeeper-4 分布式锁][zooKeeper4]
+-  [ZooKeeper-1 介绍][zookeeper1]
+-  [ZooKeeper-2 常用命令][zookeeper2]
+-  [ZooKeeper-3 Java API][zookeeper3]
+-  [ZooKeeper-4 分布式锁][zookeeper4]
 
 
 
-[zooKeeper1]: https://fgq233.github.io/md/springcloud/zooKeeper1
-[zooKeeper2]: https://fgq233.github.io/md/springcloud/zooKeeper2
-[zooKeeper3]: https://fgq233.github.io/md/springcloud/zooKeeper3
-[zooKeeper4]: https://fgq233.github.io/md/springcloud/zooKeeper4
+[zookeeper1]: https://fgq233.github.io/md/springcloud/zookeeper1
+[zookeeper2]: https://fgq233.github.io/md/springcloud/zookeeper2
+[zookeeper3]: https://fgq233.github.io/md/springcloud/zookeeper3
+[zookeeper4]: https://fgq233.github.io/md/springcloud/zookeeper4
 [all]: https://fgq233.github.io/md/springcloud/all
 [feign]: https://fgq233.github.io/md/springcloud/feign
 [Eureka1]: https://fgq233.github.io/md/springcloud/Eureka1
