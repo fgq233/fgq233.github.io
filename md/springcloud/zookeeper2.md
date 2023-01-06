@@ -11,7 +11,7 @@
  
  
  
-### 二、服务端客户端 zkCli 常用命令
+### 二、客户端 zkCli 常用命令
 #### 1. 连接、断开
 * 连接ZooKeeper服务端 `./zkCli.sh –server ip:port`
 * 断开连接 `quit`
