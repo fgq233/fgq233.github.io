@@ -1,6 +1,6 @@
 # ZooKeeper 介绍
 ### 一、介绍
-* ZooKeeper是一个分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件
+* ZooKeeper是一个分布式应用程序协调服务
  
 ### 二、ZooKeeper 作用
 #### 1. 注册中心
