@@ -115,7 +115,7 @@ client.delete().guaranteed().inBackground(new BackgroundCallback() {
 * ZK 允许用户在指定节点上注册一些Watcher，并且在一些特定事件触发的时候，
 ZK 服务端会将事件通知到监听的客户端上去，该机制是 ZK 实现分布式协调服务的重要特性
 * Curator引入了 Cache 来实现对 ZK 服务端事件的监听
-    * `NodeCache` : 只是监听某一个特定的节点
+    * `NodeCache` : 监听某一个特定的节点
     * `PathChildrenCache` : 监控一个ZNode的所有子节点 
     * `TreeCache` : 可以监控整个树上的所有节点，类似于 `NodeCache` 和 `PathChildrenCache` 的组合
     
