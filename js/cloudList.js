@@ -14,6 +14,14 @@ const cloudList1 = [
         ]
     },
     {
+        url: "", title: "ZooKeeper", child: [
+            {url: "https://fgq233.github.io/md/springcloud/zooKeeper1", title: "ZooKeeper-1 介绍"},
+            {url: "https://fgq233.github.io/md/springcloud/zooKeeper2", title: "ZooKeeper-2 常用命令"},
+            {url: "https://fgq233.github.io/md/springcloud/zooKeeper3", title: "ZooKeeper-3 Java API"},
+            {url: "https://fgq233.github.io/md/springcloud/zooKeeper4", title: "ZooKeeper-4 分布式锁"}
+        ]
+    },
+    {
         url: "", title: "Nacos", child: [
             {url: "https://fgq233.github.io/md/springcloud/nacos1", title: "Nacos安装"},
             {url: "https://fgq233.github.io/md/springcloud/nacos2", title: "Nacos注册中心"},
