@@ -16,7 +16,7 @@
 | primary key | primary key | 主键，MongoDB自动将_id字段设置为主键 |
 
 
-* `MongoDB` 中的记录是一个文档 document，是一个由 (字段 + 值) 对（`field:value`）组成的结构
+* `MongoDB` 中的记录是一个文档 document，是一个由 (字段 + 值) 对（`field:value`）组成的结构，
 类似于 `JSON` 格式
  
 * 文档 document 示例：{name：张三, age: 18}
