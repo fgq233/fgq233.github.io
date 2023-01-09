@@ -16,7 +16,8 @@ const javaList1 = [
 
 const javaList2 = [
     {
-        url: "", title: "Lucene中的基本概念", child: [
+        url: "", title: "全文检索", child: [
+            {url: "https://fgq233.github.io/md/java/lucene", title: "Lucene中的基本概念"},
             {url: "https://fgq233.github.io/md/java/es1", title: "elasticsearch-1 基本概念"},
             {url: "https://fgq233.github.io/md/java/es2", title: "elasticsearch-2 Windows下环境安装"},
             {url: "https://fgq233.github.io/md/java/es3", title: "elasticsearch-3 DSL语法对索引库、文档操作"},
