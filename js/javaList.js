@@ -38,6 +38,12 @@ const javaList3 = [
             {url: "https://fgq233.github.io/md/java/redis4", title: "Redis-分片集群"}
         ]
     },
+    {
+        url: "", title: "MongoDB", child: [
+            {url: "https://fgq233.github.io/md/java/mongodb1", title: "MongoDB-基本概念"},
+            {url: "https://fgq233.github.io/md/java/mongodb2", title: "MongoDB-安装启动"},
+        ]
+    },
 ];
 const javaList4 = [
     {url: "https://fgq233.github.io/md/java/stream", title: "Stream 流", child: []},
