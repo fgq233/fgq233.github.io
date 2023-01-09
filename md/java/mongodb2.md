@@ -46,12 +46,12 @@ mongod --config ../conf/mongodb.conf
 
 #### 2. 上传压缩包到Linux中并解压到当前目录
 ```
-tar -xvf mongodb-linux-x86_64-4.0.10.tgz
+tar -xvf mongodb-linux-x86_64-5.0.14.tgz
 ```
 
 #### 3. 移动解压后的文件夹到指定的目录中
 ```
-mv mongodb-linux-x86_64-4.0.10 /usr/local/mongodb
+mv mongodb-linux-x86_64-5.0.14 /usr/local/mongodb
 ```
  
 #### 4. 新建数据目录、日志目录
