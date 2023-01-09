@@ -15,7 +15,13 @@
 * 启动服务使用 `mongod` 命令，必须指定`dbpath` 参数，有2种方法指定
     * 命令行 + 参数
     * 命令行 + 配置文件
-      * 在根目录建一个 `conf` 目录，再在 `conf` 目录下新建 `mongodb.conf` 配置文件
+      * 在根目录建一个 `conf` 目录，再在 `conf` 目录下新建 `mongodb.conf` 配置文件，内容如下
+      
+```
+storage:
+    dbPath: D:\MyDevelop\MongoDB\mongodb-win32-x86_64-windows-5.0.14\data\db
+``` 
+      
 
 * 在 bin 目录下打开 cmd 命令，使用 `mongod` 命令启动服务
 
