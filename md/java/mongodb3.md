@@ -131,7 +131,6 @@ db.blog.update({userid:"1001"},{$set:{starnum:NumberInt(888)}},{multi:true})
 db.blog.update({userid:"1003"},{$inc:{starnum:NumberInt(12)}})
 ```
 
-* 默认
 * query：查询条件
 * update：更新内容
 * options
