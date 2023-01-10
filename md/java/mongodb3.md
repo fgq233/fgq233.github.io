@@ -187,7 +187,7 @@ db.集合名称.find({ "field" : { $gte: value }})   //  大于等于: field >= 
 db.集合名称.find({ "field" : { $lte: value }})   //  小于等于: field <= value
 db.集合名称.find({ "field" : { $ne: value }})    //  不等于: field != value
 
-# 多个条件查询 and、or
+# 多个条件组合查询 and、or
 db.集合名称.find({$and:[{},{}]})
 db.集合名称.find({$or:[{},{}]})
 ```
