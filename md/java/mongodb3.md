@@ -31,7 +31,9 @@ db.dropDatabase()
 
 ### 二.  集合操作
 * 类似关系型数据库中的表
+
 #### 1.  集合的创建
+
 ```
 # 显式创建，name为要创建的集合名称
 db.createCollection(name)
