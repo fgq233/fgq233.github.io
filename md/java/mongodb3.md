@@ -81,7 +81,6 @@ try {
   print (e);
 }
 
-
 # 示例
 db.blog.insert({"content":"范老师帅的一批","userid":"1001", "starnum":NumberInt(10), "createtime":new Date()})
 db.blog.insertMany([
@@ -149,7 +148,6 @@ db.blog.update({userid:"1003"},{$inc:{starnum:NumberInt(12)}})
 db.集合名称.remove(query条件)
 # 全部删除
 db.集合名称.remove({})
-
 
 # 示例
 db.blog.remove({userid:"1001"})
@@ -243,7 +241,6 @@ db.集合名称.find().skip(NUMBER))
 # 组合后可以形成分页查询的效果
 db.集合名称.find().skip(NUMBER).limit(NUMBER)
 
-
 # 示例
 db.blog.find().skip(2).limit(1)
 ```
@@ -252,8 +249,7 @@ db.blog.find().skip(2).limit(1)
 #### 6.  查询结果排序
 
 ```
-db.集合名称.find(...).sort(排序方式)
-
+db.集合名称.find().sort(排序方式)
 
 # 示例
 db.blog.find().sort({userid:-1})
