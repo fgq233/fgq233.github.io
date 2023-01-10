@@ -88,7 +88,7 @@ public class EurekaClientApplication {
 ```
 
 #### 三、Eureka常用配置
-```yaml
+```
 eureka:
   client:               # eureka客户端配置
     register-with-eureka: true      # 是否将自己注册到eureka服务端上去
