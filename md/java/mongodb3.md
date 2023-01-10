@@ -139,7 +139,7 @@ db.blog.update({userid:"1003"},{$inc:{starnum:NumberInt(12)}})
     * writeConcern：document，表示写问题的文档，抛出异常的级别
     * collation：document，指定要用于操作的校对规则
     * arrayFilters：array，一个筛选文档数组，用于确定要为数组字段上的更新操作修改哪些数组元素
-    * hint：document 或 string，可选，定用于支持查询谓词的索引的文档或字符串
+    * hint：document 或 string，可选，用于支持查询谓词的索引的文档或字符串
 
 
 
