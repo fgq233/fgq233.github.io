@@ -1,18 +1,4 @@
 ### MongoDB 常用命令
-
-* 测试数据结构参考：
-
-| 字段名称 | 字段类型| 说明|
-| ------ | ----------| ---- |
-| _id | ObjectId 或 String| MongoDB主键 |
-| content | String| 内容 |
-| userid | String| 用户id |
-| starnum | Int32| 点赞数 |
-| createtime | Date| 创建时间 |
-
-db.blog.insert({"content":"范老师帅的一批","userid":"1001", "starnum":NumberInt(10), "createtime":new Date()})
-
-
 ### 一.  数据库操作
 * 使用 `mongo` 命令连接 `MongoDB`
 
