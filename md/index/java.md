@@ -35,7 +35,7 @@
 7. ###### MongoDB
 -  [MongoDB-基本概念][mongodb1]
 -  [MongoDB-安装启动][mongodb2]
--  [MongoDB-增删改查][mongodb3]
+-  [MongoDB-常用命令][mongodb3]
 
 
 

@@ -33,6 +33,7 @@ mongod --dbpath=D:\MyDevelop\MongoDB\mongodb-win32-x86_64-windows-5.0.14\data\db
 
 方式二：
 mongod -f ../conf/mongodb.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb-win32-x86_64-windows-5.0.14\conf\mongodb.conf
 mongod --config ../conf/mongodb.conf
 ```
 
@@ -106,15 +107,10 @@ mongo
 mongo --host=127.0.0.1 --port=27017
 ```
 
-#### 2. 查看已经有的数据库
-```
-show databases
-```
-
-#### 3. 退出
+#### 2. 退出
 ```
 exit
 ```
 
-#### 4. help
+#### 3. help
 * 更多参数可以通过帮助查看：`mongo --help`
