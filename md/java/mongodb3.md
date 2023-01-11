@@ -316,7 +316,7 @@ db.blog.createIndex({userid:1,starnum:-1})
 # 单个索引删除，index可以是索引name、也可以是创建时候的keys
 db.集合名称.dropIndex(index)
 
-# 删除所有索引(除了_id)
+# 删除所有索引(不包括_id)
 db.集合名称.dropIndexes()
 
 示例：
