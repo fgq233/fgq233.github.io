@@ -1,6 +1,7 @@
 ### Feign远程调用
-* Feign是一个声明式的http客户端，其作用就是帮助我们优雅的实现http请求的发送
-* Feign内部集成了ribbon，实现了负载均衡
+* `Feign`是一个声明式的http客户端，其作用就是帮助我们优雅的实现http请求的发送
+* `Spring Cloud` 中，`Feign`内部集成了`Ribbon`，实现了负载均衡
+* `Spring Cloud` 中，`Feign`内部集成了`Hystrix`，实现了服务容错保护功能
 
 ### 一、使用步骤
 #### 1. 引入server依赖
@@ -12,11 +13,16 @@
 ```
 
 #### 2. 启动类添加 @EnableFeignClients 注解
+* 启用Feign的客户端功能
+
 #### 3. 编写 Feign 客户端
 ```
 @FeignClient(value = "userservice")
 public interface UserClient {
 
+    @PostMapping("/user/save")
+    AjaxReturn save(@RequestBody User user);
+    
     @GetMapping("/user/{id}")
     User findById(@PathVariable("id") Long id);
 }
@@ -31,46 +37,8 @@ public interface UserClient {
 * path：请求接口的统一前缀，相当于Controller类上@RequestMapping("/user")
 * url：请求地址，设置了url，name会不生效
 * configuration：Feign配置，可以自定义Feign的Encoder、Decoder、LogLevel、Contract......
-* fallback: 定义容错的处理类
-* fallbackFactory: 定义容错处理工厂类，当远程调用失败或超时时，会调用对应接口的容错逻辑
-
-```
-工厂类熔断：
-@Component
-public class UserClientFallbackFactory implements FallbackFactory<UserClient> {
-    
-    @Override
-    public UserClient errReturn(Throwable throwable) {
-       
-        return new UserClient() {
-            @Override
-            public User findById(Long id) {
-                System.out.println("接口调用失败");
-                return null;
-            }
-        };
-    }
-    
-}
-
-普通类熔断：
-@Component
-public class UserClientFallback implements UserClient {
-    @Override
-    public User findById(Long id) {
-        System.out.println("接口调用失败");
-        return null;
-    }
-}
-
-Feign整合Sentinel，需要开启：
-feign:
-  sentinel:
-    enabled: true
-```
-
-
-
+* fallback: 配置容错降级处理类
+* fallbackFactory: 配置容错降级处理工厂类
 
 
 #### 4. 使用 Feign 客户端远程调用
@@ -82,6 +50,54 @@ feign:
      return userClient.findById(userId);
  }
 ```
+
+
+#### 5. 服务降级
+* `fallback、fallbackFactory` 为Feign客户端定义的接口添加服务降级处理的实现类
+* 定义降级处理的实现类
+
+```
+工厂模式
+@Component
+public class UserClientFallbackFactory implements FallbackFactory<UserClient> {
+    @Override
+    public UserClient errReturn(Throwable throwable) {
+        return new UserClient() {
+            @Override
+            public User findById(Long id) {
+                System.out.println("接口调用失败");
+                return null;
+            }
+        };
+    }
+}
+
+普通模式
+@Component
+public class UserClientFallback implements UserClient {
+    @Override
+    public User findById(Long id) {
+        System.out.println("接口调用失败");
+        return null;
+    }
+}
+```
+
+* Feign 设置服务降级处理类
+```
+@FeignClient(value = "userservice", fallbackFactory = UserClientFallbackFactory.class)
+
+@FeignClient(value = "userservice", fallback = UserClientFallback.class)
+```
+
+* `application.yml` 开启`Hystrix`功能
+
+```
+feign:
+  hystrix:
+    enabled: true
+```
+
 
 
 
@@ -252,5 +268,16 @@ feign:
     max-connections-per-route: 50   # 单个路径的最大连接数 
     ......
 ```
- 
- 
+
+
+### 五、Feign 启用 Gzip 压缩功能
+```
+feign:
+  compression:
+    request:
+      enabled: true     # 是否对请求进行GZIP压缩, 默认false
+      mime-types: text/xml,application/xml,application/json   # 指定压缩的请求数据类型
+      min-request-size: 2048                                  # 超过该大小的请求会被压缩
+    response:
+      enabled: true    # 是否对响应进行GZIP压缩, 默认false
+```

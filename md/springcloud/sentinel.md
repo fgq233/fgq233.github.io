@@ -53,7 +53,7 @@
 * 启动：`java -jar sentinel-dashboard-1.8.6.jar`
 
 #### 3. 访问
-* 在浏览器输入地址：http://localhost:8080，默认的账号和密码都是sentinel
+在浏览器输入地址：http://localhost:8080，默认的账号和密码都是sentinel
 
 
 #### 4. 默认配置
@@ -88,6 +88,13 @@ spring:
         dashboard: localhost:8888
 ```
 
-* 访问服务的任意端点，触发sentinel的监控
+* 若 Feign整合Sentinel，需要开启：
 
+```
+feign:
+  sentinel:
+    enabled: true
+```
 
+#### 6. 触发监控
+访问服务的任意端点，触发sentinel的监控
