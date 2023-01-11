@@ -309,8 +309,6 @@ db.blog.createIndex({userid:1,starnum:-1})
     * expireAfterSeconds：integer值，指定一个以秒为单位的数值，完成 TTL设定，设定集合的生存时间
     * v：integer值，索引的版本号
     * weights：document，索引权重值，数值在 1 到 99999 之间，表示该索引相对于其他索引字段的得分权重
-    * default_language：string，对于文本索引，该参数决定了停用词及词干和词器的规则的列表， 默认值为英语
-    * language_override：string，对于文本索引，该参数指定了包含在文档中的字段名，语言覆盖默认的language，默认值为language
                           
 
 #### 3.  索引的删除
