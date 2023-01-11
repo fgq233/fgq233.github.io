@@ -40,7 +40,7 @@ function initBlog() {
                 });
                 divHtml += `</li>`;
             } else {
-                divHtml += `<li><h6><a href="${item.url}">${item.title}</a></h6></li>`;
+                divHtml += `<li><h5><a href="${item.url}">${item.title}</a></h5></li>`;
             }
 
             if (index === blogList.length - 1) {
