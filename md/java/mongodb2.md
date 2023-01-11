@@ -83,7 +83,7 @@ storage:
 processManagement:
   fork: true                               # 在后台运行 
 net:
-  bindIp: localhost,192.168.0.2            # 绑定的IP，默认是localhost
+  bindIp: localhost,127.0.0.1              # 绑定的IP，默认是localhost
   port: 27017                              # 绑定的端口，默认是27017
 ```
  
