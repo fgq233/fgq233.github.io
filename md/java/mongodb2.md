@@ -11,6 +11,7 @@ MongoDB的版本命名规范如：x.y.z
 * z是修正版本号，数字越大越好
 
 #### 3. 启动服务
+* 将 bin 目录添加到环境变量
 * 在根目录建一个 `data` 目录，再在 `data` 目录下 建立 `db` 目录
 * 启动服务使用 `mongod` 命令，必须指定`dbpath` 参数，有2种方法指定
     * 命令行 + 参数
@@ -23,7 +24,7 @@ storage:
 ``` 
       
 
-在 bin 目录下打开 cmd 命令，使用 `mongod` 命令启动服务
+打开 cmd 命令，使用 `mongod` 命令启动服务
 
 
 ```
@@ -99,7 +100,7 @@ net:
 MongoDB javascript shell是一个基于javascript的解释器，是支持js程序的
 
 #### 1. 登录
-在 bin 目录下打开 cmd 命令，使用 `mongo` 命令登录
+打开 cmd 命令，使用 `mongo` 命令登录
 
 ```
 mongo
