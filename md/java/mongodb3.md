@@ -335,8 +335,7 @@ db.集合名称.find(query,options).explain(options)
 
 示例：
 db.blog.find({userid:"1003"}).explain()
-
-
+结果：
 {
         "explainVersion" : "1",
         "queryPlanner" : {
