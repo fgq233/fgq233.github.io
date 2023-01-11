@@ -40,10 +40,10 @@ const javaList3 = [
     },
     {
         url: "", title: "MongoDB", child: [
-            {url: "https://fgq233.github.io/md/java/mongodb1", title: "MongoDB-基本概念"},
-            {url: "https://fgq233.github.io/md/java/mongodb2", title: "MongoDB-安装启动"},
-            {url: "https://fgq233.github.io/md/java/mongodb3", title: "MongoDB-常用命令"},
-            {url: "https://fgq233.github.io/md/java/mongodb4", title: "MongoDB-SpringData MongoDB"},
+            {url: "https://fgq233.github.io/md/java/mongodb1", title: "MongoDB-1 基本概念"},
+            {url: "https://fgq233.github.io/md/java/mongodb2", title: "MongoDB-2 安装启动"},
+            {url: "https://fgq233.github.io/md/java/mongodb3", title: "MongoDB-3 常用命令"},
+            {url: "https://fgq233.github.io/md/java/mongodb4", title: "MongoDB-4 SpringData MongoDB"},
         ]
     },
 ];
