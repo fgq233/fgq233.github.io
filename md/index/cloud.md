@@ -12,7 +12,7 @@
 -  [Nacos配置中心][nacos3]
 -  [Nacos集群搭建][nacos4]
 5. ###### [远程调用 Feign][feign]
-6. ###### [服务链路跟踪 Sleuth + Zipkin][sleuth]
+6. ###### [链路跟踪 Sleuth + Zipkin][sleuth]
 7. ###### 网关 Gateway
 -  [Gateway-使用步骤][gateway1]
 -  [Gateway-断言工厂][gateway2]
