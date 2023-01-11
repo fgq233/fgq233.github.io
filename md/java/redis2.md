@@ -32,6 +32,7 @@ replica-announce-ip 127.0.0.1
 
 # 在所有从节点配置slaveof或replicaof，启动主从关系
 slaveof 127.0.0.1 7001
+或
 replicaof 127.0.0.1 7001
 ```
 
