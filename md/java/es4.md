@@ -47,7 +47,7 @@ client.close();
 
 
 ###  三. RestClient操作索引库  
-* 步骤：准备 XXXRequest，使用 client.indices() 发送请求
+步骤：准备 XXXRequest，使用 client.indices() 发送请求
 
 ####  1. 增 CreateIndexRequest
 ```
@@ -77,7 +77,7 @@ client.indices().delete(request, RequestOptions.DEFAULT);
 
 
 ###  四. RestClient操作文档
-* 步骤：准备请求数据 + XXXRequest，使用client直接调用方法发送请求
+步骤：准备请求数据 + XXXRequest，使用client直接调用方法发送请求
 
 ####  1. 增  client.index(..)
 ```
@@ -88,7 +88,7 @@ request.source(json, XContentType.JSON);
 client.index(request, RequestOptions.DEFAULT);
 ```
 
-* 批量新增
+批量新增
 
 ```
 BulkRequest request = new BulkRequest();
@@ -114,6 +114,8 @@ Hotel hotel = JSON.parseObject(json, Hotel.class);
  DeleteRequest request = new DeleteRequest(INDEX_NAME, "666");
  client.delete(request, RequestOptions.DEFAULT);
 ```
+
+批量删除参考 BulkRequest批量新增
 
 ####  4. 改  client.update(..)
 ```
@@ -167,7 +169,7 @@ BulkProcessor.Builder builder = BulkProcessor.builder((bulkRequest, bulkResponse
         BulkProcessor processor = builder.build();
 ```
 
-* 大量数据来了之后，只要放进BulkProcessor，就会自动分批次处理了
+大量数据来了之后，只要放进BulkProcessor，就会自动分批次处理了
 
 ```
 processor.add(new IndexRequest(INDEX_NAME, "_doc", "666").source(JSON.toJSONString(hotel), XContentType.JSON));
@@ -177,7 +179,7 @@ processor.flush();
 ```
 
 
-* 关闭
+关闭
 
 ```
 try {

@@ -50,13 +50,13 @@
 
 ####  三、 IK中文分词器
 ####  1、 下载、安装
-* [IK分词器](https://github.com/medcl/elasticsearch-analysis-ik/tags)
+* 下载地址：[IK分词器](https://github.com/medcl/elasticsearch-analysis-ik/tags)
 * 在 ES 的plugins目录下新建ik文件夹下，将ik安装包解压放进去，然后重启 ES
 
 #### 2、 分词粒度
-* IK中文分词器包含两种模式
-    * ik_smart：粗粒度
-    * ik_max_word：细粒度
+IK中文分词器包含两种模式
+* ik_smart：粗粒度
+* ik_max_word：细粒度
     
 ####  3、 扩展字典、停止词字典
 * config目录中的IkAnalyzer.cfg.xml文件可以配置扩展字典、停止词字典
@@ -81,10 +81,10 @@
 ```
 
 ###  四、 ES开启 xpack(单机版)
-* 解压的ES默认是没有账号与密码，通过ip:端口就能直接访问，不安全
+解压的ES默认是没有账号与密码，通过ip:端口就能直接访问，不安全
 
 ####  1、 ES 开启 xpack、SSL传输
-* 配置 elasticsearch.yml
+配置 elasticsearch.yml
 
 ```
 # 开启 xpack 安全认证机制
@@ -161,7 +161,7 @@ xpack.security.transport.ssl.truststore.path: elastic-stack-ca.p12
 
 
 ###  五、 ES开启 https
-* elasticsearch.yml 中添加配置
+elasticsearch.yml 中添加配置
 
 ```
 xpack.security.http.ssl.enabled: true
