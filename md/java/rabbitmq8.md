@@ -31,7 +31,7 @@ public void listenerLazyQueue(String msg) throws IOException {
 ```
 
 #### 3. 将运行的队列修改为惰性队列
-* 通过下列命令，可以将运行的队列修改为惰性队列
+通过下列命令，可以将运行的队列修改为惰性队列
 
 ```
 rabbitmqctl set_policy Lazy "^lazy-queue$" '{"queue-mode":"lazy"}' --apply-to queues  

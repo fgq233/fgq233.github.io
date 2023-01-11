@@ -1,6 +1,6 @@
 ###  消息转换器
 #### 一、发送任意类型消息
-* 发送时：convertAndSend 方法中消息参数类型是Object，可以发送任意对象类型的消息，
+发送时：convertAndSend 方法中消息参数类型是Object，可以发送任意对象类型的消息，
 SpringAMQP会序列化为字节后发送
 
 

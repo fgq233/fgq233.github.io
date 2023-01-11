@@ -130,7 +130,7 @@ http {
 ```
 
 #### 3、root、alias
-* root指令：根路径配置，root值和location值进行拼接，然后再拼接上url剩余的部分
+root指令：根路径配置，root值和location值进行拼接，然后再拼接上url剩余的部分
 
 ```
         location /img {                               
@@ -142,7 +142,7 @@ http {
 
 
 
-* alias指令：别名配置，会直接替换location，然后再拼接上url剩余的部分
+alias指令：别名配置，会直接替换location，然后再拼接上url剩余的部分
 
 ```
         location /img2 {                               

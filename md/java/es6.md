@@ -14,7 +14,7 @@ request.source().query(QueryBuilders.matchAllQuery());
 SearchResponse response = client.search(request, RequestOptions.DEFAULT);
 ```
 
-* 准备request、发送请求这二个步骤一模一样，下面就省略不写了
+准备request、发送请求这二个步骤一模一样，下面就省略不写了
 
 
 
@@ -108,7 +108,7 @@ request.source().highlighter(new HighlightBuilder().field("name").requireFieldMa
 
 ### 四、解析响应结果
 ####  1. 响应结果示例
-* 查询返回的结果是 SearchResponse，其数据格式如下
+查询返回的结果是 SearchResponse，其数据格式如下
 
 ```
 {

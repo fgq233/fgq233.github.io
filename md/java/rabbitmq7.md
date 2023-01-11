@@ -35,7 +35,7 @@ DelayExchange需要将一个交换机声明为delayed类型，当发送消息到
 
  
 ####  4. 使用
-* 基于注解方式：唯一区别是多了个 `delayed = "true"`
+基于注解方式：唯一区别是多了个 `delayed = "true"`
 
 ```
 @RabbitListener(bindings = @QueueBinding(
@@ -49,7 +49,7 @@ public void listenDelayExchange(String msg) {
 ```
 
 
-* 基于java代码方式：唯一区别是多了个 `delayed()`
+基于java代码方式：唯一区别是多了个 `delayed()`
 
 ```
 @Configuration
@@ -78,7 +78,7 @@ public class DelayMsgConfig {
 ```
 
 
-* 发送消息时：`setHeader("x-delay", 5000)`
+发送消息时：`setHeader("x-delay", 5000)`
 
 ```
 Message message = MessageBuilder
@@ -92,7 +92,7 @@ rabbitTemplate.convertAndSend("delay.direct", "delay", message, correlationData)
 
 
 ####  5. 与 Return CallBck 兼容
-* `DelayExchange` 是把消息放在交换机存储，没有立即发送到队列，
+`DelayExchange` 是把消息放在交换机存储，没有立即发送到队列，
 所以 Return CallBck 会收到路由失败结果，通过下列判断兼容：
 
 ```

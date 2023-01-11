@@ -5,10 +5,10 @@
 * 图形化客户端地址：hhttps://www.mongodb.com/try/download/compass
 
 #### 2. 版本说明
-* MongoDB的版本命名规范如：x.y.z
-    * y为奇数时表示当前版本为开发版
-    * y为偶数时表示当前版本为稳定版
-    * z是修正版本号，数字越大越好
+MongoDB的版本命名规范如：x.y.z
+* y为奇数时表示当前版本为开发版
+* y为偶数时表示当前版本为稳定版
+* z是修正版本号，数字越大越好
 
 #### 3. 启动服务
 * 在根目录建一个 `data` 目录，再在 `data` 目录下 建立 `db` 目录
@@ -23,7 +23,7 @@ storage:
 ``` 
       
 
-* 在 bin 目录下打开 cmd 命令，使用 `mongod` 命令启动服务
+在 bin 目录下打开 cmd 命令，使用 `mongod` 命令启动服务
 
 
 ```
@@ -38,7 +38,7 @@ mongod --config ../conf/mongodb.conf
 ```
 
 
-* 启动成功后，默认端口为 27017，如果想改变默认启动端口，可以通过`--port`来指定
+启动成功后，默认端口为 27017，如果想改变默认启动端口，可以通过`--port`来指定
 
  
  
@@ -69,7 +69,7 @@ mkdir -p /mongodb/single/log
 vi /mongodb/single/mongodb.conf
 ```
  
-* 配置文件内容如下
+配置文件内容如下
 
 ```
 systemLog:
@@ -96,10 +96,10 @@ net:
  
 
 ### 三. Shell连接(mongo命令)
-* MongoDB javascript shell是一个基于javascript的解释器，是支持js程序的
+MongoDB javascript shell是一个基于javascript的解释器，是支持js程序的
 
 #### 1. 登录
-* 在 bin 目录下打开 cmd 命令，使用 `mongo` 命令登录
+在 bin 目录下打开 cmd 命令，使用 `mongo` 命令登录
 
 ```
 mongo
@@ -113,4 +113,4 @@ exit
 ```
 
 #### 3. help
-* 更多参数可以通过帮助查看：`mongo --help`
+更多参数可以通过帮助查看：`mongo --help`

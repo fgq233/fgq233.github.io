@@ -16,7 +16,7 @@ Message message = MessageBuilder
         .build();
 ```
 
-* `setExpiration` 方法设置TTL
+`setExpiration` 方法设置TTL
 
 
 ####  3. 队列设置TTL
@@ -29,7 +29,7 @@ public Queue ttlQueue(){
 }
 ```
 
-* `ttl()` 方法本质是 添加了 `x-message-ttl` 属性
+`ttl()` 方法本质是 添加了 `x-message-ttl` 属性
 
 
 
@@ -95,12 +95,12 @@ public Binding dlBinding(){
 ### 三. TTL + 死信交换机实现消息延迟的效果
 ![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ10.png)
 
-* 当消息TTL超时未被消费(`没有消费者`)，成为死信，投递到死信交换机、路由到死信队列，被死信队列的消费者消费，
+当消息TTL超时未被消费(`没有消费者`)，成为死信，投递到死信交换机、路由到死信队列，被死信队列的消费者消费，
 达到消息延迟的效果
 
 
 #### 1. 声明死信交换机、死信队列
-* 在`consumer`服务中，定义一个新的消费者，声明死信交换机、死信队列
+在`consumer`服务中，定义一个新的消费者，声明死信交换机、死信队列
 
 ```
 @RabbitListener(bindings = @QueueBinding(

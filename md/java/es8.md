@@ -16,7 +16,7 @@ POST /_analyze
 ```
 
 ###  二. 自定义分词器
-* 拼音分词器默认会将每个汉字单独分为拼音，而我们希望的是每个词条形成一组拼音，
+拼音分词器默认会将每个汉字单独分为拼音，而我们希望的是每个词条形成一组拼音，
 所以需要对拼音分词器做个性化定制，形成自定义分词器
 
 
@@ -30,7 +30,7 @@ ES 中分词器（analyzer）的组成包含三部分：
 
 
 ####  2、 自定义分词器语法
-* 创建索引库时，在settings中配置，可以包含三部分: character filter、tokenizer、filter
+创建索引库时，在settings中配置，可以包含三部分: character filter、tokenizer、filter
 
 ```
 PUT /test
@@ -50,7 +50,7 @@ PUT /test
 
 
 ####  3、 自定义分词器 filter
-* 拼音分词器默认filter有问题，需要自己定制，filter具体定制属性参考官网
+拼音分词器默认filter有问题，需要自己定制，filter具体定制属性参考官网
 
 
 ```
@@ -92,7 +92,7 @@ POST /test/_analyze
 
 
 ####  5、 创建、搜索使用不同分词器
-* 因为不同词分词后拼音可能一样，所以在创建倒排索引时使用 my_analyzer 分词器，在搜索时应该使用ik_smart分词器
+因为不同词分词后拼音可能一样，所以在创建倒排索引时使用 my_analyzer 分词器，在搜索时应该使用ik_smart分词器
 
 ```
 PUT /test

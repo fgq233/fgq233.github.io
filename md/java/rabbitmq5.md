@@ -75,7 +75,7 @@ CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString
 rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 ```
 
-* 全局的需要对correlationData进行判空，因为发送消息时，如果没有传递一个CorrelationData对象，
+全局的需要对correlationData进行判空，因为发送消息时，如果没有传递一个CorrelationData对象，
 回调中correlationData参数就为空
 
 ```
@@ -97,7 +97,7 @@ correlationData.getFuture().addCallback(
 rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
 ```
 
-* 确认机制发送消息时，必须给每个消息指定一个全局唯一ID，用来区分不同消息，避免 ack 冲突
+确认机制发送消息时，必须给每个消息指定一个全局唯一ID，用来区分不同消息，避免 ack 冲突
 
 
 
@@ -133,7 +133,7 @@ public class MqCommonConfig  implements ApplicationContextAware {
 
 ### 二、消费者确认机制
 #### 1. 三种确认模式
-* RabbitMQ 通过消费者回执来确认是否成功处理消息，
+RabbitMQ 通过消费者回执来确认是否成功处理消息，
 在消费者获取消息后，向 RabbitMQ 发送 ack 回执，表明自己已经处理消息，
 而RabbitMQ确认消息被消费后会立刻删除，这就是所谓的阅后即焚
 
@@ -178,7 +178,7 @@ spring:
           stateless: true           # 默认值为true无状态，false是有状态，如果业务中包含事务，这里改为false
 ```
  
-* 默认重试机制策略为`RejectAndDontRequeueRecoverer`，添加如上配置后，在重试达到最大次数后，如果还是失败的，
+默认重试机制策略为`RejectAndDontRequeueRecoverer`，添加如上配置后，在重试达到最大次数后，如果还是失败的，
 会抛出异常 `AmqpRejectAndDontRequeueException`， 此时返回ack，mq删除消息
 
 
@@ -232,10 +232,10 @@ public class ErrorMsgConfig {
 }
 ```
   
-* 上面达到最大重试次数后，若还是失败，会将消息发送到交换机 error.direct 交换机上
+上面达到最大重试次数后，若还是失败，会将消息发送到交换机 error.direct 交换机上
 
 #### 4. 使用手动模式 manual
-* 当 `acknowledge-mode` 配置为 `manual` 手动模式后，就需要消费者手动控制 `ack` 
+当 `acknowledge-mode` 配置为 `manual` 手动模式后，就需要消费者手动控制 `ack` 
 
 ```
 /**

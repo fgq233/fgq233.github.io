@@ -35,7 +35,7 @@ slaveof 127.0.0.1 7001
 replicaof 127.0.0.1 7001
 ```
 
-* slaveof：5.0以前，replicaof：5.0以后
+slaveof：5.0以前，replicaof：5.0以后
 
 主从分永久和临时两种模式：
 * 永久：在redis.conf中配置主节点ip port
@@ -97,4 +97,3 @@ replicaof 127.0.0.1 7001
 ![Redis主从集群](https://fgq233.github.io/imgs/springcloud/redis2.png)
 
 
- 

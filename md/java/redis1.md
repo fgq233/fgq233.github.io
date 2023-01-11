@@ -10,7 +10,7 @@
 
 #### 2. 执行时机
 ##### 2.1 执行 save 命令时
-* save命令会导致主进程执行RDB，这个过程中其它所有命令都会被阻塞，所以一般只在数据迁移时可能用到
+save命令会导致主进程执行RDB，这个过程中其它所有命令都会被阻塞，所以一般只在数据迁移时可能用到
     
 ##### 2.2 执行 bgsave 命令时
 * bgsave命令是异步执行RDB，会开启独立进程完成RDB，主进程可以持续处理用户请求，不受影响
@@ -21,11 +21,11 @@ fork采用了copy-on-write技术
   
   
 ##### 2.3 Redis关闭时
-* Redis关闭时会执行一次save命令，实现RDB持久化
+Redis关闭时会执行一次save命令，实现RDB持久化
 
 
 ##### 2.4 触发RDB条件
-* Redis内部有触发RDB的机制，可以在redis.conf文件中找到，格式如下：
+Redis内部有触发RDB的机制，可以在redis.conf文件中找到，格式如下：
 
 ```
 # 900秒内，如果至少有1个key被修改，则执行bgsave 
@@ -58,7 +58,7 @@ dir ./
 
 ### 二. AOF持久化 
 #### 1. AOF
-* Append Only File（追加文件），Redis处理的每一个写命令都会记录在AOF文件，可以看做是命令日志文件
+Append Only File（追加文件），Redis处理的每一个写命令都会记录在AOF文件，可以看做是命令日志文件
 
 
 #### 2. AOF原理
@@ -101,4 +101,3 @@ auto-aof-rewrite-min-size 64mb
 ```
 
 
- 

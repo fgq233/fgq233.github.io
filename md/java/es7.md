@@ -147,7 +147,7 @@ for (Terms.Bucket bucket : buckets) {
 * aggs 内部定义 aggs，也就是分组后对每组分别计算
 
 #### 1. DSL 语法
-*  聚合三要素：聚合名称、聚合类型(avg、max、min、stats)、聚合字段
+聚合三要素：聚合名称、聚合类型(avg、max、min、stats)、聚合字段
 
 ```
 GET /hotel/_search

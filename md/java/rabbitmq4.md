@@ -32,10 +32,10 @@ public DirectExchange simpleDirect(){
 
 ### 二、队列持久化
 #### 1. RabbitMQ 控制台
-* 和交换机一致，队列在创建时也是通过将 `Durability` 属性设置为 `Durable` 进行持久化
+和交换机一致，队列在创建时也是通过将 `Durability` 属性设置为 `Durable` 进行持久化
 
 #### 2. java 代码中
-* 下列三种方式创建的队列都是持久化的，都是将 durable 设置为 true
+下列三种方式创建的队列都是持久化的，都是将 durable 设置为 true
 
 ```
 @Bean
@@ -71,5 +71,5 @@ rabbitTemplate.convertAndSend("simple.queue", message);
 ```
 
 
-* PS: 默认情况下，SpringAMQP发出的任何消息都是持久化的，不用特意指定
+PS: 默认情况下，SpringAMQP发出的任何消息都是持久化的，不用特意指定
 

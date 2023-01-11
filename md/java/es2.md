@@ -48,7 +48,7 @@
 * 中文界面：`i18n.locale: "zh-CN"`
 * ES的IP：`elasticsearch.hosts: ["http://127.0.0.1:9200"]`,当 ES 和 kibana 不在同一台服务器时需要设置
 
-####  三、 IK中文分词器
+###  三、 IK中文分词器
 ####  1、 下载、安装
 * 下载地址：[IK分词器](https://github.com/medcl/elasticsearch-analysis-ik/tags)
 * 在 ES 的plugins目录下新建ik文件夹下，将ik安装包解压放进去，然后重启 ES
