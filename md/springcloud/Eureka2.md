@@ -17,7 +17,7 @@ public class EurekaApplication {
 }
 ```
 
-* `@EnableEurekaServer`注解启用Euerka注册中心功能
+`@EnableEurekaServer`注解启用Euerka注册中心功能
 
 ###### 3.yml配置
 ```
@@ -34,7 +34,7 @@ eureka:
       defaultZone: http://127.0.0.1:8088/eureka
 ```
 
-* 启动服务，访问地址：`http://localhost:8088`  可以看到Eureka注册中心的界面
+启动服务，访问地址：`http://localhost:8088`  可以看到Eureka注册中心的界面
  
 #### 二. 服务注册与发现
 ###### 1. 引入client依赖

@@ -10,7 +10,7 @@ org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory
 ```
 
 
-* Gateway提供了大量断言工厂：
+Gateway提供了大量断言工厂：
 
 | **名称**   | **说明**                       | **示例**                                                     |
 | ---------- | ------------------------------ | ------------------------------------------------------------ |
@@ -25,6 +25,6 @@ org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory
 | Query      | 请求参数必须包含指定参数       | - Query=name, fgq或者-  Query=name                          |
 | RemoteAddr | 请求者的ip必须是指定范围       | - RemoteAddr=192.168.1.1/24                                  |
 
-* [官网 Route Predicate Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories)
+[官网 Route Predicate Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories)
 
 

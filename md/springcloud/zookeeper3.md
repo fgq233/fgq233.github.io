@@ -197,4 +197,4 @@ treeCache.getListenable().addListener(new TreeCacheListener() {
 treeCache.start();
 ```
 
-* 高版本中 `CuratorCache` 替代了 `TreeCache`
+高版本中 `CuratorCache` 替代了 `TreeCache`

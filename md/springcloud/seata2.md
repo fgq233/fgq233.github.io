@@ -45,7 +45,7 @@ Seata提供了四种不同的分布式事务解决方案：
 ![解压目录结构](https://fgq233.github.io/imgs/springcloud/seata3.png)
 
 #### 3. 修改配置
-* 修改conf目录下的 registry.conf 文件：
+修改conf目录下的 registry.conf 文件：
 
 ```
 registry {
@@ -114,7 +114,7 @@ store.redis.password=123456
 * lock_table：锁相关的信息
 * undo_log：AT模式下保存快照数据，需要放到微服务库下，而不是seata库
 
-#### 5. 启动
+#### 6. 启动
 * 启动 bin目录下 seata-server.bat
 * nacos 服务列表中出现 seata-server 服务，启动成功
 
@@ -167,6 +167,6 @@ seata:
       my-service-group: default         # 事务分组与集群映射关系(等号右侧的集群名需要与Seata-server注册到Nacos的cluster保持一致)
 ```
 
-* 确保处于同一个namespace和group，不然会找不到服务
+确保处于同一个namespace和group，不然会找不到服务
 
 

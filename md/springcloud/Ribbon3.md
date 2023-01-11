@@ -1,5 +1,5 @@
 #### 1、懒加载
-* Ribbon默认是采用懒加载，即第一次访问远程服务时才会去创建LoadBalanceClient，所以首次请求时间比较长
+Ribbon默认是采用懒加载，即第一次访问远程服务时才会去创建LoadBalanceClient，所以首次请求时间比较长
 
 
 #### 2、饥饿加载
@@ -7,7 +7,7 @@
  
 
 #### 3、开启饥饿加载
-* 单个
+单个
 
 ```
 ribbon:
@@ -16,7 +16,7 @@ ribbon:
     clients: userservice    # 指定饥饿加载的服务名称
 ```
 
-* 多个
+多个
 
 ```
 ribbon:

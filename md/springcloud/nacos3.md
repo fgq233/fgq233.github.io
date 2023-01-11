@@ -1,6 +1,6 @@
 ### Nacos 配置中心
 #### 一. 配置中心原理
-* SpringBoot中的bootstrap.yaml配置文件，会在application.yml之前被读取，所以可以将nacos地址
+SpringBoot中的bootstrap.yaml配置文件，会在application.yml之前被读取，所以可以将nacos地址
 配置在bootstrap.yaml中，项目启动时，先读取bootstrap.yaml，拿到nacos地址，再去拉取nacos中管理的配置，
 并且与本地的application.yml配置合并，最终完成项目启动
 
@@ -104,7 +104,8 @@ spring:
 * c) nacos多服务扩展配置：extension.yaml
 * d) nacos多服务共享配置：shared.yaml
 * e) 本地配置：application.yml、bootstrap.yml 
-* 优先级：a > b > c > d > e
+
+优先级：a > b > c > d > e
 
 
 #### 4、修改本地配置优先级

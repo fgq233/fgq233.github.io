@@ -1,11 +1,11 @@
 ###  过滤器工厂 GatewayFilterFactory
 ####  1. 过滤器作用
-* 对进入网关的请求和微服务返回的响应做处理
+对进入网关的请求和微服务返回的响应做处理
 ![过滤器作用](https://fgq233.github.io/imgs/springcloud/gateway1.png)
 
 
 ####  2. 过滤器工厂
-* [官网 Route Predicate Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories)
+[官网 Route Predicate Factories](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories)
 
 常用的有：
 
@@ -33,7 +33,7 @@ spring:
 ```
 
 ####  4. 默认过滤器 DefaultFilters
-* 默认过滤器对所有路由都生效
+默认过滤器对所有路由都生效
 
 ```
 spring:
@@ -83,11 +83,11 @@ public class CustomGlobalFilter implements GlobalFilter{
 
 
 ####  6. 过滤器执行顺序
-* a) DefaultFilters
-* b) GatewayFilters：某个路由的 filters
-* c) GlobalFilters
+* DefaultFilters
+* GatewayFilters：某个路由的 filters
+* GlobalFilters
 
-* 每一个过滤器最终都有一个int类型的order值，order值越小，执行顺序越靠前
+每一个过滤器最终都有一个int类型的order值，order值越小，执行顺序越靠前
 * GatewayFilters、DefaultFilters的order由Spring指定，声明顺序是从1递增
 * GlobalFilter通过实现Ordered接口，或者添加@Order注解来指定order值
 * 当过滤器的order值一样时，会按照 DefaultFilters > GatewayFilters > GlobalFilter的顺序执行

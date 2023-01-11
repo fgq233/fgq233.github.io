@@ -13,7 +13,7 @@
 ```
 
 #### 2. 启动类添加 @EnableFeignClients 注解
-* 启用Feign的客户端功能
+启用Feign的客户端功能
 
 #### 3. 编写 Feign 客户端
 ```
@@ -102,7 +102,7 @@ feign:
 
 
 ### 二、Feign 配置
-* SpringBoot 实现了Feign 自动装配，同时支持自定义下列配置：
+SpringBoot 实现了Feign 自动装配，同时支持自定义下列配置：
 
 | 类型                   | 作用             | 说明                                                   |
 | ---------------------- | ---------------- | ---------------------- |
@@ -112,7 +112,7 @@ feign:
 | feign.Contract      | 支持的注解格式  | 默认是SpringMVC的注解                              |
 | feign.Retryer       | 失败重试机制   | 请求失败的重试机制，默认是没有，不过会使用Ribbon的重试  |
 
-* 一般默认配置就能满足我们使用，如果要自定义时，只需要创建自定义的@Bean覆盖默认Bean即可
+一般默认配置就能满足我们使用，如果要自定义时，只需要创建自定义的@Bean覆盖默认Bean即可
 
 #### 1. 修改日志配置 - 基于配置文件
 ```
@@ -130,7 +130,7 @@ feign:
 ```
 
 #### 2. 修改日志配置 - 基于Java 代码
-* a) 定义一个类，然后定义一个Logger.Level的对象：
+定义一个类，然后定义一个Logger.Level的对象：
 
 ```
 public class XFeignConfiguration  {
@@ -141,7 +141,7 @@ public class XFeignConfiguration  {
 }
 ```
 
-* b) 全局生效：放到启动类的 @EnableFeignClients 注解中、或者在配置类上添加注解@Configuration
+全局生效：放到启动类的 @EnableFeignClients 注解中、或者在配置类上添加注解@Configuration
 
 ```
 @EnableFeignClients(defaultConfiguration = XFeignConfiguration.class) 
@@ -153,7 +153,7 @@ public class XFeignConfiguration  {
 ```
 
 
-* c) 局部生效：放到对应的 @FeignClient 注解中
+局部生效：放到对应的 @FeignClient 注解中
 
 ``` 
 @FeignClient(value = "userservice", configuration = XFeignConfiguration.class) 
@@ -161,7 +161,7 @@ public class XFeignConfiguration  {
 
 
 ### 三、Feign 自定义拦截器
-* Feign在发起http请求前，每次都会去执行拦截器中的逻辑，我们可以在拦截器里面做一个通用处理
+Feign在发起http请求前，每次都会去执行拦截器中的逻辑，我们可以在拦截器里面做一个通用处理
 #### 1、自定义feign拦截器步骤
 * 实现 feign.RequestInterceptor接口；
 * 实现方法 apply(RequestTemplate template)；
@@ -221,7 +221,7 @@ public class BaseFeignConfig {
 }
 ```
 
-* 可以全局生效、局部生效，参考日志配置 
+可以全局生效、局部生效，参考日志配置 
 
 
 ### 四、Feign 修改http请求框架
@@ -258,7 +258,7 @@ feign:
 ```
 
 #### 3. 连接池配置
-* 修改http请求框架后，支持连接池相关配置
+修改http请求框架后，支持连接池相关配置
 
 ```
 feign:

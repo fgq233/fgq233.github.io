@@ -1,7 +1,7 @@
 ### Seata-XA、AT模式
 ### 一、XA模式
 #### 1. XA 规范
-* XA 规范 是 X/Open 组织定义的分布式事务处理（DTP，Distributed Transaction Processing）标准，
+XA 规范 是 X/Open 组织定义的分布式事务处理（DTP，Distributed Transaction Processing）标准，
 描述了全局的TM与局部的RM之间的接口，几乎所有主流的数据库都对 XA 规范 提供了支持
 
 #### 2.XA模型
@@ -38,7 +38,7 @@ seata:
 ```
 
 
-2）给发起全局事务的入口方法添加 @GlobalTransactional注解
+2）给发起全局事务的入口方法添加`@GlobalTransactional`注解
 
 3）重启服务、测试
 
@@ -49,7 +49,7 @@ seata:
  
  
 ### 二、AT模式
-* AT模式同样是分二阶段提交的事务模型，不过缺弥补了XA模型中资源锁定周期过长的缺陷
+AT模式同样是分二阶段提交的事务模型，不过缺弥补了XA模型中资源锁定周期过长的缺陷
 
 #### 1. AT 模型
 ![Seata的XA模式](https://fgq233.github.io/imgs/springcloud/seata5.png)
@@ -93,5 +93,4 @@ seata:
 
 
 
- 
  

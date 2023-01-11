@@ -4,7 +4,8 @@
 * null值不等于任何值，也就是说：null值不能用 = 来判断，必须用 is null来判断 
 * in的数据范围可以有null，not in不可以
 * 排序时，将null值视为最大值，这一点恰好和MySQL相反，可以手动指定null值顺序
-```angular2html
+
+```
 order by cjsj desc nulls last  将null值放在最后
 order by cjsj nulls first      将null值放在最前
 ```

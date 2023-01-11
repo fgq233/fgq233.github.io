@@ -32,4 +32,4 @@ userservice:
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule  # 负载均衡策略类
 ```
 
-* 两种方式策略范围不一样，1针对所有远程服务，2针对配置的某个远程服务
+两种方式策略范围不一样，1针对所有远程服务，2针对配置的某个远程服务

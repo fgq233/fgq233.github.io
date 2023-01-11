@@ -4,7 +4,7 @@
 
 ![Nacos集群图](https://fgq233.github.io/imgs/springcloud/nacos2.png)
 
-* 包含3个nacos节点，然后一个负载均衡器SLB代理3个Nacos
+包含3个nacos节点，然后一个负载均衡器SLB代理3个Nacos
 
 #### 2. 使用 Nginx 做负载均衡器
 
@@ -34,7 +34,7 @@
 
 
 #### 2. 下载nacos安装包
-* 参考[Nacos安装](https://fgq233.github.io/md/springcloud/nacos1)
+参考[Nacos安装](https://fgq233.github.io/md/springcloud/nacos1)
  
 #### 3. 搭建数据库，初始化nacos数据库表结构
 * Nacos默认数据存储在内嵌数据库Derby中，不属于生产可用的数据库
@@ -43,14 +43,16 @@
  
  
 #### 4. 配置、启动nacos
-* a) 将 conf 目录下 cluster.conf.example 重命名为 cluster.conf，该文件是配置nacos集群下所有节点信息
+将 conf 目录下 cluster.conf.example 重命名为 cluster.conf，该文件是配置nacos集群下所有节点信息
+
 ```
 127.0.0.1:8841
 127.0.0.1:8843
 127.0.0.1:8845
 ```
 
-* b) 在 application.properties 中配置 端口，mysql 数据库，同样方式再操作2次并调整端口
+在 application.properties 中配置 端口，mysql 数据库，同样方式再操作2次并调整端口
+
 ```
 server.port=8841        
 spring.datasource.platform=mysql
@@ -60,10 +62,10 @@ db.user.0=root
 db.password.0=12345678
 ```
 
-* c) 分别以集群模式启动3个nacos节点
+分别以集群模式启动3个nacos节点
 
 #### 5. Nginx反向代理
-* 下载 Nginx 安装包并解压，修改conf/nginx.conf文件，然后启动 nginx.exe，配置如下：
+下载 Nginx 安装包并解压，修改conf/nginx.conf文件，然后启动 nginx.exe，配置如下：
 
 ```
 # nacos集群节点配置

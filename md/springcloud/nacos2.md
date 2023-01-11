@@ -1,6 +1,7 @@
 ### Nacos 注册中心
 #### 1. 添加依赖
 父工程引入 SpringCloudAlibaba 依赖：
+
 ```
 <dependency>
     <groupId>com.alibaba.cloud</groupId>
@@ -10,7 +11,9 @@
     <scope>import</scope>
 </dependency>
 ```
+
 客户端引入 nacos-discovery 依赖：
+
 ```
 <dependency>
     <groupId>com.alibaba.cloud</groupId>
@@ -46,7 +49,7 @@ spring:
 ```
 
 #### 5. nacos 负载均衡
-* Nacos默认负载均衡规则并没用优先访问同集群实例，可以通过配置来实现优先访问同一集群
+Nacos默认负载均衡规则并没用优先访问同集群实例，可以通过配置来实现优先访问同一集群
 
 ```
 userservice:

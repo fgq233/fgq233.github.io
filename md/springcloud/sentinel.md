@@ -1,7 +1,7 @@
 ### 微服务保护
 ### 一. 相关概念
 #### 1. 雪崩
-* 微服务调用链路中的某个服务故障，引起整个链路中的所有微服务都不可用，这就是雪崩
+微服务调用链路中的某个服务故障，引起整个链路中的所有微服务都不可用，这就是雪崩
 
 #### 2. 雪崩解决方案
 * 超时处理：设定超时时间，请求超过一定时间没有响应就返回错误信息，不会无休止等待
@@ -11,7 +11,7 @@
 * 熔断降级：由断路器统计业务执行的异常比例，如果超出阈值则会熔断该业务，拦截访问该业务的一切请求
 
 #### 3. 流量控制
-* 限制业务访问的QPS，避免服务因流量的突增而故障
+限制业务访问的QPS，避免服务因流量的突增而故障
 
 
 
@@ -65,11 +65,11 @@
 | sentinel.dashboard.auth.password | sentinel | 默认密码 |
 
 
-* `java -jar sentinel-dashboard-1.8.6.jar -Dserver.port=8888`
+修改启动端口：`java -jar sentinel-dashboard-1.8.6.jar -Dserver.port=8888`
 
 
 #### 5. 微服务整合Sentinel
-* 引入依赖
+引入依赖
 
 ```
 <dependency>
@@ -78,7 +78,7 @@
 </dependency>
 ```
 
-* yml配置
+yml配置
 
 ```
 spring:
@@ -88,7 +88,7 @@ spring:
         dashboard: localhost:8888
 ```
 
-* 若 Feign整合Sentinel，需要开启：
+若 Feign整合Sentinel，需要开启：
 
 ```
 feign:

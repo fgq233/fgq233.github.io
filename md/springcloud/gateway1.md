@@ -68,7 +68,7 @@ spring:
 
 #### 4. 配置项目需要的过滤器 filters
 #### 5. 启动网关服务、测试
-* 测试 http://localhost:10010/user/1 ，会自动路由到 http://localhost:8081/user/1
+测试 http://localhost:10010/user/1 ，会自动路由到 http://localhost:8081/user/1
 
 
 ### 三. 路由配置

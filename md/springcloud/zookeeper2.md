@@ -30,7 +30,7 @@
 * 创建顺序节点 `create -s /节点path value`
 
 #### 3. 节点信息
-* 查询节点详细信息 `ls –s /节点path`
+查询节点详细信息 `ls –s /节点path`
 
 ```
 czxid：节点被创建的事务ID 
