@@ -36,11 +36,13 @@
 -  [MongoDB-基本概念][mongodb1]
 -  [MongoDB-安装启动][mongodb2]
 -  [MongoDB-常用命令][mongodb3]
+-  [MongoDB-SpringData MongoDB][mongodb4]
 
 
 
 
 
+[mongodb4]: https://fgq233.github.io/md/java/mongodb4
 [mongodb3]: https://fgq233.github.io/md/java/mongodb3
 [mongodb1]: https://fgq233.github.io/md/java/mongodb1
 [mongodb2]: https://fgq233.github.io/md/java/mongodb2
