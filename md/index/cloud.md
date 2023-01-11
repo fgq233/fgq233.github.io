@@ -12,19 +12,20 @@
 -  [Nacos配置中心][nacos3]
 -  [Nacos集群搭建][nacos4]
 5. ###### [远程调用 Feign][feign]
-6. ###### 网关 Gateway
+6. ###### [服务链路跟踪 Sleuth + Zipkin][sleuth]
+7. ###### 网关 Gateway
 -  [Gateway-使用步骤][gateway1]
 -  [Gateway-断言工厂][gateway2]
 -  [Gateway-过滤器工厂][gateway3]
 -  [Gateway-跨域问题][gateway4]
-7. ###### [微服务保护 Sentinel][sentinel]
-8. ###### 分布式事务 Seata 
+8. ###### [微服务保护 Sentinel][sentinel]
+9. ###### 分布式事务 Seata 
 -  [分布式事务理论基础][seata1]
 -  [Seata-部署、集成][seata2]
 -  [Seata-XA、AT模式][seata3]
 -  [Seata-TCC模式、SAGA模式][seata4]
 -  [Seata-集群搭建][seata5]
-9. ###### ZooKeeper
+10. ###### ZooKeeper
 -  [ZooKeeper-1 介绍][zookeeper1]
 -  [ZooKeeper-2 常用命令][zookeeper2]
 -  [ZooKeeper-3 Java API][zookeeper3]
@@ -32,6 +33,7 @@
 
 
 
+[sleuth]: https://fgq233.github.io/md/springcloud/sleuth
 [zookeeper1]: https://fgq233.github.io/md/springcloud/zookeeper1
 [zookeeper2]: https://fgq233.github.io/md/springcloud/zookeeper2
 [zookeeper3]: https://fgq233.github.io/md/springcloud/zookeeper3
