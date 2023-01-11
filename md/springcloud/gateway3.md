@@ -9,13 +9,16 @@
 
 常用的有：
 
-| **名称**             | **说明**                     |
-| -------------------- | ---------------------------- |
-| AddRequestHeader     | 给请求添加一个请求头     |
-| RemoveRequestHeader  | 移除请求中的一个请求头       |
-| AddResponseHeader    | 给响应结果中添加一个响应头   |
-| RemoveResponseHeader | 从响应结果中移除一个响应头 |
-| RequestRateLimiter   | 限制请求的流量               |
+| **名称**             | **说明**                 |**示例**                |
+| -------------------- | ---------------------- |---------------------- |
+|  AddRequestParameter | 给请求添加参数           |- AddRequestParameter=username, fgq    |
+| AddRequestHeader     | 给请求添加一个请求头      |- AddRequestHeader=name, fgq           |
+| RemoveRequestHeader  | 移除请求中的一个请求头    | - RemoveRequestHeader=name           |
+| AddResponseHeader    | 给响应结果中添加一个响应头 |- AddResponseHeader=name, fgq        |
+| RemoveResponseHeader | 从响应结果中移除一个响应头 |- RemoveResponseHeader=fgq           |
+|  PrefixPath          | 请求路径添加前缀         |- PrefixPath=/user           |
+|  Hystrix             | 断路器功能              | 需要定义服务降级的处理类        |
+|  RequestRateLimiter   | 请求限流              |  需要定义限流策略              |
 
 
 ####  3. 过滤器使用
@@ -29,8 +32,40 @@ spring:
           predicates:
             - Path=/user/**
           filters:     # 过滤器，可以有多个  
-            - AddRequestHeader=X-Request-red, blue
+            - AddRequestHeader=name, fgq233
 ```
+
+Hystrix 断路器：当路由出错时会转发到服务降级处理的控制器上
+
+```
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://userservice
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+
+@RestController
+public class FallbackController {
+
+    @GetMapping("/fallback")
+    public Object fallback() {
+        Map<String,Object> result = new HashMap<>();
+        result.put("data",null);
+        result.put("message","Get request fallback!");
+        result.put("code",500);
+        return result;
+    }
+}
+```
+
 
 ####  4. 默认过滤器 DefaultFilters
 默认过滤器对所有路由都生效

@@ -97,8 +97,8 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true             # 开启自动路由
-          lower-case-service-id: true
+          enabled: true                 # 开启自动路由
+          lower-case-service-id: true   # 使用小写服务名，默认是大写
 ```
 
 * 开启自动路由后，就不用配置routers了
