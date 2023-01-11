@@ -37,8 +37,8 @@ public interface UserClient {
 * path：请求接口的统一前缀，相当于Controller类上@RequestMapping("/user")
 * url：请求地址，设置了url，name会不生效
 * configuration：Feign配置，可以自定义Feign的Encoder、Decoder、LogLevel、Contract......
-* fallback: 配置容错降级处理类
-* fallbackFactory: 配置容错降级处理工厂类
+* fallback: 配置熔断降级处理类
+* fallbackFactory: 配置熔断降级处理工厂类, 可以捕获异常信息，推荐使用
 
 
 #### 4. 使用 Feign 客户端远程调用
@@ -53,11 +53,10 @@ public interface UserClient {
 
 
 #### 5. 服务降级
-* `fallback、fallbackFactory` 为Feign客户端定义的接口添加服务降级处理的实现类
-* 定义降级处理的实现类
+`Feign` 中服务熔断降级是通过 `Hystrix` 实现的，注解中使用 `fallback、fallbackFactory` 定义降级处理类
 
 ```
-工厂模式
+工厂类
 @Component
 public class UserClientFallbackFactory implements FallbackFactory<UserClient> {
     @Override
@@ -72,7 +71,7 @@ public class UserClientFallbackFactory implements FallbackFactory<UserClient> {
     }
 }
 
-普通模式
+普通类
 @Component
 public class UserClientFallback implements UserClient {
     @Override
@@ -90,7 +89,7 @@ public class UserClientFallback implements UserClient {
 @FeignClient(value = "userservice", fallback = UserClientFallback.class)
 ```
 
-* `application.yml` 开启`Hystrix`功能
+* 降级处理需要在 `application.yml` 开启`Hystrix`功能
 
 ```
 feign:
