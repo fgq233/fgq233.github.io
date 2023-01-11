@@ -27,6 +27,9 @@ Zipkin分为服务端、客户端
 ``` 
 java -jar zipkin-server-2.21.7-exec.jar
 java -jar zipkin-server-2.21.7-exec.jar -server.port=8088 
+
+# 默认存放在内存中，把跟踪信息存储到 Elasticsearch里面，重新启动后也不会丢失
+java -jar zipkin-server-2.21.7-exec.jar --STORAGE_TYPE=elasticsearch --ES_HOSTS=localhost:9200 
 ```
 
 #### 2. 添加依赖
