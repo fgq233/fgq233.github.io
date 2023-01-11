@@ -82,14 +82,15 @@ public class UserClientFallback implements UserClient {
 }
 ```
 
-* Feign 设置服务降级处理类
+Feign 设置服务降级处理类
+
 ```
 @FeignClient(value = "userservice", fallbackFactory = UserClientFallbackFactory.class)
 
 @FeignClient(value = "userservice", fallback = UserClientFallback.class)
 ```
 
-* 降级处理需要在 `application.yml` 开启`Hystrix`功能
+降级处理需要在 `application.yml` 开启`Hystrix`功能
 
 ```
 feign:
