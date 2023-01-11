@@ -5,15 +5,12 @@
 
 ### 一、Sleuth 与 Zipkin
 #### 1. Sleuth 作用
-将一次分布式请求还原成调用链路，进行日志记录，性能监控并将一次分布式请求的调用情况集中展示
-* 各个服务节点上的耗时
-* 请求具体到达哪台机器上
-* 每个服务节点的请求状态
+将一次分布式请求还原成调用链路，进行日志记录，性能监控
 
 #### 2. Zipkin 作用
-* Zipkin 可以用来获取和分析Spring Cloud Sleuth 中产生的请求链路跟踪日志，
-并提供了Web界面来帮助我们直观地查看请求链路跟踪信息
-* Zipkin 提供了可插拔数据存储方式：In-Memory(内存)、MySql、Cassandra 以及ES
+* Zipkin 可以用来获取和分析 Sleuth 中产生的请求链路跟踪日志，
+并提供了UI界面来直观地查看请求链路跟踪信息
+* Zipkin 提供了可插拔数据存储方式：In-Memory(内存)、MySql、Cassandra、ES
 
 ### 二、集成Sleuth与Zipkin
 Zipkin分为服务端、客户端
@@ -25,7 +22,7 @@ Zipkin分为服务端、客户端
 #### 1. 下载、启动 zipkin 服务端
 * 下载地址：https://repo1.maven.org/maven2/io/zipkin/zipkin-server/
 * 找到目标版本，点进去后找到 `zipkin-server-x.y.z-exec.jar`的jar包
-* `java -jar`启动服务端，默认端口 9411，启动成功后通过 `http://localhost:8088/` 访问服务端 UI 界面
+* `java -jar`启动服务端，默认端口 9411，启动成功后通过 `http://localhost:9411/` 访问服务端 UI 界面
 
 ``` 
 java -jar zipkin-server-2.21.7-exec.jar
@@ -52,4 +49,4 @@ spring:
 ```
 
 #### 4. 测试
-* 启动服务，随意调用一个接口，在 zipkin UI 界面查看请求链路跟踪信息
+启动服务，随意调用一个接口，在 zipkin UI 界面查看请求链路跟踪信息
