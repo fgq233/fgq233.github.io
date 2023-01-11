@@ -247,7 +247,6 @@ db.blog.find().skip(2).limit(1)
 
 
 #### 6.  查询结果排序
-
 ```
 db.集合名称.find().sort(排序方式)
 
@@ -259,3 +258,111 @@ db.blog.find().sort({userid:-1,starnum:1})
 * `sort()` 方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，1 为升序，而 -1 为降序
 * `skip(), limilt(), sort()`都存在，执行的顺序是先 `sort()`, 然后是 `skip()`，最后是 `limit()`，
 和命令编写顺序无关
+
+
+
+
+
+### 四.  索引操作
+* MongoDB 查询支持索引，如果没有索引，MongoDB会执行全集合扫描，即扫描集合中的每个文档，查询效率低
+* MongoDB索引使用B树数据结构（确切的说是B-Tree，MySQL是B+Tree）
+
+索引类型
+* 单字段索引：在文档的单个字段上创建升序/降序索引，称为单字段索引 
+* 复合索引：多个字段的升序/降序索引，复合索引中列出的字段顺序具有重要意义
+* 其他类型：地理空间索引、文本索引、哈希索引
+
+
+#### 1.  索引的查看
+在创建集合的过程中，默认会在`_id` 字段上创建一个唯一的索引，索引名称为`_id_`
+
+```
+db.集合名称.getIndexes()
+
+结果：
+[ { "v" : 2, "key" : { "_id" : 1 }, "name" : "_id_" } ]
+```
+
+* key：索引的字段、排序方式
+* name：索引名称
+
+
+#### 2.  索引的创建
+```
+db.集合名称.createIndex(keys, options)
+
+
+示例：
+# 单字段升序索引
+db.blog.createIndex({userid:1})
+
+# 复合索引，userid升序、starnum降序
+db.blog.createIndex({userid:1,starnum:-1})
+```
+
+* keys：设置要添加索引的字段、升序还是降序
+* options：可选项
+    * background：Boolean值，true表示建索引过程会阻塞其它数据库操作，默认值为false
+    * unique：Boolean值，建立的索引是否唯一，默认值为false
+    * name：String值，索引名称，如果未指定，MongoDB会自动生成
+    * sparse：Boolean值，对文档中不存在的字段数据不启用索引，默认值为false
+    * expireAfterSeconds：integer值，指定一个以秒为单位的数值，完成 TTL设定，设定集合的生存时间
+    * v：integer值，索引的版本号
+    * weights：document，索引权重值，数值在 1 到 99999 之间，表示该索引相对于其他索引字段的得分权重
+    * default_language：string，对于文本索引，该参数决定了停用词及词干和词器的规则的列表， 默认值为英语
+    * language_override：string，对于文本索引，该参数指定了包含在文档中的字段名，语言覆盖默认的language，默认值为language
+                          
+
+#### 3.  索引的删除
+```
+# 单个索引删除，index可以是索引name、也可以是创建时候的keys
+db.集合名称.dropIndex(index)
+
+# 删除所有索引(除了_id)
+db.集合名称.dropIndexes()
+
+示例：
+db.blog.dropIndex("userid_1")
+db.blog.dropIndex({userid:1,starnum:-1})
+```
+
+ 
+ 
+### 五.  执行计划
+`MongoDB`支持使用执行计划 Explain Plan 分析查询性能
+
+#### 1.  语法
+```
+db.集合名称.find(query,options).explain(options)
+
+示例：
+db.blog.find({userid:"1003"}).explain()
+
+
+{
+        "explainVersion" : "1",
+        "queryPlanner" : {
+                "...
+                "winningPlan" : {
+                        "stage" : "COLLSCAN",
+                        "filter" : {
+                                "userid" : {
+                                        "$eq" : "1003"
+                                }
+                        },
+                        "direction" : "forward"
+                },
+                "rejectedPlans" : [ ]
+        },
+        ...
+}
+```
+
+关键点看： "stage" 
+* COLLSCAN 表示全集合扫描，未使用到索引
+* IXSCAN：基于索引的扫描
+ 
+ 
+#### 2.  涵盖的查询
+当查询条件和查询的投影仅包含索引字段时，MongoDB直接从索引返回结果，而不扫描任何文档或将文档带入内存， 
+非常高效
