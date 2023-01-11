@@ -303,7 +303,7 @@ db.blog.createIndex({userid:1,starnum:-1})
 * keys：设置要添加索引的字段、升序还是降序
 * options：可选项
     * background：Boolean值，true表示建索引过程会阻塞其它数据库操作，默认值为false
-    * unique：Boolean值，建立的索引是否唯一，默认值为false
+    * unique：Boolean值，值是否唯一，默认值为false
     * name：String值，索引名称，如果未指定，MongoDB会自动生成
     * sparse：Boolean值，对文档中不存在的字段数据不启用索引，默认值为false
     * expireAfterSeconds：integer值，指定一个以秒为单位的数值，完成 TTL设定，设定集合的生存时间
