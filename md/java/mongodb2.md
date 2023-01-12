@@ -82,7 +82,7 @@ storage:
   journal:
     enabled: true                          # 启用或禁用持久性日志以确保数据文件保持有效和可恢复，默认true
 processManagement:
-  fork: true                               # 在后台运行 
+  fork: true                               # 在后台运行， 这个在windows上会报错，可通过 install 为服务来解决
 net:
   bindIp: localhost,127.0.0.1              # 绑定的IP，默认是localhost
   port: 27017                              # 绑定的端口，默认是27017

@@ -37,11 +37,15 @@
 -  [MongoDB-2 安装启动][mongodb2]
 -  [MongoDB-3 常用命令][mongodb3]
 -  [MongoDB-4 SpringData MongoDB][mongodb4]
+-  [MongoDB-5 三种集群部署模式][mongodb5]
+-  [MongoDB-6 副本集搭建][mongodb6]
 
 
 
 
 
+[mongodb6]: https://fgq233.github.io/md/java/mongodb6
+[mongodb5]: https://fgq233.github.io/md/java/mongodb5
 [mongodb4]: https://fgq233.github.io/md/java/mongodb4
 [mongodb3]: https://fgq233.github.io/md/java/mongodb3
 [mongodb1]: https://fgq233.github.io/md/java/mongodb1
