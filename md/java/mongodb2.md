@@ -14,9 +14,8 @@ MongoDB的版本命名规范如：x.y.z
 * 将 bin 目录添加到环境变量
 * 在根目录建一个 `data` 目录，再在 `data` 目录下 建立 `db` 目录
 * 启动服务使用 `mongod` 命令，必须指定`dbpath` 参数，有2种方法指定
-    * 命令行 + 参数
-    * 命令行 + 配置文件
-      * 在根目录建一个 `conf` 目录，再在 `conf` 目录下新建 `mongodb.conf` 配置文件，内容如下
+    * `dbpath` 参数
+    * 配置文件：在根目录下新建 `conf/mongodb.conf` 配置文件，内容如下
       
 ```
 storage:
@@ -36,10 +35,11 @@ mongod --dbpath=D:\MyDevelop\MongoDB\mongodb-win32-x86_64-windows-5.0.14\data\db
 mongod -f ../conf/mongodb.conf
 mongod -f   D:\MyDevelop\MongoDB\mongodb-win32-x86_64-windows-5.0.14\conf\mongodb.conf
 mongod --config ../conf/mongodb.conf
+mongod --config D:\MyDevelop\MongoDB\mongodb-win32-x86_64-windows-5.0.14\conf\mongodb.conf
 ```
 
-
-启动成功后，默认端口为 27017，如果想改变默认启动端口，可以通过`--port`来指定
+* 方式一、二都支持相对路径、绝对路径
+* 启动成功后，默认端口为 27017，如果想改变默认启动端口，可以通过`--port`来指定
 
  
  
