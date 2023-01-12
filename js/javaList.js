@@ -18,14 +18,14 @@ const javaList2 = [
     {
         url: "", title: "全文检索", child: [
             {url: "https://fgq233.github.io/md/java/lucene", title: "Lucene中的基本概念"},
-            {url: "https://fgq233.github.io/md/java/es1", title: "elasticsearch-1 基本概念"},
-            {url: "https://fgq233.github.io/md/java/es2", title: "elasticsearch-2 Windows下环境安装"},
-            {url: "https://fgq233.github.io/md/java/es3", title: "elasticsearch-3 DSL语法对索引库、文档操作"},
-            {url: "https://fgq233.github.io/md/java/es4", title: "elasticsearch-4 RestClient对索引库、文档操作"},
-            {url: "https://fgq233.github.io/md/java/es5", title: "elasticsearch-5 DSL查询"},
-            {url: "https://fgq233.github.io/md/java/es6", title: "elasticsearch-6 RestClient查询"},
-            {url: "https://fgq233.github.io/md/java/es7", title: "elasticsearch-7 聚合查询"},
-            {url: "https://fgq233.github.io/md/java/es8", title: "elasticsearch-8 自动补全查询"}
+            {url: "https://fgq233.github.io/md/java/es1", title: "Elasticsearch-1 基本概念"},
+            {url: "https://fgq233.github.io/md/java/es2", title: "Elasticsearch-2 Windows下环境安装"},
+            {url: "https://fgq233.github.io/md/java/es3", title: "Elasticsearch-3 DSL语法对索引库、文档操作"},
+            {url: "https://fgq233.github.io/md/java/es4", title: "Elasticsearch-4 RestClient对索引库、文档操作"},
+            {url: "https://fgq233.github.io/md/java/es5", title: "Elasticsearch-5 DSL查询"},
+            {url: "https://fgq233.github.io/md/java/es6", title: "Elasticsearch-6 RestClient查询"},
+            {url: "https://fgq233.github.io/md/java/es7", title: "Elasticsearch-7 聚合查询"},
+            {url: "https://fgq233.github.io/md/java/es8", title: "Elasticsearch-8 自动补全查询"}
         ]
     },
 ];
