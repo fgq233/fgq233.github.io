@@ -6,7 +6,6 @@
 * [JS][js]
 * Android
 * React Native
-* IDEA
 * [Windows][win]
 * Linux
 
