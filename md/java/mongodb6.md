@@ -10,8 +10,8 @@
 
  
 ### 一、副本集搭建
-#### 1. 准备3台服务实例
-* 建立3个目录，分别是：mongodb1、mongodb2、mongodb3
+#### 1. 3个服务实例
+* 建立3个目录，分别是：`mongodb1、mongodb2、mongodb3`
 * 3份安装目录下分别建立存放数据、日志、配置文件的目录和文件
     * `mongodb1/data/db、mongodb1/conf/mongodb1.conf 、mongodb1/log`
     * `mongodb2/data/db、mongodb2/conf/mongodb2.conf 、mongodb2/log `
