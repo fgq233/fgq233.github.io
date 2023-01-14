@@ -225,7 +225,10 @@ rs.secondaryOk(false)
 mongodb://host1,host2,host3/数据库名称?connect=replicaSet&slaveOk=true&replicaSet=副本集名称
 
 # 示例
-uri: mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/fgq?connect=replicaSet&slaveOk=true&replicaSet=fgq233
+spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/fgq?connect=replicaSet&slaveOk=true&replicaSet=fgq233
 ```
 * slaveOk=true：开启副本节点读的功能
 * connect=replicaSet：自动到副本集中选择读写的主机，如果slaveOK是打开的，则实现了读写分离
