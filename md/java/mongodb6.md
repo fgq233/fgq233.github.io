@@ -1,4 +1,4 @@
-### MongoDB 副本集搭建
+### MongoDB 副本集搭建 - Windows
 一主一副本一仲裁
 
 | 节点    | ip        | port  |
@@ -51,11 +51,13 @@ mongod -f   D:\MyDevelop\MongoDB\mongodb3\conf\mongodb3.conf
 ```
 
 #### 4. 初始化副本集
-所有节点启动后，一开始是没有任何关系的，需要连接节点、初始化副本集，关联起来
+* 所有节点启动后，一开始是没有任何关系的
+* 连接主节点，进行副本集初始化
 
 ```
 # 连接主节点
 mongo --host=127.0.0.1 --port=27017
+
 # 初始化副本集(使用默认副本集配置)
 rs.initiate()
 ```
@@ -65,14 +67,24 @@ rs.initiate()
 * `ok` 的值为1，说明创建成功
 * 命令行提示符发生变化，变成了一个从节点角色，此时默认不能读写，稍等片刻，回车，变成`主节点`
 
+
+
 #### 5. 查看副本集配置、状态
 ```
 # 查看副本集配置，configuration：可选，如果没有配置，则使用默认主节点配置
 rs.conf(configuration)
 rs.config(configuration)
 
-# 查看副本集状态
+# 查看副本集状态，返回的数据和conf差不多
 rs.status()
+
+配置修改
+# 1、定义变量
+var cfg = rs.conf()
+# 2、修改变量
+cfg.members[1].priority=2
+# 3、使用变量重新加载配置
+rs.reconfig(cfg)
 ```
 
 <details>
@@ -124,112 +136,99 @@ rs.status()
 副本集配置的查看命令，本质查询的是 `local` 库下 `system` 集合 `replset` 文档中的数据
 * `id` : 副本集名称
 * `members` ：副本集成员数组
+    * host：主机的`ip：port`
     * arbiterOnly：是否仲裁节点
     * priority：优先级（权重值）
 * `settings`：副本集的参数配置
 
 
+ 
 
-<details>
-<summary>副本集状态</summary>
-<pre><code>
-{
-        "set" : "fgq233",
-        "date" : ISODate("2023-01-14T05:48:25.283Z"),
-        "myState" : 1,
-        "term" : NumberLong(1),
-        "syncSourceHost" : "",
-        "syncSourceId" : -1,
-        "heartbeatIntervalMillis" : NumberLong(2000),
-        "majorityVoteCount" : 1,
-        "writeMajorityCount" : 1,
-        "votingMembersCount" : 1,
-        "writableVotingMembersCount" : 1,
-        "optimes" : {
-                "lastCommittedOpTime" : {
-                        "ts" : Timestamp(1673675301, 1),
-                        "t" : NumberLong(1)
-                },
-                "lastCommittedWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
-                "readConcernMajorityOpTime" : {
-                        "ts" : Timestamp(1673675301, 1),
-                        "t" : NumberLong(1)
-                },
-                "appliedOpTime" : {
-                        "ts" : Timestamp(1673675301, 1),
-                        "t" : NumberLong(1)
-                },
-                "durableOpTime" : {
-                        "ts" : Timestamp(1673675301, 1),
-                        "t" : NumberLong(1)
-                },
-                "lastAppliedWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
-                "lastDurableWallTime" : ISODate("2023-01-14T05:48:21.451Z")
-        },
-        "lastStableRecoveryTimestamp" : Timestamp(1673675281, 1),
-        "electionCandidateMetrics" : {
-                "lastElectionReason" : "electionTimeout",
-                "lastElectionDate" : ISODate("2023-01-14T05:08:01.019Z"),
-                "electionTerm" : NumberLong(1),
-                "lastCommittedOpTimeAtElection" : {
-                        "ts" : Timestamp(1673672880, 1),
-                        "t" : NumberLong(-1)
-                },
-                "lastSeenOpTimeAtElection" : {
-                        "ts" : Timestamp(1673672880, 1),
-                        "t" : NumberLong(-1)
-                },
-                "numVotesNeeded" : 1,
-                "priorityAtElection" : 1,
-                "electionTimeoutMillis" : NumberLong(10000),
-                "newTermStartDate" : ISODate("2023-01-14T05:08:01.039Z"),
-                "wMajorityWriteAvailabilityDate" : ISODate("2023-01-14T05:08:01.051Z")
-        },
-        "members" : [
-                {
-                        "_id" : 0,
-                        "name" : "localhost:27017",
-                        "health" : 1,
-                        "state" : 1,
-                        "stateStr" : "PRIMARY",
-                        "uptime" : 2840,
-                        "optime" : {
-                                "ts" : Timestamp(1673675301, 1),
-                                "t" : NumberLong(1)
-                        },
-                        "optimeDate" : ISODate("2023-01-14T05:48:21Z"),
-                        "lastAppliedWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
-                        "lastDurableWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
-                        "syncSourceHost" : "",
-                        "syncSourceId" : -1,
-                        "infoMessage" : "",
-                        "electionTime" : Timestamp(1673672881, 1),
-                        "electionDate" : ISODate("2023-01-14T05:08:01Z"),
-                        "configVersion" : 1,
-                        "configTerm" : 1,
-                        "self" : true,
-                        "lastHeartbeatMessage" : ""
-                }
-        ],
-        "ok" : 1,
-        "$clusterTime" : {
-                "clusterTime" : Timestamp(1673675301, 1),
-                "signature" : {
-                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
-                        "keyId" : NumberLong(0)
-                }
-        },
-        "operationTime" : Timestamp(1673675301, 1)
-}
-</code></pre>
-</details>
+
+#### 6. 添加从节点：副本成员、仲裁
+在主节点添加从节点，将其他成员加入到副本集
+
+```
+# 添加副本集成员
+rs.add(host, arbiterOnly)
+# 添加仲裁节点
+rs.addArb(host)
+
+rs.add("127.0.0.1:27018")
+rs.addArb(127.0.0.1:27019)
+```
+
+* host：要添加到副本集的新成员，指定为字符串(`主机ip:port`)或配置文档(rs.conf查询出来members的配置文档)
+* arbiterOnly：可选参数，仅在 host 值为字符串时适用，如果为true，则表示添加的主机是仲裁者
+    * Mongodb 5.x的版本中，添加仲裁节点的话可能会遇到执行命令后卡主而导致无法添加仲裁节点的问题
+    * 主节点执行 `db.adminCommand({"setDefaultRWConcern" : 1,"defaultWriteConcern" : {"w" : 2}})` 再添加即可
 
 
 
-* `set` : 副本集名称
-* `myState`: 1说明状态正常
-* `members` ：副本集成员数组
-    * name：节点`ip：port`
-    * health：1代表节点健康
-    * stateStr：节点的角色
+#### 7. 副本集、仲裁节点的数据读写操作
+* 默认情况下，从节点是没有读写权限的，可以增加读的权限，但需要进行设置(`slaveOk 或 secondaryOk`)
+* 仲裁者节点，不存放任何业务数据 
+
+```
+# 连接从节点：副本成员
+mongo --host=127.0.0.1 --port=27018
+
+# 在从节点中，设置副本成员获取到读权限，参数省略表示true，获取到读权限，false失去读权限
+rs.slaveOk()  或  rs.slaveOk(true)
+rs.slaveOk(false)
+
+# 在从节点中，设置副本成员获取到读权限，参数省略表示true，获取到读权限，false失去读权限
+rs.secondaryOk() 或  rs.secondaryOk(true)
+rs.secondaryOk(false)
+```
+
+到此实现了副本集集群搭建
+
+
+
+
+
+
+### 二、自动故障转移测试
+#### 1. 副本节点挂掉
+关闭 27018 服务 
+* 主节点 27017 读写不受影响
+* 重启副本节点 27018 服务，主节点在此期间写入的数据，会自动同步给从节点
+
+
+#### 2. 主节点挂掉
+关闭 27017 服务
+* 副本集有3个节点，自己1票、仲裁者1票，大于N/2 + 1，副本节点升级为主节点，具备读写功能
+* 重启 27017，27017 变成副本节点，数据自动从 27018 同步
+
+
+#### 3. 仲裁节点、主节点挂掉
+先关闭 27019服务、再关闭 27017服务
+* 副本节点 还是 副本节点，因为选票只有 1票，不满足`大多数`要求
+* 只重启 27019，27018 获取2票，变成主节点
+* 先重启 27017，再重启 27019， 27017和27018票数一致，但27018数据更新，成为主节点
+
+
+#### 4. 仲裁节点、从节点挂掉
+先关闭 27019服务、再关闭 27018服务
+* 10秒后，27017主节点自动降级为副本节点
+* 副本集故障，不可写数据，只能读取数据
+
+
+
+
+
+
+### 三、SpringData MongoDB连接副本集
+```
+# 语法
+mongodb://host1,host2,host3/数据库名称?connect=replicaSet&slaveOk=true&replicaSet=副本集名称
+
+# 示例
+uri: mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/fgq?connect=replicaSet&slaveOk=true&replicaSet=fgq233
+```
+* slaveOk=true：开启副本节点读的功能
+* connect=replicaSet：自动到副本集中选择读写的主机，如果slaveOK是打开的，则实现了读写分离
+
+
 
