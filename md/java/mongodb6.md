@@ -70,6 +70,9 @@ rs.initiate()
 # 查看副本集配置，configuration：可选，如果没有配置，则使用默认主节点配置
 rs.conf(configuration)
 rs.config(configuration)
+
+# 查看副本集状态
+rs.status()
 ```
 
 <details>
@@ -118,10 +121,115 @@ rs.config(configuration)
 
 
 
+副本集配置的查看命令，本质查询的是 `local` 库下 `system` 集合 `replset` 文档中的数据
+* `id` : 副本集名称
+* `members` ：副本集成员数组
+    * arbiterOnly：是否仲裁节点
+    * priority：优先级（权重值）
+* `settings`：副本集的参数配置
 
 
 
+<details>
+<summary>副本集状态</summary>
+<pre><code>
+{
+        "set" : "fgq233",
+        "date" : ISODate("2023-01-14T05:48:25.283Z"),
+        "myState" : 1,
+        "term" : NumberLong(1),
+        "syncSourceHost" : "",
+        "syncSourceId" : -1,
+        "heartbeatIntervalMillis" : NumberLong(2000),
+        "majorityVoteCount" : 1,
+        "writeMajorityCount" : 1,
+        "votingMembersCount" : 1,
+        "writableVotingMembersCount" : 1,
+        "optimes" : {
+                "lastCommittedOpTime" : {
+                        "ts" : Timestamp(1673675301, 1),
+                        "t" : NumberLong(1)
+                },
+                "lastCommittedWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
+                "readConcernMajorityOpTime" : {
+                        "ts" : Timestamp(1673675301, 1),
+                        "t" : NumberLong(1)
+                },
+                "appliedOpTime" : {
+                        "ts" : Timestamp(1673675301, 1),
+                        "t" : NumberLong(1)
+                },
+                "durableOpTime" : {
+                        "ts" : Timestamp(1673675301, 1),
+                        "t" : NumberLong(1)
+                },
+                "lastAppliedWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
+                "lastDurableWallTime" : ISODate("2023-01-14T05:48:21.451Z")
+        },
+        "lastStableRecoveryTimestamp" : Timestamp(1673675281, 1),
+        "electionCandidateMetrics" : {
+                "lastElectionReason" : "electionTimeout",
+                "lastElectionDate" : ISODate("2023-01-14T05:08:01.019Z"),
+                "electionTerm" : NumberLong(1),
+                "lastCommittedOpTimeAtElection" : {
+                        "ts" : Timestamp(1673672880, 1),
+                        "t" : NumberLong(-1)
+                },
+                "lastSeenOpTimeAtElection" : {
+                        "ts" : Timestamp(1673672880, 1),
+                        "t" : NumberLong(-1)
+                },
+                "numVotesNeeded" : 1,
+                "priorityAtElection" : 1,
+                "electionTimeoutMillis" : NumberLong(10000),
+                "newTermStartDate" : ISODate("2023-01-14T05:08:01.039Z"),
+                "wMajorityWriteAvailabilityDate" : ISODate("2023-01-14T05:08:01.051Z")
+        },
+        "members" : [
+                {
+                        "_id" : 0,
+                        "name" : "localhost:27017",
+                        "health" : 1,
+                        "state" : 1,
+                        "stateStr" : "PRIMARY",
+                        "uptime" : 2840,
+                        "optime" : {
+                                "ts" : Timestamp(1673675301, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2023-01-14T05:48:21Z"),
+                        "lastAppliedWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
+                        "lastDurableWallTime" : ISODate("2023-01-14T05:48:21.451Z"),
+                        "syncSourceHost" : "",
+                        "syncSourceId" : -1,
+                        "infoMessage" : "",
+                        "electionTime" : Timestamp(1673672881, 1),
+                        "electionDate" : ISODate("2023-01-14T05:08:01Z"),
+                        "configVersion" : 1,
+                        "configTerm" : 1,
+                        "self" : true,
+                        "lastHeartbeatMessage" : ""
+                }
+        ],
+        "ok" : 1,
+        "$clusterTime" : {
+                "clusterTime" : Timestamp(1673675301, 1),
+                "signature" : {
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+                        "keyId" : NumberLong(0)
+                }
+        },
+        "operationTime" : Timestamp(1673675301, 1)
+}
+</code></pre>
+</details>
 
 
 
+* `set` : 副本集名称
+* `myState`: 1说明状态正常
+* `members` ：副本集成员数组
+    * name：节点`ip：port`
+    * health：1代表节点健康
+    * stateStr：节点的角色
 
