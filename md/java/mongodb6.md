@@ -221,10 +221,10 @@ rs.secondaryOk(false)
 
 ### 三、SpringData MongoDB连接副本集
 ```
-# 语法
-mongodb://host1,host2,host3/数据库名称?connect=replicaSet&slaveOk=true&replicaSet=副本集名称
+# MongoDB客户端连接语法
+mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
-# 示例
+# 副本集连接
 spring:
   data:
     mongodb:
