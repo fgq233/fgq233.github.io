@@ -232,10 +232,6 @@ spring:
 ```
 
 * `slaveOk=true`：开启副本节点读的功能
-    * true：在 `connect=direct`模式下，驱动会连接第一台机器，即使这台服务器不是主
-    * false: 在 `connect=direct`模式下，驱动会自动找寻主服务器.
-    * true：在 `connect=replicaSet`模式下，驱动会发送所有的写请求到主，并且把读取操作分布在其他从服务器
-    * false：在 `connect=replicaSet` 模式下，驱动仅仅连接主服务器，并且所有的读写命令都连接到主服务器
 * `connect=replicaSet`：自动到副本集中选择读写的主机，如果slaveOK是打开的，则实现了读写分离
 * `replicaSet=fgq233`：副本集名称
  
