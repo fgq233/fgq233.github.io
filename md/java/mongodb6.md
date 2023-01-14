@@ -51,3 +51,27 @@ mongod -f   D:\MyDevelop\MongoDB\mongodb3\conf\mongodb3.conf
 ```
 
 #### 4. 初始化副本集
+所有节点启动后，一开始是没有任何关系的，需要连接节点、初始化副本集，关联起来
+
+```
+# 连接主节点
+mongo --host=127.0.0.1 --port=27017
+# 初始化副本集(使用默认副本集配置)
+rs.initiate()
+```
+
+![mongodb](https://fgq233.github.io/imgs/java/mongodb2.png)
+
+* `ok` 的值为1，说明创建成功
+* 命令行提示符发生变化，变成了一个从节点角色，此时默认不能读写，稍等片刻，回车，变成主节点
+
+
+
+
+
+
+
+
+
+
+
