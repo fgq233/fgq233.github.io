@@ -63,8 +63,58 @@ rs.initiate()
 ![mongodb](https://fgq233.github.io/imgs/java/mongodb2.png)
 
 * `ok` 的值为1，说明创建成功
-* 命令行提示符发生变化，变成了一个从节点角色，此时默认不能读写，稍等片刻，回车，变成主节点
+* 命令行提示符发生变化，变成了一个从节点角色，此时默认不能读写，稍等片刻，回车，变成`主节点`
 
+#### 5. 查看副本集配置、状态
+```
+# 查看副本集配置，configuration：可选，如果没有配置，则使用默认主节点配置
+rs.conf(configuration)
+rs.config(configuration)
+```
+
+<details>
+<summary>副本集配置</summary>
+<pre><code>
+{
+        "_id" : "fgq233",
+        "version" : 1,
+        "term" : 1,
+        "members" : [
+                {
+                        "_id" : 0,
+                        "host" : "localhost:27017",
+                        "arbiterOnly" : false,
+                        "buildIndexes" : true,
+                        "hidden" : false,
+                        "priority" : 1,
+                        "tags" : {
+
+                        },
+                        "secondaryDelaySecs" : NumberLong(0),
+                        "votes" : 1
+                }
+        ],
+        "protocolVersion" : NumberLong(1),
+        "writeConcernMajorityJournalDefault" : true,
+        "settings" : {
+                "chainingAllowed" : true,
+                "heartbeatIntervalMillis" : 2000,
+                "heartbeatTimeoutSecs" : 10,
+                "electionTimeoutMillis" : 10000,
+                "catchUpTimeoutMillis" : -1,
+                "catchUpTakeoverDelayMillis" : 30000,
+                "getLastErrorModes" : {
+
+                },
+                "getLastErrorDefaults" : {
+                        "w" : 1,
+                        "wtimeout" : 0
+                },
+                "replicaSetId" : ObjectId("63c238b0f2ab0cef182e6e75")
+        }
+}
+</code></pre>
+</details>
 
 
 
