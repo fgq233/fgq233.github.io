@@ -39,11 +39,13 @@
 -  [MongoDB-4 SpringData MongoDB][mongodb4]
 -  [MongoDB-5 三种集群部署模式][mongodb5]
 -  [MongoDB-6 副本集搭建][mongodb6]
+-  [MongoDB-7 分片集群搭建][mongodb7]
 
 
 
 
 
+[mongodb7]: https://fgq233.github.io/md/java/mongodb7
 [mongodb6]: https://fgq233.github.io/md/java/mongodb6
 [mongodb5]: https://fgq233.github.io/md/java/mongodb5
 [mongodb4]: https://fgq233.github.io/md/java/mongodb4
