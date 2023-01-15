@@ -15,6 +15,10 @@ Redis(Remote Dictionary Server)，即远程字典服务，是一个`基于内存
 解压下载的安装包，将解压后目录 `Redis-5.0.14` 添加到环境变量
 * 启动服务：运行 `redis-server.exe`
 * 连接服务：运行 `redis-cli.exe`
+    * 指定 `ip` 连接：`-h 127.0.0.1`
+    * 指定 `port` 连接：`-p 6379`
+    * 指定 `访问密码` 连接：`-a fgq666`
+
 
 #### 3. 配置文件
 * 配置文件为 `redis.windows.conf`

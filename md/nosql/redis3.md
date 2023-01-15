@@ -13,19 +13,20 @@
 | 127.0.0.1 | 7003 | slave |
 
 
-模拟3份服务器，复制3份redis 安装包
+* 新建 Redis1、Redis2、Redis3 三个目录
+* 将配置文件分别复制到3个目录 `redis1.conf、redis2.conf、redis3.conf`
 
 
 ![Redis主从集群](https://fgq233.github.io/imgs/springcloud/redis1.png)
 
 
-#### 2. 修改 redis.conf
+#### 2. 修改3个目录下配置文件 
 ```
-# 3个Redis端口修改
+# 3个Redis端口修改，分别为7001、7002、7003
 port 6379
 
-# 文件保存目录
-dir ./
+# 3个服务文件保存目录修改
+dir D:\MyDevelop\RedisX\Redis1
 
 # 如果是虚拟机，因为虚拟机本身有多个IP，为了避免混乱，需要指定每个节点ip信息
 replica-announce-ip 127.0.0.1
@@ -43,8 +44,25 @@ slaveof：5.0以前，replicaof：5.0以后
 * 临时：在redis-cli客户端连接到redis服务，执行命令，这个会在重启后失效
 
 #### 3. 启动所有节点
+```
+redis-server D:\MyDevelop\RedisX\Redis1\redis1.conf
+redis-server D:\MyDevelop\RedisX\Redis2\redis2.conf
+redis-server D:\MyDevelop\RedisX\Redis3\redis3.conf
+```
 
+#### 4. 测试主从复制
+```
+# 连接主服务，添加数据
+redis-cli -h 127.0.0.1 -p 7001
+set name fgq
 
+# 退出
+exit
+
+# 连接从服务，获取数据
+redis-cli -h 127.0.0.1 -p 7002
+get name
+```
 
 
 
