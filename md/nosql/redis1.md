@@ -12,13 +12,15 @@ Redis(Remote Dictionary Server)，即远程字典服务，是一个`基于内存
 * windows版本：https://github.com/tporadowski/redis/releases
 
 #### 2. 解压、启动
-解压下载的安装包
-* 启动服务：运行`redis-server.exe`
-* 连接服务：`redis-cli.exe`
+解压下载的安装包，将解压后目录 `Redis-5.0.14` 添加到环境变量
+* 启动服务：运行 `redis-server.exe`
+* 连接服务：运行 `redis-cli.exe`
 
 #### 3. 配置文件
 * 配置文件为 `redis.windows.conf`
-* 以指定配置文件启动服务：运行`redis-server redis.windows.conf`
+* 以指定配置文件启动服务
+    * 相对路径：`redis-server redis.windows.conf`
+    * 绝对路径：`redis-server D:\MyDevelop\Redis-5.0.14\redis.windows.conf`
 
 ``` 
 # 访问密码
