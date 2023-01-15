@@ -32,10 +32,11 @@ const javaList2 = [
 const javaList3 = [
     {
         url: "", title: "Redis", child: [
-            {url: "https://fgq233.github.io/md/nosql/redis1", title: "Redis-持久化"},
-            {url: "https://fgq233.github.io/md/nosql/redis2", title: "Redis-主从集群"},
-            {url: "https://fgq233.github.io/md/nosql/redis3", title: "Redis-哨兵集群"},
-            {url: "https://fgq233.github.io/md/nosql/redis4", title: "Redis-分片集群"}
+            {url: "https://fgq233.github.io/md/nosql/redis1", title: "Redis-1 安装"},
+            {url: "https://fgq233.github.io/md/nosql/redis2", title: "Redis-2 持久化"},
+            {url: "https://fgq233.github.io/md/nosql/redis3", title: "Redis-3 主从集群"},
+            {url: "https://fgq233.github.io/md/nosql/redis4", title: "Redis-4 哨兵集群"},
+            {url: "https://fgq233.github.io/md/nosql/redis5", title: "Redis-5 分片集群"}
         ]
     },
     {

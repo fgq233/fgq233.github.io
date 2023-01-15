@@ -1,100 +1,85 @@
-### Redis 主从集群 
-* 单节点Redis的并发能力是有上限的，搭建主从集群，实现读写分离，进一步提高Redis的并发能力
-* Redis 集群结构比较特殊，因为读多写少，所以采用的是主从集群，写主节点，读分节点
-* Redis 集群，主节点要用RDB 持久化，尽量减小对主节点网络的负担
+### Redis 持久化
+* Redis 是内存存储，虽然性能更高，但是一旦程序故障很容易丢失数据，所以将数据持久化到硬盘是必须的
+* Redis 有 2 种持久化方案：RDB、AOF
 
-### 一. 搭建主从集群 
-#### 1. 模拟3台集群中的服务器
+### 一. RDB持久化 
+#### 1. RDB
+* Redis Database Backup file（Redis数据备份文件），也叫做Redis数据快照，这是Redis默认持久化方案
+* Redis 把内存中的所有数据都记录到磁盘中，当Redis实例故障重启后，从磁盘读取快照文件，恢复数据
+* RDB备份文件默认保存在当前运行目录
 
-| IP   | PORT         | 角色 |
-| ------ | ----------| ---- |
-| 127.0.0.1 | 7001 | master |
-| 127.0.0.1 | 7002 | slave |
-| 127.0.0.1 | 7003 | slave |
+#### 2. 执行时机
+##### 2.1 执行 save 命令时
+save命令会导致主进程执行RDB，这个过程中其它所有命令都会被阻塞，所以一般只在数据迁移时可能用到
+    
+##### 2.2 执行 bgsave 命令时
+* bgsave命令是异步执行RDB，会开启独立进程完成RDB，主进程可以持续处理用户请求，不受影响
+* bgsave原理：开始时会fork主进程得到子进程，子进程共享主进程的内存数据，完成fork后读取内存数据并写入 RDB 文件，
+fork采用了copy-on-write技术
+  - 当主进程执行读操作时，访问共享内存
+  - 当主进程执行写操作时，则会拷贝一份数据，执行写操作
+  
+  
+##### 2.3 Redis关闭时
+Redis关闭时会执行一次save命令，实现RDB持久化
 
 
-模拟3份服务器，复制3份redis 安装包
+##### 2.4 触发RDB条件
+Redis内部有触发RDB的机制，可以在redis.conf文件中找到，格式如下：
 
-
-![Redis主从集群](https://fgq233.github.io/imgs/springcloud/redis1.png)
-
-
-#### 2. 修改 redis.conf
 ```
-# 3个Redis端口修改
-port 6379
-
-# 文件保存目录
-dir ./
-
-# 如果是虚拟机，因为虚拟机本身有多个IP，为了避免混乱，需要指定每个节点ip信息
-replica-announce-ip 127.0.0.1
-
-# 在所有从节点配置slaveof或replicaof，启动主从关系
-slaveof 127.0.0.1 7001
-或
-replicaof 127.0.0.1 7001
+# 900秒内，如果至少有1个key被修改，则执行bgsave 
+# 300秒内，如果至少有10个key被修改，则执行bgsave 
+# 60秒内，如果至少有10000个key被修改，则执行bgsave
+save 900 1  
+save 300 10  
+save 60 10000 
 ```
 
-slaveof：5.0以前，replicaof：5.0以后
-
-主从分永久和临时两种模式：
-* 永久：在redis.conf中配置主节点ip port
-* 临时：在redis-cli客户端连接到redis服务，执行命令，这个会在重启后失效
-
-#### 3. 启动所有节点
 
 
+### 二. AOF持久化 
+#### 1. AOF
+Append Only File（追加文件），Redis处理的每一个写命令都会记录在AOF文件，可以看做是命令日志文件
 
 
+#### 2. AOF原理
+* RDB 是将每条数据key value记录在文件中
+* AOF 是将每一条命令记录在文件中，启动时执行所有命令，恢复数据
+ 
 
-### 二. 主从同步原理
-#### 1. 同步步骤
-主从第一次建立连接时，会执行 RDB 全量同步，后续采用增量同步，步骤如下:
+#### 3. 开启AOF持久化
+AOF默认是关闭的，需要修改redis.conf配置文件来开启
 
-* 1、第一次：slave节点请求增量同步
-* 2、master节点判断replid，发现不一致，拒绝增量同步
-* 3、master将完整内存数据生成RDB，发送RDB到slave
-* 4、slave清空本地数据，加载master的RDB
-* 5、master将RDB期间的命令记录在repl_backlog，并持续将log中的命令发送给slave
-* 6、slave执行接收到的命令，保持与master之间的同步
+```
+# 是否开启AOF功能，默认是no
+appendonly yes
 
+# AOF文件的名称
+appendfilename "appendonly.aof"
+```
 
+#### 4. AOF执行时机  
+```
+# always：表示每执行一次写命令，立即记录到AOF文件 (安全性最强、性能最差)
+# everysec：写命令执行完先放入AOF缓冲区，然后每隔1秒将缓冲区数据写到AOF文件(默认值，最多损失1秒数据)
+# no：写命令执行完先放入AOF缓冲区，由操作系统决定何时将缓冲区内容写回磁盘 (安全性最差、性能最好)
+appendfsync always 
+```
 
-#### 2. 概念
+#### 5. AOF文件重写
+* 因为是记录每一条命令，AOF文件会比RDB文件大的多，而且AOF会记录对同一个key的多次写操作，
+但只有最后一次写操作才有意义
 
-* Replication Id：简称replid，数据集的标记，id一致则说明是同一数据集，
-每一个master都有唯一的replid，slave则会继承master节点的replid
+* 通过执行 `bgrewriteaof` 命令，可以让AOF文件执行重写功能，减小持久化文件大小，提升加载速度
+* Redis 会在触发阈值配置时，主动去异步重写AOF文件
 
-* offset：偏移量，随着记录在repl_backlog中的数据增多而逐渐增大，slave完成同步时也会记录当前同步的offset,
-如果slave的offset小于master的offset，说明slave数据落后于master，需要更新
+```
+# AOF文件比上次文件增长超过多少百分比则触发重写
+auto-aof-rewrite-percentage 100
 
-#### 3. 全量、增量判断原理
-* slave做数据同步，必须向master声明自己的replid和offset，master才可以判断到底需要同步哪些数据
-* 首次：首次replid不一致，说明这是一个全新的slave，要做全量同步
-* 后续：replid一致，根据offset做增量同步，只更新slave与master存在差异的部分数据
-
-
-#### 4.repl_backlog文件
-* 这个文件是一个固定大小的数组，只不过数组是环形，角标到达数组末尾后，会再次从0开始读写，
-数组头部的数据会被覆盖
-
-* repl_baklog中会记录Redis处理过的命令日志及offset，包括master当前的offset，和slave已经拷贝到的offset
-
-
-* slave与master的offset之间的差异，就是salve需要增量同步的数据
-* 如果slave出现网络阻塞，导致master的offset远远超过了slave的offset，就无法增量同步了，只能重新全量同步
-
-
-
-#### 5. 主从集群同步优化
-
-
-* 在master中配置 `repl-diskless-sync yes` 启用无磁盘复制，避免全量同步时的磁盘IO
-* Redis单节点上的内存占用不要太大，减少RDB导致的过多磁盘IO
-* 适当提高repl_baklog的大小，发现slave宕机时尽快实现故障恢复，尽可能避免全量同步
-* 限制一个master上的slave节点数量，如果实在是太多slave，则可以采用主-从-从链式结构，减少master压力
-
-![Redis主从集群](https://fgq233.github.io/imgs/springcloud/redis2.png)
+# AOF文件达到 64M 以上才触发重写 
+auto-aof-rewrite-min-size 64mb 
+```
 
 
