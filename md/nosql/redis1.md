@@ -38,6 +38,9 @@ save 60 10000
 
 #### 3. RDB 其他配置
 ``` 
+# 访问密码
+requirepass fgq666
+
 # 将触发RDB条件设置为空字符串，禁用RDB
 save "" 
 
