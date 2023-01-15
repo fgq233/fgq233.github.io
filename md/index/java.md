@@ -45,18 +45,18 @@
 
 
 
-[mongodb7]: https://fgq233.github.io/md/java/mongodb7
-[mongodb6]: https://fgq233.github.io/md/java/mongodb6
-[mongodb5]: https://fgq233.github.io/md/java/mongodb5
-[mongodb4]: https://fgq233.github.io/md/java/mongodb4
-[mongodb3]: https://fgq233.github.io/md/java/mongodb3
-[mongodb1]: https://fgq233.github.io/md/java/mongodb1
-[mongodb2]: https://fgq233.github.io/md/java/mongodb2
+[mongodb7]: https://fgq233.github.io/md/nosql/mongodb7
+[mongodb6]: https://fgq233.github.io/md/nosql/mongodb6
+[mongodb5]: https://fgq233.github.io/md/nosql/mongodb5
+[mongodb4]: https://fgq233.github.io/md/nosql/mongodb4
+[mongodb3]: https://fgq233.github.io/md/nosql/mongodb3
+[mongodb1]: https://fgq233.github.io/md/nosql/mongodb1
+[mongodb2]: https://fgq233.github.io/md/nosql/mongodb2
 [nginx]: https://fgq233.github.io/md/java/nginx
-[redis1]: https://fgq233.github.io/md/java/redis1
-[redis2]: https://fgq233.github.io/md/java/redis2
-[redis3]: https://fgq233.github.io/md/java/redis3
-[redis4]: https://fgq233.github.io/md/java/redis4
+[redis1]: https://fgq233.github.io/md/nosql/redis1
+[redis2]: https://fgq233.github.io/md/nosql/redis2
+[redis3]: https://fgq233.github.io/md/nosql/redis3
+[redis4]: https://fgq233.github.io/md/nosql/redis4
 [stream]: https://fgq233.github.io/md/java/stream
 [exception]: https://fgq233.github.io/md/java/exception
 [mq]: https://fgq233.github.io/md/java/mq

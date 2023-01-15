@@ -32,21 +32,21 @@ const javaList2 = [
 const javaList3 = [
     {
         url: "", title: "Redis", child: [
-            {url: "https://fgq233.github.io/md/java/redis1", title: "Redis-持久化"},
-            {url: "https://fgq233.github.io/md/java/redis2", title: "Redis-主从集群"},
-            {url: "https://fgq233.github.io/md/java/redis3", title: "Redis-哨兵集群"},
-            {url: "https://fgq233.github.io/md/java/redis4", title: "Redis-分片集群"}
+            {url: "https://fgq233.github.io/md/nosql/redis1", title: "Redis-持久化"},
+            {url: "https://fgq233.github.io/md/nosql/redis2", title: "Redis-主从集群"},
+            {url: "https://fgq233.github.io/md/nosql/redis3", title: "Redis-哨兵集群"},
+            {url: "https://fgq233.github.io/md/nosql/redis4", title: "Redis-分片集群"}
         ]
     },
     {
         url: "", title: "MongoDB", child: [
-            {url: "https://fgq233.github.io/md/java/mongodb1", title: "MongoDB-1 基本概念"},
-            {url: "https://fgq233.github.io/md/java/mongodb2", title: "MongoDB-2 安装启动"},
-            {url: "https://fgq233.github.io/md/java/mongodb3", title: "MongoDB-3 常用命令"},
-            {url: "https://fgq233.github.io/md/java/mongodb4", title: "MongoDB-4 SpringData MongoDB"},
-            {url: "https://fgq233.github.io/md/java/mongodb5", title: "MongoDB-5 三种集群部署模式"},
-            {url: "https://fgq233.github.io/md/java/mongodb6", title: "MongoDB-6 副本集搭建"},
-            {url: "https://fgq233.github.io/md/java/mongodb7", title: "MongoDB-7 分片集群搭建"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb1", title: "MongoDB-1 基本概念"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb2", title: "MongoDB-2 安装启动"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb3", title: "MongoDB-3 常用命令"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb4", title: "MongoDB-4 SpringData MongoDB"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb5", title: "MongoDB-5 三种集群部署模式"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb6", title: "MongoDB-6 副本集搭建"},
+            {url: "https://fgq233.github.io/md/nosql/mongodb7", title: "MongoDB-7 分片集群搭建"},
         ]
     },
 ];
