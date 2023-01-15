@@ -37,7 +37,7 @@ storage:
 processManagement:
   pidFilePath: D:\MyDevelop\MongoDB\mongodb1\log\pid.txt  
 net:
-  bindIp: localhost,127.0.0.1           
+  bindIp: 127.0.0.1           
   port: 27017  
 replication:
   replSetName: fgq233    # 副本集名称
@@ -97,7 +97,7 @@ rs.reconfig(cfg)
         "members" : [
                 {
                         "_id" : 0,
-                        "host" : "localhost:27017",
+                        "host" : "127.0.0.1:27017",
                         "arbiterOnly" : false,
                         "buildIndexes" : true,
                         "hidden" : false,
@@ -155,7 +155,7 @@ rs.add(host, arbiterOnly)
 rs.addArb(host)
 
 rs.add("127.0.0.1:27018")
-rs.addArb(127.0.0.1:27019)
+rs.addArb("127.0.0.1:27019")
 ```
 
 * host：要添加到副本集的新成员，指定为字符串(`主机ip:port`)或配置文档(rs.conf查询出来members的配置文档)

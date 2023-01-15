@@ -5,28 +5,17 @@
 | ------ | ----------| ----- |
 | 分片节点副本集1     | 127.0.0.1 | 27001、27002、27003 |
 | 分片节点副本集2     | 127.0.0.1 | 27004、27005、27006 |
-| 配置节点副本集      | 127.0.0.1 | 27101、27102、27103 |
-| 路由节点           | 127.0.0.1 | 27201、27202        |
+| 配置节点副本集      | 127.0.0.1 | 27007、27008、27009 |
+| 路由节点           | 127.0.0.1 | 27101、27102        |
 
 
- 
-### 一、分片副本集
-参考[副本集搭建](https://fgq233.github.io/md/java/mongodb6)
+9 个实例有一些通用配置，只有下面几个选项不一样
 
-#### 1. 3个服务实例
-* 建立3个目录，分别是：`mongodb1、mongodb2、mongodb3`
-* 3份安装目录下分别建立存放数据、日志、配置文件的目录和文件
-    * `mongodb1/data/db、mongodb1/conf/mongodb1.conf 、mongodb1/log`
-    * `mongodb2/data/db、mongodb2/conf/mongodb2.conf 、mongodb2/log `
-    * `mongodb3/data/db、mongodb3/conf/mongodb3.conf 、mongodb3/log `
-
-#### 2. 配置文件内容
-配置文件添加配置，下列配置需要修改为各自实例的
-* `systemLog.path`
-* `storage.dbPath`
-* `processManagement.pidFilePath`
-* `net.bindIp`
-* `net.port`
+* `systemLog.path`：日志目录
+* `storage.dbPath`：数据文件目录，路由服务不需要该配置
+* `processManagement.pidFilePath`：进程pid文件
+* `net.bindIp`：ip
+* `net.port`：端口
 
 ```
 systemLog:
@@ -40,202 +29,177 @@ storage:
 processManagement:
   pidFilePath: D:\MyDevelop\MongoDB\mongodb1\log\pid.txt  
 net:
-  bindIp: localhost,127.0.0.1           
-  port: 27017  
-replication:
-  replSetName: fgq233    # 副本集名称
+  bindIp: 127.0.0.1           
+  port: 27017 
 ```
+
+
+
+### 一、搭建分片副本集、配置节点副本集
+参考[副本集搭建](https://fgq233.github.io/md/java/mongodb6)
+
+#### 1. 9个服务实例目录、配置文件
+* `mongodb1/data/db、mongodb1/mongodb1.conf 、mongodb1/log`
+* `mongodb2/data/db、mongodb2/mongodb2.conf 、mongodb2/log `
+* `mongodb3/data/db、mongodb3/mongodb3.conf 、mongodb3/log `
+* `mongodb4/data/db、mongodb4/mongodb4.conf 、mongodb4/log `
+* `mongodb5/data/db、mongodb5/mongodb5.conf 、mongodb5/log `
+* `mongodb6/data/db、mongodb6/mongodb6.conf 、mongodb6/log `
+* `mongodb7/data/db、mongodb7/mongodb7.conf 、mongodb7/log `
+* `mongodb8/data/db、mongodb8/mongodb8.conf 、mongodb8/log `
+* `mongodb9/data/db、mongodb9/mongodb9.conf 、mongodb9/log `
+
+#### 2. 配置文件内容
+```
+插入通用配置，更改为自己实例的
+replication:
+  replSetName: shard1        # 副本集名称，1~3为shard1，4~6为shard2，7~9为configShard
+sharding:
+  clusterRole: shardsvr      # 集群角色，1~6为shardsvr，7~9为configsvr
+```
+
+`sharding.clusterRole`：集群角色
+* `configsvr`：配置服务
+* `shardsvr`：分片服务
 
 #### 3. 启动所有服务实例
 ```
-mongod -f   D:\MyDevelop\MongoDB\mongodb1\conf\mongodb1.conf
-mongod -f   D:\MyDevelop\MongoDB\mongodb2\conf\mongodb2.conf
-mongod -f   D:\MyDevelop\MongoDB\mongodb3\conf\mongodb3.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb1\mongodb1.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb2\mongodb2.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb3\mongodb3.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb4\mongodb4.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb5\mongodb5.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb6\mongodb6.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb7\mongodb7.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb8\mongodb8.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb9\mongodb9.conf
 ```
 
-#### 4. 初始化副本集
-* 所有节点启动后，一开始是没有任何关系的
-* 连接主节点，进行副本集初始化
-
+#### 4. 初始化3套副本集
 ```
-# 连接主节点
-mongo --host=127.0.0.1 --port=27017
-
-# 初始化副本集(使用默认副本集配置)
+# 分片1副本集
+mongo --host=127.0.0.1 --port=27001
 rs.initiate()
+rs.add("127.0.0.1:27002")
+rs.addArb("127.0.0.1:27003")
+
+# 分片2副本集
+mongo --host=127.0.0.1 --port=27004
+rs.initiate()
+rs.add("127.0.0.1:27005")
+rs.addArb("127.0.0.1:27006")
+
+# 配置副本集
+mongo --host=127.0.0.1 --port=27007
+rs.initiate()
+rs.add("127.0.0.1:27008")
+rs.add("127.0.0.1:27009")
 ```
 
-![mongodb](https://fgq233.github.io/imgs/java/mongodb2.png)
 
-* `ok` 的值为1，说明创建成功
-* 命令行提示符发生变化，变成了一个从节点角色，此时默认不能读写，稍等片刻，回车，变成`主节点`
+### 二、搭建路由服务
+参考[副本集搭建](https://fgq233.github.io/md/java/mongodb6)
 
-
-
-#### 5. 查看副本集配置、状态
-```
-# 查看副本集配置，configuration：可选，如果没有配置，则使用默认主节点配置
-rs.conf(configuration)
-rs.config(configuration)
-
-# 查看副本集状态，返回的数据和conf差不多
-rs.status()
-
-配置修改
-# 1、定义变量
-var cfg = rs.conf()
-# 2、修改变量
-cfg.members[1].priority=2
-# 3、使用变量重新加载配置
-rs.reconfig(cfg)
-```
-
-<details>
-<summary>副本集配置</summary>
-<pre><code>
-{
-        "_id" : "fgq233",
-        "version" : 1,
-        "term" : 1,
-        "members" : [
-                {
-                        "_id" : 0,
-                        "host" : "localhost:27017",
-                        "arbiterOnly" : false,
-                        "buildIndexes" : true,
-                        "hidden" : false,
-                        "priority" : 1,
-                        "tags" : {
-
-                        },
-                        "secondaryDelaySecs" : NumberLong(0),
-                        "votes" : 1
-                }
-        ],
-        "protocolVersion" : NumberLong(1),
-        "writeConcernMajorityJournalDefault" : true,
-        "settings" : {
-                "chainingAllowed" : true,
-                "heartbeatIntervalMillis" : 2000,
-                "heartbeatTimeoutSecs" : 10,
-                "electionTimeoutMillis" : 10000,
-                "catchUpTimeoutMillis" : -1,
-                "catchUpTakeoverDelayMillis" : 30000,
-                "getLastErrorModes" : {
-
-                },
-                "getLastErrorDefaults" : {
-                        "w" : 1,
-                        "wtimeout" : 0
-                },
-                "replicaSetId" : ObjectId("63c238b0f2ab0cef182e6e75")
-        }
-}
-</code></pre>
-</details>
-
-
-
-副本集配置的查看命令，本质查询的是 `local` 库下 `system` 集合 `replset` 文档中的数据
-* `id` : 副本集名称
-* `members` ：副本集成员数组
-    * host：主机的`ip：port`
-    * arbiterOnly：是否仲裁节点
-    * priority：优先级（权重值）
-* `settings`：副本集的参数配置
-
+#### 1. 2个服务实例目录、配置文件
+路由节点主要负责分发，不需要data目录，只需要日志、配置文件
+* `mongodb101/mongos101.conf 、mongodb101/log `
+* `mongodb102/mongos102.conf 、mongodb102/log `
 
  
-
-
-#### 6. 添加从节点：副本成员、仲裁
-在主节点添加从节点，将其他成员加入到副本集
-
+#### 2. 配置文件内容
 ```
-# 添加副本集成员
-rs.add(host, arbiterOnly)
-# 添加仲裁节点
-rs.addArb(host)
-
-rs.add("127.0.0.1:27018")
-rs.addArb(127.0.0.1:27019)
-```
-
-* host：要添加到副本集的新成员，指定为字符串(`主机ip:port`)或配置文档(rs.conf查询出来members的配置文档)
-* arbiterOnly：可选参数，仅在 host 值为字符串时适用，如果为true，则表示添加的主机是仲裁者
-    * Mongodb 5.x的版本中，添加仲裁节点的话可能会遇到执行命令后卡主而导致无法添加仲裁节点的问题
-    * 主节点执行 `db.adminCommand({"setDefaultRWConcern" : 1,"defaultWriteConcern" : {"w" : 2}})` 再添加即可
-
-
-
-#### 7. 副本集、仲裁节点的数据读写操作
-* 默认情况下，从节点是没有读写权限的，可以增加读的权限，但需要进行设置(`slaveOk 或 secondaryOk`)
-* 仲裁者节点，不存放任何业务数据 
-
-```
-# 连接从节点：副本成员
-mongo --host=127.0.0.1 --port=27018
-
-# 在从节点中，设置副本成员获取到读权限，参数省略表示true，获取到读权限，false失去读权限
-rs.slaveOk()  或  rs.slaveOk(true)
-rs.slaveOk(false)
-
-# 在从节点中，设置副本成员获取到读权限，参数省略表示true，获取到读权限，false失去读权限
-rs.secondaryOk() 或  rs.secondaryOk(true)
-rs.secondaryOk(false)
+systemLog:
+  destination: file                                     
+  path: D:\MyDevelop\MongoDB\mongodb101\log\mongod.log    
+  logAppend: true                                                   
+processManagement:
+  pidFilePath: D:\MyDevelop\MongoDB\mongodb101\log\pid.txt  
+net:
+  bindIp: 127.0.0.1           
+  port: 27102
+sharding:
+  configDB: configShard/127.0.0.1:27007,127.0.0.1:27008,127.0.0.1:27009
 ```
 
-到此实现了副本集集群搭建
+`configDB`：指定配置节点副本集
 
 
+#### 3. 启动路由服务
+启动路由服务使用的是 **mongos** 服务
 
-
-
-
-### 二、自动故障转移测试
-#### 1. 副本节点挂掉
-关闭 27018 服务 
-* 主节点 27017 读写不受影响
-* 重启副本节点 27018 服务，主节点在此期间写入的数据，会自动同步给从节点
-
-
-#### 2. 主节点挂掉
-关闭 27017 服务
-* 副本集有3个节点，自己1票、仲裁者1票，大于N/2 + 1，副本节点升级为主节点，具备读写功能
-* 重启 27017，27017 变成副本节点，数据自动从 27018 同步
-
-
-#### 3. 仲裁节点、主节点挂掉
-先关闭 27019服务、再关闭 27017服务
-* 副本节点 还是 副本节点，因为选票只有 1票，不满足`大多数`要求
-* 只重启 27019，27018 获取2票，变成主节点
-* 先重启 27017，再重启 27019， 27017和27018票数一致，但27018数据更新，成为主节点
-
-
-#### 4. 仲裁节点、从节点挂掉
-先关闭 27019服务、再关闭 27018服务
-* 10秒后，27017主节点自动降级为副本节点
-* 副本集故障，不可写数据，只能读取数据
-
-
-
-
-
-
-### 三、SpringData MongoDB连接副本集
 ```
-# MongoDB客户端连接语法
-mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+mongos -f   D:\MyDevelop\MongoDB\mongodb101\mongos101.conf
+mongos -f   D:\MyDevelop\MongoDB\mongodb102\mongos102.conf
+```
 
-# 副本集连接
+#### 4. 添加分片
+语法
+
+```
+# 添加分片
+sh.addShard("ip:port")            # 添加单机
+sh.addShard("副本集名称/ip:port")  # 添加副本集
+或
+use admin
+db.runCommand({addshard:"shard1/127.0.0.1:27001,127.0.0.1:27002,127.0.0.1:27003"});
+
+# 移除分片
+use admin
+db.runCommand( { removeShard: "shard1" } )
+```
+
+示例
+
+```
+# 先连接路由服务
+mongo --host=127.0.0.1 --port=27101
+# 添加分片
+sh.addShard("shard1/127.0.0.1:27001,127.0.0.1:27002,127.0.0.1:27003")
+sh.addShard("shard2/127.0.0.1:27004,127.0.0.1:27005,127.0.0.1:27006")
+```
+
+* 添加分片的ip:port 使用的是副本集中 members 下节点的name，可在副本集中通过 rs.status() 查看
+* 添加完成通过 **sh.status()** 查看
+
+
+
+
+#### 5. 开启分片功能
+```
+# 开启分片
+sh.enableSharding("库名")
+# 设置集合分片
+sh.shardCollection(namespace, key, unique)
+
+
+# 示例
+sh.enableSharding("fgq")
+sh.shardCollection("fgq.user",{"starnum":"1"})
+sh.shardCollection("fgq.blog",{"starnum":"hashed"})
+```
+
+对集合分片，必须使用 `sh.shardCollection()` 方法指定集合和分片的键
+* `namespace`：要分片的目标集合的命名空间，格式：库名.集合名
+* `key`：根据哪个字段分片、分片策略
+    * 一个集合只能指定一个分片的键，否则报错
+    * 一旦对一个集合分片，分片键和分片值就不可改变
+* `unique`：若key 有唯一索引，则设置为true可以提高性能，默认是false，注意：哈希策略片键不支持
+
+分片策略
+* 哈希策略：使用某个字段哈希值进行数据分片
+* 范围策略：使用某个字段值的范围进行数据分片
+
+
+
+
+### 三、SpringData MongoDB连接路由服务
+使用路由服务连接
+
+```
 spring:
   data:
-    mongodb:                                                                            
-      uri: mongodb://127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019/fgq?connect=replicaSet&slaveOk=true&replicaSet=fgq233
+    mongodb:
+      uri: mongodb://127.0.0.1:27101,127.0.0.1:27102/fgq
 ```
 
-* `slaveOk=true`：开启副本节点读的功能
-* `connect=replicaSet`：自动到副本集中选择读写的主机，如果slaveOK是打开的，则实现了读写分离
-* `replicaSet=fgq233`：副本集名称
- 
  
