@@ -1,21 +1,24 @@
-### MongoDB 副本集搭建 - Windows
-一主一副本一仲裁
+### MongoDB 分片集群搭建 - Windows
+两个分片节点副本集（3+3）+一个配置节点副本集（3）+两个路由节点（2），共11个服务节点
 
 | 节点    | ip        | port  |
 | ------ | ----------| ----- |
-| 主     | 127.0.0.1 | 27017 |
-| 副本   | 127.0.0.1 | 27018 |
-| 仲裁   | 127.0.0.1 | 27019 |
+| 分片节点副本集1     | 127.0.0.1 | 27001、27002、27003 |
+| 分片节点副本集2     | 127.0.0.1 | 27004、27005、27006 |
+| 配置节点副本集      | 127.0.0.1 | 27101、27102、27103 |
+| 路由节点           | 127.0.0.1 | 27201、27202        |
 
 
  
-### 一、副本集搭建
+### 一、分片副本集
+参考[副本集搭建](https://fgq233.github.io/md/java/mongodb6)
+
 #### 1. 3个服务实例
 * 建立3个目录，分别是：`mongodb1、mongodb2、mongodb3`
-* 3份安装目录下分别建立存放数据、日志、配置文件
-    * `mongodb1/data/db、mongodb1/mongodb1.conf 、mongodb1/log`
-    * `mongodb2/data/db、mongodb2/mongodb2.conf 、mongodb2/log `
-    * `mongodb3/data/db、mongodb3/mongodb3.conf 、mongodb3/log `
+* 3份安装目录下分别建立存放数据、日志、配置文件的目录和文件
+    * `mongodb1/data/db、mongodb1/conf/mongodb1.conf 、mongodb1/log`
+    * `mongodb2/data/db、mongodb2/conf/mongodb2.conf 、mongodb2/log `
+    * `mongodb3/data/db、mongodb3/conf/mongodb3.conf 、mongodb3/log `
 
 #### 2. 配置文件内容
 配置文件添加配置，下列配置需要修改为各自实例的
@@ -45,9 +48,9 @@ replication:
 
 #### 3. 启动所有服务实例
 ```
-mongod -f   D:\MyDevelop\MongoDB\mongodb1\mongodb1.conf
-mongod -f   D:\MyDevelop\MongoDB\mongodb2\mongodb2.conf
-mongod -f   D:\MyDevelop\MongoDB\mongodb3\mongodb3.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb1\conf\mongodb1.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb2\conf\mongodb2.conf
+mongod -f   D:\MyDevelop\MongoDB\mongodb3\conf\mongodb3.conf
 ```
 
 #### 4. 初始化副本集
