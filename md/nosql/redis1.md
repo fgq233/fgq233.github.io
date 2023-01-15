@@ -1,4 +1,4 @@
-### Redis 基础
+### Redis 安装
 Redis(Remote Dictionary Server)，即远程字典服务，是一个`基于内存`的`键值对`型noSql数据库
 * 键值型 key-value，key为字符串，value支持多种类型
 * 单线程
