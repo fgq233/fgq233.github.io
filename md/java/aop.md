@@ -22,7 +22,7 @@ Aspect Oriented Programming，面向切面编程，是通过预编译方式和�
 但是因为采用的是继承，所以对于 `final` 类或方法，是无法代理的
 
 
-### 4. Spring 中如何选取 JDK 或 CGLIB 
+#### 4. Spring 中如何选取 JDK 或 CGLIB 
 * 目标对象实现了接口，默认情况下会采用 `JDK` 的动态代理实现 `AOP`
 * 目标对象实现了接口，也可以强制使用 `Cglib` 实现 `AOP`
 * 目标对象没有实现接口，必须采用 `Cglib`，Spring 会自动在 `JDK` 动态代理和 `Cglib` 动态代理之间转换
