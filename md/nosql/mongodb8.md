@@ -46,7 +46,7 @@ db.runCommand({ rolesInfo: "<rolename>" })
 查询其它数据库中指定的角色权限
 db.runCommand({ rolesInfo: { role: "<rolename>", db: "<database>" } }
 
-// 查询多个角色权限
+查询多个角色权限
 db.runCommand({rolesInfo: ["<rolename>", {role: "<rolename>", db: "<database>" },...]})
 ```
 
@@ -283,7 +283,7 @@ spring:
 
 
 
-### 二.  副本集环境
+### 三.  副本集环境
 #### 1.  2个认证
 副本集认证分为两部分
 * 客户端用户名、密码认证(同单机环境)
@@ -317,7 +317,7 @@ spring:
 ```
 
 
-### 三.  分片集群环境
+### 四.  分片集群环境
 #### 1. 分片集群认证步骤
 * 无访问控制，启动分片集群
 * `mongos` 连接路由服务，创建一个管理员、一个普通用户(参考单机环境)
@@ -338,5 +338,5 @@ security:
 spring:
   data:
     mongodb:
-      uri: mongodb://fgq6666:666666@127.0.0.1:27001,127.0.0.1:27002,127.0.0.1:27003/fgq?connect=replicaSet&slaveOk=true&replicaSet=shard1
+      uri: mongodb://fgq6666:666666@127.0.0.1:27101,127.0.0.1:27102/fgq
 ```
