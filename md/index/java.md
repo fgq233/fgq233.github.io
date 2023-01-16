@@ -42,11 +42,13 @@
 -  [MongoDB-5 三种集群部署模式][mongodb5]
 -  [MongoDB-6 副本集搭建][mongodb6]
 -  [MongoDB-7 分片集群搭建][mongodb7]
+-  [MongoDB-8 安全认证][mongodb8]
 
 
 
 
 
+[mongodb8]: https://fgq233.github.io/md/nosql/mongodb8
 [mongodb7]: https://fgq233.github.io/md/nosql/mongodb7
 [mongodb6]: https://fgq233.github.io/md/nosql/mongodb6
 [mongodb5]: https://fgq233.github.io/md/nosql/mongodb5
