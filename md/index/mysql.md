@@ -1,4 +1,5 @@
 1. [Mysql 常用数据类型][mysql01]
+1. [Mysql 中的函数][mysql02]
 
 
 
