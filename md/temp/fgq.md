@@ -1,5 +1,5 @@
 ### 乱七八糟
-### MD 收缩语法
+#### MD 收缩语法
 ```
 <details>
   <summary>摘要</summary>
@@ -8,7 +8,7 @@
 ```
 
 
-### 目录语法
+#### 看啊看
 ```
 public static void main(String[] args) {
     try {
