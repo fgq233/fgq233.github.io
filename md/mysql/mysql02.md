@@ -22,7 +22,7 @@ uuid()                           随机字符串，类似Oracle的
 left(str, n)    从左边截取n个字符
 right(str, n)   从右边截取n个字符
 
-# PS：起始位置从1开始，下面4个等价于Oracle的substr
+# PS：起始位置从1开始，下面4个等价于Oracle的substr 
 substr(str, start)        从起始位置start开始截取，截取到最后
 substr(str, start, n)     从起始位置start开始截取，截取n个字符
 substring(str, start)     从起始位置start开始截取，截取到最后
