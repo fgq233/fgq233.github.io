@@ -1,20 +1,22 @@
 ### Oracle中函数
 ### 1、字符串相关函数
 ```
-lower     转小写
-upper     转大写
-initcap   所有单词首字母转大写，其它全部小写
+lower(str)     转小写
+upper(str)    转大写
+initcap(str)   所有单词首字母转大写，其它全部小写
 
-substr(str, x)            从字符串中的第x位开始截取，截取到最后
-subStr(str, x, length)    从字符串中的第x位开始截取，截取length个
-PS：字符串第一位索引为1
+length   字符串的字符长度，汉字在length时返回的时1
+lengthb  字符串的字节长度，utf8格式采用3个byte定义一个汉字、ZHS16GBK格式采用2个byte定义一个汉字
+
+substr(str, start)       从起始位置start开始截取，截取到最后
+substr(str, start, n)    从起始位置start开始截取，截取n个字符
+PS：起始位置从1开始
 
 instr(str, a)      在字符串中查找是否存在字符串a，存在返回a的位置，不存在返回0
 instr(str, a, i)   在字符串中第i位开始查找是否存在字符串a，存在返回a的位置，不存在返回0
 
 replace(str, a)      从字符串str中搜索字符串a并删除
 replace(str, a, b)   从字符串a中搜索字符串a并替换为字符串b
-
 
 lpad(str,n,a)    左填充：在字符串str的左边用a填充，直到字符串长度为n时停止
 rpad(str,n,a)    右填充：在字符串str的右边用a填充，直到字符串长度为n时停止
@@ -24,8 +26,8 @@ ltrim(str, A)   左删除：与leading等同
 rtrim(str, A)   右删除：与trailing等同
 trim(str)       字符串左右两端去空格
 
-length   获取字符串长度
-concat   字符串拼接，也可以使用 || 操作符
+concat      字符串拼接，也可以使用 || 操作符
+sys_guid()  随机字符串
 ```
 
 
@@ -48,7 +50,7 @@ trunc(n,x)  截断函数，x为保留的小数位数
 
 ### 3、日期相关函数
 ```
-sysdate                  返回系统当前时间，是无参函数，可以做加减运算，一般搭配 to_char 函数使用
+sysdate                  返回系统当前日期时间
 
 trunc(date)              返回当天日期 2020-12-16
 trunc(date, format)      返回指定日期，format：'YYYY'或'year' 当年第一天、'Q'当季度第一天、'MM'或'month'当月第一天、'day'本周第一天
