@@ -7,6 +7,9 @@ upper(str)     转大写
 char_length(str)  字符长度，类似Oracle的length
 length(str)       字节长度，类似Oracle lengthb，utf8格式采用3个byte定义一个汉字
 
+concat(s1, s2, ... sn)                 字符串拼接，参数可以是字符串、数字
+concat_ws(separator, s1, s2, ... sn)   字符串拼接(含分隔符)
+
 ltrim(str)   去除左侧空格
 rtrim(str)   去除右侧空格 
 trim(str)    去除两侧空格 
@@ -14,13 +17,16 @@ trim(str)    去除两侧空格
 lpad(str,n,a)    左填充：在字符串str的左边用a填充，直到字符串长度为n时停止
 rpad(str,n,a)    右填充：在字符串str的右边用a填充，直到字符串长度为n时停止
 
+field(str, s1, s2, ... )         返回str在列表中的位置
 instr(str, a)                    在字符串中查找是否存在字符串a，存在返回a的位置，不存在返回0
-replace(str, old, new)           将str中str字符替换为new
-concat(参数1, 参数2, ... 参数n)   字符串拼接，参数可以是字符串、数字
+position(substr in str)          返回字符串substr在str中的开始位置
+
+replace(str, old, new)           将str中old字符替换为new
+reverse(str)                     字符串反转
 uuid()                           随机字符串，类似Oracle的
 
-left(str, n)    从左边截取n个字符
-right(str, n)   从右边截取n个字符
+left(str, n)    返回str从左边开始前n个字符
+right(str, n)   返回str从右边开始后n个字符
 
 # PS：起始位置从1开始，下面4个等价于Oracle的substr 
 substr(str, start)        从起始位置start开始截取，截取到最后
@@ -43,9 +49,15 @@ sqrt(n)     平方根函数，n不能为负数
 pow(a,b)    指数函数，返回a的b次方，类似Oracle的power
 
 truncate(n,x)  保留指定位数的小数，x为保留的小数位数，类似Oracle的trunc(n,x)
+round(n)       四舍五入函数，等价于 round(n,0)
 round(n,x)     四舍五入函数，x为保留的小数位数
 
-rand(n)     随机数函数，返回0到1.0之间的小数，如果指定n每次产生的就都是重复的
+rand(n)        随机数函数，返回0到1.0之间的小数，如果指定n每次产生的就都是重复的
+
+least(n1, n2, ... n)        返回列表中最小值
+greatest(n1, n2, ... n)     返回列表中最大值
+
+strcmp(expr1,expr2)    expr1=expr2返回0，expr1>expr2返回1，expr1<expr2返回-1
 ```
 
 
@@ -70,11 +82,12 @@ addtime(date, time)          date加time时间，addtime(now(),'1:00:00')
 subtime(date, time)          date减time时间，subtime(now(),'1:00:00')
 datediff(date1, date2)       计算date1 - date2 两个日期相隔的天数
 
-extract(year from sysdate)   截取年
-extract(month from sysdate)  截取月
-extract(day from sysdate)    截取日
+date_add(date, interval expr unit)   # date加法，date_add(now(), interval 1 day) 
+date_sub(date, interval expr unit)   # date减法，date_sub(now(), interval 1 year) 
 
-date_format(date, format)    格式化显示日期，date_format(now(),'%y-%m-%d')，Y、y分别表示4位数、2位数年份
+extract(unit from date)      提取年、月、日、时、分、秒
+
+date_format(date, format)    格式化显示日期，date_format(now(),'%Y-%m-%d')，Y、y分别表示4位数、2位数年份
 time_format(date, format)    格式化显示时间，date_format(now(),'%h:%i:%s')，H、h分别表示24、12小时制
 
 str_to_date(str, format)     字符串转日期，str_to_date('2022-11-02 12:00:00','%Y-%m-%d %H:%i:%s');
@@ -100,3 +113,31 @@ isnull(v)
 
 	
 
+### 5、聚合函数
+```
+count()、sum()、min()、max()、avg()
+
+# 行转列，类似Oracle 中的 wm_concat()，但是功能更强大，可以去重、排序、指定分隔符
+group_concat([distinct] 字段名 [order by 排序字段 asc/desc] [separator])
+
+select group_concat(username) from sys_user
+select group_concat(username order by cjsj) from sys_user
+select group_concat(username order by cjsj separator '-') from sys_user
+```
+
+
+
+### 6、分区函数 partition by、排名函数
+* `partition by`：用于给结果集分组，如果没有指定那么它把整个结果集作为一个分组，
+分区函数一般与排名函数一起使用遍历。和 `group by` 不同的在于它能返回一个分组中的多条记录，
+而 `group by` 一般只有一条反映统计值的记录观的数据
+* 排序函数：`row_number()`
+* 跳跃排序函数：`rank()`
+* 连续排序函数：`dense_rank()`
+
+```
+select t.organ_name, t.jglx, row_number() over (order by t.cjsj)                     ROWNUM排序     from SYS_ORGAN t;
+select t.organ_name, t.jglx, row_number() over (partition by t.jglx order by t.cjsj) 组内ROWNUM排序 from SYS_ORGAN t;
+select t.organ_name, t.jglx, rank() over       (partition by t.jglx order by t.cjsj) 组内跳跃排序   from SYS_ORGAN t ;
+select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.cjsj) 组内连续排序   from SYS_ORGAN t;
+```

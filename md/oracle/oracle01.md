@@ -121,15 +121,17 @@ decode (expression, search_1, result_1, search_2, result_2, ...., search_n, resu
 
 
 ### 7、分区函数 partition by、排名函数
-* partition by：用于给结果集分组，如果没有指定那么它把整个结果集作为一个分组，分区函数一般与排名函数一起使用遍历。和 group by 不同的在于它能返回一个分组中的多条记录，而 group by 一般只有一条反映统计值的记录观的数据
-* 排序函数：row_number()
-* 跳跃排序函数：rank()
-* 连续排序函数：dense_rank()
+* `partition by`：用于给结果集分组，如果没有指定那么它把整个结果集作为一个分组，
+分区函数一般与排名函数一起使用遍历。和 `group by` 不同的在于它能返回一个分组中的多条记录，
+而 `group by` 一般只有一条反映统计值的记录观的数据
+* 排序函数：`row_number()`
+* 跳跃排序函数：`rank()`
+* 连续排序函数：`dense_rank()`
+
 ```
 select t.organ_name, t.jglx, row_number() over (order by t.cjsj)                     ROWNUM排序     from SYS_ORGAN t;
 select t.organ_name, t.jglx, row_number() over (partition by t.jglx order by t.cjsj) 组内ROWNUM排序 from SYS_ORGAN t;
 select t.organ_name, t.jglx, rank() over       (partition by t.jglx order by t.cjsj) 组内跳跃排序   from SYS_ORGAN t ;
 select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.cjsj) 组内连续排序   from SYS_ORGAN t;
 ```
-
 
