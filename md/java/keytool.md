@@ -125,7 +125,7 @@ keytool -export -alias server -file server.cer -keystore server.p12
 keytool -export -alias client -file client.cer -keystore client.p12
 ```
 
-#### 3. 将对方证书导入到自己的trust store
+#### 3. 将对方证书导入到自己的信任证书库(trust store)
 ```
 # 客户端 cert 导入服务端秘钥
 keytool -import -alias client -file client.cer -keystore server.p12
