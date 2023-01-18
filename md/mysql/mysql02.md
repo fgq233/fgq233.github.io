@@ -82,8 +82,8 @@ addtime(date, time)          date加time时间，addtime(now(),'1:00:00')
 subtime(date, time)          date减time时间，subtime(now(),'1:00:00')
 datediff(date1, date2)       计算date1 - date2 两个日期相隔的天数
 
-date_add(date, interval expr unit)   # date加法，date_add(now(), interval 1 day) 
-date_sub(date, interval expr unit)   # date减法，date_sub(now(), interval 1 year) 
+date_add(date, interval expr unit)   date加法，date_add(now(), interval 1 day) 
+date_sub(date, interval expr unit)   date减法，date_sub(now(), interval 1 year) 
 
 extract(unit from date)      提取年、月、日、时、分、秒
 
