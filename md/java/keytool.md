@@ -261,8 +261,8 @@ server:
   * want：会验证客户端，但不强制验证，即验证失败也可以成功建立连接
   * need：双向验证
 * `server.ssl.key-store-type`：秘钥库类型，`JKS、PKCS12`...
-* `server.ssl.alias`：秘钥库中的别名
-* `server.ssl.key-store`：秘钥库的密码
+* `server.ssl.alias`：秘钥库别名
+* `server.ssl.key-password`：秘钥库密码
 
 #### 4、测试
 ```java
