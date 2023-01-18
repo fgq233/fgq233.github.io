@@ -3,7 +3,7 @@
 #### 1. 作用
 * `keytool` 是`Java`自带的数据证书管理工具，无需单独安装，只要安装有`JDK`或`JRE`，就可以使用
 * `keytool` 将密钥（`key`）和证书（`certificates`）存在一个`keystore`的文件中，在`keystore`里只包含两种数据：
-  * 密钥实体：如果采用非对称加密形式，则包含私钥和配对公钥，否则只包括密钥
+  * 密钥实体：私钥 + 公钥
   * 可信任的证书实体：只包含公钥
   
 #### 2. keytool 命令 
@@ -27,8 +27,6 @@ C:\Users\Administrator\Desktop>keytool  -help
  -printcertreq       打印证书请求的内容
  -printcrl           打印 CRL 文件的内容
  -storepasswd        更改密钥库的存储口令
-
-使用 "keytool -command_name -help" 获取 command_name 的用法
 ```
 
 #### 3. genkeypair 生成秘钥 - 相关选项 
