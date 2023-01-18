@@ -125,7 +125,7 @@ keytool -export -alias server -file server.cer -keystore server.p12
 keytool -export -alias client -file client.cer -keystore client.p12
 ```
 
-#### 3. 将对方证书导入到自己的秘钥
+#### 3. 将对方证书导入到自己的trust store
 ```
 # 客户端 cert 导入服务端秘钥
 keytool -import -alias client -file client.cer -keystore server.p12
@@ -223,6 +223,7 @@ KeyIdentifier [
 
 
 ### 三、SpringBoot 配置 https 单向认证
+单向验证：客户端验证服务端，一般是通过CA颁发的SSL证书来验证
 #### 1、生成服务端秘钥 server.p12
 参考上面
 
@@ -282,9 +283,10 @@ public class TestController {
 * https://localhost:8888/test 访问成功
 
 
-### 三、SpringBoot 配置 https 单向认证
-#### 1、秘钥双向认证 
-参考二
+### 四、SpringBoot 配置 https 双向认证
+双向认证：不仅客户端需要验证服务端，服务端同样也需要验证客户端
+#### 1、双向认证操作 
+参考上面，生成秘钥、导出证书、互相信任证书
 
 #### 2、pom.xml 配置
 参考三
@@ -299,6 +301,7 @@ server:
     key-alias: server
     key-store: classpath:server.p12
     key-store-password: fgq666
+    # 双向认证需要开启 Trust Store 相关配置
     trust-store-type: PKCS12
     trust-store: classpath:server.p12
     trust-store-password: fgq666
