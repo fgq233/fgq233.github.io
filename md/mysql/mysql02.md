@@ -42,7 +42,7 @@ floor(n)    向下取整函数，n是任何可以转换为数值的数据
 sqrt(n)     平方根函数，n不能为负数
 pow(a,b)    指数函数，返回a的b次方，类似Oracle的power
 
-truncate(n,x)  保留指定位数的小数，x为保留的小数位数
+truncate(n,x)  保留指定位数的小数，x为保留的小数位数，类似Oracle的trunc(n,x)
 round(n,x)     四舍五入函数，x为保留的小数位数
 
 rand(n)     随机数函数，返回0到1.0之间的小数，如果指定n每次产生的就都是重复的
@@ -88,8 +88,14 @@ str_to_date(str, format)     字符串转日期，str_to_date('2022-11-02 12:00:
 # 如果表达式expr成立，返回结果v1，否则返回结果v2，类似 Oracle的nvl2(v, v1，v2)
 if(expr, v1, v2) 
 
-# 判断某一个值是不是为空，如果v1的值不为NULL，则返回v1，否则返回v2，类似 Oracle的nvl(v1，v2)
+# 判断v1是否为null，不为null返回v1，为null返回v2，类似 Oracle的nvl(v1，v2)
 ifnull(v1, v2)	
+
+# 如果 v1=v2，那么返回值为null，否则返回v1
+nullif(v1, v2)
+
+# v为null返回1，不为null返回0
+isnull(v)
 ```
 
 	
