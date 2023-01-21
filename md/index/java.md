@@ -55,7 +55,7 @@
 
 [shiro3]: https://fgq233.github.io/md/security/shiro3
 [shiro2]: https://fgq233.github.io/md/security/shiro2
-[shiro1]: https://fgq233.github.io/md/security/shiro
+[shiro1]: https://fgq233.github.io/md/security/shiro1
 [security]: https://fgq233.github.io/md/security/security
 [mongodb8]: https://fgq233.github.io/md/nosql/mongodb8
 [mongodb7]: https://fgq233.github.io/md/nosql/mongodb7
