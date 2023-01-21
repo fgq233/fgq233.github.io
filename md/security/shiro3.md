@@ -7,36 +7,38 @@
 
 * `SecurityManager`接着会委托给授权器 `Authorizer`
 
-* ` Authorizer` 根据 `Realm`去鉴权
+* ` Authorizer` 根据 `Realm` 进行鉴权
 
-* `Realm` 将用户请求的参数封装成`权限对象`，再从重写的 `doGetAuthorizationInfo()` 方法中
-获取从数据库中查询到的权限集合
+* `Realm` 重写 `doGetAuthorizationInfo()` 方法，将从数据库中查询到的角色、权限集合构成授权对象
 
-* `Realm` 将传入的权限对象与查出来的权限对象，进行对比，
-传入的权限对象在查出来的权限对象中，则返回 `true`，否则返回 `false`
+* 鉴权：`Realm` 判断授权对象中是否包含检测的角色、权限
 
 PS：鉴权前必须先通过认证
 
 
 
 ### 二、鉴权测试
-#### 1. 模拟根据用户名从数据库查询密码
+#### 1. 模拟根据用户名查询角色、权限
 ```
-@Data
-public class User {
-    private String name;
-    private String password;
+/**
+ * 模拟根据用户名查询角色
+ */
+public List<String> findRoleByName(String name) {
+    List<String> list = new ArrayList<>();
+    list.add("admin");
+    list.add("dev");
+    return list;
 }
 
-
-@Service
-public class UserService {
-    public User findUserByName(String name) {
-        User user = new User();
-        user.setName(name);
-        user.setPassword("666");
-        return user;
-    }
+/**
+ * 模拟根据用户名查询权限
+ */
+public List<String> findPermissionByName(String name) {
+    List<String> list = new ArrayList<>();
+    list.add("user:add");
+    list.add("user:del");
+    list.add("user:list");
+    return list;
 }
 ```
 
@@ -44,146 +46,72 @@ public class UserService {
 ```
 public class SimpleRealm extends AuthorizingRealm {
 
-    /**
-     * 认证
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        // 模拟从数据库查询
-        UserService userService = new UserService();
-        User user = userService.findUserByName(token.getUsername());
-        // 返回身份验证信息
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(
-                        user.getName(), 
-                        user.getPassword(), 
-                        this.getName());
-        return info;
-    }
+    // ... 认证过程
 
     /**
      * 鉴权
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+        // 拿到用户认证凭证信息
+        String loginName = (String) principalCollection.getPrimaryPrincipal();
+        // 从数据库中查询对应的角色、权限
+        UserService userService = new UserService();
+        List<String> permissions = userService.findPermissionByName(loginName);
+        List<String> roles = userService.findRoleByName(loginName);
+        // 构建授权对象
+        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        authorizationInfo.addRoles(roles);
+        authorizationInfo.addStringPermissions(permissions);
+        return authorizationInfo;
     }
 
 }
 ```
 
+* 此方法的传入的参数 `PrincipalCollection` 是一个包装对象，表示**用户认证凭证信息**
+* 该对象包装了认证方法 `doGetAuthenticationInfo()`方法的返回值的第一个参数，
+可以通过 `getPrimaryPrincipal()` 方法拿到此值
+* 最后从数据库中拿到对应的角色和资源，构建授权对象
+
+
+
 
 #### 3. 认证测试
 ```
-// 1、创建 SecurityManager
 DefaultSecurityManager securityManager = new DefaultSecurityManager();
-
-// 2、使用工具类让安全管理器生效
 SecurityUtils.setSecurityManager(securityManager);
-
-// 3、设置 Realm
-securityManager.setRealm(new SimpleRealm());
-
-// 4、使用工具类获得 Subject 主体
+securityManager.setRealm(new SimpleRealm2());
 Subject subject = SecurityUtils.getSubject();
-
-// 5、模拟请求的账户密码 token
 UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken("fgq", "666");
-
-// 6、使用Subject主体去认证(认证失败会抛出异常)
 try {
     subject.login(usernamePasswordToken);
 } catch (Exception e) {
     e.printStackTrace();
 }
 
-// 7、打印认证结果
-System.out.println("登录结果:" + subject.isAuthenticated());
-```
-
-
-
-
-### 二、 密码加密
-为了安全，我们数据库中存储的密码往往是加密的串
-
-#### 1. Shiro 加密工具加密
-```
-public class PassWordUtils {
-    public static final String SHA1 = "SHA-1";
-    public static final int ITERATIONS = 1024;
-
-    public static String sha1(String input, String salt) {
-        return new SimpleHash(SHA1, input, salt, ITERATIONS).toString();
+if (subject.isAuthenticated()) {
+    // 角色检测
+    System.out.println(subject.hasRole("admin"));
+    try {
+        subject.checkRole("superAdmin");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    // 权限检测
+    System.out.println(subject.isPermitted("user:list"));
+    try {
+        subject.checkPermissions("user:add", "user:del");
+        System.out.println("具有user增、删权限");
+    } catch (Exception e) {
+        e.printStackTrace();
     }
 }
 ```
 
 
-#### 2. 模拟根据用户名从数据库查询密码
-```
-@Data
-public class User {
-    private String name;
-    private String password;
-    private String salt;   // 加密的盐
-}
-
-@Service
-public class UserService {
-
-    public User findUserByName(String name) {
-        User user = new User();
-        user.setName(name);
-        String sqlt = "fgq666666";
-        user.setSalt(sqlt);
-        // 数据库中密码是加密的
-        user.setPassword(PassWordUtils.sha1("666", sqlt));
-        return user;
-    }
-}
-```
+* `subject.hasRole()、subject.isPermitted()`:有返回值，表示是否有角色、权限
+* `subject.checkRole()、subject.checkPermissions()`：无返回值，没有角色、权限的话会抛出异常
 
 
-
-#### 3. 自定义Realm
-```
-public class SimpleRealm extends AuthorizingRealm {
-
-    /**
-     * 设置认证加密匹配器
-     */
-    @Override
-    public void setCredentialsMatcher(CredentialsMatcher credentialsMatcher) {
-        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(PassWordUtils.SHA1);
-        matcher.setHashIterations(PassWordUtils.ITERATIONS);
-        super.setCredentialsMatcher(matcher);
-    }
-
-    /**
-     * 认证
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        ...略
-        return new SimpleAuthenticationInfo(
-                user.getName(),
-                user.getPassword(),
-                ByteSource.Util.bytes(user.getSalt()),   // 盐
-                this.getName());
-    }
-
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
-    }
-}
-```
-
-#### 4. 源码
-查看源码，发现最终认证对比的逻辑如下：
-
-![shiro](https://fgq233.github.io/imgs/java/shiro4.png)
-
-根据定义的匹配器 `HashedCredentialsMatcher`，
-对比用户请求的`token` 和 `Realm` 中返回的认证信息`info`
+ 
