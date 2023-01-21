@@ -7,7 +7,7 @@ Apache Shiro是一个Java安全框架，实现了认证、授权、加密、会�
 #### 2. Subject
 * `Subject`：主体，可以是一个通过浏览器发出请求的用户，也可以是一个运行的程序
 * `Subject`在 `Shiro` 是一个接口，接口中定义了认证、授权相关方法，
-外部程序通过`Subject`进行认证、授权，而`Subject`通过 `SecurityManager` 安全管理器进行认证、授权
+外部程序通过`Subject`进行认证、鉴权，而`Subject`通过 `SecurityManager` 安全管理器进行认证、鉴权
  
 #### 3. SecurityManager
 * `SecurityManager`:安全管理器，负责对所有 `Subject` 进行安全管理
