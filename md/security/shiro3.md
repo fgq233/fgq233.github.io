@@ -7,7 +7,7 @@
 
 * `SecurityManager`接着会委托给授权器 `Authorizer`
 
-* ` Authorizer` 根据 `Realm` 进行鉴权
+* `Authorizer` 根据 `Realm` 进行鉴权
 
 * `Realm` 重写 `doGetAuthorizationInfo()` 方法，将从数据库中查询到的角色、权限集合构成授权对象
 
