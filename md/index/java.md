@@ -46,7 +46,7 @@
 -  [MongoDB-8 安全认证][mongodb8]
 
 10. ###### 安全框架
--  [安全框架基本概念][mongodb1]
+-  [安全框架基本概念][security]
 -  [Shiro-1 基本概念][shiro1]
 -  [Shiro-2 认证][shiro2]
 -  [Shiro-3 鉴权][shiro3]
