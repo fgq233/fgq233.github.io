@@ -45,10 +45,16 @@
 -  [MongoDB-7 分片集群搭建][mongodb7]
 -  [MongoDB-8 安全认证][mongodb8]
 
+10. ###### 安全框架
+-  [安全框架基本概念][mongodb1]
+-  [Shiro-1 基本概念][shiro1]
+-  [Shiro-2 认证][shiro2]
 
 
 
-
+[shiro2]: https://fgq233.github.io/md/security/shiro2
+[shiro1]: https://fgq233.github.io/md/security/shiro
+[security]: https://fgq233.github.io/md/security/security
 [mongodb8]: https://fgq233.github.io/md/nosql/mongodb8
 [mongodb7]: https://fgq233.github.io/md/nosql/mongodb7
 [mongodb6]: https://fgq233.github.io/md/nosql/mongodb6
