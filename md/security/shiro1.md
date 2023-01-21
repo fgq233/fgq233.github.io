@@ -1,5 +1,5 @@
 ###  Shiro 基本概念
-Apache Shiro是一个Java安全框架，实现用户身份认证，权限授权、加密、会话管理等功能
+Apache Shiro是一个Java安全框架，实现了认证、授权、加密、会话管理等功能
 
 #### 1. 架构图
 ![shiro](https://fgq233.github.io/imgs/java/shiro1.png)
