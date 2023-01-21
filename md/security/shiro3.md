@@ -77,7 +77,7 @@ public class SimpleRealm extends AuthorizingRealm {
 
 
 
-#### 3. 认证测试
+#### 3. 鉴权测试
 ```
 DefaultSecurityManager securityManager = new DefaultSecurityManager();
 SecurityUtils.setSecurityManager(securityManager);
