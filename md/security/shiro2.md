@@ -1,14 +1,14 @@
 ###  Shiro 认证
-### 一、Shiro 认证
-**认证流程**
-
+### 一、认证流程
 ![shiro](https://fgq233.github.io/imgs/java/shiro2.png)
 * `Shiro` 把用户数据封装成 `token`，`token` 一般封装着用户名，密码等信息
 * `Subject` 把 `token` 交给 `SecurityManager`，`SecurityManager` 把`token`委托给认证器
 `Authenticator` 进行身份验证
 * 认证器 `Authenticator` 将传入的 `token`，与数据源 `Realm` 对比，验证 `token` 是否合法
 
-#### 1. 模拟根据用户名从数据库查询密码
+
+### 二、认证测试
+#### 1. 模拟根据用户名查询用户
 ```
 @Data
 public class User {
@@ -92,7 +92,7 @@ System.out.println("登录结果:" + subject.isAuthenticated());
 
 
 
-### 二、 密码加密
+### 三、 密码加密
 为了安全，我们数据库中存储的密码往往是加密的串
 
 #### 1. Shiro 加密工具加密
@@ -108,7 +108,7 @@ public class PassWordUtils {
 ```
 
 
-#### 2. 模拟根据用户名从数据库查询密码
+#### 2. 模拟根据用户名查询用户
 ```
 @Data
 public class User {
