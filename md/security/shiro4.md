@@ -50,8 +50,9 @@ private Map<String, String> filterChainMap() {
     Map<String, String> map = new LinkedHashMap<>();
     // 静态资源不拦截
     map.put("/static/**", "anon");
-    // 登录链接不拦截
+    // 登录链接、异常链接不拦截
     map.put("/login", "anon");
+    map.put("/error", "anon");
     // 其他链接都是需要登录的
     map.put("/**", "authc");
     return map;
