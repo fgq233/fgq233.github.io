@@ -2,7 +2,7 @@
 ####  一. 跨域
 跨域主要包括：
 
-* 域名不同： https://www.spring.io 和 www.github.com 
+* 域名不同： www.spring.io 和 www.github.com 
 * 域名相同，端口不同：localhost:8080 和 localhost8088
 
 跨域问题：浏览器禁止请求的发起者与服务端发生跨域ajax请求，请求被浏览器拦截的问题
