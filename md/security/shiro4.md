@@ -24,8 +24,8 @@ public enum DefaultFilter {
 ```
 
 #### 2. 认证相关
-| 过滤器  | 说明                                                         |
-| ------ | ------------------------------------------------------------ | 
+| 过滤器  | 说明  |
+| ------ | ----- | 
 | authc  | 基于表单的过滤器，即需要登录认证才能访问，不然会跳转至配置的 loginUrl | 
 | anon   | 匿名过滤器，即不需要登录认证即可访问，一般用于静态资源、登录页过滤 |
 | logout | 退出过滤器，配置认证退出成功后重定向的地址  |
@@ -33,8 +33,8 @@ public enum DefaultFilter {
 
 
 #### 3. 授权相关
-| 过滤器  | 说明                                                         |
-| ------ | ------------------------------------------------------------ | 
+| 过滤器  | 说明  |
+| ------ | ----- |  
 | roles  | 角色授权过滤器，验证用户是否拥有**所有角色**  | 
 | perms  | 权限授权过滤器，验证用户是否拥有**所有权限** | 
 | ssl    | SSL过滤器，只有请求协议是https才能通过 | 
@@ -55,7 +55,7 @@ private Map<String, String> filterChainMap() {
     // 静态资源不拦截
     map.put("/static/**", "anon");
     // 登录链接不拦截
-    map.put("/login/**", "anon");
+    map.put("/login", "anon");
     // 其他链接都是需要登录的
     map.put("/**", "authc");
     return map;
@@ -96,9 +96,9 @@ public ShiroFilterFactoryBean shiroFilterFactoryBean() {
 
 
 #### 2、自定义过滤器
-* Shiro 默认的过滤器不一定满足需求，有时候需要我们自定义过滤器
-    * roles(RolesAuthorizationFilter.class)，默认`角色权限过滤器`需要满足定义的`所有角色`才能访问
-    * /admin/order= roles["admin, root"] ，只有当放问该接口同时具备admin和root两种角色时，才可以被访问
+Shiro 默认的过滤器不一定满足需求，有时候需要我们自定义过滤器
+* roles(RolesAuthorizationFilter.class)，默认`角色权限过滤器`需要满足定义的`所有角色`才能访问
+* /admin/order= roles["admin, root"] ，只有当放问该接口同时具备admin和root两种角色时，才可以被访问
     
 ```java
 public class RolesAuthorizationFilter extends AuthorizationFilter {
