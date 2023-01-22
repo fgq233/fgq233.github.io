@@ -33,7 +33,7 @@ const javaList2 = [
             {url: "https://fgq233.github.io/md/security/security", title: "安全框架基本概念"},
             {url: "https://fgq233.github.io/md/security/shiro1", title: "Shiro-1 基本概念"},
             {url: "https://fgq233.github.io/md/security/shiro2", title: "Shiro-2 认证"},
-            {url: "https://fgq233.github.io/md/security/shiro3", title: "Shiro-3 鉴权"},
+            {url: "https://fgq233.github.io/md/security/shiro3", title: "Shiro-3 授权"},
         ]
     },
 ];

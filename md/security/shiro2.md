@@ -50,7 +50,7 @@ public class SimpleRealm extends AuthorizingRealm {
     }
 
     /**
-     * 鉴权
+     * 授权
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -59,6 +59,11 @@ public class SimpleRealm extends AuthorizingRealm {
 
 }
 ```
+
+* `SimpleAuthenticationInfo()`构造方法第一个参数为身份信息中的主身份 `Primary Principal`
+* 主身份获取方式
+    * `SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal()`
+    *  授权方法中参数 `principalCollection.getPrimaryPrincipal()`
 
 
 #### 3. 认证测试

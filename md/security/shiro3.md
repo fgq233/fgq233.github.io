@@ -1,5 +1,5 @@
-###  Shiro 鉴权
-### 一、鉴权流程
+###  Shiro 授权
+### 一、授权流程
 ![shiro](https://fgq233.github.io/imgs/java/shiro5.png)
 
 
@@ -7,17 +7,17 @@
 
 * `SecurityManager`接着会委托给授权器 `Authorizer`
 
-* `Authorizer` 根据 `Realm` 进行鉴权
+* `Authorizer` 根据 `Realm` 进行授权
 
 * `Realm` 重写 `doGetAuthorizationInfo()` 方法，将从数据库中查询到的角色、权限集合构成授权对象
 
 * 鉴权：`Realm` 判断授权对象中是否包含检测的角色、权限
 
-PS：鉴权前必须先通过认证
+PS：授权前必须先通过认证
 
 
 
-### 二、鉴权测试
+### 二、授权测试
 #### 1. 模拟根据用户名查询角色、权限
 ```
 /**
@@ -49,7 +49,7 @@ public class SimpleRealm extends AuthorizingRealm {
     // ... 认证过程
 
     /**
-     * 鉴权
+     * 授权
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -77,7 +77,7 @@ public class SimpleRealm extends AuthorizingRealm {
 
 
 
-#### 3. 鉴权测试
+#### 3. 授权测试
 ```
 DefaultSecurityManager securityManager = new DefaultSecurityManager();
 SecurityUtils.setSecurityManager(securityManager);

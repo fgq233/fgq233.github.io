@@ -49,7 +49,7 @@
 -  [安全框架基本概念][security]
 -  [Shiro-1 基本概念][shiro1]
 -  [Shiro-2 认证][shiro2]
--  [Shiro-3 鉴权][shiro3]
+-  [Shiro-3 授权][shiro3]
 
 
 
