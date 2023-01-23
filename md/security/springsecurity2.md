@@ -46,6 +46,7 @@ public abstract class AbstractAuthenticationProcessingFilter extends GenericFilt
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         // ★★★★★★ 4、认证成功后将认证信息存储到 SecurityContext
         SecurityContextHolder.getContext().setAuthentication(authResult);
+        // ★★★★★★ 5、记住我功能
         this.rememberMeServices.loginSuccess(request, response, authResult);
         if (this.eventPublisher != null) {
             this.eventPublisher.publishEvent(new InteractiveAuthenticationSuccessEvent(authResult, this.getClass()));
