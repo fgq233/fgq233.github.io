@@ -13,8 +13,6 @@
 
 * `DaoAuthenticationProvider`  使用 `UserDetailsService` 实现类完成具体认证逻辑
 
-* `SpringSecurity` 认证后的用户对象为 `UserDetails`
-
 ![SpringSecurity](https://fgq233.github.io/imgs/java/springsecurity2.png)
 
 
