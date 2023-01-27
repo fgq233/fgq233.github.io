@@ -35,6 +35,10 @@ const javaList2 = [
             {url: "https://fgq233.github.io/md/security/shiro2", title: "Shiro-2 认证"},
             {url: "https://fgq233.github.io/md/security/shiro3", title: "Shiro-3 授权"},
             {url: "https://fgq233.github.io/md/security/shiro4", title: "Shiro-4 过滤器"},
+            {url: "https://fgq233.github.io/md/security/springSecurity1", title: "SpringSecurity-1 入门"},
+            {url: "https://fgq233.github.io/md/security/springSecurity2", title: "SpringSecurity-2 认证"},
+            {url: "https://fgq233.github.io/md/security/springSecurity3", title: "SpringSecurity-3 授权"},
+            {url: "https://fgq233.github.io/md/security/springSecurity4", title: "SpringSecurity-4 记住我功能"},
         ]
     },
 ];
