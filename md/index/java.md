@@ -52,16 +52,16 @@
 -  [Shiro-2 认证][shiro2]
 -  [Shiro-3 授权][shiro3]
 -  [Shiro-4 过滤器][shiro4]
--  [SpringSecurity-1 入门][springSecurity1]
--  [SpringSecurity-2 认证][springSecurity2]
--  [SpringSecurity-3 授权​][springSecurity3]
--  [SpringSecurity-4 记住我功能][springSecurity4]
+-  [SpringSecurity-1 入门][springsecurity1]
+-  [SpringSecurity-2 认证][springsecurity2]
+-  [SpringSecurity-3 授权​][springsecurity3]
+-  [SpringSecurity-4 记住我功能][springsecurity4]
 
 
-[springSecurity1]: https://fgq233.github.io/md/security/springSecurity1
-[springSecurity2]: https://fgq233.github.io/md/security/springSecurity2
-[springSecurity3]: https://fgq233.github.io/md/security/springSecurity3
-[springSecurity4]: https://fgq233.github.io/md/security/springSecurity4
+[springsecurity1]: https://fgq233.github.io/md/security/springsecurity1
+[springsecurity2]: https://fgq233.github.io/md/security/springsecurity2
+[springsecurity3]: https://fgq233.github.io/md/security/springsecurity3
+[springsecurity4]: https://fgq233.github.io/md/security/springsecurity4
 [jwt]: https://fgq233.github.io/md/security/jwt
 [shiro4]: https://fgq233.github.io/md/security/shiro4
 [shiro3]: https://fgq233.github.io/md/security/shiro3
