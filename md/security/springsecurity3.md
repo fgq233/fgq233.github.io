@@ -32,7 +32,13 @@ public class UserService implements UserDetailsService {
 }
 ```
     
-#### 2、权限校验方法  
+#### 2、权限校验过滤器
+* `SpringSecurity` 中，使用过滤器 `FilterSecurityInterceptor` 进行权限校验
+* `FilterSecurityInterceptor` 从 `SecurityContextHolder` 中获取 `Authentication`，然后获取其中权限信息
+* 最后，判断用户是否拥有某个权限
+ 
+              
+#### 3、权限校验方法 
 * `hasAnyRole(String... roles)`：具有指定角色集合 `roles` 之一返回 `true`
 
 * `hasRole(String role)`：具有指定角色 `role` 返回`true`
@@ -41,8 +47,7 @@ public class UserService implements UserDetailsService {
 
 * `hasAuthority(String authority)`：具有指定权限 `authority` 返回`true`
 
-              
-#### 3、校验
+
 ```
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
