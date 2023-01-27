@@ -25,7 +25,7 @@
 
 
 
-### 二、OAuth2 四种授权模式
+### 三、OAuth2 四种授权模式
 #### 1. 授权码模式 Authorization Code
 ![SpringSecurity](https://fgq233.github.io/imgs/java/oauth2_1.png)
 
@@ -132,7 +132,7 @@
  
 
 
-### 三、更新令牌
+### 四、更新令牌
 * 如果用户访问的时候，客户端的"访问令牌"已经过期，则需要使用"更新令牌"申请一个新的访问令牌
 * 客户端发出更新令牌的HTTP请求，包含以下参数：
   * `granttype：表示使用的授权模式，此处的值固定为"refreshtoken"，必选项`
