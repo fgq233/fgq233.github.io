@@ -15,6 +15,9 @@
 
 * `SpringSecurity` 认证后的用户对象为 `UserDetails`
 
+![SpringSecurity](https://fgq233.github.io/imgs/java/springsecurity2.png)
+
+
 #### 2. UsernamePasswordAuthenticationFilter 认证过滤器
 * `UsernamePasswordAuthenticationFilter` 继承自 `AbstractAuthenticationProcessingFilter`
 
