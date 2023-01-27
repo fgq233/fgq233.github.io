@@ -66,5 +66,6 @@ const javaList4 = [
     {url: "https://fgq233.github.io/md/java/exception", title: "Exception 详细信息获取", child: []},
     {url: "https://fgq233.github.io/md/java/nginx", title: "Nginx", child: []},
     {url: "https://fgq233.github.io/md/java/aop", title: "AOP", child: []},
+    {url: "https://fgq233.github.io/md/security/jwt", title: "JWT", child: []},
     {url: "https://fgq233.github.io/md/java/keytool", title: "Keytool", child: []},
 ];
