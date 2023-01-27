@@ -39,6 +39,7 @@ const javaList2 = [
             {url: "https://fgq233.github.io/md/security/springsecurity2", title: "SpringSecurity-2 认证"},
             {url: "https://fgq233.github.io/md/security/springsecurity3", title: "SpringSecurity-3 授权"},
             {url: "https://fgq233.github.io/md/security/springsecurity4", title: "SpringSecurity-4 记住我功能"},
+            {url: "https://fgq233.github.io/md/security/oauth2_1", title: "Oauth2-1 相关概念"},
         ]
     },
 ];

@@ -56,8 +56,10 @@
 -  [SpringSecurity-2 认证][springsecurity2]
 -  [SpringSecurity-3 授权​][springsecurity3]
 -  [SpringSecurity-4 记住我功能][springsecurity4]
+-  [Oauth2-1 相关概念][oauth2_1]
 
 
+[oauth2_1]: https://fgq233.github.io/md/security/oauth2_1
 [springsecurity1]: https://fgq233.github.io/md/security/springsecurity1
 [springsecurity2]: https://fgq233.github.io/md/security/springsecurity2
 [springsecurity3]: https://fgq233.github.io/md/security/springsecurity3
