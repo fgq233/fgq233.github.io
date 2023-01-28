@@ -3,18 +3,19 @@
 #### 1. OAuth、OAuth2
 * `OAuth（Open Authorization）`是一种协议，用于提供认证、授权的规范
 * `OAuth2.0` 是`OAuth1.0` 协议的延续版本，但不向兼容 `OAuth1.0`
+* 官网：https://oauth.net/2/
    
-#### 2. OAuth2 相关名词
-* `Resource owner`（资源拥有者）：拥有该资源的最终用户，拥有访问资源的账号密码
+#### 2. OAuth2 协议中的角色
+* `Client`（客户端）：访问资源的客户端，会使用访问令牌去获取资源服务器的资源，可以是浏览器、移动设备或者服务器等
+
+* `Resource owner`（资源拥有者）：即用户，拥有该资源的最终用户，拥有访问资源的账号密码
 
 * `Resource server`（资源服务器）：拥有受保护资源的服务器，如果请求包含正确的访问令牌，则可以访问该资源服务器
 
-* `Client`（客户端）：访问资源的客户端，会使用访问令牌去获取资源服务器的资源，可以是浏览器、移动设备或者服务器等
-
-* `Authorization server`（授权服务器）：用于认证用户的服务器，如果客户端认证通过，发放访问资源服务器的令牌
+* `Authorization server`（认证服务器）：用于认证用户的服务器，如果客户端认证通过，发放访问资源服务器的令牌
 
 
-### 二、OAuth2 运行流程
+#### 3. OAuth2 运行流程
 ![SpringSecurity](https://fgq233.github.io/imgs/java/oauth2.png)
 * 客户端要求用户给予授权
 * 用户同意给予客户端授权
@@ -25,7 +26,7 @@
 
 
 
-### 三、OAuth2 四种授权模式
+### 二、OAuth2 四种授权模式
 #### 1. 授权码模式 Authorization Code
 ![SpringSecurity](https://fgq233.github.io/imgs/java/oauth2_1.png)
 
@@ -132,12 +133,7 @@
  
 
 
-### 四、更新令牌
-* 如果用户访问的时候，客户端的"访问令牌"已经过期，则需要使用"更新令牌"申请一个新的访问令牌
-* 客户端发出更新令牌的HTTP请求，包含以下参数：
-  * `granttype：表示使用的授权模式，此处的值固定为"refreshtoken"，必选项`
-  * `refresh_token：表示早前收到的更新令牌，必选项`
-  * `scope：表示申请的授权范围，不可以超出上一次申请的范围，如果省略该参数，则表示与上一次一致`
+
 
 
  
