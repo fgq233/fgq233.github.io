@@ -36,7 +36,7 @@ spring:
 参考[SpringSecurity 认证](https://fgq233.github.io/md/security/springsecurity2)
 
 * 实现 `UserDetailsService` 接口，用于加载用户信息
-* 自定义 `SpringSecurity` 配置，允许认证相关路径的访问及表单登录
+* 自定义 `SpringSecurity` 配置，放行认证相关路径、表单登录相关路径
 
 ```
 @Service
