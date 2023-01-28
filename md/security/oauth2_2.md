@@ -133,8 +133,27 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     * `authorization_code`：授权码模式
     * `password`：密码模式
 
+#### 5. OAuth2 资源服务器配置
+```
+@Configuration
+@EnableResourceServer
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-#### 5. 添加测试接口
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .requestMatchers()
+                .antMatchers("/user/**");  
+    }
+}
+```
+
+`@EnableResourceServer` 开启资源服务器配置
+
+#### 6. 添加测试接口
 ```
 @RestController
 @RequestMapping("/user")
@@ -198,13 +217,29 @@ public class UserController {
 
 
 #### 4. 请求认证服务器，获取令牌
-在 `postman` 访问地址：`http://client:secret@localhost:9001/oauth/token`
+![oauth2](https://fgq233.github.io/imgs/java/oauth2_6.png)
+
+* 前置：使用 `Basic` 认证通过 `client_id` 和 `client_secret` 构造一个 `Authorization` 头信息
+* 或者直接请求 `http://admin:admin123456@localhost:9001/oauth/token`
+
+
+![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
+    
+在 `body` 中添加以下参数信息，通过 `POST` 请求获取访问令牌
 * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
-* `code`：上一步获得的授权码（必选项）
+* `code`：上一步获得的授权码（必选项，授权码只能使用一次）
 
-
+```
+{
+    "access_token": "15d25456-515b-4202-98d0-46dbc72c85f2",
+    "token_type": "bearer",
+    "expires_in": 3599,
+    "scope": "all"
+}
+```
  
-
+ 
+#### 5. 使用令牌，请求资源
 
 
 
