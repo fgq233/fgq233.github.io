@@ -1,7 +1,7 @@
 ### OAuth2 相关概念
 ### 一、概念
 #### 1. OAuth、OAuth2
-* `OAuth（Open Authorization）`是用于**用户资源授权**的行业标准协议
+* `OAuth（Open Authorization）`是一种协议，用于提供认证、授权的规范
 * `OAuth2.0` 是`OAuth1.0` 协议的延续版本，但不向兼容 `OAuth1.0`
    
 #### 2. OAuth2 相关名词
