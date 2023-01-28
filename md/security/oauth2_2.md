@@ -275,7 +275,7 @@ public class UserController {
 
 
 
-### 四、密码模式
+### 六、密码模式
 #### 1. SecurityConfig 改造
 ```
 @Configuration
