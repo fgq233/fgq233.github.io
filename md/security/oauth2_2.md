@@ -129,7 +129,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 * `refreshTokenValiditySeconds()` 刷新`token`的有效期
 * `redirectUris()` 重定向地址`redirect_uri`，用于授权成功后跳转
 * `scopes()` 申请的权限范围
-* `authorizedGrantTypes()`：授权模式
+* `authorizedGrantTypes()` 授权模式
     * `authorization_code`：授权码模式
     * `password`：密码模式
 
@@ -219,16 +219,15 @@ public class UserController {
 #### 4. 请求认证服务器，获取令牌
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_6.png)
 
-* 前置：使用 `Basic` 认证通过 `client_id` 和 `client_secret` 构造一个 `Authorization` 头信息
-* 或者直接请求 `http://admin:admin123456@localhost:9001/oauth/token`
-
-
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
-    
-在 `body` 中添加以下参数信息，通过 `POST` 请求获取访问令牌
-* `grant_type`：授权模式，此处为 `authorization_code`（必选项）
-* `code`：上一步获得的授权码（必选项，授权码只能使用一次）
 
+* 前置：使用 `Basic` 认证通过 `client_id` 和 `client_secret` 构造一个 `Authorization` 头信息
+  * 或者直接请求 `http://admin:admin123456@localhost:9001/oauth/token`
+* 在 `body` 中添加以下参数信息，通过 `POST` 请求获取访问令牌
+  * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
+  * `code`：上一步获得的授权码（必选项，授权码只能使用一次）
+
+返回
 ```
 {
     "access_token": "15d25456-515b-4202-98d0-46dbc72c85f2",
@@ -240,15 +239,87 @@ public class UserController {
  
  
 #### 5. 使用令牌，请求资源
+![oauth2](https://fgq233.github.io/imgs/java/oauth2_8.png)
+
+
+使用令牌，访问： `http://localhost:9001/user/getCurrentUser`，可以成功访问
+
+```
+{
+    "password": null,
+    "username": "fgq1",
+    "authorities": [
+        {
+            "authority": "admin"
+        }
+    ],
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "credentialsNonExpired": true,
+    "enabled": true
+}
+```
 
 
 
 
+### 四、密码模式
+#### 1. SecurityConfig
+```
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    ......
+
+    /**
+     * 使用密码模式需要配置
+     */
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+}
+```
+
+#### 2. AuthServerConfig
+* 授权模式添加 `password`
+* 重写 `configure(AuthorizationServerEndpointsConfigurer endpoints)` 方法
+
+```
+@Configuration
+@EnableAuthorizationServer
+public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.inMemory()                              
+                .withClient("admin")            
+                .secret(passwordEncoder.encode("admin123456"))  
+                .accessTokenValiditySeconds(3600)       
+                .refreshTokenValiditySeconds(864000)    
+                .redirectUris("http://www.baidu.com")   
+                .scopes("all")                         
+                .authorizedGrantTypes("authorization_code", "password"); // 授权模式
+    }
 
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
+    /**
+     * 使用密码模式需要配置
+     */
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
+        endpoints.authenticationManager(authenticationManager);
+    }
 
+}
+```
 
-
-
-
+#### 3. 测试
