@@ -1,8 +1,8 @@
-### OAuth2 入门
+### OAuth2 授权码模式、密码模式
 使用 Spring Security 实现 OAuth2 入门案例
 
 ### 一、创建认证服务器
-> 创建一个 oauth2-server 模块作为认证服务器来使用
+> 创建一个 oauth2-server 模块作为认证服务器、资源服务器来使用
 
 #### 1. pom.xml 相关依赖
 ```
@@ -242,7 +242,7 @@ public class UserController {
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_8.png)
 
 
-使用令牌，访问： `http://localhost:9001/user/getCurrentUser`，可以成功访问
+使用令牌，访问：`http://localhost:9001/user/getCurrentUser`，可以成功访问
 
 ```
 {
@@ -264,7 +264,7 @@ public class UserController {
 
 
 ### 四、密码模式
-#### 1. SecurityConfig
+#### 1. SecurityConfig 改造
 ```
 @Configuration
 @EnableWebSecurity
@@ -283,7 +283,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-#### 2. AuthServerConfig
+#### 2. AuthServerConfig 改造
 * 授权模式添加 `password`
 * 重写 `configure(AuthorizationServerEndpointsConfigurer endpoints)` 方法
 
@@ -323,3 +323,15 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 ```
 
 #### 3. 测试
+![oauth2](https://fgq233.github.io/imgs/java/oauth2_9.png)
+
+```
+{
+    "access_token": "5030a5f9-88bc-45b3-ae9e-356776808eb4",
+    "token_type": "bearer",
+    "expires_in": 3599,
+    "scope": "all"
+}
+```
+
+无需获取授权码，直接通过账号、密码获取令牌，然后使用令牌访问资源服务器配置
