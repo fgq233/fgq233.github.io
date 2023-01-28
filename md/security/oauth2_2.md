@@ -331,4 +331,4 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 }
 ```
 
-无需获取授权码，直接通过账号、密码获取令牌，然后使用令牌访问资源服务器配置
+无需获取授权码，直接通过账号、密码获取令牌，然后使用令牌访问资源服务器的资源
