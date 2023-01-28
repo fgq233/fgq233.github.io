@@ -33,7 +33,7 @@ spring:
 ```
 
 #### 3. 实现 SpringSecurity 认证功能
-参考[pringSecurity 认证](https://fgq233.github.io/md/security/springsecurity2)
+参考[SpringSecurity 认证](https://fgq233.github.io/md/security/springsecurity2)
 
 * 实现 `UserDetailsService` 接口，用于加载用户信息
 * 自定义 `SpringSecurity` 配置，允许认证相关路径的访问及表单登录
