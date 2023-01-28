@@ -225,7 +225,6 @@ public class UserController {
   * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
   * `code`：上一步获得的授权码（必选项，授权码只能使用一次）
 
-返回
 ```
 {
     "access_token": "15d25456-515b-4202-98d0-46dbc72c85f2",
