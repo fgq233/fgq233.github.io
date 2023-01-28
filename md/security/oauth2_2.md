@@ -1,19 +1,17 @@
 ### OAuth2 授权码模式、密码模式
 使用 Spring Security 实现 OAuth2 入门案例
 
-### 一、创建认证服务器
-> 创建一个 oauth2-server 模块作为认证服务器、资源服务器来使用
+### 一、创建认证服务、资源服务
+#### 1. 创建聚合项目
+* 子模块 oauth2-server 服务作为`认证服务器`来使用
+* 子模块 oauth2-source 服务作为`资源服务器`来使用
 
-#### 1. pom.xml 相关依赖
+#### 2. pom.xml 相关依赖
 ```
+<!-- oauth2 包含 spring security -->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-oauth2</artifactId>
-</dependency>
-
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-security</artifactId>
 </dependency>
 
 <dependency>
@@ -22,8 +20,8 @@
 </dependency>
 ```
 
-
-#### 2. application.yml 配置
+### 二、认证服务
+#### 1. application.yml 配置
 ```
 server:
   port: 9001
@@ -32,7 +30,7 @@ spring:
     name: oauth2-server
 ```
 
-#### 3. 实现 SpringSecurity 认证功能
+#### 2. 实现 SpringSecurity 认证功能
 参考[SpringSecurity 认证](https://fgq233.github.io/md/security/springsecurity2)
 
 * 实现 `UserDetailsService` 接口，用于加载用户信息
@@ -44,8 +42,7 @@ public class UserService implements UserDetailsService {
 
     private List<User> userList;
 
-    @PostConstruct
-    public void initData() {
+    private void initData() {
         String password = new BCryptPasswordEncoder().encode("123456");
         userList = new ArrayList<>();
         userList.add(new User("fgq1", password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin")));
@@ -54,6 +51,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        initData();
         List<User> list = userList.stream().filter(user -> user.getUsername().equals(username)).collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(list)) {
             return list.get(0);
@@ -96,7 +94,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ```
 
 
-#### 4. OAuth2 认证服务器配置
+#### 3. OAuth2 认证服务器配置
 ```
 @Configuration
 @EnableAuthorizationServer
@@ -114,10 +112,13 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .refreshTokenValiditySeconds(864000)    
                 .redirectUris("http://www.baidu.com")   
                 .scopes("all")                          
+                .autoApprove(false)                       
                 .authorizedGrantTypes("authorization_code"); 
     }
 }
 ```
+
+客户端可以配置多个，用 `and()` 连接
 
 * `@EnableAuthorizationServer` 开启认证服务器配置
 * `inMemory()` 客户端信息存储在内存中
@@ -127,31 +128,60 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 * `refreshTokenValiditySeconds()` 刷新`token`的有效期
 * `redirectUris()` 重定向地址`redirect_uri`，用于授权成功后跳转
 * `scopes()` 申请的权限范围
+* `autoApprove()` false 跳转到授权页面，true直接重定向并返回授权码
 * `authorizedGrantTypes()` 授权模式
     * `authorization_code`：授权码模式
     * `password`：密码模式
+    * `implicit`：简化模式
+    * `client_credentials`：密码模式
+    * `refresh_token`：刷新令牌
 
-#### 5. OAuth2 资源服务器配置
+
+
+### 三、资源服务
+#### 1. application.yml 配置
 ```
+server:
+  port: 9002
+spring:
+  application:
+    name: oauth2-source
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin123456
+      access-token-uri: http://127.0.0.1:9001/oauth/token
+      user-authorization-uri: http://127.0.0.1:9001/oauth/authorize
+    resource:
+      token-info-uri: http://127.0.0.1:9001/oauth/check_token
+```
+
+
+#### 2. OAuth2 资源服务器配置
+```
+/**
+ * 资源服务器配置
+ */
 @Configuration
 @EnableResourceServer
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/user/**").hasAuthority("admin")
                 .anyRequest()
-                .authenticated()
-                .and()
-                .requestMatchers()
-                .antMatchers("/user/**");  
+                .authenticated();
+
     }
 }
 ```
 
 `@EnableResourceServer` 开启资源服务器配置
 
-#### 6. 添加测试接口
+#### 3. 添加测试接口
 ```
 @RestController
 @RequestMapping("/user")
@@ -166,29 +196,28 @@ public class UserController {
 ```
 
 
-#### 6. 启动服务
 
 
 
 
-### 二、OAuth2 端点
+### 四、OAuth2 端点
 #### 1. OAuth2 默认端点 URL
 * `/oauth/authorize`：授权端点
 * `/oauth/token`：令牌端点
 * `/oauth/confirm_access`：用户确认授权提交端点
 * `/oauth/error`：授权服务错误信息端点
 * `/oauth/check_token`：用于资源服务访问的令牌解析端点
-* `/oauth/token_key`：提供共有密钥的端点(使用JWT 令牌)
+* `/oauth/token_key`：提供共有密钥的端点(使用JWT令牌)
 
 #### 2. 测试步骤
-* 通过 `GET` 请求认证服务器获取授权码  
-* 通过 `POST` 请求，携带授权码，请求认证服务器获取令牌
-* 使用令牌，访问资源服务器的资源
+* 通过 `GET` 请求认证服务器 9001 获取授权码  
+* 通过 `POST` 请求，携带授权码，请求认证服务器 9001获取令牌
+* 使用令牌，访问资源服务器 9002 的资源
 
 
 
 
-### 三、测试
+### 五、测试
 #### 1. 请求认证服务器，获取授权码 
 在浏览器访问地址：`http://localhost:9001/oauth/authorize?response_type=code&client_id=admin`
 * `response_type`：授权模式，授权码模式是 `code`（必选项）
@@ -227,7 +256,7 @@ public class UserController {
 
 ```
 {
-    "access_token": "15d25456-515b-4202-98d0-46dbc72c85f2",
+    "access_token": "713ea91e-80d7-4d48-95d0-0be601bf0ae5",
     "token_type": "bearer",
     "expires_in": 3599,
     "scope": "all"
@@ -239,23 +268,9 @@ public class UserController {
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_8.png)
 
 
-使用令牌，访问：`http://localhost:9001/user/getCurrentUser`，可以成功访问
+使用令牌，访问：`http://localhost:9002/user/getCurrentUser`，可以成功访问
 
-```
-{
-    "password": null,
-    "username": "fgq1",
-    "authorities": [
-        {
-            "authority": "admin"
-        }
-    ],
-    "accountNonExpired": true,
-    "accountNonLocked": true,
-    "credentialsNonExpired": true,
-    "enabled": true
-}
-```
+
 
 
 

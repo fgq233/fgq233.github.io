@@ -58,8 +58,10 @@
 -  [SpringSecurity-4 记住我功能][springsecurity4]
 -  [Oauth2 执行流程、授权模式][oauth2_1]
 -  [Oauth2 授权码模式、密码模式][oauth2_2]
+-  [Oauth2 基于数据库存储令牌][oauth2_3]
 
 
+[oauth2_3]: https://fgq233.github.io/md/security/oauth2_3
 [oauth2_2]: https://fgq233.github.io/md/security/oauth2_2
 [oauth2_1]: https://fgq233.github.io/md/security/oauth2_1
 [springsecurity1]: https://fgq233.github.io/md/security/springsecurity1
