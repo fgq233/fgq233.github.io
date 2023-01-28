@@ -192,7 +192,7 @@ public class UserController {
 
 
 #### 3. 重定向
- `https://www.baidu.com/?code=O97XsI`
+ `https://www.baidu.com/?code=O97XsI` 
  
 同意授权后，自动重定向到 `redirect_uri`，并且携带授权码 `code`
 
