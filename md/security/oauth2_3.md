@@ -20,7 +20,7 @@
 
 ```
 INSERT INTO `oauth_client_details` (`client_id`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`) 
-	VALUES ('admin', '$2a$10$fVrt8ZZAvz47Ypa2wSZEGeVI3J.uwYlPr2fWQp7B/as3L5bxXbWAS', 'all', 'authorization_code,password', 'http://www.baidu.com');
+	VALUES ('admin', '$2a$10$fVrt8ZZAvz47Ypa2wSZEGeVI3J.uwYlPr2fWQp7B/as3L5bxXbWAS', 'all', 'authorization_code,password,refresh_token', 'http://www.baidu.com');
 INSERT INTO `oauth_client_details` (`client_id`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`) 
 	VALUES ('dev', '$2a$10$fVrt8ZZAvz47Ypa2wSZEGeVI3J.uwYlPr2fWQp7B/as3L5bxXbWAS', 'all', 'authorization_code', 'http://www.baidu.com');
 ```
