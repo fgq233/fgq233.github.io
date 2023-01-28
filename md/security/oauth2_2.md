@@ -120,9 +120,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 ```
 
 * `@EnableAuthorizationServer` 开启认证服务器配置
-
 * `inMemory()` 客户端信息存储在内存中
-
 * `withClient()` 客户端的 `client_id`
 * `secret()` 客户端的 `client_secret`
 * `accessTokenValiditySeconds()` 访问`token`的有效期
