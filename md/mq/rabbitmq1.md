@@ -1,3 +1,4 @@
+###  RabbitMQ 使用步骤
 ###  一、RabbitMQ中的角色
 * publisher：生产者，消息发布者，将消息发送到队列queue
 * consumer：消费者，订阅队列，处理队列中的消息
