@@ -1,8 +1,15 @@
-### OAuth2 基于数据库存储令牌
-* 认证服务器配置中：`clients.inMemory()` 是把客户端信息全部存储在内存当中
-* 本篇基于上一篇 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2)
+### OAuth2 基于数据库存储客户端信息、令牌
+本篇基于上一篇 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2)
 
-### 一、数据库
+### 一、存储位置
+认证服务器中客户端信息、令牌信息存储位置取决于 `TokenStore` 的实现类
+* `InMemoryTokenStore`：内存中
+* `JdbcTokenStore`：数据库中
+* `RedisTokenStore`：Redis中
+* `JwtTokenStore`：JWT中
+
+
+### 二、数据库
 #### 1. 创建数据库、导入oauth2 相关表
 * `oauth_access_token`
 * `oauth_approvals`
@@ -55,7 +62,7 @@ spring:
  
  
  
-### 二、认证服务器配置
+### 三、认证服务器配置
 ```
 /**
  * 认证服务器配置
@@ -146,4 +153,4 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 }
 ```
 
-其他和基于内存存储基本一致
+其他和上一篇 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2) 基于内存存储基本一致
