@@ -1,4 +1,4 @@
-###  SpringAMQP 中 RabbitMQ五种消息模型
+###  RabbitMQ五种消息模型
 
 ###  一、消息模型
 ####  1. 官方demo
