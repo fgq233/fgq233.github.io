@@ -9,7 +9,7 @@ SpringAMQP会序列化为字节后发送
 * 默认实现是：`SimpleMessageConverter`，基于`JDK`的`ObjectOutputStream`完成序列化
 
 
-#### 三、RabbitListener 搭配 RabbitHandler 队列接收不同类型参数消息
+#### 三、RabbitListener 搭配 RabbitHandler 接收不同类型参数消息
 ```
 @Component
 @RabbitListener(queues = "test.queue")
