@@ -187,7 +187,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 @RequestMapping("/user")
 public class UserController {
 
-    @GetMapping("/getCurrentUser")
+    @RequestMapping("/getCurrentUser")
     public Object getCurrentUser(Authentication authentication) {
         return authentication.getPrincipal();
     }
