@@ -2,14 +2,14 @@ const javaList1 = [
     {
         url: "", title: "MQ", child: [
             {url: "https://fgq233.github.io/md/java/mq", title: "MQ简介"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq1", title: "RabbitMQ-1 使用步骤"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq2", title: "RabbitMQ-2 五种消息模型"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq3", title: "RabbitMQ-3 消息转换器"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq4", title: "RabbitMQ-4 持久化"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq5", title: "RabbitMQ-5 消息确认机制"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq6", title: "RabbitMQ-6 TTL + 死信"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq7", title: "RabbitMQ-7 延迟队列"},
-            {url: "https://fgq233.github.io/md/java/rabbitmq8", title: "RabbitMQ-8 惰性队列"}
+            {url: "https://fgq233.github.io/md/mq/rabbitmq1", title: "RabbitMQ-1 使用步骤"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq2", title: "RabbitMQ-2 五种消息模型"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq3", title: "RabbitMQ-3 消息转换器"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq4", title: "RabbitMQ-4 持久化"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq5", title: "RabbitMQ-5 消息确认机制"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq6", title: "RabbitMQ-6 TTL + 死信"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq7", title: "RabbitMQ-7 延迟队列"},
+            {url: "https://fgq233.github.io/md/mq/rabbitmq8", title: "RabbitMQ-8 惰性队列"}
         ]
     },
 ];
