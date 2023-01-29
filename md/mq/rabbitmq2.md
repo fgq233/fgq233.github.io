@@ -1,11 +1,43 @@
 ###  SpringAMQP 中 RabbitMQ五种消息模型
-注意：
-* RabbitTemplate 通过 convertAndSend 发送消息不会创建队列，所以需要先声明，不然消息发送不成功
-* RabbitListener: SpringBoot 启动时监听类会监听所有配置的队列，若不存在，启动会失败
+
+###  一、消息模型
+####  1. 官方demo
+* RabbitMQ官方提供了 7 个入门demo，前5个与消息发送接收有关，对应了不同的消息模型，
+这5个在Spring AMQP中都可以实现
+* [官方demo](https://rabbitmq.com/getstarted.html)
+
+| **消息模型**| **说明**  |
+| ---------- | --------- |
+| Hello World | 基本消息队列 |
+| Work Queues | 工作消息队列 |
+| Publish/Subscribe | 发布订阅模型，根据交换机又分为三类Fanout Exchange、Direct Exchange、Topic Exchange |
+| --- | --- |
+| Fanout | 广播 |
+| Direct | 路由 |
+| Topics | 主题 |
+
+
+#### 2. RabbitMQ中的角色
+* publisher：生产者，消息发布者，将消息发送到队列queue
+* consumer：消费者，订阅队列，处理队列中的消息
+* exchange：交换机，负责消息路由
+* queue：队列，负责接受并缓存消息
+* virtualHost：虚拟主机，隔离不同租户的exchange、queue、消息的隔离
+ 
+![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ.png)
+
+
+#### 3. 使用注意
+* `RabbitTemplate` 通过 `convertAndSend()` 方法发送消息不会创建队列，所以需要先声明，不然消息发送不成功
+* `RabbitListener`: 项目启动时监听类会监听所有配置的队列，若不存在，启动会失败
 * 消息一旦消费就会从队列中移除， RabbitMQ 没有消息回溯功能
-* 消费者有消费预取机制，默认平均预取队列中的消息，可以通过设置 prefetch参数 来控制每次预期消息数量
+* 消费者有消费预取机制，默认平均预取队列中的消息，可以通过设置`prefetch`参数来控制每次预期消息数量
 
 
+
+
+
+###  二、五种消息模型案例
 ####  1、基本消息队列
 ![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ1.png)
 

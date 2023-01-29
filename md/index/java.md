@@ -7,7 +7,7 @@
 
 7. ###### MQ
 -  [MQ简介][mq]
--  [RabbitMQ-1 使用步骤][rabbitmq1]
+-  [RabbitMQ-1 安装][rabbitmq1]
 -  [RabbitMQ-2 五种消息模型][rabbitmq2]
 -  [RabbitMQ-3 消息转换器][rabbitmq3]
 -  [RabbitMQ-4 持久化][rabbitmq4]
