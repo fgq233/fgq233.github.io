@@ -5,12 +5,49 @@ SpringAMQP会序列化为字节后发送
 
 
 #### 二、接收消息
-* Spring的对消息对象的处理是org.springframework.amqp.support.converter.MessageConverter 类
-* 默认实现是：SimpleMessageConverter，基于JDK的ObjectOutputStream完成序列化
+* Spring的对消息对象的处理是`org.springframework.amqp.support.converter.MessageConverter` 类
+* 默认实现是：`SimpleMessageConverter`，基于`JDK`的`ObjectOutputStream`完成序列化
 
-#### 三、自定义接收消息类型
-* 定义一个MessageConverter 类型的类，然后Bean注入
-* 注意：发送方与接收方必须使用相同的 MessageConverter
+
+#### 三、RabbitListener 搭配 RabbitHandler 队列接收不同类型参数消息
+```
+@Component
+@RabbitListener(queues = "test.queue")
+public class Receiver {
+
+    @RabbitHandler
+    public void testHandler1(String msg) {
+    }
+
+    @RabbitHandler
+    public void testHandler2(Map<String, Object> msg) {
+    }
+}
+```
+
+* @RabbitListener 可以标注在类上面，需配合 @RabbitHandler 注解一起使用
+
+* @RabbitListener 标注在类上面，表示收到消息的时候，就交给 @RabbitHandler 的方法处理，
+具体使用哪个方法处理，根据 MessageConverter 转换后的参数类型来决定，这样一个队列就能接收不同类型参数消息了
+
+* @RabbitHandler 也可以使用 Message 处理所有类型参数
+
+```
+@Component
+@RabbitListener(queues = "test.queue")
+public class Receiver {
+    
+    @RabbitHandler
+    public void test(Channel channel, Message message) throws IOException {
+    }
+    
+}
+```
+
+
+#### 四、自定义接收消息类型
+* `定义一个MessageConverter` 类型的类，然后`@Bean`注入`Spring IOC` 容器
+* 注意：发送方与接收方必须使用相同的 `MessageConverter`
 
 ##### 1、引入jackson，注入自定义MessageConverter
 ```
@@ -52,38 +89,4 @@ public class QueueConfig {
     }
 ```
 
-
-#### 四、RabbitListener 搭配 RabbitHandler
-```
-@Component
-@RabbitListener(queues = "test.queue")
-public class Receiver {
-
-    @RabbitHandler
-    public void testHandler1(String msg) {
-    }
-
-    @RabbitHandler
-    public void testHandler2(Map<String, Object> msg) {
-    }
-}
-```
-
-* @RabbitListener 可以标注在类上面，需配合 @RabbitHandler 注解一起使用
-
-* @RabbitListener 标注在类上面，表示收到消息的时候，就交给 @RabbitHandler 的方法处理，
-具体使用哪个方法处理，根据 MessageConverter 转换后的参数类型来决定，这样一个队列就能接收不同类型参数消息了
-
-* @RabbitHandler 也可以使用 Message 处理所有类型参数
-
-```
-@Component
-@RabbitListener(queues = "test.queue")
-public class Receiver {
-    
-    @RabbitHandler
-    public void testManual(Channel channel, Message message) throws IOException {
-    }
-    
-}
-```
+ 
