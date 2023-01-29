@@ -1,4 +1,4 @@
-### OAuth2 令牌存储为JWT形势
+### OAuth2 基于JWT格式存储令牌
 本篇基于 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2)
 
 ### 一、认证服务器
