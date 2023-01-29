@@ -134,7 +134,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     * `password`：密码模式
     * `implicit`：简化模式
     * `client_credentials`：密码模式
-    * `refresh_token`：刷新令牌
+    * `refresh_token`：通过以上授权获得的 refresh_token 来获取新的 access_token
 
 
 
@@ -156,6 +156,9 @@ security:
     resource:
       token-info-uri: http://127.0.0.1:9001/oauth/check_token
 ```
+
+
+
 
 
 #### 2. OAuth2 资源服务器配置
@@ -207,7 +210,10 @@ public class UserController {
 * `/oauth/confirm_access`：用户确认授权提交端点
 * `/oauth/error`：授权服务错误信息端点
 * `/oauth/check_token`：用于资源服务访问的令牌解析端点
-* `/oauth/token_key`：提供共有密钥的端点(使用JWT令牌)
+  * 资源服务用于检查令牌的，默认受保护 ，认证服务中使用 `tokenKeyAccess()` 放开
+* `/oauth/token_key`：提供公有密匙的端点，在使用JWT令牌的情况下使用
+  * 资源服务用于检查令牌的，默认受保护 ，认证服务中使用 `checkTokenAccess()` 放开
+
 
 #### 2. 测试步骤
 * 通过 `GET` 请求认证服务器 9001 获取授权码  
