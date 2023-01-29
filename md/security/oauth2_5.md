@@ -2,17 +2,7 @@
 本篇基于 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2)
 
 ### 一、认证服务器
-#### 1. pom.xml 添加 jwt 依赖
-```
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
-    <artifactId>jjwt</artifactId>
-    <version>0.9.0</version>
-</dependency>
-```
-
-
-#### 2、认证服务器配置
+#### 1、认证服务器配置
 ```
 /**
  * 认证服务器配置
@@ -62,7 +52,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 在IOC容器中注入了 `JwtTokenStore、JwtAccessTokenConverter`，并设置给 oauth2 端点
 
-#### 3、密码模式测试
+#### 2、使用密码模式测试
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_9.png)
 
 ```
