@@ -1,15 +1,15 @@
 ###  消息转换器
-#### 一、发送任意类型消息
+### 一、发送任意类型消息
 发送时：convertAndSend 方法中消息参数类型是Object，可以发送任意对象类型的消息，
 SpringAMQP会序列化为字节后发送
 
 
-#### 二、接收消息
+### 二、接收消息
 * Spring的对消息对象的处理是`org.springframework.amqp.support.converter.MessageConverter` 类
 * 默认实现是：`SimpleMessageConverter`，基于`JDK`的`ObjectOutputStream`完成序列化
 
 
-#### 三、RabbitListener 搭配 RabbitHandler 接收不同类型参数消息
+### 三、RabbitListener 搭配 RabbitHandler 接收不同类型参数消息
 ```
 @Component
 @RabbitListener(queues = "test.queue")
@@ -45,11 +45,11 @@ public class Receiver {
 ```
 
 
-#### 四、自定义接收消息类型
+### 四、自定义接收消息类型
 * `定义一个MessageConverter` 类型的类，然后`@Bean`注入`Spring IOC` 容器
 * 注意：发送方与接收方必须使用相同的 `MessageConverter`
 
-##### 1、引入jackson，注入自定义MessageConverter
+#### 1、引入jackson，注入自定义MessageConverter
 ```
 生产者消费者都需要
 
@@ -65,7 +65,7 @@ public MessageConverter jsonMessageConverter(){
 }
 ```
 
-##### 2、测试
+#### 2、测试
 ```
 生产者和消费者声明队列：
 @Configuration
