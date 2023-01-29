@@ -46,7 +46,7 @@ public class Receiver {
 
 
 ### 四、自定义接收消息类型
-* `定义一个MessageConverter` 类型的类，然后`@Bean`注入`Spring IOC` 容器
+* 定义一个`MessageConverter` 实现类，然后注入`Spring IOC` 容器
 * 注意：发送方与接收方必须使用相同的 `MessageConverter`
 
 #### 1、引入jackson，注入自定义MessageConverter
