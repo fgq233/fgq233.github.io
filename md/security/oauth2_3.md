@@ -89,7 +89,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    
+
     /**
      * 客户端信息数据来源---来自数据库(oauth_client_details表)
      */
@@ -97,7 +97,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public JdbcClientDetailsService jdbcClientDetailsService() {
         return new JdbcClientDetailsService(dataSource);
     }
-    
+
     /**
      * 授权码保存策略---使用数据库存储(oauth_code表)
      */
@@ -129,7 +129,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
 
-    
+
 //    ★★★★★★★★★★★★  主要是重写3个config()方法，配置 oauth2 客户端信息、端点数据存储、安全规则   ★★★★★★★★★★★★
 
     /**
@@ -146,9 +146,10 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints)  {
         endpoints
-                .authenticationManager(authenticationManager)            // 认证管理器，密码模式需要
+                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
+                .authenticationManager(authenticationManager)            // 认证管理器(密码模式需要)
                 .authorizationCodeServices(authorizationCodeServices())  // 授权码保存策略
-                .tokenStore(jdbcTokenStore())                            // token存储
+                .tokenStore(jdbcTokenStore())                            // token令牌保存策略
                 .tokenServices(tokenServices());                         // token令牌管理
     }
 
@@ -161,7 +162,6 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .checkTokenAccess("isAuthenticated()")  // 开启 /oauth/check_token 安全认证，需要认证才可以访问
                 .allowFormAuthenticationForClients();   // 允许表单认证
     }
-
 }
 ```
 
