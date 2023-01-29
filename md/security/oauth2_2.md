@@ -219,7 +219,7 @@ public class UserController {
 
 ### 五、测试
 #### 1. 请求认证服务器，获取授权码 
-在浏览器访问地址：`http://localhost:9001/oauth/authorize?response_type=code&client_id=admin`
+在浏览器访问地址：http://localhost:9001/oauth/authorize?response_type=code&client_id=admin
 * `response_type`：授权模式，授权码模式是 `code`（必选项）
 * `client_id`：客户端ID `client_id`（必选项）
 * `redirect_uri`：获取授权码成功后的重定向URI（可选项）
@@ -238,21 +238,23 @@ public class UserController {
 
 
 #### 3. 重定向
- `https://www.baidu.com/?code=O97XsI` 
- 
-同意授权后，自动重定向到 `redirect_uri`，并且携带授权码 `code`
+* https://www.baidu.com/?code=O97XsI
+* 同意授权后，自动重定向到 `redirect_uri`，并且携带授权码 `code`
 
 
-#### 4. 请求认证服务器，获取令牌
+#### 4. postman 请求认证服务器，获取令牌
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_6.png)
 
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
 
-* 前置：使用 `Basic` 认证通过 `client_id` 和 `client_secret` 构造一个 `Authorization` 头信息
-  * 或者直接请求 `http://admin:admin123456@localhost:9001/oauth/token`
-* 在 `body` 中添加以下参数信息，通过 `POST` 请求获取访问令牌
+* 请求地址：http://localhost:9001/oauth/token
+* 前置：使用`Basic`认证通过`client_id`和`client_secret`构造一个`Authorization`头信息
+  * 或者直接请求： http://admin:admin123456@localhost:9001/oauth/token
+* body 参数：
   * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
   * `code`：上一步获得的授权码（必选项，授权码只能使用一次）
+  
+
 
 ```
 {
@@ -268,7 +270,7 @@ public class UserController {
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_8.png)
 
 
-使用令牌，访问：`http://localhost:9002/user/getCurrentUser`，可以成功访问
+使用令牌，访问：http://localhost:9002/user/getCurrentUser，可以成功访问
 
 
 
@@ -335,7 +337,15 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 ```
 
 #### 3. 测试
+无需获取授权码，直接通过账号、密码获取令牌
+
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_9.png)
+
+* 请求地址：http://admin:admin123456@localhost:9001/oauth/token
+* body 参数：
+  * `grant_type`：授权模式，此处为 `password`（必选项）
+  * `username`：`SpringSecurity`安全认证的用户名（必选项）
+  * `password`：`SpringSecurity`安全认证的密码（必选项）
 
 ```
 {
@@ -346,4 +356,4 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 }
 ```
 
-无需获取授权码，直接通过账号、密码获取令牌，然后使用令牌访问资源服务器的资源
+

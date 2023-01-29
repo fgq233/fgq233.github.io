@@ -2,11 +2,23 @@
 本篇基于上一篇 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2)
 
 ### 一、存储位置
-认证服务器中客户端信息、令牌信息存储位置取决于 `TokenStore` 的实现类
+下面几个配置的存储位置不是固定的，可以混合搭配，根据实际需求决定
+#### 1. token 保存策略
+认证服务器中，token 令牌存储位置取决于 `TokenStore` 的实现类
 * `InMemoryTokenStore`：内存中
 * `JdbcTokenStore`：数据库中
 * `RedisTokenStore`：Redis中
 * `JwtTokenStore`：JWT中
+
+#### 2. 授权码保存策略
+认证服务器中，授权码存储位置取决于 `AuthorizationCodeServices` 的实现类
+* `InMemoryAuthorizationCodeServices`：内存中
+* `JdbcAuthorizationCodeServices`：数据库中
+
+#### 3. 客户端信息数据来源
+认证服务器中，客户端信息数据来源取决于 `ClientDetailsService` 的实现类
+* `InMemoryClientDetailsService`：内存中
+* `JdbcClientDetailsService`：数据库中
 
 
 ### 二、数据库
@@ -135,7 +147,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerEndpointsConfigurer endpoints)  {
         endpoints
                 .authenticationManager(authenticationManager)            // 认证管理器，密码模式需要
-                .authorizationCodeServices(authorizationCodeServices())  // 授权码管理
+                .authorizationCodeServices(authorizationCodeServices())  // 授权码保存策略
                 .tokenStore(jdbcTokenStore())                            // token存储
                 .tokenServices(tokenServices());                         // token令牌管理
     }
@@ -153,4 +165,6 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 }
 ```
 
-其他和上一篇 [Oauth2 授权码模式、密码模式](https://fgq233.github.io/md/security/oauth2_2) 基于内存存储基本一致
+* 客户端信息来源于数据库
+* oauth2 令牌相关信息存储在数据库中
+* 具体代码：[oauth2_server_jdbc](https://github.com/fgq233/SpringBootX/tree/main/SpringBoo-SpringSecurity-OAuth2) 
