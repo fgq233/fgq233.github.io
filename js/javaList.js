@@ -44,6 +44,7 @@ const javaList2 = [
             {url: "https://fgq233.github.io/md/security/oauth2_3", title: "Oauth2 基于-数据库存储客户端信息、令牌"},
             {url: "https://fgq233.github.io/md/security/oauth2_4", title: "Oauth2 基于-Redis 存储令牌"},
             {url: "https://fgq233.github.io/md/security/oauth2_5", title: "Oauth2 基于-JWT格式存储令牌"},
+            {url: "https://fgq233.github.io/md/security/oauth2_6", title: "Oauth2 端点接口"},
         ]
     },
 ];

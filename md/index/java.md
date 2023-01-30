@@ -61,8 +61,10 @@
 -  [Oauth2 基于-数据库存储客户端信息、令牌][oauth2_3]
 -  [Oauth2 基于-Redis 存储令牌][oauth2_4]
 -  [Oauth2 基于-JWT格式存储令牌][oauth2_5]
+-  [Oauth2 端点接口][oauth2_6]
 
 
+[oauth2_6]: https://fgq233.github.io/md/security/oauth2_6
 [oauth2_5]: https://fgq233.github.io/md/security/oauth2_5
 [oauth2_4]: https://fgq233.github.io/md/security/oauth2_4
 [oauth2_3]: https://fgq233.github.io/md/security/oauth2_3

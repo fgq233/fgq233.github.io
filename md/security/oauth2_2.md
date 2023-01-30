@@ -200,30 +200,13 @@ public class UserController {
 
 
 
-
-
-
-### 四、OAuth2 端点
-#### 1. OAuth2 默认端点 URL
-* `/oauth/authorize`：授权端点
-* `/oauth/token`：令牌端点
-* `/oauth/confirm_access`：用户确认授权提交端点
-* `/oauth/error`：授权服务错误信息端点
-* `/oauth/check_token`：用于资源服务访问的令牌解析端点
-  * 资源服务用于检查令牌的，默认受保护 ，认证服务中使用 `tokenKeyAccess()` 放开
-* `/oauth/token_key`：提供公有密匙的端点，在使用JWT令牌的情况下使用
-  * 资源服务用于检查令牌的，默认受保护 ，认证服务中使用 `checkTokenAccess()` 放开
-
-
-#### 2. 测试步骤
-* 通过 `GET` 请求认证服务器 9001 获取授权码  
+ 
+ 
+### 四、测试
+* 通过 `GET` 请求认证服务器 9001 获取授权码
 * 通过 `POST` 请求，携带授权码，请求认证服务器 9001获取令牌
 * 使用令牌，访问资源服务器 9002 的资源
 
-
-
-
-### 五、测试
 #### 1. 请求认证服务器，获取授权码 
 在浏览器访问地址：http://localhost:9001/oauth/authorize?response_type=code&client_id=admin
 * `response_type`：授权模式，授权码模式是 `code`（必选项）
@@ -283,7 +266,7 @@ public class UserController {
 
 
 
-### 六、密码模式
+### 五、密码模式
 #### 1. SecurityConfig 改造
 ```
 @Configuration
