@@ -5,7 +5,7 @@
 * 消息属性
 
 ###  一、消息头
-#### 1、具体
+#### 1、说明
 * `JMSDestination`：消息发送的目的地 Destination
 * `JMSMessageID`：消息唯一标识，由生产者设置
 * `JMSDeliveryMode`：消息持久化，值 `DeliveryMode.PERSISTENT` 或 `DeliveryMode.NON_PERSISTENT`
@@ -17,7 +17,7 @@
 * `JMSType`：消息的类型
 * `JMSRedelivered`：消息的重发标志，false代表该消息是第一次发生，true代表该消息为重发的消息
 
-大部分属性是 JMS 决定，不用设置
+大部分消息头是 JMS 决定，不用设置
 
 
 #### 2、示例
