@@ -7,13 +7,13 @@
 ###  一、消息头
 #### 1、说明
 * `JMSDestination`：消息发送的目的地 Destination
-* `JMSMessageID`：消息唯一标识，由生产者设置
+* `JMSMessageID`：消息唯一标识
 * `JMSDeliveryMode`：消息持久化，值 `DeliveryMode.PERSISTENT` 或 `DeliveryMode.NON_PERSISTENT`
 * `JMSTimestamp`：消息发送的时间
 * `JMSExpiration`：消息失效的时间，单位：毫秒，值为0表明消息不会过期
 * `JMSPriority`：消息的优先级，范围：0~9，值越大优先级越高，默认4
-* `JMSCorrelationID`：消息关联ID，用来链接响应消息与请求消息，由生产者设置
-* `JMSReplyTo`：请求程序用它来指出回复消息应发送的地方，由生产者设置
+* `JMSCorrelationID`：消息关联ID，用来链接响应消息与请求消息
+* `JMSReplyTo`：请求程序用它来指出回复消息应发送的地方
 * `JMSType`：消息的类型
 * `JMSRedelivered`：消息的重发标志，false代表该消息是第一次发生，true代表该消息为重发的消息
 
