@@ -14,11 +14,11 @@ rabbitmq-plugins.bat enable rabbitmq_management
 ```
 
 
-###  二、SpringAMQP 中 RabbitMQ使用步骤
+###  二、SpringBoot 中 RabbitMQ使用步骤
 在RabbitMQ图形界面创建用户，同时分配虚拟主机权限，然后重启 RabbitMQ 服务
 
 #### 1、引入依赖
-生产者、消费者都需要引入，如果是聚合项目，直接放在父pom中
+生产者、消费者都需要引入
 
 ```
 <!--AMQP依赖，包含RabbitMQ-->
@@ -43,8 +43,41 @@ spring:
  
  
 #### 4、声明队列、交换机(根据需求可选)
+```
+@Configuration
+public class QueueConfig {
 
-#### 5、发送消息
+    @Bean
+    public Queue queue(){
+        return new Queue("test.queue");
+    }
+}
+```
 
-#### 6、监听消息
+#### 5、生产者：发送信息
+```
+@SpringBootTest
+public class SpringAmqpTest {
 
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Test
+    public void test() {
+        String msg = "Hello RabbitMQ";
+        rabbitTemplate.convertAndSend("test.queue", msg);
+    }
+}
+```
+
+#### 6、消费者：监听消息
+```
+@Component
+public class SpringRabbitListener {
+
+    @RabbitListener(queues = "test.queue")
+    public void listener(String msg){
+        System.out.println(msg);
+    }
+}
+```
