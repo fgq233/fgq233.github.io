@@ -15,6 +15,7 @@
 -  [RabbitMQ-6 TTL + 死信][rabbitmq6]
 -  [RabbitMQ-7 延迟队列][rabbitmq7]
 -  [RabbitMQ-8 惰性队列][rabbitmq8]
+-  [ActiveMQ-1 安装][activemq1]
 
  
 8. ###### 全文检索
@@ -64,6 +65,8 @@
 -  [Oauth2 端点接口][oauth2_6]
 
 
+
+[activemq1]: https://fgq233.github.io/md/mq/activemq1
 [oauth2_6]: https://fgq233.github.io/md/security/oauth2_6
 [oauth2_5]: https://fgq233.github.io/md/security/oauth2_5
 [oauth2_4]: https://fgq233.github.io/md/security/oauth2_4

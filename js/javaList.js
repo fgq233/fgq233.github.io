@@ -9,7 +9,8 @@ const javaList1 = [
             {url: "https://fgq233.github.io/md/mq/rabbitmq5", title: "RabbitMQ-5 消息确认机制"},
             {url: "https://fgq233.github.io/md/mq/rabbitmq6", title: "RabbitMQ-6 TTL + 死信"},
             {url: "https://fgq233.github.io/md/mq/rabbitmq7", title: "RabbitMQ-7 延迟队列"},
-            {url: "https://fgq233.github.io/md/mq/rabbitmq8", title: "RabbitMQ-8 惰性队列"}
+            {url: "https://fgq233.github.io/md/mq/rabbitmq8", title: "RabbitMQ-8 惰性队列"},
+            {url: "https://fgq233.github.io/md/mq/activemq1", title: "ActiveMQ-1 安装"},
         ]
     },
 ];
