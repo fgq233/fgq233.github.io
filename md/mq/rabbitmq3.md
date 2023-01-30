@@ -49,16 +49,9 @@ public class Receiver {
 * 定义一个`MessageConverter` 实现类，然后注入`Spring IOC` 容器
 * 注意：发送方与接收方必须使用相同的 `MessageConverter`
 
-#### 1、引入jackson，注入自定义MessageConverter
+#### 1、注入自定义MessageConverter
 ```
-生产者消费者都需要
-
-<dependency>
-    <groupId>com.fasterxml.jackson.dataformat</groupId>
-    <artifactId>jackson-dataformat-xml</artifactId>
-    <version>2.9.10</version>
-</dependency>
-
+生产者消费者都需要注入
 @Bean
 public MessageConverter jsonMessageConverter(){
     return new Jackson2JsonMessageConverter();

@@ -11,6 +11,7 @@ const javaList1 = [
             {url: "https://fgq233.github.io/md/mq/rabbitmq7", title: "RabbitMQ-7 延迟队列"},
             {url: "https://fgq233.github.io/md/mq/rabbitmq8", title: "RabbitMQ-8 惰性队列"},
             {url: "https://fgq233.github.io/md/mq/activemq1", title: "ActiveMQ-1 安装"},
+            {url: "https://fgq233.github.io/md/mq/activemq2", title: "ActiveMQ-1 JMS消息组成"},
         ]
     },
 ];
