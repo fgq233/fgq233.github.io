@@ -1,6 +1,6 @@
 ###  Shiro 认证
 ### 一、认证流程
-![shiro](https://fgq233.github.io/imgs/java/shiro2.png)
+![shiro](https://fgq233.github.io/imgs/security/shiro2.png)
 * `Shiro` 把用户数据封装成 `token`，`token` 一般封装着用户名，密码等信息
 * `Subject` 把 `token` 交给 `SecurityManager`，`SecurityManager` 把`token`委托给认证器
 `Authenticator` 进行身份验证
@@ -176,7 +176,7 @@ public class SimpleRealm extends AuthorizingRealm {
 #### 4. 源码
 查看源码，发现最终认证对比的逻辑如下：
 
-![shiro](https://fgq233.github.io/imgs/java/shiro4.png)
+![shiro](https://fgq233.github.io/imgs/security/shiro4.png)
 
 根据定义的匹配器 `HashedCredentialsMatcher`，
 对比用户请求的`token` 和 `Realm` 中返回的认证信息`info`

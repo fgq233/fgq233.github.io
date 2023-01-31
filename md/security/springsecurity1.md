@@ -30,7 +30,7 @@ public class TestController {
 * `SpringSecurity` 默认登录界面用户名为 `user`、密码会在项目启动时在控制台输出
 * 认证登录成功，跳转了 [http://localhost:8080/hello]()
 
-![SpringSecurity](https://fgq233.github.io/imgs/java/springsecurity1.png)
+![SpringSecurity](https://fgq233.github.io/imgs/security/springsecurity1.png)
 
 
 

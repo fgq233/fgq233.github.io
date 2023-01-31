@@ -42,7 +42,7 @@ public class AuthorizationEndpoint extends AbstractEndpoint {
 * 若客户端的 approved 设置为 true，则自动返回授权码
 * 若客户端的 approved 设置为 false（默认值），则重定向到 **/oauth/confirm_access** 页面
 
-![SpringSecurity](https://fgq233.github.io/imgs/java/oauth2_5.png)
+![SpringSecurity](https://fgq233.github.io/imgs/security/oauth2_5.png)
 
 
 

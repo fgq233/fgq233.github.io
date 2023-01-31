@@ -2,7 +2,7 @@
 Apache Shiro是一个Java安全框架，实现了认证、授权、加密、会话管理等功能
 
 #### 1. 架构图
-![shiro](https://fgq233.github.io/imgs/java/shiro1.png)
+![shiro](https://fgq233.github.io/imgs/security/shiro1.png)
 
 #### 2. Subject
 * `Subject`：主体，可以是一个通过浏览器发出请求的用户，也可以是一个运行的程序
@@ -83,7 +83,7 @@ public interface Authorizer {
     * 授权：从数据源获取`角色、权限`信息返回
 * Realm 可以有1个或多个，可以是JDBC实现、LDAP实现、内存实现等
 
-![shiro](https://fgq233.github.io/imgs/java/shiro3.png)
+![shiro](https://fgq233.github.io/imgs/security/shiro3.png)
 
 #### 7. SessionManager、SessionDAO
 * `SessionManager`：会话管理器，`Shiro` 定义了一套会话管理，它不依赖web容器的session，

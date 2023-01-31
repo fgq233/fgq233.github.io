@@ -13,7 +13,7 @@ rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 
 
 ####  2. 使用步骤
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ11.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ11.png)
  
 * DelayExchange 插件原理是对官方原生 Exchange 功能的升级
     * 将 DelayExchange 接收到的消息暂存在内存中（官方 Exchange 无法存储消息）

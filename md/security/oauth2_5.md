@@ -53,7 +53,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 在IOC容器中注入了 `JwtTokenStore、JwtAccessTokenConverter`，并设置给 oauth2 端点
 
 #### 2、使用密码模式测试
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_9.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_9.png)
 
 ```
 返回的令牌数据
@@ -223,4 +223,4 @@ public class UserController {
 * 先使用授权码模式或密码模式获取JWT格式的token
 * 再使用 token 请求资源服务器 [http://localhost:9002/user/getCurrentJwtUser]()
 
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_10.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_10.png)

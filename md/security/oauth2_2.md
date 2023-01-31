@@ -217,13 +217,13 @@ public class UserController {
     
   
 #### 2. 认证
-![SpringSecurity](https://fgq233.github.io/imgs/java/springsecurity1.png)
+![SpringSecurity](https://fgq233.github.io/imgs/security/springsecurity1.png)
 
 * 请求授权码，需要资源拥有者先认证，所以会跳转到 `SpringSecurity` 认证地址
 * 类似于：网页中使用微信扫码登录，这个前置是需要用户登录自己的微信账号
 * 认证后，跳转到下面授权界面，选择 `Approve` 同意授权
 
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_5.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_5.png)
 
 
 #### 3. 重定向
@@ -232,8 +232,8 @@ public class UserController {
 
 
 #### 4. postman 请求认证服务器，获取令牌
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_6.png)
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_6.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_7.png)
 
 * 请求地址：[http://localhost:9001/oauth/token]()
 
@@ -267,7 +267,7 @@ public class UserController {
  
  
 #### 5. 使用令牌，请求资源
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_8.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_8.png)
 
 
 使用令牌，访问：[http://localhost:9002/user/getCurrentUser]()，可以成功访问
@@ -338,7 +338,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 #### 3. 测试
 无需获取授权码，直接通过账号、密码获取令牌
 
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_9.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_9.png)
 
 * 请求地址：[http://admin:admin123456@localhost:9001/oauth/token]()
 * body 参数：

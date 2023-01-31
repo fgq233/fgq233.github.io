@@ -7,7 +7,7 @@
 
 ### 一、交换机持久化
 #### 1. RabbitMQ 控制台
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ6.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ6.png)
 
 * Features 带上 `D` 标示的交换机都是持久化的，在重启后不会丢失
 * 在控制台创建交换机时，将 `Durability` 属性设置为 `Durable`，那么就是一个持久化的交换机

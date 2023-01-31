@@ -48,7 +48,7 @@ public Queue ttlQueue(){
 
 * 如果死信交换机也绑定了一个队列，则消息最终会进入这个存放死信的队列
 
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ9.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ9.png)
 
 
 #### 3. 定义死信交换机、死信队列
@@ -93,7 +93,7 @@ public Binding dlBinding(){
 
 
 ### 三. TTL + 死信交换机实现消息延迟的效果
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ10.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ10.png)
 
 当消息TTL超时未被消费(`没有消费者`)，成为死信，投递到死信交换机、路由到死信队列，被死信队列的消费者消费，
 达到消息延迟的效果

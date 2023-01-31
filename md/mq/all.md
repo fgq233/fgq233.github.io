@@ -16,6 +16,8 @@
 ####  1、说明 
 `JMS：Java Message Service`，Java消息服务，是Java平台中关于面向消息中间件（MOM）的API
 
+![jsm](https://fgq233.github.io/imgs/mq/jsm.png)
+
 ####  2、JMS两种消息模型
 *  `P2P (Point to Point) `点对点模型
    * `每个消息只有一个消费者`
@@ -38,4 +40,4 @@
   * `自动声明队列、交换机及其绑定关系`
   * `基于注解的监听器模式，异步接收消息`
 
-![AMQP](https://fgq233.github.io/imgs/other/amqp.png) 
+![AMQP](https://fgq233.github.io/imgs/mq/amqp.png) 

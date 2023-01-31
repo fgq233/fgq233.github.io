@@ -11,7 +11,7 @@
 - 发送时：生产者确认机制
 - 消费时：消费者确认机制、失败重试机制
 
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ7.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ7.png)
 
 ### 一、生产者确认机制
 #### 1. 过程
@@ -195,7 +195,7 @@ spring:
 
 推荐方案是`RepublishMessageRecoverer`，失败后将消息投递到一个指定的专门存放异常消息的队列
 
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ8.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ8.png)
 
 
 ```

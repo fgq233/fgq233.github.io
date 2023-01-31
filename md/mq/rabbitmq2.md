@@ -24,7 +24,7 @@
 * queue：队列，负责接受并缓存消息
 * virtualHost：虚拟主机，隔离不同租户的exchange、queue、消息的隔离
  
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ.png)
 
 
 #### 3. 使用注意
@@ -39,7 +39,7 @@
 
 ###  二、五种消息模型案例
 ####  1、基本消息队列
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ1.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ1.png)
 
 * 官方HelloWorld是最基础的消息队列模型来实现的，只包括三个角色：
 publisher、queue、consumer
@@ -86,7 +86,7 @@ public class SpringRabbitListener {
 
 
 ####  2、工作消息队列 WorkQueue
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ2.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ2.png)
 
 * 特点1：多个消费者监听同一个队列，提高消息处理速度，避免队列消息堆积
 * 特点2：同一条消息只会被一个消费者处理
@@ -129,7 +129,7 @@ spring:
 
 
 ####  X、发布订阅模型 Publish/Subscribe
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ3.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ3.png)
 
 * 在发布订阅模型中多了一个exchange角色，过程略有变化：
 
@@ -203,7 +203,7 @@ public class FanoutConfig {
 
 
 ####  4、Direct Exchange 
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ4.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ4.png)
 
 * Direct Exchange 会将接收到的消息根据规则路由到指定的Queue，因此称为路由模式(Routing)
 * A：发布者发送消息时，指定消息的RoutingKey 
@@ -241,7 +241,7 @@ public class FanoutConfig {
 
 
 ####  5、Topic Exchange 
-![RabbitMQ](https://fgq233.github.io/imgs/other/rabbitMQ5.png)
+![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ5.png)
 
 Topic 与 Direct 类似，区别在于：
 * 发布时：routingKey 必须是2个及以上单词，并以 . 分割的写法

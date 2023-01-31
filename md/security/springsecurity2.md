@@ -13,7 +13,7 @@
 
 * `DaoAuthenticationProvider`  使用 `UserDetailsService` 实现类完成具体认证逻辑
 
-![SpringSecurity](https://fgq233.github.io/imgs/java/springsecurity2.png)
+![SpringSecurity](https://fgq233.github.io/imgs/security/springsecurity2.png)
 
 
 #### 2. UsernamePasswordAuthenticationFilter 认证过滤器

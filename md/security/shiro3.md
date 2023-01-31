@@ -1,6 +1,6 @@
 ###  Shiro 授权
 ### 一、授权流程
-![shiro](https://fgq233.github.io/imgs/java/shiro5.png)
+![shiro](https://fgq233.github.io/imgs/security/shiro5.png)
 
 
 * 主动调用 `Subject.isPermitted/hasRole`等校验权限接口，`Subject`会委托给`SecurityManager`
@@ -114,4 +114,3 @@ if (subject.isAuthenticated()) {
 * `subject.checkRole()、subject.checkPermissions()`：无返回值，没有角色、权限的话会抛出异常
 
 
- 
