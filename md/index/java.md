@@ -17,6 +17,7 @@
 -  [RabbitMQ-8 惰性队列][rabbitmq8]
 -  [ActiveMQ-1 安装][activemq1]
 -  [ActiveMQ-2 JMS消息组成][activemq2]
+-  [ActiveMQ-3 消息持久化][activemq3]
 
  
 8. ###### 全文检索
@@ -67,6 +68,7 @@
 
 
 
+[activemq3]: https://fgq233.github.io/md/mq/activemq3
 [activemq2]: https://fgq233.github.io/md/mq/activemq2
 [activemq1]: https://fgq233.github.io/md/mq/activemq1
 [oauth2_6]: https://fgq233.github.io/md/security/oauth2_6
