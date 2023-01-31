@@ -233,24 +233,27 @@ public class UserController {
 
 #### 4. postman 请求认证服务器，获取令牌
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_6.png)
+![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
 
-* 请求头 `Headers`，需要一个 `Authorization` ，由客户端的 `client_id`和`client_secret` 生成
-* 格式： 将`client_id:client_secret`拼接，然后`Base64`加密，最后前面加上 `Basic`
-* 方式1：使用 `Postman` 的 `Basic Auth` 生成
-* 方式2：直接请求： http://admin:admin123456@localhost:9001/oauth/token
-* 方式3：在body 参数中携带 `client_id、client_secret`
+* 请求地址：[http://localhost:9001/oauth/token]()
+
+* `body` 参数：
+  * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
+  * `code`：上一步获得的授权码（必选项，授权码只能使用一次）
+  
+* 该接口需要`Basic Auth`认证，`username` 和 `password` 为客户端的`client_id`和`client_secret` 
+  * 方式1：使用`Postman` 的`Basic Auth` 生成`Authorization`
+  * 方式2：在`body`参数中携带`client_id、client_secret`
+  * 方式3：直接请求： `http://admin:admin123456@localhost:9001/oauth/token`
 
 ```
-// 生成 Authorization 逻辑，结果：  Basic YWRtaW46YWRtaW4xMjM0NTY=
+// Basic Auth逻辑：Basic 拼接 client_id:client_secret 进行Base64加密的结果
 "Basic " + Base64.encode("admin:admin123456".getBytes());
 ```
 
-![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
 
-* 请求地址：http://localhost:9001/oauth/token
-* body 参数：
-  * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
-  * `code`：上一步获得的授权码（必选项，授权码只能使用一次）
+
+
   
 
 ```
