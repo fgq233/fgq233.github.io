@@ -237,7 +237,7 @@ public class UserController {
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_7.png)
 
 * 请求地址：http://localhost:9001/oauth/token
-* 前置：使用`Basic`认证通过`client_id`和`client_secret`构造一个`Authorization`头信息
+* 前置：使用`Basic`认证通过`client_id`和`client_secret` 在`Headers`中新增一个 `Authorization`, 值为: `Basic ......`格式
   * 或者直接请求： http://admin:admin123456@localhost:9001/oauth/token
 * body 参数：
   * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
