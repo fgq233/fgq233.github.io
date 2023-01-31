@@ -1,7 +1,7 @@
 const javaList1 = [
     {
         url: "", title: "MQ", child: [
-            {url: "https://fgq233.github.io/md/java/all", title: "MQ简介"},
+            {url: "https://fgq233.github.io/md/mq/all", title: "MQ简介"},
             {url: "https://fgq233.github.io/md/mq/rabbitmq1", title: "RabbitMQ-1 安装"},
             {url: "https://fgq233.github.io/md/mq/rabbitmq2", title: "RabbitMQ-2 五种消息模型"},
             {url: "https://fgq233.github.io/md/mq/rabbitmq3", title: "RabbitMQ-3 消息转换器"},
