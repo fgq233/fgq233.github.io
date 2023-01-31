@@ -50,7 +50,7 @@ ActiveMQ 默认是持久化的，无需程序任何配置
 * 适配器中 `createTablesOnStartup` 用于启动时创建持久化的表，首次启动设为true，后续false
   * `activemq_acks`
   * `activemq_lock`
-  * `activemq_msgs`：存储 `queue` 和 `topic` 的消息数据
+  * `activemq_msgs`
 
 ```
 <beans>
