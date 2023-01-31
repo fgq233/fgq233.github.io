@@ -37,8 +37,6 @@
 
 
 ###  二、SpringBoot 中 ActiveMQ 使用步骤
-在RabbitMQ图形界面创建用户，同时分配虚拟主机权限，然后重启 RabbitMQ 服务
-
 #### 1、引入依赖
 生产者、消费者都需要引入
 
