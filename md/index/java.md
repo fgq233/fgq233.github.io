@@ -18,6 +18,7 @@
 -  [ActiveMQ-1 安装][activemq1]
 -  [ActiveMQ-2 JMS消息组成][activemq2]
 -  [ActiveMQ-3 消息持久化][activemq3]
+-  [ActiveMQ-4 消息事务][activemq4]
 
  
 8. ###### 全文检索
@@ -68,6 +69,7 @@
 
 
 
+[activemq4]: https://fgq233.github.io/md/mq/activemq4
 [activemq3]: https://fgq233.github.io/md/mq/activemq3
 [activemq2]: https://fgq233.github.io/md/mq/activemq2
 [activemq1]: https://fgq233.github.io/md/mq/activemq1
