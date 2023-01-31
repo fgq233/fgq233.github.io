@@ -208,7 +208,7 @@ public class UserController {
 * 使用令牌，访问资源服务器 9002 的资源
 
 #### 1. 请求认证服务器，获取授权码 
-在浏览器访问地址：http://localhost:9001/oauth/authorize?response_type=code&client_id=admin
+在浏览器访问地址：[http://localhost:9001/oauth/authorize?response_type=code&client_id=admin]()
 * `response_type`：授权模式，授权码模式是 `code`（必选项）
 * `client_id`：客户端ID `client_id`（必选项）
 * `redirect_uri`：获取授权码成功后的重定向URI（可选项）
@@ -227,7 +227,7 @@ public class UserController {
 
 
 #### 3. 重定向
-* https://www.baidu.com/?code=O97XsI
+* [https://www.baidu.com/?code=O97XsI]()
 * 同意授权后，自动重定向到 `redirect_uri`，并且携带授权码 `code`
 
 
@@ -244,7 +244,7 @@ public class UserController {
 * 该接口需要`Basic Auth`认证，`username` 和 `password` 为客户端的`client_id`和`client_secret` 
   * 方式1：使用`Postman` 的`Basic Auth` 生成`Authorization`
   * 方式2：在`body`参数中携带`client_id、client_secret`
-  * 方式3：直接请求： `http://admin:admin123456@localhost:9001/oauth/token`
+  * 方式3：直接请求： [http://admin:admin123456@localhost:9001/oauth/token]()
 
 ```
 // Basic Auth逻辑：Basic 拼接 client_id:client_secret 进行Base64加密的结果
@@ -270,7 +270,7 @@ public class UserController {
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_8.png)
 
 
-使用令牌，访问：http://localhost:9002/user/getCurrentUser，可以成功访问
+使用令牌，访问：[http://localhost:9002/user/getCurrentUser]()，可以成功访问
 
 
 
@@ -340,7 +340,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 ![oauth2](https://fgq233.github.io/imgs/java/oauth2_9.png)
 
-* 请求地址：http://admin:admin123456@localhost:9001/oauth/token
+* 请求地址：[http://admin:admin123456@localhost:9001/oauth/token]()
 * body 参数：
   * `grant_type`：授权模式，此处为 `password`（必选项）
   * `username`：`SpringSecurity`安全认证的用户名（必选项）

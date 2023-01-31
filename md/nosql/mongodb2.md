@@ -1,8 +1,8 @@
 ### MongoDB 安装启动
 ### 一.  Windows 环境
 #### 1. 下载
-* 安装包地址：https://www.mongodb.com/try/download/community
-* 图形化客户端地址：hhttps://www.mongodb.com/try/download/compass
+* 安装包地址：[https://www.mongodb.com/try/download/community]()
+* 图形化客户端地址：[https://www.mongodb.com/try/download/compass]()
 
 #### 2. 版本说明
 MongoDB的版本命名规范如：x.y.z

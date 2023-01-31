@@ -3,7 +3,7 @@
 
 ### 一、Curator
 * Curator 是 ZooKeeper 的Java客户端库，对 ZooKeeper 原生 Java API的封装，使用起来更加简便
-* 官网：http://curator.apache.org/
+* 官网：[http://curator.apache.org/]()
 
  
  

@@ -1,7 +1,7 @@
 ### Seata-部署、集成
 ### 一、Seata
 #### 1. Seata 架构
-Seata是一款开源的分布式事务解决方案，官网：http://seata.io
+Seata是一款开源的分布式事务解决方案，官网：[http://seata.io]()
 
 ![Seata](https://fgq233.github.io/imgs/springcloud/seata2.jpg)
 
@@ -38,8 +38,8 @@ Seata提供了四种不同的分布式事务解决方案：
  
 ### 二、Seata 部署
 #### 1. 下载
-* Seata官网：https://seata.io/zh-cn/blog/download.html
-* GitHub地址：https://github.com/seata/seata/tags
+* Seata官网：[https://seata.io/zh-cn/blog/download.html]()
+* GitHub地址：[https://github.com/seata/seata/tags]()
 
 #### 2. 解压
 ![解压目录结构](https://fgq233.github.io/imgs/springcloud/seata3.png)
@@ -82,7 +82,7 @@ config {
 #### 4. 在nacos 配置中心添加配置
 
 * 根据步骤3的config {...}内容在nacos 配置中心添加配置 seataServer.properties
-* 更多配置参考：https://seata.io/zh-cn/docs/user/configurations.html
+* 更多配置参考：[https://seata.io/zh-cn/docs/user/configurations.html]()
 
 
 ``` 

@@ -9,7 +9,7 @@ Redis(Remote Dictionary Server)，即远程字典服务，是一个`基于内存
 ### 一、 Windows版本安装启动
 #### 1. 下载
 * redis官方没有提供windows版本，不过 github上有第三方开发提供的 windows 版本
-* windows版本：https://github.com/tporadowski/redis/releases
+* windows版本：[https://github.com/tporadowski/redis/releases]()
 
 #### 2. 解压、启动
 解压下载的安装包，将解压后目录 `Redis-5.0.14` 添加到环境变量
@@ -54,7 +54,7 @@ logfile ""
 Redis 是 C语言编写的，需要安装 gcc 依赖: `yum install gcc-c++`
 
 #### 2. 下载
-官网：https://redis.io/
+官网：[https://redis.io/]()
 
 #### 3. 解压、安装、启动
 * 解压：`tar -zxvf redis-5.0.14.tar.gz`

@@ -1,8 +1,8 @@
 ### Nacos  Windows安装指南
 #### 1. 下载安装包
-* Nacos官网：https://nacos.io
-* GitHub主页：https://github.com/alibaba/nacos
-* 下载页：https://github.com/alibaba/nacos/releases
+* Nacos官网：[https://nacos.io]()
+* GitHub主页：[https://github.com/alibaba/nacos]()
+* 下载页：[https://github.com/alibaba/nacos/releases]()
 
 #### 2. 解压
 将下载的包解压到任意非中文目录下
@@ -23,7 +23,7 @@
 ```
 
 #### 5. 访问
-在浏览器输入地址：http://127.0.0.1:8848/nacos，默认的账号和密码都是nacos
+浏览器访问：[http://127.0.0.1:8848/nacos]()，默认的账号和密码都是 `nacos`
 
 
 
