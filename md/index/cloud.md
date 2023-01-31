@@ -1,9 +1,9 @@
 1. ###### [常用微服务组件][all]
 2. ###### Eureka注册中心
--  [Eureka注册中心原理][Eureka1]
+-  [Eureka注册中心][Eureka1]
 -  [Eureka注册与发现][Eureka2]
 3. ###### Ribbon负载均衡
--  [Ribbon负载均衡原理][Ribbon1]
+-  [Ribbon负载均衡源码][Ribbon1]
 -  [Ribbon负载均衡策略][Ribbon2]
 -  [Ribbon懒加载][Ribbon3]
 4. ###### Nacos
