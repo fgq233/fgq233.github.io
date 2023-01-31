@@ -67,7 +67,7 @@ ActiveMQ 默认是持久化的，无需程序任何配置
 		 
         <persistenceAdapter>
             <!-- 注释 kahaDB <kahaDB directory="${activemq.data}/kahadb"/>-->
-	        <jdbcPersistenceAdapter dataSource="#mysql-ds" createTablesOnStartup="true"/>
+	    <jdbcPersistenceAdapter dataSource="#mysql-ds" createTablesOnStartup="true"/>
         </persistenceAdapter>
 
     </broker>
