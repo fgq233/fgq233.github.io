@@ -47,7 +47,7 @@ jmsMessagingTemplate.convertAndSend("deadQueue3", "session.recover()");
 
 
 ###  三、配置自己的死信队列
-* 默认死信队列名称是 `ActiveMQ.DLQ`，所以死信都会发到这个队列
+* 默认死信队列名称是 `ActiveMQ.DLQ`，所有死信都会发到这个队列
 * 修改 `activemq.xml` 配置可以自定义死信队列名称
 * 定义重发策略类覆盖默认重发策略
 
