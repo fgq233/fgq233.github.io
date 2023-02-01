@@ -19,7 +19,7 @@
   
   * `CLIENT_ACKNOWLEDGE = 2` 手动确认，在一个`session`中确认一个消息将自动确认所有已被会话消费的消息
   
-  * `DUPS_OK_ACKNOWLEDGE = 3` ActiveMQ根据内部算法，在收到一定数量的消息后批量确认（基本不使用）
+  * `DUPS_OK_ACKNOWLEDGE = 3` 根据内部算法，在收到一定数量的消息后批量确认（基本不使用）
   
   * `SESSION_TRANSACTED = 0` 事务提交并确认，配合事务消息的
 
