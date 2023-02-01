@@ -38,7 +38,7 @@ public Queue ttlQueue(){
 当一个队列中的消息满足下列情况之一时，就成为死信 (`dead letter`)：
 
 * 超过 TTL 时间，消息超时无人消费
-* 消费者使用 `basic.reject` 或 `basic.nack` 声明消费失败，并且消息的 `requeue` 参数设置为 `false`
+* 消费者使用 `basic.reject` 或 `basic.nack` 声明消费失败，并且 `requeue=false`，不再重新入队
 * 消息队列满了，无法投递，最早的消息就可能成为死信
 
 
