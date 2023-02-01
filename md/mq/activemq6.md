@@ -41,7 +41,7 @@ public void listener3(TextMessage msg, Session session) throws JMSException {
 #### 2. 发送消息
 ```
 jmsMessagingTemplate.convertAndSend("deadQueue1", "session.rollback()");
-jmsMessagingTemplate.convertAndSend("deadQueue2", "session not commit() ");
+jmsMessagingTemplate.convertAndSend("deadQueue2", "session not commit()");
 jmsMessagingTemplate.convertAndSend("deadQueue3", "session.recover()");
 ```
 
