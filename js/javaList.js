@@ -15,6 +15,7 @@ const javaList1 = [
             {url: "https://fgq233.github.io/md/mq/activemq3", title: "ActiveMQ-3 消息持久化"},
             {url: "https://fgq233.github.io/md/mq/activemq4", title: "ActiveMQ-4 消息事务"},
             {url: "https://fgq233.github.io/md/mq/activemq5", title: "ActiveMQ-5 消息确认机制"},
+            {url: "https://fgq233.github.io/md/mq/activemq6", title: "ActiveMQ-6 死信队列"},
         ]
     },
 ];

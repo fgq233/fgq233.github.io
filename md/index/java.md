@@ -20,6 +20,7 @@
 -  [ActiveMQ-3 消息持久化][activemq3]
 -  [ActiveMQ-4 消息事务][activemq4]
 -  [ActiveMQ-5 消息确认机制][activemq5]
+-  [ActiveMQ-6 死信队列][activemq6]
 
  
 8. ###### 全文检索
@@ -70,6 +71,7 @@
 
 
 
+[activemq6]: https://fgq233.github.io/md/mq/activemq6
 [activemq5]: https://fgq233.github.io/md/mq/activemq5
 [activemq4]: https://fgq233.github.io/md/mq/activemq4
 [activemq3]: https://fgq233.github.io/md/mq/activemq3
