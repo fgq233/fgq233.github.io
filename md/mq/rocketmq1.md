@@ -1,0 +1,75 @@
+###  RocketMQ 安装
+###  一、 RocketMQ 服务端
+#### 1. 下载
+* 官网地址：[https://rocketmq.apache.org]()
+* Apache地址：[https://archive.apache.org/dist/rocketmq]()
+* 环境：`JDK 1.8+`
+
+#### 2. RocketMQ 架构图
+![](https://fgq233.github.io/imgs/mq/rocketMQ1.png)
+
+* Producer：消息的发送者
+
+* Consumer：消息接收者
+  * 每一个 consumer 都属于一个 consumer group
+  * 每一条消息只会被同一个 consumer group 里的一个 consumer 实例消费
+  * 不同consumer group可以同时消费同一条消息
+
+* Broker：暂存和传输消息
+
+* NameServer：管理 Broker
+
+
+#### 3. 启动前
+* windows 启动需要配置 `JAVA_HOME、ROCKETMQ_HOME` 系统变量
+* 默认启动占用内存太大，根据需要调整 `runserver.cmd、runbroker.cmd` 中占用内存大小
+* `runbroker.cmd` 中 `CLASSPATH` 配置需要加上双引号
+
+```
+// runserver.cmd、runbroker.cmd 
+set "JAVA_OPT=%JAVA_OPT% -server -Xms512m -Xmx512m -Xmn512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"
+set "JAVA_OPT=%JAVA_OPT% -server -Xms512m -Xmx512m"
+
+// runbroker.cmd
+set "JAVA_OPT=%JAVA_OPT% -cp "%CLASSPATH%""
+```
+
+#### 4. 启动 NameServer 服务
+* 启动 `mqnamesrv.cmd`
+* 默认 `NameServer` 端口为 9876，启动成功如下
+
+![](https://fgq233.github.io/imgs/mq/rocketMQ2.png)
+
+#### 5. 启动 Broker 服务
+* 启动 `Broker` 服务需要指定 `NameServer` 地址
+* 在命令行启动：`mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true`
+
+![](https://fgq233.github.io/imgs/mq/rocketMQ3.png)
+
+
+###  二、 可视化控制台 Rocketmq-Dashboard
+#### 1. 下载
+* 老版本的叫`rocketmq-console`，目前更名为`rocketmq-dashboard`
+* 下载地址：[https://github.com/apache/rocketmq-dashboard/tags](https://github.com/apache/rocketmq-dashboard/tags)
+* 环境：`JDK 1.8+`
+
+#### 2. 修改配置
+`rocketmq-dashboard`是一个`SpringBoot`项目，修改配置文件：`application.properties`
+
+```yaml
+# namesrvAddr 的地址，多个的话以逗号隔开
+rocketmq.config.namesrvAddr=127.0.0.1:9876
+```
+
+#### 3. 打包、启动、访问
+* 打包：在 pom.xml 所在位置打开命令行，使用 maven 打包命令打包
+* 启动：使用 java -jar 启动项目
+* 访问：若`application.properties` 未配置端口，直接通过 [http://localhost:8080]() 访问
+
+```
+打包
+mvn clean package -Dmaven.test.skip=true
+
+启动
+java -jar target/rocketmq-dashboard-1.0.0.jar
+```
