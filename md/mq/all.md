@@ -3,13 +3,17 @@
  `MQ （MessageQueue）`：消息队列，存放消息的队列
  
 ####  2、常用 MQ 中间件 
-* RabbitMQ：Erlang 语言开发
+* RabbitMQ：Erlang 语言开发，并发能力非常好、延时很低
 
-* ActiveMQ：Java 语言开发，Apache 开源
+* RocketMQ：Java 语言开发，阿里产品，默认就支持分布式结构，高可用
 
-* RocketMQ：Java 语言开发，Apache 开源
+* Kafka：Scala 语言开发，默认就支持分布式结构，在大数据中应用比较广
 
-* Kafka：Scala 语言开发，Apache 开源
+* ActiveMQ：Java 语言开发，比较早的 MQ 中间件，性能一般 
+
+####  3、性能对比
+* 单机吞吐量：`Kafka > RocketMQ > RabbitMQ、ActiveMQ`
+* 时效性：`RabbitMQ  > ActiveMQ、RocketMQ、Kafka`
 
 
 ### 二、JMS
