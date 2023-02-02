@@ -48,11 +48,7 @@
 127.0.0.1:10031 rocketmq-master2
 127.0.0.1:10041 rocketmq-slave2
 ```
-
-`RocketMQ` 默认使用3个端口：9876 、10911 、11011
-* `NameServer`：默认 9876 端口
-* `Broker`：`master` 默认 10911 端口、`slave` 默认 11011 端口
-
+ 
 
 #### 2. NameServer配置、启动
 新增二台 NameServer 服务器配置文件
