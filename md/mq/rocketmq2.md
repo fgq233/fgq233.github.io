@@ -11,7 +11,7 @@
     * 同一个主从：`BrokerName`相同，`BrokerId`不同，`BrokerId`为0表示`Master`，非0表示`Slave`
     * 不同的主从：`BrokerName` 不同
     
-* `Producer、Consumer` 都是与`NameServer`集群中随机一个节点建立长连接，定期取`Topic`路由信息，
+* `Producer、Consumer` 都是与`NameServer`集群中随机一个节点建立长连接，定期取`Topic`路由信息
   * `Producer`向提供`Topic`服务的`Master`建立长连接
   * `Consumer`向提供`Topic`服务的`Master、Slave`建立长连接，订阅规则由`Broker`配置决定
 
