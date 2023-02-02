@@ -5,7 +5,7 @@
 * Apache地址：[https://archive.apache.org/dist/rocketmq]()
 * 环境：`JDK 1.8+`
 
-#### 2. RocketMQ 架构图
+#### 2. RocketMQ 中角色
 ![](https://fgq233.github.io/imgs/mq/rocketMQ1.png)
 
 * Producer：消息的发送者
