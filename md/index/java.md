@@ -5,7 +5,7 @@
 5. ###### [Keytool][keytool]
 6. ###### [JWT][jwt]
 
-7. ###### MQ
+7. ###### 消息队列
 -  [MQ简介][mq]
 -  [RabbitMQ-1 安装][rabbitmq1]
 -  [RabbitMQ-2 五种消息模型][rabbitmq2]
