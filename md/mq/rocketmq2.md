@@ -4,7 +4,7 @@
 ![](https://fgq233.github.io/imgs/mq/rocketMQ1.png)
 
 #### 2. 集群特点
-* `NameServer`是一个几乎无状态节点，可集群部署，节点之间无任何信息同步
+* `NameServer`是一个无状态节点，可集群部署，节点之间无任何信息同步
 
 * `Broker`部署相对复杂，是主从架构，分为`Master`与`Slave`，每个`Broker`与`NameServer`集群中的所有节点建立长连接，
 定时注册`Topic`信息到所有`NameServer`
