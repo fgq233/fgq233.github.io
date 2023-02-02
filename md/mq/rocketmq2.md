@@ -102,7 +102,7 @@ start mqnamesrv.cmd -c D:\MyDevelop\RocketMQX\rocketmq-4.9.4\conf\2m-2s-async\na
 brokerClusterName=fgq-rocketmq-cluster
 brokerName=broker-a
 brokerId=0
-namesrvAddr=127.0.0.1:9001,127.0.0.1:9002
+namesrvAddr=127.0.0.1:9001;127.0.0.1:9002
 listenPort=10001
 deleteWhen=04
 fileReservedTime=48
@@ -125,7 +125,7 @@ abortFile=/data/broker-a-master/abort
 brokerClusterName=fgq-rocketmq-cluster
 brokerName=broker-a
 brokerId=1
-namesrvAddr=127.0.0.1:9001,127.0.0.1:9002
+namesrvAddr=127.0.0.1:9001;127.0.0.1:9002
 listenPort=10011
 deleteWhen=04
 fileReservedTime=48
@@ -146,7 +146,7 @@ abortFile=/data/broker-a-slave/abort
 brokerClusterName=fgq-rocketmq-cluster
 brokerName=broker-b
 brokerId=0
-namesrvAddr=127.0.0.1:9001,127.0.0.1:9002
+namesrvAddr=127.0.0.1:9001;127.0.0.1:9002
 listenPort=10031
 deleteWhen=04
 fileReservedTime=48
@@ -167,7 +167,7 @@ abortFile=/data/broker-b-master/abort
 brokerClusterName=fgq-rocketmq-cluster
 brokerName=broker-b
 brokerId=1
-namesrvAddr=127.0.0.1:9001,127.0.0.1:9002
+namesrvAddr=127.0.0.1:9001;127.0.0.1:9002
 listenPort=10041
 deleteWhen=04
 fileReservedTime=48
@@ -200,3 +200,16 @@ start mqbroker.cmd -c D:\MyDevelop\RocketMQX\rocketmq-4.9.4\conf\2m-2s-async\bro
 ```
 
 
+#### 6.  Rocketmq-dashboard 修改配置、启动
+```
+application.properties 配置
+rocketmq.config.namesrvAddr=127.0.0.1:9001;127.0.0.1:9002
+
+打包
+mvn clean package -Dmaven.test.skip=true
+
+启动
+java -jar target/rocketmq-dashboard-1.0.0.jar
+```
+
+![](https://fgq233.github.io/imgs/mq/rocketMQ5.png)
