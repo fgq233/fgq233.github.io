@@ -50,7 +50,8 @@ set "JAVA_OPT=%JAVA_OPT% -cp "%CLASSPATH%""
 ###  二、 可视化控制台 Rocketmq-Dashboard
 #### 1. 下载
 * 老版本的叫`rocketmq-console`，目前更名为`rocketmq-dashboard`
-* 下载地址：[https://github.com/apache/rocketmq-dashboard/tags](https://github.com/apache/rocketmq-dashboard/tags)
+* github 下载地址：[https://github.com/apache/rocketmq-dashboard/tags]()
+* apache 下载地址：[https://archive.apache.org/dist/rocketmq/rocketmq-dashboard]()
 * 环境：`JDK 1.8+`
 
 #### 2. 修改配置
