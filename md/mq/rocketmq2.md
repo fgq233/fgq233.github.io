@@ -117,7 +117,7 @@ storeCheckpoint=/data/broker-a-master/checkpoint
 abortFile=/data/broker-a-master/abort
 ```
 
-* 这是 Broker 主1配置，其他3个配置分别如下
+其他3个配置分别如下
 
 
 <details><summary>broker-a-s.properties</summary>
