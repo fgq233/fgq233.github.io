@@ -22,6 +22,7 @@
 -  [ActiveMQ-5 消息确认机制][activemq5]
 -  [ActiveMQ-6 死信队列][activemq6]
 -  [RocketMQ-1 安装][rocketmq1]
+-  [RocketMQ-2 集群搭建][rocketmq2]
 
  
 8. ###### 全文检索
@@ -72,6 +73,7 @@
 
 
 
+[rocketmq2]: https://fgq233.github.io/md/mq/rocketmq2
 [rocketmq1]: https://fgq233.github.io/md/mq/rocketmq1
 [activemq6]: https://fgq233.github.io/md/mq/activemq6
 [activemq5]: https://fgq233.github.io/md/mq/activemq5
