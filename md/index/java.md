@@ -23,6 +23,7 @@
 -  [ActiveMQ-6 死信队列][activemq6]
 -  [RocketMQ-1 安装][rocketmq1]
 -  [RocketMQ-2 集群搭建][rocketmq2]
+-  [RocketMQ-3 使用步骤][rocketmq3]
 
  
 8. ###### 全文检索
@@ -73,6 +74,7 @@
 
 
 
+[rocketmq3]: https://fgq233.github.io/md/mq/rocketmq3
 [rocketmq2]: https://fgq233.github.io/md/mq/rocketmq2
 [rocketmq1]: https://fgq233.github.io/md/mq/rocketmq1
 [activemq6]: https://fgq233.github.io/md/mq/activemq6

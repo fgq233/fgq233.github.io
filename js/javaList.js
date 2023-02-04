@@ -18,6 +18,7 @@ const javaList1 = [
             {url: "https://fgq233.github.io/md/mq/activemq6", title: "ActiveMQ-6 死信队列"},
             {url: "https://fgq233.github.io/md/mq/rocketmq1", title: "RocketMQ-1 安装"},
             {url: "https://fgq233.github.io/md/mq/rocketmq2", title: "RocketMQ-2 集群搭建"},
+            {url: "https://fgq233.github.io/md/mq/rocketmq3", title: "RocketMQ-3 使用步骤"},
         ]
     },
 ];
