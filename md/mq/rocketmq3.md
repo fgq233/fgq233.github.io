@@ -148,7 +148,7 @@ rocketmq:
 #### 2. 生产者
 * 同步消息：发送消息后，线程等待MQ客户端给出发送结果，才会继续向下执行
 
-```
+```java
 @SpringBootTest
 class BaseProducer {
 
@@ -193,7 +193,7 @@ class BaseProducer {
  
  
 ### 3. 消费者
-```
+```java
 @Component
 @RocketMQMessageListener(
         topic = "mq_base",
