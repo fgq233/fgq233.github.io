@@ -24,6 +24,9 @@
 -  [RocketMQ-1 安装][rocketmq1]
 -  [RocketMQ-2 集群搭建][rocketmq2]
 -  [RocketMQ-3 使用步骤][rocketmq3]
+-  [RocketMQ-4 批量消息、有序消息、延迟消息][rocketmq4]
+-  [RocketMQ-5 消息过滤][rocketmq5]
+-  [RocketMQ-6 事务消息][rocketmq6]
 
  
 8. ###### 全文检索
@@ -74,6 +77,9 @@
 
 
 
+[rocketmq6]: https://fgq233.github.io/md/mq/rocketmq6
+[rocketmq5]: https://fgq233.github.io/md/mq/rocketmq5
+[rocketmq4]: https://fgq233.github.io/md/mq/rocketmq4
 [rocketmq3]: https://fgq233.github.io/md/mq/rocketmq3
 [rocketmq2]: https://fgq233.github.io/md/mq/rocketmq2
 [rocketmq1]: https://fgq233.github.io/md/mq/rocketmq1

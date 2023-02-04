@@ -19,6 +19,9 @@ const javaList1 = [
             {url: "https://fgq233.github.io/md/mq/rocketmq1", title: "RocketMQ-1 安装"},
             {url: "https://fgq233.github.io/md/mq/rocketmq2", title: "RocketMQ-2 集群搭建"},
             {url: "https://fgq233.github.io/md/mq/rocketmq3", title: "RocketMQ-3 使用步骤"},
+            {url: "https://fgq233.github.io/md/mq/rocketmq4", title: "RocketMQ-4 批量消息、有序消息、延迟消息"},
+            {url: "https://fgq233.github.io/md/mq/rocketmq5", title: "RocketMQ-5 消息过滤"},
+            {url: "https://fgq233.github.io/md/mq/rocketmq6", title: "RocketMQ-6 事务消息"},
         ]
     },
 ];

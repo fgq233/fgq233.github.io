@@ -1,15 +1,81 @@
-###  RocketMQ 顺序消息
-* 无序消息：Broker中消息队列有很多个，在消息发送过来时，会分发到各个队列的，是无序的
+###  RocketMQ 批量消息、有序消息、延迟消息
 
-* 有序消息：消息发送，指定同一个队列进行发送，而消费的消息也是一个接着一个消费
-    * 生产顺序性
-    * 消费顺序性
+#### 一、 批量消息
+#### 1. 生产者
+将所有消息构建为 List<Message> 集合数据，然后发送出去
+* 批量消息可以提高传递性能
+* 限制1：需要有相同的 Topic
+* 限制2：消息总大小不能超过 4M
+
+```
+@SpringBootTest
+class BatchProducer {
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
+
+    @Test
+    void syncSend() {
+        List<Message> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(MessageBuilder.withPayload("批量同步消息" + i).build());
+        }
+        SendResult sendResult = rocketMQTemplate.syncSend("Batch_Topic", list);
+
+        System.out.println(sendResult);
+    }
+
+    @Test
+    void asyncSend() throws InterruptedException {
+        List<Message> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(MessageBuilder.withPayload("批量异步消息" + i).build());
+        }
+        rocketMQTemplate.asyncSend("Batch_Topic", list, new SendCallback() {
+            @Override
+            public void onSuccess(SendResult sendResult) {
+                System.out.println("发送成功：" + sendResult);
+            }
+
+            @Override
+            public void onException(Throwable throwable) {
+                System.out.println("发送异常：" + throwable.getMessage());
+            }
+        });
+        TimeUnit.SECONDS.sleep(5);
+    }
+
+    @Test
+    void sendOneWay() {
+        List<Message> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(MessageBuilder.withPayload("批量单向消息" + i).build());
+        }
+        rocketMQTemplate.sendOneWay("Batch_Topic", list);
+    }
+}
+```
+
+
+
+
+#### 3. 消费者
+无特殊设置
+
+
+
+
+#### 二、 有序消息
+* 无序消息：Broker中消息队列有多个，在消息发送过来时，会分发到各个队列的，是无序的
+
+* 有序消息：消息发送，指定同一个队列进行发送，同一个队列消费时按照顺序消费
+    * 发送时：保持顺序
+    * 存储时：保持和发送的顺序一致
+    * 消费时：保持和存储的顺序一致
 
 注意：广播模式消费 `MessageModel.BROADCASTING` ，不支持消息顺序，因为一个消息会被多个消费者消费
-
-
 #### 1. 订单
-要求同一个orderId的消息在一个线程、队列消费
+要求同一个orderId的消息发送到同一个队列消费
 
 ```
 @Data
@@ -35,106 +101,7 @@ public class Order implements Serializable {
 
 
 
-#### 1. 生产者
-```
-public class OrderProducer {
-
-    public static void main(String[] args) throws Exception {
-        DefaultMQProducer producer = new DefaultMQProducer("FGQ_TEST_GROUP");
-        producer.setNamesrvAddr("127.0.0.1:9876");
-        producer.start();
-        List<Order> list = Arrays.asList(
-                new Order(1, 111, "巴黎世家订单"),
-                new Order(5, 222, "华伦天奴付款"),
-                new Order(2, 111, "巴黎世家付款"),
-                new Order(7, 333, "维多利亚的秘密订单"),
-                new Order(3, 111, "巴黎世家完成"),
-                new Order(4, 222, "华伦天奴订单"),
-                new Order(8, 333, "维多利亚的秘密付款"),
-                new Order(6, 222, "华伦天奴完成"),
-                new Order(9, 333, "维多利亚的秘密完成")
-        );
-        for (Order order : list) {
-            Message message = new Message("Order_Topic", "X", order.getDesc().getBytes());
-            SendResult sendResult = producer.send(message, new MessageQueueSelector() {
-                /**
-                 * @param mqs：Broker中队列集合
-                 * @param msg：消息对象
-                 * @param arg：业务标识的参数，为send()方法第三个参数
-                 * @return 返回消息发送到哪个队列
-                 */
-                @Override
-                public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
-                    int orderId = (int) arg;
-                    int index = orderId % mqs.size();
-                    // 分区顺序：同一个模值的消息在同一个队列中
-                    return mqs.get(index);
-
-                    // return mqs.get(mqs.size() - 1);
-                    // 全局顺序：所有的消息都在同一个队列中
-                }
-            }, order.getOrderId());
-
-            System.out.println("发送结果：" + sendResult);
-        }
-        producer.shutdown();
-    }
-}
-
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
-MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
-```
-
-
-
-#### 2. 消费者
-```
-public class OrderConsumer {
-
-    public static void main(String[] args) throws MQClientException {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("FGQ_TEST_GROUP");
-        consumer.setNamesrvAddr("127.0.0.1:9876");
-        consumer.subscribe("Order_Topic", "*");
-        consumer.registerMessageListener(new MessageListenerOrderly() {
-
-            @Override
-            public ConsumeOrderlyStatus consumeMessage(List<MessageExt> msgs, ConsumeOrderlyContext context) {
-                for (MessageExt msg : msgs) {
-                    System.out.println("线程：" + Thread.currentThread().getName() + "，消息：" + new String(msg.getBody()));
-                }
-                return ConsumeOrderlyStatus.SUCCESS;
-            }
-        });
-        consumer.start();
-    }
-}
-
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_1，消息：维多利亚的秘密订单
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_1，消息：维多利亚的秘密付款
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_1，消息：维多利亚的秘密完成
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_2，消息：巴黎世家订单
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_2，消息：巴黎世家付款
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_2，消息：巴黎世家完成
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_3，消息：华伦天奴付款
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_3，消息：华伦天奴订单
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_3，消息：华伦天奴完成
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_3，消息：华伦天奴付款
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_3，消息：华伦天奴订单
-线程：ConsumeMessageThread_FGQ_TEST_GROUP_3，消息：华伦天奴完成
-
-```
-
-
- 
-###  二、 原生Api 
-#### 1. 生产者
+#### 2. 生产者
 ```
 @SpringBootTest
 class OrderProducer {
@@ -146,38 +113,104 @@ class OrderProducer {
     @BeforeEach
     void before() {
         list = Arrays.asList(
-                new Order(111, "巴黎世家订单"),
-                new Order(222, "华伦天奴订单"),
-                new Order(333, "维多利亚的秘密订单"),
-                new Order(111, "巴黎世家付款"),
-                new Order(222, "华伦天奴付款"),
-                new Order(333, "维多利亚的秘密付款"),
-                new Order(111, "巴黎世家完成"),
-                new Order(222, "华伦天奴完成"),
-                new Order(333, "维多利亚的秘密完成")
+                new Order(1, "巴黎世家1"),
+                new Order(1, "巴黎世家2"),
+                new Order(1, "巴黎世家3"),
+                new Order(2, "华伦天奴1"),
+                new Order(2, "华伦天奴2"),
+                new Order(2, "华伦天奴3"),
+                new Order(3, "维多利亚的秘密1"),
+                new Order(3, "维多利亚的秘密2"),
+                new Order(3, "维多利亚的秘密3")
         );
-    }
-
-    @Test
-    void syncSendOrderly() {
         rocketMQTemplate.setMessageQueueSelector(new MessageQueueSelector() {
             @Override
             public MessageQueue select(List<MessageQueue> list, Message message, Object o) {
-                String orderId = (String) o;
+                String orderId = (String) o;  // hashKey
                 int index = Integer.parseInt(orderId) % list.size();
                 return list.get(index);
             }
         });
+    }
+
+    @Test
+    void syncSendOrderly() {
         for (Order order : list) {
             SendResult result = rocketMQTemplate.syncSendOrderly("Order_Topic", order.getDesc(), String.valueOf(order.getOrderId()));
-            System.out.println(result.getMessageQueue());
+            System.out.println("发送结果：" + result.getMessageQueue());
         }
     }
 }
-```
-
-#### 2. 消费者
-```
 
 
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
+发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
 ```
+
+
+* 通过设置 `setMessageQueueSelector()` 选择发送到哪个队列
+* `setMessageQueueSelector(String destination, Object payload, String hashKey)` 
+* `destination`：发送的目的地（主题、Tag）
+* `payload`：发送的数据
+* `hashKey`：会回传到 `setMessageQueueSelector()` 中，`select()`方法的第三个参数
+
+
+#### 3. 消费者
+使用参数 `consumeMode = ConsumeMode.ORDERLY` 有序消费
+
+```
+@Component
+@RocketMQMessageListener(
+        topic = "Order_Topic",
+        consumerGroup = "TEST_GROUP_ORDERLY",
+        consumeMode = ConsumeMode.ORDERLY)
+public class OrderConsumer implements RocketMQListener<String> {
+
+    @Override
+    public void onMessage(String msg) {
+        System.out.println(Thread.currentThread().getName() + ":" + msg);
+    }
+}
+
+ConsumeMessageThread_TEST_GROUP_ORDERLY_17:巴黎世家1
+ConsumeMessageThread_TEST_GROUP_ORDERLY_18:巴黎世家2
+ConsumeMessageThread_TEST_GROUP_ORDERLY_19:巴黎世家3
+ConsumeMessageThread_TEST_GROUP_ORDERLY_3:华伦天奴1
+ConsumeMessageThread_TEST_GROUP_ORDERLY_20:华伦天奴2
+ConsumeMessageThread_TEST_GROUP_ORDERLY_1:华伦天奴3
+ConsumeMessageThread_TEST_GROUP_ORDERLY_2:维多利亚的秘密1
+ConsumeMessageThread_TEST_GROUP_ORDERLY_4:维多利亚的秘密2
+ConsumeMessageThread_TEST_GROUP_ORDERLY_5:维多利亚的秘密3
+```
+
+
+ 
+ 
+#### 三、 延迟消息
+* 延时消息不是延迟发送，消息是实时发送的，只是消费者延迟消费
+* 延迟消息是通过对 `Message` 设置延迟级别来实现
+* RocketMQ 延迟消息分为18个level，1到18分别对应下面的延迟时间
+
+``
+1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h
+``
+
+#### 1. 生产者
+```
+Message message = new Message("Dealy_Topic", "延迟消息".getBytes());
+message.setDelayTimeLevel(2);
+rocketMQTemplate.getProducer().send(message);
+```
+
+
+
+
+#### 3. 消费者
+无特殊设置
