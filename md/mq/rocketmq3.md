@@ -221,7 +221,7 @@ public class BaseConsumer implements RocketMQListener<String> {
   * `selectorType` 消息选择器类型
     * `SelectorType.TAG` ，使用 `TAG` 选择(默认值)
     * `SelectorType.SQL92` ，使用SQL92表达式选择
-  * `selectorExpression` 设置`TAG` 选择值，不设置或设置为* 代表全部
+  * `selectorExpression` 设置`TAG` 选择的值，不设置或设置为* 代表全部
   * `consumeMode` 消费模式
     * `ConsumeMode.CONCURRENTLY`，无序消费(默认值)
     * `ConsumeMode.ORDERLY`，顺序消费
