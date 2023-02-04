@@ -226,3 +226,4 @@ public class BaseConsumer implements RocketMQListener<String> {
     * `ConsumeMode.CONCURRENTLY`，无序消费(默认值)
     * `ConsumeMode.ORDERLY`，顺序消费
   * `nameServer` NameServer服务器地址
+  * `consumeThreadMax` 最大消费线程
