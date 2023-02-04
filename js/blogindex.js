@@ -21,7 +21,7 @@ function initBlog() {
     for (let i = 1; i < 5; i++) {
         let blogList = i === 1 ? blogList1 : i === 2 ? blogList2 : i === 3 ? blogList3 : i === 4 ? blogList4 : [];
 
-        divHtml += `<div class="rxui-col-md3">`;
+        divHtml += `<div class="ui-col-md3">`;
         blogList.map((item, index) => {
             if (index === 0) {
                 divHtml += `<ol>`;

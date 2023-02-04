@@ -1,18 +1,18 @@
 /*栅格*/
-.rxui-row{padding:10px;}
-.rxui-col-md1{ width: 8%; }
-.rxui-col-md2{ width: 16%;}
-.rxui-col-md3{ width: 24%;}
-.rxui-col-md4{ width: 33%;}
-.rxui-col-md5{ width: 41%;}
-.rxui-col-md6{ width: 50%;}
-.rxui-col-md7{ width: 58%;}
-.rxui-col-md8{ width: 66%;}
-.rxui-col-md9{ width: 75%;}
-.rxui-col-md10{ width: 83%;}
-.rxui-col-md11{ width: 91%;}
-.rxui-col-md12{ width: 100%;}
-.rxui-col-md1,.rxui-col-md2,.rxui-col-md3,.rxui-col-md4,.rxui-col-md5,.rxui-col-md6,.rxui-col-md7,.rxui-col-md8,.rxui-col-md9,.rxui-col-md10,.rxui-col-md11,.rxui-col-md12{
+.ui-row{padding:10px;}
+.ui-col-md1{ width: 8%; }
+.ui-col-md2{ width: 16%;}
+.ui-col-md3{ width: 24%;}
+.ui-col-md4{ width: 33%;}
+.ui-col-md5{ width: 41%;}
+.ui-col-md6{ width: 50%;}
+.ui-col-md7{ width: 58%;}
+.ui-col-md8{ width: 66%;}
+.ui-col-md9{ width: 75%;}
+.ui-col-md10{ width: 83%;}
+.ui-col-md11{ width: 91%;}
+.ui-col-md12{ width: 100%;}
+.ui-col-md1,.ui-col-md2,.ui-col-md3,.ui-col-md4,.ui-col-md5,.ui-col-md6,.ui-col-md7,.ui-col-md8,.ui-col-md9,.ui-col-md10,.ui-col-md11,.ui-col-md12{
     float:left;
     height:auto;
     border: 1px solid #eeeeee;
