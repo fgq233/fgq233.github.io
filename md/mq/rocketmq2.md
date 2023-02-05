@@ -185,7 +185,7 @@ abortFile=../data/broker-b-slave/abort
 
 
 #### 4. 创建存储路径
-* 将配置里面的存储路径全部创建出来，
+* 将配置里面的`storePathRootDir`存储路径创建出来
 * 注意：同一台机器上模拟Broker节点时，存储路径不能一样，否则会冲突，导致启动不了
 
 #### 5.  Broker 启动
