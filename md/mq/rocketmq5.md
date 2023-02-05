@@ -16,7 +16,7 @@ rocketMQTemplate.syncSend("TAG_TOPIC:Tag3", "有TAG3");
 #### 2. 消费者
 `selectorExpression` 
 * 不设置的话表示*，全部
-* 可以设置单个、多个，多个TAG 以 || 拼接
+* 可以设置单个、多个，多个TAG 以 `||` 拼接
 
 ```
 @Component
