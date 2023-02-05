@@ -4,30 +4,27 @@
 #### 一、 事务消息流程
 事务消息分为两个流程
 * 正常事务消息的发送及提交
-* 事务消息的补偿流程
-
+* 事务消息回查
 
 #### 1. 事务消息发送及提交
-* 开启事务，发送消息，此时到Broker的为半消息(`Half Msg`)，不可见，不能被消费者消费
+* 发送方将事务消息发送至服务端
 
-* Broker 响应给生产者消息写入结果
+* 服务端将消息持久化成功之后，向发送方返回Ack确认消息已经发送成功，此时消息为半事务消息（不能投递，不能被消费者消费）
 
-* 根据响应结果，执行本地事务
-  * 生产者 Commit：`Half Msg` 变为正常消息，可以被消费
-  * 生产者 Rollback：`Broker` 删除 `Half Msg`
-  * 未操作：`Broker` 会进行消息回查，进入补偿阶段
+* 发送方开始执行本地事务逻辑
 
-
-#### 2. 事务补偿
-补偿阶段用于解决消息 `Commit` 或者 `Rollback` 发生超时或者失败的情况。
-
-* 对没有Commit/Rollback的事务消息（pending状态的消息），从服务端发起一次**回查**
-
-* 生产者收到回查消息，检查回查消息对应的本地事务的状态
-
-* 根据本地事务状态，重新Commit或者Rollback
+* 发送方根据本地事务执行结果向服务端提交二次确认（Commit或Rollback）
+  * 服务端收到Commit状态则将半事务消息标记为可投递，订阅方将收到该消息
+  * 服务端收到Rollback状态则删除半事务消息，订阅方不会收到该消息
 
 
+#### 2. 事务消息回查
+断网或应用宕机等情况下，上述步骤4提交的二次确认最终未到达服务端，经过固定时间后，服务端将对该消息发起消息回查
+
+* 发送方收到消息回查后，需要检查对应消息的本地事务执行的最终结果
+
+* 发送方根据检查结果再次提交二次确认，服务端仍按照上述步骤4对半事务消息进行操作
+ 
 
 #### 3. 事务消息状态
 事务消息共有三种状态，提交状态、回滚状态、中间状态
@@ -36,4 +33,96 @@
 * `TransactionStatus.Unknown`: 中间状态，它代表需要检查消息队列来确定状态
 
 
-#### 二、 测试
+### 二、 测试
+#### 1. 生产者：事务消息发送
+```
+@SpringBootTest
+class TxProducer {
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
+
+    @Test
+    void tx() {
+        Message<String> message = MessageBuilder.withPayload("事务消息").build();
+        TransactionSendResult result = rocketMQTemplate.sendMessageInTransaction("TRANSACTION_TOPIC", message, null);
+
+        LocalTransactionState transactionState = result.getLocalTransactionState();
+        System.out.println(result);
+        // 事务状态
+        System.out.println(transactionState);
+    }
+}
+```
+
+
+#### 2. 生产者：本地事务监听器
+```
+@Component
+@RocketMQTransactionListener
+public class TXProducerListener implements RocketMQLocalTransactionListener {
+
+    /**
+     * 执行本地事务
+     */
+    @Override
+    public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object arg) {
+        System.out.println("开始执行本地事务...");
+        RocketMQLocalTransactionState result;
+        try {
+            // ... 模拟业务处理
+
+            // 模拟异常
+            // int i = 1 / 0;
+            result = RocketMQLocalTransactionState.COMMIT;  // 成功
+            System.out.println("本地事务执行成功...");
+        } catch (Exception e) {
+            result = RocketMQLocalTransactionState.ROLLBACK;
+            System.out.println("本地事务执行失败...");
+        }
+        return result;
+    }
+
+    /**
+     * 本地事务回查
+     */
+    @Override
+    public RocketMQLocalTransactionState checkLocalTransaction(Message msg) {
+        System.out.println("检查本地事务...");
+        RocketMQLocalTransactionState result;
+        try {
+            // 检查本地事务，比如检查 msg 数据是否插入数据库，根据检查结果返回 COMMIT/ROLLBACK
+            result = RocketMQLocalTransactionState.COMMIT;
+        } catch (Exception e) {
+            // 异常就回滚
+            result = RocketMQLocalTransactionState.ROLLBACK;
+        }
+        return result;
+    }
+}
+```
+
+
+#### 3. 消费者
+```
+@Component
+@RocketMQMessageListener(
+        topic = "TRANSACTION_TOPIC",
+        consumerGroup = "FGQ_TEST_TRANSACTION")
+public class TransactionConsumer implements RocketMQListener<String> {
+
+    @Override
+    public void onMessage(String msg) {
+        System.out.println(msg);
+    }
+}
+```
+
+
+
+#### 4. 注意
+`rocketmq-spring-boot-starter < 2.1.0` 版本中
+* `sendMessageInTransaction()` 有4个参数，第一个参数 `txProducerGroup` 用来发送不同类型的事务消息
+* `@RocketMQTransactionListener` 也有个参数 `txProducerGroup`：来监听不同的事务消息
+
+在`2.1.0`之后版本已经移除了`txProducerGroup`，一个项目中只能有一个`@RocketMQTransactionListener`
