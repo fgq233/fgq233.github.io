@@ -89,3 +89,63 @@ mvn clean package -Dmaven.test.skip=true
 启动
 java -jar target/rocketmq-dashboard-1.0.0.jar
 ```
+
+
+###  三、 权限控制
+* `RocketMQ` 在`4.4.0`版本开始支持`ACL`，在`conf`目录下`broker.conf`开启，在`plain_acl.yml`具体配置
+* `ACL：Access Control List`，访问控制列表
+  * 用户
+  * 资源
+  * 权限
+  * 角色
+  
+#### 1. broker.conf 中启用访问控制
+```
+aclEnable=true
+```
+
+#### 2. plain_acl.yml 配置访问控制详情
+```
+globalWhiteRemoteAddresses:         # 全局IP白名单
+  - 10.10.103.*
+  - 192.168.0.*
+
+accounts:                          # 账号(可以配置多个)
+  - accessKey: RocketMQ            # 登录用户名
+    secretKey: 12345678            # 登录密码
+    whiteRemoteAddress:            # 用户级别的IP白名单
+    admin: false                   # 是否是管理员
+    defaultTopicPerm: DENY         # 默认 topic 权限
+    defaultGroupPerm: SUB          # 默认 group 权限
+    topicPerms:                    # topic 权限
+      - topicA=DENY
+      - topicB=PUB|SUB
+      - topicC=SUB
+    groupPerms:                   # group 权限
+      # the group should convert to retry topic
+      - groupA=DENY
+      - groupB=PUB|SUB
+      - groupC=SUB
+
+  - accessKey: rocketmqX
+    secretKey: 12345678
+    whiteRemoteAddress: 192.168.1.*
+    # if it is admin, it could access all resources
+    admin: true
+```
+
+
+#### 3. 程序中 application.yaml 配置 
+```
+# 生产者
+rocketmq:
+  producer:
+    access-key: rocketmqX
+    secret-key: 12345678
+
+# 消费者
+rocketmq:
+  consumer:
+    access-key: rocketmqX
+    secret-key: 12345678
+```
