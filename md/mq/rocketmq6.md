@@ -35,7 +35,7 @@
 
 ### 二、 测试
 #### 1. 生产者：事务消息发送
-```
+```java
 @SpringBootTest
 class TxProducer {
 
@@ -57,7 +57,7 @@ class TxProducer {
 
 
 #### 2. 生产者：本地事务监听器
-```
+```java
 @Component
 @RocketMQTransactionListener
 public class TXProducerListener implements RocketMQLocalTransactionListener {
@@ -104,7 +104,7 @@ public class TXProducerListener implements RocketMQLocalTransactionListener {
 
 
 #### 3. 消费者
-```
+```java
 @Component
 @RocketMQMessageListener(
         topic = "TRANSACTION_TOPIC",
