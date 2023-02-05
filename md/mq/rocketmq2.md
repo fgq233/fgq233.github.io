@@ -109,12 +109,12 @@ fileReservedTime=48
 brokerRole=SYNC_MASTER
 flushDiskType=SYNC_FLUSH
  
-storePathRootDir=/data/broker-a-master
-storePathCommitLog=/data/broker-a-master/commitlog
-storePathConsumeQueue=/data/broker-a-master/consumequeue
-storePathIndex=/data/broker-a-master/index
-storeCheckpoint=/data/broker-a-master/checkpoint
-abortFile=/data/broker-a-master/abort
+storePathRootDir=../data/broker-a-master
+storePathCommitLog=../data/broker-a-master/commitlog
+storePathConsumeQueue=../data/broker-a-master/consumequeue
+storePathIndex=../data/broker-a-master/index
+storeCheckpoint=../data/broker-a-master/checkpoint
+abortFile=../data/broker-a-master/abort
 ```
 
 其他3个节点配置分别如下
@@ -132,12 +132,12 @@ fileReservedTime=48
 brokerRole=SLAVE
 flushDiskType=SYNC_FLUSH
 
-storePathRootDir=/data/broker-a-slave
-storePathCommitLog=/data/broker-a-slave/commitlog
-storePathConsumeQueue=/data/broker-a-slave/consumequeue
-storePathIndex=/data/broker-a-slave/index
-storeCheckpoint=/data/broker-a-slave/checkpoint
-abortFile=/data/broker-a-slave/abort
+storePathRootDir=../data/broker-a-slave
+storePathCommitLog=../data/broker-a-slave/commitlog
+storePathConsumeQueue=../data/broker-a-slave/consumequeue
+storePathIndex=../data/broker-a-slave/index
+storeCheckpoint=../data/broker-a-slave/checkpoint
+abortFile=../data/broker-a-slave/abort
 </code></pre>
 </details>
 
@@ -153,12 +153,12 @@ fileReservedTime=48
 brokerRole=SYNC_MASTER
 flushDiskType=SYNC_FLUSH
 
-storePathRootDir=/data/broker-b-master
-storePathCommitLog=/data/broker-b-master/commitlog
-storePathConsumeQueue=/data/broker-b-master/consumequeue
-storePathIndex=/data/broker-b-master/index
-storeCheckpoint=/data/broker-b-master/checkpoint
-abortFile=/data/broker-b-master/abort
+storePathRootDir=../data/broker-b-master
+storePathCommitLog=../data/broker-b-master/commitlog
+storePathConsumeQueue=../data/broker-b-master/consumequeue
+storePathIndex=../data/broker-b-master/index
+storeCheckpoint=../data/broker-b-master/checkpoint
+abortFile=../data/broker-b-master/abort
 </code></pre>
 </details>
 
@@ -174,12 +174,12 @@ fileReservedTime=48
 brokerRole=SLAVE
 flushDiskType=SYNC_FLUSH
 
-storePathRootDir=/data/broker-b-slave
-storePathCommitLog=/data/broker-b-slave/commitlog
-storePathConsumeQueue=/data/broker-b-slave/consumequeue
-storePathIndex=/data/broker-b-slave/index
-storeCheckpoint=/data/broker-b-slave/checkpoint
-abortFile=/data/broker-b-slave/abort
+storePathRootDir=../data/broker-b-slave
+storePathCommitLog=../data/broker-b-slave/commitlog
+storePathConsumeQueue=../data/broker-b-slave/consumequeue
+storePathIndex=../data/broker-b-slave/index
+storeCheckpoint=../data/broker-b-slave/checkpoint
+abortFile=../data/broker-b-slave/abort
 </code></pre>
 </details>
 
