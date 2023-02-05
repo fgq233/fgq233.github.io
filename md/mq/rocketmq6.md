@@ -1,7 +1,7 @@
 ###  RocketMQ 事务消息
 ![](https://fgq233.github.io/imgs/mq/rocketMQ6.png)
 
-#### 一、 事务消息流程
+### 一、 事务消息流程
 事务消息分为两个流程
 * 正常事务消息的发送及提交
 * 事务消息回查
