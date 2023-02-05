@@ -43,7 +43,7 @@ set "JAVA_OPT=%JAVA_OPT% -cp "%CLASSPATH%""
 #### 5. 启动 Broker 服务
 * 启动 `Broker` 服务需要指定 `NameServer` 地址
 * 方式1：在命令行指定：`mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true`
-* 方式2：配置文件指定 `mqbroker.cmd -c D:\MyDevelop\RocketMQX\rocketmq-4.9.4\conf\broker.conf`
+* 方式2：配置文件指定：`mqbroker.cmd -c D:\MyDevelop\RocketMQX\rocketmq-4.9.4\conf\broker.conf`
 
 <details><summary>broker.conf</summary><pre><code>
 brokerClusterName = DefaultCluster
