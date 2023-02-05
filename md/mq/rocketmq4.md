@@ -64,8 +64,60 @@ class BatchProducer {
 
 
 
+#### 二、 延迟消息
+* 延时消息不是延迟发送，消息是实时发送的，只是消费者延迟消费
+* 延迟消息是通过对 `Message` 设置延迟级别来实现
+* RocketMQ 延迟消息分为18个level，1到18分别对应下面的延迟时间
 
-#### 二、 有序消息
+``
+1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h
+``
+
+#### 1. 生产者
+```java
+@SpringBootTest
+class DealyProducer {
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
+
+
+    @Test
+    void syncSend() {
+        Message message = MessageBuilder.withPayload("同步延迟消息".getBytes()).build();
+        // 最后一个参数 delayLevel 未延迟级别，此处表示延迟10s
+        rocketMQTemplate.syncSend("Dealy_Topic", message, 8000, 3);
+    }
+
+    @Test
+    void asyncSend() throws InterruptedException {
+        Message message = MessageBuilder.withPayload("异步延迟消息".getBytes()).build();
+        // 最后一个参数 delayLevel 未延迟级别，此处表示延迟5s
+        rocketMQTemplate.asyncSend("Dealy_Topic", message, new SendCallback() {
+            @Override
+            public void onSuccess(SendResult sendResult) {
+                System.out.println("发送成功：" + sendResult);
+            }
+
+            @Override
+            public void onException(Throwable throwable) {
+                System.out.println("发送异常：" + throwable.getMessage());
+            }
+        }, 8000, 2);
+        TimeUnit.SECONDS.sleep(20);
+    }
+}
+
+```
+ 
+#### 2. 消费者
+无特殊设置
+
+
+
+
+
+#### 三、 有序消息
 * 无序消息：Broker中消息队列有多个，在消息发送过来时，会分发到各个队列的，是无序的
 
 * 有序消息：消息发送，指定同一个队列进行发送，同一个队列消费时按照顺序消费
@@ -173,21 +225,3 @@ public class OrderConsumer implements RocketMQListener<String> {
 
  
  
-#### 三、 延迟消息
-* 延时消息不是延迟发送，消息是实时发送的，只是消费者延迟消费
-* 延迟消息是通过对 `Message` 设置延迟级别来实现
-* RocketMQ 延迟消息分为18个level，1到18分别对应下面的延迟时间
-
-``
-1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h
-``
-
-#### 1. 生产者
-```
-Message message = new Message("Dealy_Topic", "延迟消息".getBytes());
-message.setDelayTimeLevel(2);
-rocketMQTemplate.getProducer().send(message);
-```
- 
-#### 2. 消费者
-无特殊设置
