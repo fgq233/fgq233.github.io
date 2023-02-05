@@ -102,7 +102,7 @@ public class Order implements Serializable {
 
 
 #### 2. 生产者
-```
+```java
 @SpringBootTest
 class OrderProducer {
 
@@ -142,16 +142,6 @@ class OrderProducer {
     }
 }
 
-
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=1]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=2]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
-发送结果：MessageQueue [topic=Order_Topic, brokerName=fgq, queueId=3]
 ```
 
 
@@ -165,7 +155,7 @@ class OrderProducer {
 #### 3. 消费者
 使用参数 `consumeMode = ConsumeMode.ORDERLY` 有序消费
 
-```
+```java
 @Component
 @RocketMQMessageListener(
         topic = "Order_Topic",
@@ -178,16 +168,6 @@ public class OrderConsumer implements RocketMQListener<String> {
         System.out.println(Thread.currentThread().getName() + ":" + msg);
     }
 }
-
-ConsumeMessageThread_TEST_GROUP_ORDERLY_17:巴黎世家1
-ConsumeMessageThread_TEST_GROUP_ORDERLY_18:巴黎世家2
-ConsumeMessageThread_TEST_GROUP_ORDERLY_19:巴黎世家3
-ConsumeMessageThread_TEST_GROUP_ORDERLY_3:华伦天奴1
-ConsumeMessageThread_TEST_GROUP_ORDERLY_20:华伦天奴2
-ConsumeMessageThread_TEST_GROUP_ORDERLY_1:华伦天奴3
-ConsumeMessageThread_TEST_GROUP_ORDERLY_2:维多利亚的秘密1
-ConsumeMessageThread_TEST_GROUP_ORDERLY_4:维多利亚的秘密2
-ConsumeMessageThread_TEST_GROUP_ORDERLY_5:维多利亚的秘密3
 ```
 
 
@@ -208,9 +188,6 @@ Message message = new Message("Dealy_Topic", "延迟消息".getBytes());
 message.setDelayTimeLevel(2);
 rocketMQTemplate.getProducer().send(message);
 ```
-
-
-
-
-#### 3. 消费者
+ 
+#### 2. 消费者
 无特殊设置
