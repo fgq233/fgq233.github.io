@@ -7,7 +7,7 @@
 * 限制1：需要有相同的 Topic
 * 限制2：消息总大小不能超过 4M
 
-```
+```java
 @SpringBootTest
 class BatchProducer {
 
@@ -77,7 +77,7 @@ class BatchProducer {
 #### 1. 订单
 要求同一个orderId的消息发送到同一个队列消费
 
-```
+```java
 @Data
 public class Order implements Serializable {
 
