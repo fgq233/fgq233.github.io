@@ -50,7 +50,7 @@
 
      
     
-#### 4. 二进制类型
+#### 4. 二进制类型 
 * `tinyblob`：0-255 bytes
 * `blob`：0-65535 bytes
 * `mediumblob`：0-16777215 bytes
