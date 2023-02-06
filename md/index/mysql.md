@@ -1,5 +1,6 @@
 1. [Mysql 常用数据类型][mysql01]
 1. [Mysql 中的函数][mysql02]
+1. [DCL 用户管理、权限管理][mysql03]
 
 
 
