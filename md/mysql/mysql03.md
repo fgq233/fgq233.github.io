@@ -23,7 +23,7 @@ create user 'fgq3'@'localhost' identified by '123456';
 
 
 #### 3、修改用户密码
-```
+```sql
 # 语法
 alter user 用户名@主机名 identified with mysql_native_password 新密码;
 
