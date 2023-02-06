@@ -41,7 +41,7 @@
     
 #### 3. 字符串类型
 * `char`：0-255 bytes，定长字符串
-* `varchar`：0-65535 bytes，定长字符串
+* `varchar`：0-65535 bytes，变长字符串
 * `tinytext`：0-255 bytes 文本字符串
 * `text`：0-65535 bytes   文本字符串
 * `mediumtext`：0-16777215 bytes 文本字符串
