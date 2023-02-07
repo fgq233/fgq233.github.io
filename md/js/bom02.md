@@ -52,22 +52,22 @@ getQueryString("id");   // 返回 "666"
 
 
 #### 3. URLSearchParams 
-* `URLSearchParams` 提 供 了 一 组 标 准 API 方 法 ， 通 过 它 们 可 以 检 查 和 修 改 查 询 字 符 串 
+* `URLSearchParams` 提供了一组标准API方法，可以检查和修改查询字符串 
 * 给`URLSearchParams`构造函数传入一个查询字符串，就可以创建一个实例。这个实例上暴露了 get()、set()、delete()等方法
 
 ```js
 let qs = "?id=666&age=18";
 let searchParams = new URLSearchParams(qs);
-alert(searchParams.toString());     // "id=666&age=18"
+console.log(searchParams.toString());     // "id=666&age=18"
 
 searchParams.has("id"); // true
 searchParams.get("id"); // "666"
 
 searchParams.set("age", "99");
-alert(searchParams.toString());     // "id=666&age=99"
+console.log(searchParams.toString());     // "id=666&age=99"
 
 searchParams.delete("age");
-alert(searchParams.toString());     // "id=666"
+console.log(searchParams.toString());     // "id=666"
 ```
 
 
@@ -99,16 +99,4 @@ location.pathname = "/md/js/bom01";     // https://fgq233.github.io/md/js/bom01?
 location.hostname = "www.baidu.com";    // https://www.baidu.com/md/js/bom01?id=888#section
 location.port = 8080;                   // https://www.baidu.com:8080/md/js/bom01?id=888#section
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
