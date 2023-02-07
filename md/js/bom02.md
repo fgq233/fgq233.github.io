@@ -94,8 +94,8 @@ location.replace("https://fgq233.github.io");
 
 location.reload();
 
-location.hash = "#section";             // https://fgq233.github.io/md/js/bom02?id=666#section
-location.search = "?id=888";            // https://fgq233.github.io/md/js/bom02?id=888#section
-location.pathname = "/md/js/bom01";     // https://fgq233.github.io/md/js/bom01?id=888#section
+location.hash = "#section";             
+location.search = "?id=888";            
+location.pathname = "/md/js/bom01";     
 ```
 
