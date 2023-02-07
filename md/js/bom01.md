@@ -1,4 +1,4 @@
-### Window 对象
+### window 对象
 * BOM 的核心是 window 对象，表示浏览器的实例 
 * window 对象在`浏览器`中有两重身份
   * ECMAScript 中的 Global 对象
@@ -27,7 +27,7 @@ console.log ("当前窗口是否是顶层窗口：" + (b ? "是": "否"));
 window.open()方法可以用于导航到指定 URL，也可以用于打开新浏览器窗口
 
 ```
-open(url, target, features, replace)
+window.open(url, target, features, replace)
 
 window.open("http://www.baidu.com","_blank", "width=400,height=400");
 ```
