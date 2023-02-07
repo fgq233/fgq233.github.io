@@ -53,12 +53,12 @@ getQueryString("id");   // 返回 "666"
 
 #### 3. URLSearchParams 
 * `URLSearchParams` 提供了一组标准API方法，可以检查和修改查询字符串 
-* 给`URLSearchParams`构造函数传入一个查询字符串，就可以创建一个实例。这个实例上暴露了 get()、set()、delete()等方法
+* 给`URLSearchParams`构造函数传入一个查询字符串，就可以创建一个实例，这个实例上暴露了`get()、set()、delete()`等方法
 
 ```
 let qs = "?id=666";
 let searchParams = new URLSearchParams(qs);
-console.log(searchParams.toString());     // "id=666&age=18"
+console.log(searchParams.toString());     // "id=666"
 
 searchParams.has("id"); // true
 searchParams.get("id"); // "666"
