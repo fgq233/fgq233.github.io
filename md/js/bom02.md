@@ -1,9 +1,4 @@
 ### location 对象
-* BOM 的核心是 window 对象，表示浏览器的实例 
-* window 对象在`浏览器`中有两重身份
-  * ECMAScript 中的 Global 对象
-  * 浏览器窗口的 JavaScript 接口
-
 #### 1. 作用
 * location对象提供了当前窗口中加载文档的信息，以及导航功能
 * location对象既是 window 的属性，也是document的属性，window.location = document.location
