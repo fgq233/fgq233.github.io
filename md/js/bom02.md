@@ -58,16 +58,16 @@ getQueryString("id");   // 返回 "666"
 ```js
 let qs = "?id=666&age=18";
 let searchParams = new URLSearchParams(qs);
-alert(searchParams.toString());     // " id=666&age=18"
+alert(searchParams.toString());     // "id=666&age=18"
 
 searchParams.has("id"); // true
 searchParams.get("id"); // "666"
 
 searchParams.set("age", "99");
-alert(searchParams.toString());     // " id=666&age=99"
+alert(searchParams.toString());     // "id=666&age=99"
 
 searchParams.delete("age");
-alert(searchParams.toString());     // " id=666"
+alert(searchParams.toString());     // "id=666"
 ```
 
 
