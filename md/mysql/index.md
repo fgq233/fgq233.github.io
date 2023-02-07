@@ -23,4 +23,9 @@ create unique index idx_users_idcard on users(idcard);  // 唯一索引
 #### 3. 删除索引
 ```
 drop index index_name on table_name;
+
+# 示例
+drop index idx_users_name on users;
+drop index idx_users_age_sex on users;
+drop index idx_users_idcard on users;
 ```

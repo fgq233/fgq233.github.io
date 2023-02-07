@@ -2,6 +2,7 @@
 1. [Mysql 中的函数][mysql02]
 1. [DCL 用户管理、权限管理][mysql03]
 1. [索引][index]
+1. [explain 执行计划][explain]
 
 
 
@@ -11,6 +12,7 @@
 
 
 
+[index2]: https://fgq233.github.io/md/mysql/index2
 [index]: https://fgq233.github.io/md/mysql/index
 [mysql01]: https://fgq233.github.io/md/mysql/mysql01
 [mysql02]: https://fgq233.github.io/md/mysql/mysql02
