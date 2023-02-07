@@ -10,8 +10,8 @@
 1. [异常][exception]
 1. [DBA-创建用户][dba01]
 1. [DBA-授权][dba02]
-1. [DBA-查询][dba03]
 1. [DBA-解锁][dba04]
+1. [DBA-查询][dba03]
 
 
 
