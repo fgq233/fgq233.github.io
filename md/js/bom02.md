@@ -91,13 +91,11 @@ window.location = "https://fgq233.github.io";
 location.href = "https://fgq233.github.io";
 
 location.replace("https://fgq233.github.io");
+
 location.reload();
 
-// https://fgq233.github.io/md/js/bom02?id=666#content
 location.hash = "#section";             // https://fgq233.github.io/md/js/bom02?id=666#section
 location.search = "?id=888";            // https://fgq233.github.io/md/js/bom02?id=888#section
 location.pathname = "/md/js/bom01";     // https://fgq233.github.io/md/js/bom01?id=888#section
-location.hostname = "www.baidu.com";    // https://www.baidu.com/md/js/bom01?id=888#section
-location.port = 8080;                   // https://www.baidu.com:8080/md/js/bom01?id=888#section
 ```
 
