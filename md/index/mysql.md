@@ -12,7 +12,7 @@
 
 
 
-[index2]: https://fgq233.github.io/md/mysql/index2
+[explain]: https://fgq233.github.io/md/mysql/explain
 [index]: https://fgq233.github.io/md/mysql/index
 [mysql01]: https://fgq233.github.io/md/mysql/mysql01
 [mysql02]: https://fgq233.github.io/md/mysql/mysql02
