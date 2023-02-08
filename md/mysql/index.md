@@ -28,7 +28,7 @@ drop index idx_users_name on users;
 ```
 
 ### 二、索引提示
-在SQL语句中加入人为提示
+在SQL语句中加入索引提示
 * `use index` 建议使用索引
 * `ignore index` 忽略索引
 * `force index `强制使用索引
