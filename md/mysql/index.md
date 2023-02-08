@@ -45,6 +45,7 @@ select * from users force index(idx_users_name) where name = 'fgq';
 使用联合索引最好索引中的字段都用到
 * 最左边的索引字段必须使用，不然索引全部失效
 * 部分失效：如果跳过了某一列（非第一列），则后面的字段索引失效
+
 ```
 -- 索引
 create index idx_users_name_age_sex on users(name, age, sex);
