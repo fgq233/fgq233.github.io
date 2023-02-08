@@ -34,8 +34,8 @@ drop index idx_users_name on users;
 * `force index `强制使用索引
 
 ```
-select * from users ignore index(idx_users_name) where name = 'fgq';
 select * from users use index(idx_users_name) where name = 'fgq';
+select * from users ignore index(idx_users_name) where name = 'fgq';
 select * from users force index(idx_users_name) where name = 'fgq';
 ```
 
