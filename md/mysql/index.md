@@ -21,6 +21,7 @@ drop index index_name on table_name;
 show index from users;
 
 create index idx_users_name on users(name);                     // 单列索引
+create index idx_users_city on users(content(3));               // 前缀索引
 create index idx_users_name_age_sex on users(name, age, sex);   // 联合索引
 create unique index idx_users_idcard on users(idcard);          // 唯一索引
 
@@ -70,14 +71,15 @@ explain select * from users where name = 'fgq' and age > 18 and sex = '1';
 explain select * from users where name = 'fgq' and age >= 18 and sex = '1';
 ```
 
-#### 2. 数据分布原则
+#### 3. MySQL评估
 * 如果`MySQL`评估使用索引比不使用还慢，则放弃使用索引
-* `is null`  若空数据少，则使用索引，否则走全部扫描
-* `is not null` 若非空数据少，则使用索引，否则走全部扫描
+  * `is null`  若空数据少，则使用索引，否则走全部扫描
+  * `is not null` 若非空数据少，则使用索引，否则走全部扫描
+  
+* 多条件联合查询时，`MySQL`会评估哪个字段索引效率更高，会选择该索引完成本次查询
 
-#### 3. 索引失效情况
 
-
+#### 4. 索引失效情况
 * 在索引列上进行~~运算操作~~，则索引失效
 
 * 索引列是字符串，若使用该列时~~不加引号~~，则索引失效
