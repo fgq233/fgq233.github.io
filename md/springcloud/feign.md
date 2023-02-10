@@ -1,7 +1,7 @@
 ### Feign远程调用
 * `Feign`是一个声明式的http客户端，其作用就是帮助我们优雅的实现http请求的发送
-* `Spring Cloud` 中，`Feign`内部集成了`Ribbon`，实现了负载均衡
-* `Spring Cloud` 中，`Feign`内部集成了`Hystrix`，实现了服务容错保护功能
+* `Spring Cloud` 中，`Feign`内部集成了`Ribbon`，用来做客户端负载均衡
+* `Spring Cloud` 中，`Feign`内部集成了`Hystrix`，用来实现客户端服务容错功能
 
 ### 一、使用步骤
 #### 1. 引入server依赖
@@ -34,7 +34,7 @@ public interface UserClient {
 @FeignClient 注解的常用属性
 * value：服务名称
 * name：服务名称，与 value 作用相同
-* path：请求接口的统一前缀，相当于Controller类上@RequestMapping("/user")
+* path：请求接口的统一前缀
 * url：请求地址，设置了url，name会不生效
 * configuration：Feign配置，可以自定义Feign的Encoder、Decoder、LogLevel、Contract......
 * fallback: 配置熔断降级处理类
