@@ -35,18 +35,16 @@ unlock tables;
 
 
 ### 三、表级锁
-#### 1. 分类
-![lock1](https://fgq233.github.io/imgs/mysql/lock1.png)
-
 表级锁分为3类
 * 表锁
   * 读锁：也叫共享锁，加了读锁后，加锁的当前会话以及其它会话**只能进行读操作**
   * 写锁：也叫排他锁，加了写锁之后其它会话**不能进行读写操作**
 * 元数据锁（meta data lock, MDL）
 * 意向锁
-  
 
-#### 2. 表锁
+#### 1. 表锁
+![lock2](https://fgq233.github.io/imgs/mysql/lock2.png)
+
 ```
 -- 加读锁、写锁
 lock tables 表名... read;
@@ -55,6 +53,10 @@ lock tables 表名... write;
 -- 释放锁
 unlock tables;
 ```
+  
+
+#### 2. 元数据锁
+
 
 
 
