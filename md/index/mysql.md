@@ -3,7 +3,7 @@
 1. [DCL 用户管理、权限管理][dcl]
 1. [索引][index]
 1. [explain 执行计划][explain]
-1. [锁][explain]
+1. [锁][lock]
 1. [常用命令][common]
 
 
