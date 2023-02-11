@@ -14,14 +14,17 @@ mysqldump --single-transaction -h127.0.0.1 -uroot -p1234 nacos > db.sql
 ```
 
 #### 3. 服务启动、关闭
+* `Windws`系统
+
 ```
-Windws系统
 net start mysql
 net stop mysql
+```
 
-Linux系统
+* `Linux`系统
+
+```
 service mysql stop
 service mysql start
 service mysql restart
 ```
-
