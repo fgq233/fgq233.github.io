@@ -4,6 +4,7 @@
 1. [索引][index]
 1. [explain 执行计划][explain]
 1. [锁][explain]
+1. [常用命令][common]
 
 
 
@@ -13,6 +14,7 @@
 
 
 
+[common]: https://fgq233.github.io/md/mysql/common
 [lock]: https://fgq233.github.io/md/mysql/lock
 [dcl]: https://fgq233.github.io/md/mysql/dcl
 [explain]: https://fgq233.github.io/md/mysql/explain
