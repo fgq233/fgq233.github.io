@@ -1,5 +1,5 @@
-1. [数据类型][mysql01]
-1. [常用的函数][mysql02]
+1. [数据类型][datatype]
+1. [常用的函数][fun]
 1. [DCL 用户管理、权限管理][dcl]
 1. [索引][index]
 1. [explain 执行计划][explain]
@@ -17,6 +17,8 @@
 
 
 
+
+
 [tools]: https://fgq233.github.io/md/mysql/tools
 [masterslave]: https://fgq233.github.io/md/mysql/masterslave
 [log]: https://fgq233.github.io/md/mysql/log
@@ -25,6 +27,5 @@
 [dcl]: https://fgq233.github.io/md/mysql/dcl
 [explain]: https://fgq233.github.io/md/mysql/explain
 [index]: https://fgq233.github.io/md/mysql/index
-[mysql01]: https://fgq233.github.io/md/mysql/mysql01
-[mysql02]: https://fgq233.github.io/md/mysql/mysql02
-[mysql03]: https://fgq233.github.io/md/mysql/mysql03
+[datatype]: https://fgq233.github.io/md/mysql/datatype
+[fun]: https://fgq233.github.io/md/mysql/fun
