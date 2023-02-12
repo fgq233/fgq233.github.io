@@ -4,9 +4,9 @@ MySQL 中有七种日志文件
 * 查询日志(`general log`)
 * 慢查询日志(`slow query log`)
 * 错误日志(`error log`)
+* 中继日志(`relay log`)
 * 重做日志(`redo log`)
 * 回滚日志(`undo log`)
-* 中继日志(`relay log`)
 
 
 ### 一、 二进制日志 binlog
@@ -78,9 +78,9 @@ purge master logs before '2022-02-22 02:22:22';
 * 错误日志相关参数：`show variables like '%log_error%'`
 
 
-
-
-
+### 五、中继日志 relay log
+* 从库使用 IOthread 线程读取主库的 binlog，写入到从库的中继日志 replay log
+* 从库使用 SQLthread 线程重做中继日志中的事件，将改变反映到自己的数据库
 
 
 
