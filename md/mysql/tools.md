@@ -108,11 +108,8 @@ mysqlshow [options] [数据库名[表名[列名]]]
 
 
 示例：
-# 查看所有数据库表数量、表中记录数量
 mysqlshow -uroot -p1234 --count
-# 查看nacos库表数量、表中记录数量
 mysqlshow -uroot -p1234 nacos --count
-# 查看nacos库config_info表中记录数量
 mysqlshow -uroot -p1234 nacos config_info --count
 ```
 
