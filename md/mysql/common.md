@@ -12,18 +12,18 @@ mysqldump -h127.0.0.1 -uroot -p1234 nacos > db.sql
 mysqldump --single-transaction -h127.0.0.1 -uroot -p1234 nacos > db.sql
 ```
 
-#### 3. 服务启动、关闭
+#### 3. 服务启动、关闭 (MySQL 8.0)
 * `Windws`系统
 
 ```
-net start mysql
-net stop mysql
+net start mysql80
+net stop mysql80
 ```
 
 * `Linux`系统
 
 ```
-service mysql stop
-service mysql start
-service mysql restart
+service mysqld  stop
+service mysqld  start
+service mysqld  restart
 ```

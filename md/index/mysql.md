@@ -5,6 +5,7 @@
 1. [explain 执行计划][explain]
 1. [锁][lock]
 1. [日志][log]
+1. [主从复制][masterslave]
 1. [常用命令][common]
 
 
@@ -15,6 +16,7 @@
 
 
 
+[masterslave]: https://fgq233.github.io/md/mysql/masterslave
 [log]: https://fgq233.github.io/md/mysql/log
 [common]: https://fgq233.github.io/md/mysql/common
 [lock]: https://fgq233.github.io/md/mysql/lock
