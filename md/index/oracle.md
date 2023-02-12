@@ -8,10 +8,10 @@
 1. [游标][cursor]
 1. [触发器][trigger]
 1. [异常][exception]
-1. [DBA-创建用户][dba01]
-1. [DBA-授权][dba02]
-1. [DBA-解锁][dba04]
-1. [DBA-查询][dba03]
+1. [DCL-创建用户][dcl1]
+1. [DCL-授权][dcl2]
+1. [解锁][lock]
+1. [常用查询][common]
 
 
 
@@ -31,7 +31,7 @@
 [cursor]: https://fgq233.github.io/md/oracle/cursor
 [trigger]: https://fgq233.github.io/md/oracle/trigger
 [exception]: https://fgq233.github.io/md/oracle/exception
-[dba01]: https://fgq233.github.io/md/oracle/dba01
-[dba02]: https://fgq233.github.io/md/oracle/dba02
-[dba03]: https://fgq233.github.io/md/oracle/dba03
-[dba04]: https://fgq233.github.io/md/oracle/dba04
+[dcl1]: https://fgq233.github.io/md/oracle/dcl1
+[dcl2]: https://fgq233.github.io/md/oracle/dcl2
+[lock]: https://fgq233.github.io/md/oracle/lock
+[common]: https://fgq233.github.io/md/oracle/common
