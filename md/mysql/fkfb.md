@@ -49,5 +49,6 @@
 
 
 
-### 三、分库分表
-![](https://fgq233.github.io/imgs/mysql/fkfb4.png)
+ 
+
+

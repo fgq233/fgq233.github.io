@@ -7,6 +7,7 @@
 1. [命令行工具][tools]
 1. [日志][log]
 1. [主从复制][masterslave]
+1. [分库分表][fkfb]
 1. [常用命令][common]
 
 
@@ -19,6 +20,7 @@
 
 
 
+[fkfb]: https://fgq233.github.io/md/mysql/fkfb
 [tools]: https://fgq233.github.io/md/mysql/tools
 [masterslave]: https://fgq233.github.io/md/mysql/masterslave
 [log]: https://fgq233.github.io/md/mysql/log
