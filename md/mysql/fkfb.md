@@ -49,7 +49,10 @@
 
 
 ### 三、 分库分表中间件
-* `Sharding-jdbc`
-* `Mycat`
+* [Apache ShardingSphere](https://shardingsphere.apache.org/index_zh.html)
+  * `Sharding-JDBC`
+  * `Sharding-Proxy`
+  * `Sharding-Sidecar`
+* [Mycat](http://mycat.org.cn)
 
 
