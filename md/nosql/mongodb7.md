@@ -36,7 +36,7 @@ net:
 
 
 ### 一、搭建分片副本集、配置节点副本集
-参考[副本集搭建](https://fgq233.github.io/md/java/mongodb6)
+参考[副本集搭建](https://fgq233.github.io/md/nosql/mongodb6)
 
 #### 1. 9个服务实例目录、配置文件
 * `mongodb1/data/db、mongodb1/mongodb1.conf 、mongodb1/log`
@@ -98,7 +98,7 @@ rs.add("127.0.0.1:27009")
 
 
 ### 二、搭建路由服务
-参考[副本集搭建](https://fgq233.github.io/md/java/mongodb6)
+参考[副本集搭建](https://fgq233.github.io/md/nosql/mongodb6)
 
 #### 1. 2个服务实例目录、配置文件
 路由节点主要负责分发，不需要data目录，只需要日志、配置文件
