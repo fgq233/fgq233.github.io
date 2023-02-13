@@ -3,7 +3,7 @@
 
 ![](https://fgq233.github.io/imgs/mysql/fkfb1.png)
 
-### 一. 垂直拆分
+### 一、垂直拆分
 ![](https://fgq233.github.io/imgs/mysql/fkfb2.png)
 
 #### 1. 垂直分库
@@ -27,7 +27,7 @@
   
   
   
-### 二 水平拆分
+### 二、水平拆分
 ![](https://fgq233.github.io/imgs/mysql/fkfb3.png)
 
 #### 1. 水平分库
@@ -48,7 +48,8 @@
 
 
 
-
- 
+### 三、 分库分表中间件
+* `shardingsphere-jdbc`
+* `mycat`
 
 
