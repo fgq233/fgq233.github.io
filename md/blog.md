@@ -2,7 +2,7 @@
 * [Java中间件 & 框架][javaHtml]            [~][javaMd]
 * [Java设计模式][mode]           
 * [Oracle][oracle]
-* [Mysql][mysql]
+* [MySQL][mysql]
 * [JS][js]
 * Android
 * React Native
