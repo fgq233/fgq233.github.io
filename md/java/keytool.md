@@ -277,8 +277,8 @@ public class TestController {
 }
 ```
 
-* [http://localhost:8888/test]()  访问失败
-* [https://localhost:8888/test]() 访问成功
+* [http://localhost:8888/test](http://localhost:8888/test)  访问失败
+* [https://localhost:8888/test](https://localhost:8888/test) 访问成功
 
 
 ### 四、SpringBoot 配置 https 双向认证

@@ -351,6 +351,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-* 访问 [http://localhost:8080/hello]()，没有认证也可以访问
-* 访问 [http://localhost:8080/index]()，自动跳转到登录页
-* 访问 [http://localhost:8080/login.html]()，登录成功，跳转到[http://localhost:8080/index]()
+* 访问 [http://localhost:8080/hello](http://localhost:8080/hello)，没有认证也可以访问
+* 访问 [http://localhost:8080/index](http://localhost:8080/index)，自动跳转到登录页
+* 访问 [http://localhost:8080/login.html](http://localhost:8080/login.html)，登录成功，跳转到[http://localhost:8080/index](http://localhost:8080/index)

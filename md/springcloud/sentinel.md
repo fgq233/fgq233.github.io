@@ -42,10 +42,10 @@
 
 ### 三. Sentinel 使用
 #### 1. 下载安装包
-* 官网：[https://sentinelguard.io]()
-* 使用说明：[https://sentinelguard.io/zh-cn/docs/introduction.html]()
-* GitHub主页：[https://github.com/alibaba/Sentinel]()
-* 下载页：[https://github.com/alibaba/Sentinel/releases]()
+* 官网：[https://sentinelguard.io](https://sentinelguard.io)
+* 使用说明：[https://sentinelguard.io/zh-cn/docs/introduction.html](https://sentinelguard.io/zh-cn/docs/introduction.html)
+* GitHub主页：[https://github.com/alibaba/Sentinel](https://github.com/alibaba/Sentinel)
+* 下载页：[https://github.com/alibaba/Sentinel/releases](https://github.com/alibaba/Sentinel/releases)
 
 #### 2. 启动
 将下载的包解压到任意非中文目录下
@@ -53,7 +53,7 @@
 * 启动：`java -jar sentinel-dashboard-1.8.6.jar`
 
 #### 3. 访问
-浏览器访问：[http://localhost:8080]()，默认的账号和密码都是 `sentinel`
+浏览器访问：[http://localhost:8080](http://localhost:8080)，默认的账号和密码都是 `sentinel`
 
 
 #### 4. 默认配置

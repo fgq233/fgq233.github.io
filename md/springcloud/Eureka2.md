@@ -34,7 +34,7 @@ eureka:
       defaultZone: http://127.0.0.1:8088/eureka
 ```
 
-启动服务，访问地址：[http://localhost:8088]()  可以看到Eureka注册中心的界面
+启动服务，访问地址：[http://localhost:8088](http://localhost:8088)  可以看到Eureka注册中心的界面
  
 #### 二. 服务注册与发现
 ###### 1. 引入client依赖
@@ -69,7 +69,7 @@ public class EurekaClientApplication {
 ```
 
 * `@EnableDiscoveryClient` 注解表明是一个Eureka客户端
-* 启动服务，查看注册中心 [http://localhost:8088]()，发现Eureka客户端已经成功注册
+* 启动服务，查看注册中心 [http://localhost:8088](http://localhost:8088)，发现Eureka客户端已经成功注册
 
 
 ###### 4. 服务发现

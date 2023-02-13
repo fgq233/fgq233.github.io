@@ -1,12 +1,12 @@
 ###  Elasticsearch 在 Windows下环境安装
 ###  一、 Elasticsearch
 ####  1、 下载、启动
-* 下载地址：[https://www.elastic.co/cn/downloads/elasticsearch]()
+* 下载地址：[https://www.elastic.co/cn/downloads/elasticsearch](https://www.elastic.co/cn/downloads/elasticsearch)
 
 * ES 高版本内置jdk，低版本依赖系统安装的jdk
 * 解压后运行 bin\elasticsearch.bat 启动服务
 * 首次启动服务会显示一些配置信息，包括默认的用户密码，默认访问端口 9200
-* 启动成功后访问：[http://localhost:9200]()，会返回一个包含ES配置的json
+* 启动成功后访问：[http://localhost:9200](http://localhost:9200)，会返回一个包含ES配置的json
 
 ####  2、配置 Elasticsearch 服务
 * 将 bin 目录安装到系统环境变量
@@ -37,7 +37,7 @@
 
 ###  二、 kibana
 ####  1、 下载、启动
-* 下载地址：[https://www.elastic.co/cn/downloads/past-releases#kibana]()
+* 下载地址：[https://www.elastic.co/cn/downloads/past-releases#kibana](https://www.elastic.co/cn/downloads/past-releases#kibana)
 
 * 安装的 kibana 版本必须和 Elasticsearch 一致
 * 解压后运行 bin\kibana.bat 启动服务
@@ -50,7 +50,7 @@
 
 ###  三、 IK中文分词器
 ####  1、 下载、安装
-* 下载地址：[https://github.com/medcl/elasticsearch-analysis-ik/tags]()
+* 下载地址：[https://github.com/medcl/elasticsearch-analysis-ik/tags](https://github.com/medcl/elasticsearch-analysis-ik/tags)
 * 在 ES 的plugins目录下新建ik文件夹下，将ik安装包解压放进去，然后重启 ES
 
 #### 2、 分词粒度

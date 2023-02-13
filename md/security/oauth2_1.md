@@ -3,7 +3,7 @@
 #### 1. OAuth、OAuth2
 * `OAuth（Open Authorization）`是一种协议，用于提供认证、授权的规范
 * `OAuth2.0` 是`OAuth1.0` 协议的延续版本，但不向兼容 `OAuth1.0`
-* 官网：[https://oauth.net/2/]()
+* 官网：[https://oauth.net/2/](https://oauth.net/2/)
    
 #### 2. OAuth2 协议中的角色
 * `Client`（客户端）：访问资源的客户端，会使用访问令牌去获取资源服务器的资源，可以是浏览器、移动设备或者服务器等

@@ -20,9 +20,9 @@ Zipkin分为服务端、客户端
 一旦发生服务间的调用，会被Sleuth监听到，并生成相应的 Trace 和 Span 信息发送给服务端
 
 #### 1. 下载、启动 zipkin 服务端
-* 下载地址：[https://repo1.maven.org/maven2/io/zipkin/zipkin-server/]()
+* 下载地址：[https://repo1.maven.org/maven2/io/zipkin/zipkin-server](https://repo1.maven.org/maven2/io/zipkin/zipkin-server)
 * 找到目标版本，点进去后找到 `zipkin-server-x.y.z-exec.jar`的jar包
-* `java -jar`启动服务端，默认端口 9411，启动成功后通过 [http://localhost:9411/]() 访问服务端 UI 界面
+* `java -jar`启动服务端，默认端口 9411，启动成功后通过 [http://localhost:9411](http://localhost:9411) 访问服务端 UI 界面
 
 ``` 
 java -jar zipkin-server-2.21.7-exec.jar

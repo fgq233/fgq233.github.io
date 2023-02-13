@@ -1,7 +1,7 @@
 ### JWT
 #### 1. 概念
 * `JWT`，全称`JSON Web Token`，是一种 `token` 生成、解析方案
-* 官网：[https://jwt.io]()
+* 官网：[https://jwt.io](https://jwt.io)
 
 #### 2. 组成
 `JWT` 生成的`token`由三部分组成

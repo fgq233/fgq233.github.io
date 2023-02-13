@@ -171,7 +171,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 #### 3、密码模式测试
 * 使用密码模式测试
-* 将返回的token数据中 access_token 拿到 [https://jwt.io]() 网站解析，获得的载荷 PAYLOAD 内容为：
+* 将返回的token数据中 access_token 拿到 [https://jwt.io](https://jwt.io) 网站解析，获得的载荷 PAYLOAD 内容为：
 
 ```
 {
@@ -221,6 +221,6 @@ public class UserController {
 
 #### 3. 使用 JWT 格式 Token测试接口
 * 先使用授权码模式或密码模式获取JWT格式的token
-* 再使用 token 请求资源服务器 [http://localhost:9002/user/getCurrentJwtUser]()
+* 再使用 token 请求资源服务器 [http://localhost:9002/user/getCurrentJwtUser](http://localhost:9002/user/getCurrentJwtUser)
 
 ![oauth2](https://fgq233.github.io/imgs/security/oauth2_10.png)

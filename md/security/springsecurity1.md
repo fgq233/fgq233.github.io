@@ -3,7 +3,7 @@
 ​
 ### 一、入门
 #### 1. 搭建 SpringBoot 工程项目
-添加测试接口，访问 [http://localhost:8080/hello]()，显示正常
+添加测试接口，访问 [http://localhost:8080/hello](http://localhost:8080/hello)，显示正常
    
 ```
 @RestController
@@ -26,9 +26,9 @@ public class TestController {
 </dependency>
 ```
 
-* 访问 [http://localhost:8080/hello]()，会自动跳转到默认登录下界面 [http://localhost:8080/login]()
+* 访问 [http://localhost:8080/hello](http://localhost:8080/hello)，会自动跳转到默认登录下界面 [http://localhost:8080/login](http://localhost:8080/login)
 * `SpringSecurity` 默认登录界面用户名为 `user`、密码会在项目启动时在控制台输出
-* 认证登录成功，跳转了 [http://localhost:8080/hello]()
+* 认证登录成功，跳转了 [http://localhost:8080/hello](http://localhost:8080/hello)
 
 ![SpringSecurity](https://fgq233.github.io/imgs/security/springsecurity1.png)
 

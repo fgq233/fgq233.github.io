@@ -51,9 +51,9 @@ ZNode 节点可以分为四大类：
 
 ### 五、ZooKeeper 下载启动
 #### 1. 下载
-* [https://archive.apache.org/dist/zookeeper/]()
-* [https://zookeeper.apache.org/releases.html#download]()
-* 国内镜像：[https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper]()
+* [https://archive.apache.org/dist/zookeeper](https://archive.apache.org/dist/zookeeper)
+* [https://zookeeper.apache.org/releases.html#download](https://zookeeper.apache.org/releases.html#download)
+* 国内镜像：[https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper](https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper)
   
 
 #### 2. 解压

@@ -3,8 +3,8 @@
 * RabbitMQ的官方也推出了一个插件 `DelayExchange` ，原生支持延迟队列效果
 
 ####  1. 下载安装
-* `rabbitmq` 官方插件社区：[https://www.rabbitmq.com/community-plugins.html]()
-* 延迟插件地址：[https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases]()
+* `rabbitmq` 官方插件社区：[https://www.rabbitmq.com/community-plugins.html](https://www.rabbitmq.com/community-plugins.html)
+* 延迟插件地址：[https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases](https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases)
 * 下载完成后，将该插件放在`rabbitmq` 安装路径的 plugins 目录下，然后执行下述命令启用该插件
 
 ```
