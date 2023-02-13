@@ -4,5 +4,5 @@
 ![](https://fgq233.github.io/imgs/mysql/fkfb1.png)
 
 #### 一. 垂直拆分
- 
+![](https://fgq233.github.io/imgs/mysql/fkfb2.png)
 
