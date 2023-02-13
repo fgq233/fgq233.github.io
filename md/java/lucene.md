@@ -2,7 +2,7 @@
 lucene 在存储它的全文索引结构时，是有层次结构的，主要是5个层次：
 > 索引(Index) > 段(Segment) > 文档(Document) > 域(Field) > 词(Term)
 
-![lucene1](https://fgq233.github.io/imgs/mq/lucene1.png)
+![lucene1](https://fgq233.github.io/imgs/mq/lucene.png)
 
 
 
