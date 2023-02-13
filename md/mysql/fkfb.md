@@ -49,7 +49,7 @@
 
 
 ### 三、 分库分表中间件
-* `shardingsphere-jdbc`
-* `mycat`
+* `Sharding-jdbc`
+* `Mycat`
 
 
