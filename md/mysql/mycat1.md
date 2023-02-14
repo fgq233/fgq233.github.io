@@ -6,7 +6,7 @@
 
 
 #### 2. 目录
-![](https://fgq233.github.io/imgs/mysl/mycat1.png)
+![](https://fgq233.github.io/imgs/mysql/mycat1.png)
  
 * `bin`  存放可执行文件，用于启动、停止mycat
 * `conf` 存放配置文件
@@ -15,9 +15,18 @@
 
 
 #### 3. 基本概念
-![](https://fgq233.github.io/imgs/mysl/mycat2.png)
+![](https://fgq233.github.io/imgs/mysql/mycat2.png)
 
-* schema
-* table
-* dataNode
-* 物理
+* 逻辑结构
+  * 逻辑库：不存放数据，一个逻辑库可以有若干个逻辑表
+  * 逻辑表：逻辑表的数据存放在分片节点中
+  * 分片节点：每个节点关联实际的节点主机
+  
+* 物理结构：实际存放数据的数据库节点主机
+
+
+### 二、入门案例
+#### 1. 需求
+`cloud_goods`表数据量过大，需要进行数据分片，分为3个数据节点，每个节点位于不同服务器上
+
+![](https://fgq233.github.io/imgs/mysql/mycat3.png)
