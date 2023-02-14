@@ -102,7 +102,6 @@ flush privileges;
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mycat:server SYSTEM "server.dtd">
 <mycat:server xmlns:mycat="http://io.mycat/">
-	
     
 	<user name="root" defaultAccount="true">
 		<property name="password">123456</property>
