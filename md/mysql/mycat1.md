@@ -16,3 +16,8 @@
 
 #### 3. 基本概念
 ![](https://fgq233.github.io/imgs/mysl/mycat2.png)
+
+* schema
+* table
+* dataNode
+* 物理
