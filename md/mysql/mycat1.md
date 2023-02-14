@@ -168,7 +168,7 @@ INSERT INTO cloud_goods(ID, TITLE) VALUES(5000001, '888');
 INSERT INTO cloud_goods(ID, TITLE) VALUES(10000001, '88888888');
 ```
 
-* 建表后，3个库都出现了 `cloud_goods`
+* 建表后，3个库都出现了 `cloud_goods`表
 * 插入数据，查看后，发现数据分别在3个库中，分片成功(`此处为水平分库分表`)
 * 此处分片规则为 `auto-sharding-long`，根据id分片(算法定义在`auto-sharding-long.txt`)
     
