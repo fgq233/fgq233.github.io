@@ -145,7 +145,6 @@ flush privileges;
 连接方式和 `MySQL` 一样，这里的用户名、密码是 `server.xml` 中定义的
 
 ```
-mysql -h192.168.152.1 -P8066 -uroot -p123456
 mysql -h127.0.0.1 -P8066 -uroot -p123456
 ```
 
