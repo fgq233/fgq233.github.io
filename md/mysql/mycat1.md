@@ -126,9 +126,20 @@
 
 
 #### 4. 启动 MyCat
-* 在bin 目录下，先执行 `mycat install` 安装服务
-* 启动服务 `mycat start`
+* 在 `bin` 目录下，先执行 `mycat install` 安装服务
+* 启动服务 `mycat start`，默认端口`8066`
 * 其他命令
   * `mycat stop` 停止服务
   * `mycat remove` 移除安装的服务
   * `mycat status` 服务状态
+
+![](https://fgq233.github.io/imgs/mysql/mycat4.png)
+
+
+#### 5. 连接 MyCat
+连接方式和 `MySQL` 一样，这里的用户名、密码是 `server.xml` 中定义的
+
+```
+mysql -h192.168.152.1 -P8066 -uroot -p123456
+```
+
