@@ -126,7 +126,7 @@ flush privileges;
 * `defaultSchema` schema.xml中定义的逻辑库
 * `readOnly` 只读用户
   
-这里定义了2个连接MyCat的用户，一个root 可读写，一个只读用户 user
+这里定义了2个连接`MyCat`的用户，一个`root` 可读写，一个只读用户 `user`
 
 
 #### 4. 启动 MyCat
