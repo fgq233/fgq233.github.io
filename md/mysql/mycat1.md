@@ -29,11 +29,6 @@
 #### 1. 需求
 `cloud_goods`表数据量过大，需要进行数据分片，分为3个数据节点，每个节点位于不同服务器上
 
-* `192.168.152.1:8066`  MyCat服务器
-* `192.168.152.1:3306`       MySQL分片服务器1
-* `192.167.18.128:3306`      MySQL分片服务器2
-* `192.167.18.131:3306`      MySQL分片服务器3
-
 ![](https://fgq233.github.io/imgs/mysql/mycat3.png)
 
 
@@ -46,7 +41,7 @@
 	<!-- 逻辑库 -->
 	<schema name="dbX" checkSQLschema="true" sqlMaxLimit="100">
 		<!-- 逻辑表 -->
-		<table name="cloud_goods" primaryKey="id" dataNode="dn1,dn2,dn3" rule="sharding-by-intfile" autoIncrement="true" fetchStoreNodeByJdbc="true"/>
+		<table name="cloud_goods" primaryKey="id" dataNode="dn1,dn2,dn3" rule="auto-sharding-long" autoIncrement="true" />
 	</schema>
 	 
 	<!-- 分片节点 -->
@@ -58,17 +53,17 @@
 	 <!-- 节点主机1 -->
 	<dataHost name="dataHost1" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="jdbc" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user()</heartbeat>
-		<writeHost host="master" url="jdbc:mysql://192.168.152.1:3306?useSSL=false&amp;serverTimezone=UTC" user="root" password="1234"/> 
+		<writeHost host="master" url="jdbc:mysql://127.0.0.1:3306?useSSL=false&amp;serverTimezone=UTC" user="root" password="1234"/> 
 	</dataHost>
 	 <!-- 节点主机2 -->
 	<dataHost name="dataHost2" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="jdbc" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user()</heartbeat>
-		<writeHost host="master" url="jdbc:mysql://192.168.18.128:3306?useSSL=false&amp;serverTimezone=UTC" user="root" password="1234"/> 
+		<writeHost host="master" url="jdbc:mysql://192.167.18.128:3306?useSSL=false&amp;serverTimezone=UTC" user="root" password="1234"/> 
 	</dataHost>
 	<!-- 节点主机3 -->
 	<dataHost name="dataHost3" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="jdbc" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user()</heartbeat>
-		<writeHost host="master" url="jdbc:mysql://192.168.18.131:3306?useSSL=false&amp;serverTimezone=UTC" user="root" password="1234"/> 
+		<writeHost host="master" url="jdbc:mysql://192.167.18.131:3306?useSSL=false&amp;serverTimezone=UTC" user="root" password="1234"/> 
 	</dataHost>
 	
 </mycat:schema>
@@ -82,7 +77,7 @@
   * `name` 表名
   * `primaryKey` 主键
   * `dataNode` 关联的分片节点，对应`dataNode`的`name`
-  * `rule` 分片规则
+  * `rule` 分片规则，关联 `rule.xml`
   
 * `dataNode` 分片节点 
   * `name` 节点名
@@ -91,7 +86,16 @@
   
 * `dataHost` 实际存放数据的物理节点主机
   * `name` 主机名
+  * 注意防火墙、数据库用户权限 
+   
+```
+# 防火墙
+netsh advfirewall set allprofile state off 
 
+# 数据库用户权限
+grant all privileges on *.* to 'root'@'%';
+flush privileges;   
+```
 
 #### 3. MyCat 用户配置  server.xml
 ```
@@ -131,6 +135,7 @@
 * 其他命令
   * `mycat stop` 停止服务
   * `mycat remove` 移除安装的服务
+  * `mycat restart` 重启服务
   * `mycat status` 服务状态
 
 ![](https://fgq233.github.io/imgs/mysql/mycat4.png)
@@ -141,5 +146,36 @@
 
 ```
 mysql -h192.168.152.1 -P8066 -uroot -p123456
+mysql -h127.0.0.1 -P8066 -uroot -p123456
 ```
 
+![](https://fgq233.github.io/imgs/mysql/mycat5.png)
+
+
+#### 6. 测试
+```
+-- 先切换到逻辑库
+use dbX
+
+-- 建表
+CREATE TABLE cloud_goods  (
+  id bigint NOT NULL,
+  title varchar(100) NOT NULL,
+  PRIMARY KEY(id) 
+) ENGINE = InnoDB CHARACTER SET = utf8;
+
+-- 插入数据
+INSERT INTO cloud_goods(ID, TITLE) VALUES(1, '666');
+INSERT INTO cloud_goods(ID, TITLE) VALUES(5000001, '888');
+INSERT INTO cloud_goods(ID, TITLE) VALUES(10000001, '88888888');
+```
+
+* 建表后，3个库都出现了 `cloud_goods`
+* 插入数据，查看后，发现数据分别在3个库中，分片成功
+    * 此处分片规则为 `auto-sharding-long`，根据id分片(算法定义在`auto-sharding-long.txt`)
+    
+```
+0-500M=0        # 分片1：id在1-500W的数据
+500M-1000M=1    # 分片2：id在500W-1000W的数据
+1000M-1500M=2   # 分片3：id在1000W-1500W的数据
+```
