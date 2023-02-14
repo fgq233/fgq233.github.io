@@ -6,7 +6,13 @@
 
 
 #### 2. 目录
-  
-  
-![](https://fgq233.github.io/imgs/mysl/rabbitMQ7.png)
+![](https://fgq233.github.io/imgs/mysl/mycat1.png)
  
+* `bin`  存放可执行文件，用于启动、停止mycat
+* `conf` 存放配置文件
+* `lib` 存放项目依赖jar包
+* `logs` 存放日志文件
+
+
+#### 3. 基本概念
+![](https://fgq233.github.io/imgs/mysl/mycat2.png)
