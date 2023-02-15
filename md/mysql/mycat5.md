@@ -60,7 +60,9 @@ binlog-do-db=db01
 log-slave-updates
 ```
 
+
 从配置
+
  
 ```
 # 服务id  ★★★ 从2值为2，从4值为4  ★★★
