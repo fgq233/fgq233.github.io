@@ -2,7 +2,7 @@
 
 ### 一、概念
 * 读写分离就是读操作、写操作的数据库不是同一个，减小数据库压力
-* 主库负责提供写操作，从库提供读操作
+* 主库提供写操作，从库提供读操作
 * 通过 MyCat 可以实现这样的功能，支持：`MySQL、Oracle、SQL Server`
 
 ![](https://fgq233.github.io/imgs/mysql/mycat7.png)
