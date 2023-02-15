@@ -8,9 +8,11 @@
 1. [日志][log]
 1. [主从复制][masterslave]
 1. [分库分表][fkfb]
-1. [MyCat 分库分表][mycat1]
+1. [MyCat 分库分表概念][mycat1]
 1. [MyCat 水平分库分表][mycat2]
-1. [MyCat 垂直分库分表][mycat3]
+1. [MyCat 垂直分库][mycat3]
+1. [MyCat 分片规则][mycat4]
+1. [MyCat 读写分离][mycat5]
 1. [常用命令][common]
 
 
@@ -23,6 +25,8 @@
 
 
 
+[mycat5]: https://fgq233.github.io/md/mysql/mycat5
+[mycat4]: https://fgq233.github.io/md/mysql/mycat4
 [mycat3]: https://fgq233.github.io/md/mysql/mycat3
 [mycat2]: https://fgq233.github.io/md/mysql/mycat2
 [mycat1]: https://fgq233.github.io/md/mysql/mycat1

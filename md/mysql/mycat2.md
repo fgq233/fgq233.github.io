@@ -56,7 +56,7 @@
   * `name` 节点名
   * `maxCon/minCon` 最大连接数/最小连接数
   * `balance` 负载均衡策略，取值0，1，2，3
-  * `writeType` 写操作的分发方式（0表示转发到第一个writeHost，第一个挂了切换到第二个；1表示随机转发）
+  * `writeType` 写操作的分发方式
   * `dbDriver` 数据库驱动，支持 `native、jdbc`
   * `dataHost` 节点对应的实际物理主机，对应`dataHost`的`name`
   * `database` 分片的数据库名
