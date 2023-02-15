@@ -1,7 +1,7 @@
 ### MyCat 水平分表
 ### 一、水平分表
 #### 1. 需求
-`cloud_goods`表数据量过大，需要进行数据分片，分为3个数据节点，每个节点位于不同服务器上
+`cloud_goods、cloud_order`表数据量过大，需要进行数据分片，分为3个数据节点，每个节点位于不同服务器上
 
 ![](https://fgq233.github.io/imgs/mysql/mycat3.png)
 
