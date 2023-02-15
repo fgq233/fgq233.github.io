@@ -1,9 +1,10 @@
 ### 乱七八糟
 #### MD 收缩语法
 ```
-<details>
-  <summary>摘要</summary>
-  <pre><code>代码区域</code></pre>
+<details><summary>摘要</summary><pre>
+<code>代码区域
+
+</code></pre>
 </details>
 ```
 
