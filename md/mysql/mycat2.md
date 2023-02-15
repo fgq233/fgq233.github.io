@@ -145,7 +145,7 @@ INSERT INTO cloud_order(ID, GID, TITLE) VALUES(2, 1, '订单2');
 INSERT INTO cloud_order(ID, GID, TITLE) VALUES(5000001, 1, '订单3');
 
 -- 查询数据 DQL
-select * FROM cloud_order o, cloud_goods g where o.gid = g.id
+select * from cloud_order o, cloud_goods g where o.gid = g.id;
 ```
 
 * 建表后，3个库都出现了 `cloud_goods、cloud_order`表
