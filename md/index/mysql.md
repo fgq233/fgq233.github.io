@@ -9,6 +9,8 @@
 1. [主从复制][masterslave]
 1. [分库分表][fkfb]
 1. [MyCat 分库分表][mycat1]
+1. [MyCat 水平分库分表][mycat2]
+1. [MyCat 垂直分库分表][mycat3]
 1. [常用命令][common]
 
 
@@ -21,6 +23,8 @@
 
 
 
+[mycat3]: https://fgq233.github.io/md/mysql/mycat3
+[mycat2]: https://fgq233.github.io/md/mysql/mycat2
 [mycat1]: https://fgq233.github.io/md/mysql/mycat1
 [fkfb]: https://fgq233.github.io/md/mysql/fkfb
 [tools]: https://fgq233.github.io/md/mysql/tools
