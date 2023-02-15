@@ -32,7 +32,7 @@
 ![](https://fgq233.github.io/imgs/mysql/mycat3.png)
 
 
-#### 2. 分片配置  schema.xml
+#### 2. MyCat 分片配置  schema.xml
 ```
 <?xml version="1.0"?>
 <!DOCTYPE mycat:schema SYSTEM "schema.dtd">
