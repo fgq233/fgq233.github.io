@@ -1,6 +1,6 @@
 ### webpack 前端工程化
-* 主要功能：前端模块化开发，代码压缩混淆、处理浏览器端JavaScript兼容性等
-* `Vue、React `都是基于 webpack 进行工程化开发的
+* 主要功能：前端模块化开发，代码压缩、处理浏览器端`JavaScript`兼容性
+* `Vue、React `都是基于 `webpack` 进行工程化开发的
 
 ### 一、模块化项目案例
 * 开发工具：`Visual Studio Code`
