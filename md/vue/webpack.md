@@ -73,6 +73,7 @@ module.exports = {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../dist/main.js"></script>
 </head>
 <body>
     <ul>
@@ -102,3 +103,7 @@ $(function () {
 
 ![](https://fgq233.github.io/imgs/vue/webpack.png)
 
+* 打包成功后，会生成一个 `dist` 清单目录
+* 在 `webpack 4.x、5.x` 版本
+  * 默认打包入口文件 `src/index.js`
+  * 默认的输出文件未 `dist/main.js`
