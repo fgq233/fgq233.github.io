@@ -76,12 +76,7 @@ module.exports = {
     <script src="../dist/main.js"></script>
 </head>
 <body>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
+    <div style="height: 100px;"></div>
 </body>
 </html>
 ```
@@ -90,12 +85,12 @@ module.exports = {
 import $ from "jquery";
 
 $(function () {
-    $("li:odd").css('background-color', 'blue');
-    $("li:even").css('background-color', 'yellow');
+    $("div").css('background-color', 'yellow');
 });
 ```
 
-此处使用 `ES6` 模块化方式导入 `jquery`
+* 此处使用 `ES6` 模块化方式导入 `jquery`
+* `index.html`不能直接引用`index.js`，因为浏览器识别不了`import`该语法 
 
 
 #### 6. 使用 webpack 打包项目
@@ -104,6 +99,13 @@ $(function () {
 ![](https://fgq233.github.io/imgs/vue/webpack.png)
 
 * 打包成功后，会生成一个 `dist` 清单目录
+
 * 在 `webpack 4.x、5.x` 版本
   * 默认打包入口文件 `src/index.js`
-  * 默认的输出文件未 `dist/main.js`
+  * 默认的输出文件为 `dist/main.js`
+  
+* `index.html`中引用 `dist/main.js`，然后在浏览器中运行，上面设置背景色成功
+
+
+
+### 二、webpack 其他配置
