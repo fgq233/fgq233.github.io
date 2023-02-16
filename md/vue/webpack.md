@@ -10,33 +10,30 @@
 新建一个空白文件夹，运行 `npm init -y` 命令，初始化包管理的配置文件 `package.json`
 
 #### 2. 安装 Jquery、webpack
-* `-S`是`--save`缩写，依赖会放在`package.json`的`dependencies下面`
-* `-D`是`--save-dev`缩写，依赖会放在`package.json`的`devDependencies`下面 
-* `devDependencies` 中依赖仅仅是编译时期使用，打包后的源码不存在
-
 ```
 npm install jquery -S       
 npm install webpack@5.41.1 webpack-cli@4.7.2 -D
 ```
 
-#### 3. 配置 webpack
-* 项目根目录下新增 `webpack.config.js`
-* 使用`Node.js`导出语法，向外导出一个`webpack`的配置对象
+* `-S`是`--save`缩写，依赖会放在`package.json`的`dependencies下面`
+* `-D`是`--save-dev`缩写，依赖会放在`package.json`的`devDependencies`下面 
+* `devDependencies` 中依赖仅仅是编译时期使用，打包后的源码不存在
 
+#### 3. 配置 webpack
 ```
 module.exports = {
   mode: "development"
 };
 ```
 
-`mode` 是构建模式
-* `development`  测试模式，打包快，不压缩代码
-* `production`   生产模式，打包慢，压缩代码
+* 项目根目录下新增 `webpack.config.js`
+* 使用`Node.js`导出语法，向外导出一个`webpack`的配置对象
+* `mode` 是构建模式
+  * `development`  测试模式，打包快，不压缩代码
+  * `production`   生产模式，打包慢，压缩代码
 
 
 #### 4. package.json 配置 scripts
-`"start": "webpack"` 表示可通过 `npm run` 执行该脚本，如：`npm run start`
-
 ```
 {
   "name": "webpack-test",
@@ -60,6 +57,7 @@ module.exports = {
 }
 ```
 
+`"start": "webpack"` 表示可通过 `npm run` 执行该脚本，如：`npm run start`
 
 #### 5. 初始化 src 目录，测试文件
 * 新建 `src` 源代码目录，
