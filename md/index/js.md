@@ -8,10 +8,8 @@
 1. [ES6- 字符串扩展][es02]
 1. [ES6- 数据结构Set][es03]
 1. [ES6- 数据结构Map][es04]
-1. [Jquery 选择器][jq01]
 
 
-[jq01]: https://fgq233.github.io/md/js/jq01
 [js03]: https://fgq233.github.io/md/js/js03
 [js02]: https://fgq233.github.io/md/js/js02
 [js01]: https://fgq233.github.io/md/js/js01
