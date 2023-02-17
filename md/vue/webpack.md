@@ -109,7 +109,7 @@ module.exports = {
 * `__filename` 当前文件的绝对路径
 
 
-#### 2. 自动打包
+#### 2. 热更新
 * 安装 `npm install webpack-dev-server@3.11.2 -D`
 * 修改 `scripts`，在 `webpack` 打包后面添加 `serve`
 
