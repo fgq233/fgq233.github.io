@@ -219,8 +219,8 @@ npm install @babel/plugin-proposal-decorators@7.14.5 -D
   * `test` 表示匹配的文件类型
   * `use` 表示要调用的加载器，多个加载器调用顺序为：从后往前
   * `?` 之后为加载器参数
-  * `limit` 指定文件大小，单位是字节` byte`，`<= limit`大小的图片会被转为`base64`
-  * `images` 指定文件构建时，在 `dist` 中的输出路径
+    * `limit` 指定文件大小，单位是字节` byte`，`<= limit`大小的图片会被转为`base64`
+    * `outputPath` 指定文件构建时，在 `dist` 中的输出路径
   * `exclude` 指定排除项
 
 ```
