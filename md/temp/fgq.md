@@ -1,4 +1,4 @@
-#### MD 收缩语法
+#### 收缩 + 代码
 ```
 <details><summary>摘要</summary>
 <pre><code>
@@ -7,3 +7,6 @@
 </details>
 ```
 
+
+#### 图片
+![](https://fgq233.github.io/imgs/)
