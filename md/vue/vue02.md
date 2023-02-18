@@ -40,7 +40,8 @@ var app = new Vue({
 ```
 <div id="app">
     <!-- <input @keyup="keyup"> -->
-    <input @keyup.enter="enter" @keyup.esc="esc" 
+    <input @keyup.enter="enter" 
+           @keyup.esc="esc" 
            @keyup.f="f" @keyup.g="g" @keyup.q="q">
 </div>
 
