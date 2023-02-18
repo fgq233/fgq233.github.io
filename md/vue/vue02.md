@@ -14,7 +14,6 @@
     <a href="https://cn.vuejs.org" @click.prevent="goVue2">vuejs</a>
 </div>
 
-
 var app = new Vue({
     el: '#app',
     methods: {      
@@ -68,7 +67,7 @@ var app = new Vue({
 <div id="app">
     <input v-model.number="num1">+
     <input v-model.number="num2">=
-        ﹛﹛ num1 + num2 ﹜﹜
+        {&nbsp{ num1 + num2 }}
     <br>
     <input v-model.trim="name">
     <br>
@@ -81,6 +80,6 @@ var app = new Vue({
 })
 ```
   
-
+{&nbsp{  }}
 
 
