@@ -64,7 +64,9 @@ var app = new Vue({
 * `.trim` 自动去除用户输入的首尾空白字符
 * `.lazy` 在用户输入时，不立刻修改数据源`data`，等失去焦点再改变数据源`data`
 
-```
+
+<pre>
+<code>
 <div id="app">
     <input v-model.number="num1">+
     <input v-model.number="num2">=
@@ -79,4 +81,5 @@ var app = new Vue({
     el: '#app',
     data: { num1: 0, num2: 0, name: '', msg: '' }
 })
-```
+</code>
+</pre>
