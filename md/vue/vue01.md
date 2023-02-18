@@ -183,7 +183,6 @@ var app = new Vue({
 ```
 <div id="app">
   <ol>
-    <!-- 官方推荐：用到循环指令，需要绑定一个key属性，值要在循环中唯一，为字符串或数字类型 -->
     <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
   </ol>
 
