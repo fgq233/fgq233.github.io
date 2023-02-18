@@ -69,7 +69,7 @@ var app = new Vue({
 <div id="app">
     <input v-model.number="num1">+
     <input v-model.number="num2">=
-        <pre>{{ num1 + num2 }}</pre>
+        {{ num1 + num2 }}
     <br>
     <input v-model.trim="name">
     <br>
