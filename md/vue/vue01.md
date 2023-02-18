@@ -2,14 +2,14 @@
 ### 一、内容渲染指令
 用来渲染 DOM 元素的文本内容
 * `v-text` 会覆盖默认文本内容
-* `{{}}` 插值表达式，解决覆盖默认文本内容问题，只能用在内容节点，不能用在属性节点
+* `{` `{` `}` `}` 插值表达式，解决覆盖默认文本内容问题，只能用在内容节点，不能用在属性节点
 * `v-html` 把包含`html`标签的字符串渲染为页面的`html`元素
 
 
 ```
 <div id="app">
     <p v-text="name"></p>
-    <p>性别：{{sex}}</p>
+    <p>性别：﹛﹛sex﹜﹜</p>
     <p v-html="info"></p>
 </div>
 
@@ -55,7 +55,7 @@ var app = new Vue({
 
 ```
 <div id="app">
-    <p>{{ count }}</p>
+    <p>﹛﹛ count ﹜﹜</p>
     <button v-on:click="add">+1</button>
     <button v-on:click="add2(2)">+2</button>
     <button @click="sub">-1</button>
@@ -85,7 +85,7 @@ var app = new Vue({
 
 ```
 <div id="app">
-    <p>{{ count }}</p>
+    <p>﹛﹛ count ﹜﹜</p>
     <button v-on:click="add">+1</button>
     <button v-on:click="add2(2, $event)">+2</button>
 </div>
@@ -113,7 +113,7 @@ var app = new Vue({
 
 ```
 <div id="app">
-    <p>请输入内容：{{ msg }}</p>
+    <p>请输入内容：﹛﹛ msg ﹜﹜</p>
     <input v-model="msg">
 
     <select v-model="city">
@@ -183,7 +183,7 @@ var app = new Vue({
 ```
 <div id="app">
   <ol>
-    <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
+    <li v-for="todo in todos" :key="todo.id">﹛﹛ todo.text ﹜﹜</li>
   </ol>
 
   <table>
@@ -193,8 +193,8 @@ var app = new Vue({
     </thead>
     <tbody>
       <tr v-for="(item, idx) in girls" :id="'tr-' + idx" :title="item.name">
-        <td>{{ idx + 1 }}</td>
-        <td>{{ item.name }}</td>
+        <td>﹛﹛ idx + 1 ﹜﹜</td>
+        <td>﹛﹛ item.name ﹜﹜</td>
       </tr>
     </tbody>
   </table>
