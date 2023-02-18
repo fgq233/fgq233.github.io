@@ -40,9 +40,7 @@ var app = new Vue({
 ```
 <div id="app">
     <!-- <input @keyup="keyup"> -->
-    <input @keyup.enter="enter" 
-           @keyup.esc="esc" 
-           @keyup.f="f" @keyup.g="g" @keyup.q="q">
+    <input @keyup.enter="enter"  @keyup.esc="esc">
 </div>
 
 var app = new Vue({
@@ -53,15 +51,6 @@ var app = new Vue({
         },
         esc() {
             console.log('按下Esc键');
-        },
-        f() {
-            console.log('按下f键');
-        },
-        g() {
-            console.log('按下g键');
-        },
-        q() {
-            console.log('按下q键');
         }
     }
 })
