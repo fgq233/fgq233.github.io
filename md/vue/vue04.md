@@ -45,7 +45,7 @@ vue ui
 ```
 
 
-### 二、vue 组件内容
+### 二、vue 组件构成
 * 在工程化项目中， `vue` 通过 `main.js` 把 组件渲染到 index.html 的指定区域中
 * 每个 `.vue` 文件都是一个组件，每个组件都由`template、script、style`三部分组成
 
