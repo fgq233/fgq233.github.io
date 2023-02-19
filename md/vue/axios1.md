@@ -1,4 +1,4 @@
-### axios
+### axios 发送 get、post 请求
 `axios` 是一个专注于网络请求的库
 
 [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
@@ -85,6 +85,38 @@ axios({
 
 });
 ```
+
+
+#### 5. axios请求的响应
+```
+{
+  // 服务器的响应数据
+  data: {},
+
+  // HTTP 状态码
+  status: 200,
+
+  // 来自服务器响应的 HTTP 状态信息
+  statusText: "OK",
+
+  // 服务器响应头
+  headers: {},
+
+  // 为请求提供的配置信息
+  config: {}
+}
+
+
+axios.get('/user/12345')
+  .then(function (res) {
+    console.log(res.data);
+    console.log(res.status);
+    console.log(res.statusText);
+    console.log(res.headers);
+    console.log(res.config);
+  });
+```
+
 
 
 ### 二、搭配 ES7 中 aysnc、await
