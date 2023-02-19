@@ -8,7 +8,7 @@
 #### 1. 使用
 ```
 <div id="app">
-    <p :title="msg | capitalize">{{msg﹜﹜</p>
+    <p :title="msg | capitalize">﹛﹛msg﹜﹜</p>
     <p>﹛﹛msg | capitalize2﹜﹜</p>
 </div>
 
