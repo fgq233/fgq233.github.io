@@ -19,8 +19,13 @@
 
 
 
-#### 1. 查询用户基本信息
+#### 1. 查询用户基本信息 GET
 https://api.github.com/users/fgq233
+
+https://api.github.com/users?since=100
 
 #### 2. 获取stared项目列表
 https://api.github.com/users/fgq233/starred
+
+#### 3. 查看所有仓库列表
+https://api.github.com/repositories?since=824
