@@ -111,7 +111,7 @@ Vue CLI v5.0.8
 ```
 <template>
   <div class="test-box">
-    <p> {{ count }}</p>
+    <p> ﹛﹛ count ﹜﹜</p>
     <button @click="add">+1</button>
   </div>
 </template>
