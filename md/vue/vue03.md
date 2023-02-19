@@ -8,8 +8,8 @@
 #### 1. 使用
 ```
 <div id="app">
-    <p :title="msg | capitalize">{{msg}}</p>
-    <p>{{msg | capitalize2}}</p>
+    <p :title="msg | capitalize">{{msg﹜﹜</p>
+    <p>﹛﹛msg | capitalize2﹜﹜</p>
 </div>
 
 // 全局过滤器
@@ -51,9 +51,9 @@ var app = new Vue({
 
 #### 2. 过滤器传参、过滤器链
 ```
-<p>{{msg | fun(666)}}</p>
+<p>﹛﹛msg | fun(666)﹜﹜</p>
 
-<p>{{msg | fun1 | fun2}}</p>
+<p>﹛﹛msg | fun1 | fun2﹜﹜</p>
 ```
 
 * 过滤器函数的形参列表中，从第二个参数开始，才是传递的参数
@@ -72,8 +72,8 @@ var app = new Vue({
 #### 1. 使用
 ```
 <div id="app">
-    <p>{{ msg }}</p>
-    <p>{{ reversedMsg }}</p>
+    <p>﹛﹛ msg ﹜﹜</p>
+    <p>﹛﹛ reversedMsg ﹜﹜</p>
 </div>
     
 var app = new Vue({
@@ -89,7 +89,7 @@ var app = new Vue({
 
 #### 2. 计算属性 VS 方法
 ```
-<p>{{ reversedMsg() }}</p>
+<p>﹛﹛ reversedMsg() ﹜﹜</p>
 
 var app = new Vue({
     el: '#app',
