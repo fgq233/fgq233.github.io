@@ -37,7 +37,36 @@ instance.request(configs).then(function (response) {
 });
 ```
 
-### 二、axios 的 config 配置详解
+
+### 二. 配置优先级
+```js
+// 1、全局配置 
+axios.defaults.baseURL = 'https://api.example.com';
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+// 2、通过实例配置
+var instance = axios.create({
+  baseURL: "https://api.example.com"
+});
+// 在实例已创建后：修改默认值
+instance.defaults.headers.common["Authorization"] = AUTH_TOKEN;
+
+// 3、请求参数 configs 配置
+const configs = {
+  baseURL: "https://api.example.com",
+  headers:{
+    Authorization: AUTH_TOKEN
+  }
+};
+instance.get(url, configs);
+```
+
+优先级：请求的 `configs` > 实例`instance`配置 > 全局配置
+
+
+
+### 三、axios 的 config 配置详解
 只有 `url` 是必需的，如果没有指定 `method`，请求将默认使用 `get` 方法
 
 ```
@@ -185,26 +214,6 @@ instance.request(configs).then(function (response) {
 ```
 
 
-#### 3. 全局配置 与 自定义配置
-```
-// 1、全局配置 
-axios.defaults.baseURL = 'https://api.example.com';
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-```
-
-```
-// 2、自定义配置的两种方式
-
-// 创建实例时：设置配置的默认值
-var instance = axios.create({
-  baseURL: "https://api.example.com"
-});
-// 在实例已创建后：修改默认值
-instance.defaults.headers.common["Authorization"] = AUTH_TOKEN;
-```
-
-优先级：实例`instance`配置 > `axios.defaults`配置 > 默认值
 
 
 
