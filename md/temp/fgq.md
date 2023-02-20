@@ -7,7 +7,7 @@
 
 
 #### 1. 图片
-![](https://fgq233.github.io/imgs/)
+![](https://fgq233.github.io/imgs/vue/)
 
 
 #### 1. 表格
