@@ -23,7 +23,7 @@ controller.abort()
 ```js
 const source = axios.CancelToken.source();
 
-axios.get('/user/12345', {
+axios.get('/user', {
   cancelToken: source.token     // 取消请求的令牌
 }).catch(function (thrown) {
   if (axios.isCancel(thrown)) {
@@ -33,7 +33,7 @@ axios.get('/user/12345', {
   }
 });
 
-axios.post('/user/12345', {name: 'fgq'}, {
+axios.post('/user', {name: 'fgq'}, {
   cancelToken: source.token
 });
 // 取消请求，可以传递一个参数，该参数可以在 catch 中通过 thrown.message 拿到
