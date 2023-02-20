@@ -97,7 +97,7 @@ axios({
 ### 二、搭配 ES7 中 aysnc、await
 `await` 只能用在 `async` 修饰的方法中
  
-```
+```js
 async function init() {
     try {
         var response = await axios.get('https://api.github.com/users/fgq233');
@@ -126,7 +126,7 @@ async function init() {
 * 全部实例都成功，状态变为`fulfilled`，才算成功，回调 `then()`
 * 只要有一个异常，状态变为`rejected`，就算失败，回调 `catch()`
 
-```
+```js
 function getUser() {
     return axios.get('https://api.github.com/users/fgq233');
 }
@@ -148,7 +148,7 @@ Promise.all([getUser(), getStarred()])
 * `Promise.race()` 也可以将多个 `Promise` 实例包装成一个新的 `Promise` 实例
 * race比赛，哪个实例获取结果最快，就返回该结果，不管结果本身是成功还是失败
 
-```
+```js
 Promise.race([getUser(), getStarred()])
     .then(function (response) {
 
