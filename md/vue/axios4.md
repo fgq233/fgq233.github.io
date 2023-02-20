@@ -26,7 +26,7 @@ const source = axios.CancelToken.source();
 axios.get('/user', {
   cancelToken: source.token     // 取消请求的令牌
 }).catch(function (thrown) {
-  if (axios.isCancel(thrown)) {
+  if (axios.isCancel(thrown)) { // 判断是取消请求，还是发生请求异常
     console.log('Request canceled', thrown.message);
   } else {
     // handle error
