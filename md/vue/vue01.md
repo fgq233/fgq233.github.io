@@ -281,7 +281,7 @@ var app = new Vue({
 * 不处于同一节点，根据先后顺序
 
 ```
-<!-- 只为部分数据项渲染节点时 -->
+<!-- 只为部分数据项渲染节点 -->
 <li v-for="todo in todos" v-if="!todo.isComplete">
   ﹛﹛ todo ﹜﹜
 </li>
