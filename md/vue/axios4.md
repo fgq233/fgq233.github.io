@@ -41,7 +41,7 @@ source.cancel();
 // source.cancel('请求被取消了~~~');
 ```
 
-*  方式②：使用 `CancelToken` 构造函数 ---→ 取消单个请求
+*  方式②：使用 `CancelToken` 构造函数 ----→ 取消单个请求
 
 ```js
 const CancelToken = axios.CancelToken;
