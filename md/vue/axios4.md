@@ -18,13 +18,13 @@ controller.abort()
 #### 2. 方式2：使用 CancelToken
 此API自 v0.22.0 起已弃用，不应在项目中使用
 
-* 方式①：直接使用 axios.CancelToken --- 取消所有 source.token 一样的请求
+* 方式①：使用 `axios.CancelToken.source()` --- 取消所有 `cancelToken` 一样的请求
 
 ```js
 const source = axios.CancelToken.source();
 
 axios.get('/user/12345', {
-  cancelToken: source.token
+  cancelToken: source.token     // 取消请求的令牌
 }).catch(function (thrown) {
   if (axios.isCancel(thrown)) {
     console.log('Request canceled', thrown.message);
@@ -32,17 +32,16 @@ axios.get('/user/12345', {
     // handle error
   }
 });
-// 取消请求
-source.cancel();
 
 axios.post('/user/12345', {name: 'fgq'}, {
   cancelToken: source.token
 });
-// 取消请求
+// 取消请求，可以传递一个参数，该参数可以在 catch 中通过 thrown.message 拿到
 source.cancel();
+// source.cancel('请求被取消了~~~');
 ```
 
-*  方式②：使用 CancelToken 构造函数 --- 取消单个请求
+*  方式②：使用 `CancelToken` 构造函数 --- 取消单个请求
 
 ```js
 const CancelToken = axios.CancelToken;
