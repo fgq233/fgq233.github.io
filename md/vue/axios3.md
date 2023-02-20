@@ -51,7 +51,7 @@ axios.interceptors.response.use(function (response) {
 
 
 #### 3. 取消拦截器
-添加拦截器的方法会返回一个值，可以用于取消拦截器
+添加拦截器的方法会返回一个值，用于取消拦截器
 
 ```js
 const myInterceptor1 = axios.interceptors.request.use(function () {/*...*/});
