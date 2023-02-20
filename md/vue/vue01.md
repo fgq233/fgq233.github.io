@@ -214,3 +214,44 @@ var app = new Vue({
 ```
 
  
+#### 七. 动态参数
+#### 1. 使用
+* 从 `2.6.0` 开始，可以用方括号括起来的 JavaScript 表达式作为一个指令的参数
+* 动态参数预期会求出一个字符串，异常情况下值为 null，任何其它非字符串类型的值都将会触发一个警告
+
+```
+<div id="app">
+    <p :[attr]="msg">
+        属性绑定中的动态参数
+    </p>
+     <button @[eventname]="getCurTime">事件绑定中的动态参数</button>
+</div>
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        attr: 'title',
+        msg: new Date().toLocaleString(),
+        eventname: 'click'
+    },
+    methods: {      
+        getCurTime: function (events) {
+            this.msg = new Date().toLocaleString();
+        }
+    }
+})
+```
+ 
+#### 2. 对动态参数的值的约束
+* 动态参数预期会求出一个字符串，异常情况下值为 null，这个特殊的 null 值可以被显性地用于移除绑定。
+* 任何其它非字符串类型的值都将会触发一个警告
+
+
+#### 3. 对动态参数表达式的约束
+* 动态参数表达式有一些语法约束，因为某些字符，如空格和引号，放在 HTML attribute 名里是无效的
+* 解决的办法是使用没有空格或引号的表达式，或用计算属性替代这种复杂表达式
+
+```
+<!-- 这会触发一个编译警告 -->
+<a v-bind:['foo' + bar]="value"> ... </a>
+```
