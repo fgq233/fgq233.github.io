@@ -6,29 +6,29 @@
 ### 一、使用
 #### 1. 使用步骤
 * 导入 `axios`
-* 调用方法发出请求，处理结果
+* 调用方法发出请求
+  * 通用 `axios.request(config)`
+  * 通用 `axios(configs)`
   * `axios.get(url, configs)`
-  * `axios.post(url, configs)`
-  * `axios(configs)`
-  
-#### 2. 说明
-* `axios` 请求返回的结果是`ES6`中的`Promise`对象，因此可以使用其 `then、catch、finally`等方法
-* `axios`对请求返回的数据做了一层封装，`then`中的`response.data`才是真正返回的数据
+  * `axios.post(url, data, configs)`
+* 处理结果
 
-![](https://fgq233.github.io/imgs/vue/axios.png)
+
+#### 2. 说明
+`axios.request(config)、axios()、axios.get()、axios.post()`
+方法返回的结果是`ES6`中的`Promise`对象， 因此可以使用`then、catch、finally`方法
+
 
 #### 3. GET请求
-```
+```js
 // 直接在 url 中传递参数
 axios.get('/user?ID=12345').then(function (response) {
 
 }).catch(function (error) {
 
-}).finally(function () {
-
 });
 
-// 通过 params 传递参数
+// configs 中通过 params 传递参数
 axios.get('/user', {
     params: {
         ID: 12345
@@ -37,11 +37,9 @@ axios.get('/user', {
 
 }).catch(function (error) {
 
-}).finally(function () {
-
 });
 
-// 通用方法，使用 params 传参
+// 通用方法，configs 中使用 params 传参
 axios({
     method: 'get',
     url: '/user',
@@ -52,33 +50,25 @@ axios({
     
 }).catch(function (error) {
 
-}).finally(function () {
-
 });
 ```
 
 
 
 #### 4. POST请求
-```
-// 在第二个参数对象 {} 中传递参数
-axios.post('/user', {
-    firstName: 'Fred',
-    lastName: 'Flintstone'
-}).then(function (response) {
-    
+```js
+// 第二个参数 data 传参
+axios.post('/user', {ID: 12345}).then(function (response) {
+
 }).catch(function (error) {
-   
+
 });
 
-// 配置中 data 参数对象传参
+// 通用方法，configs 中使用 data 传参
 axios({
-    method: 'post',
-    url: '/user/12345',
-    data: {
-        firstName: 'Fred',
-        lastName: 'Flintstone'
-    }
+  method: 'post',
+  url: '/user/12345',
+  data: {ID: 12345}
 }).then(function (response) {
 
 }).catch(function (error) {
@@ -87,34 +77,19 @@ axios({
 ```
 
 
-#### 5. axios请求的响应
+#### 5. 响应数据
+* `axios`对请求返回的数据做了一层封装，`data`才是真正返回的数据
+
+![](https://fgq233.github.io/imgs/vue/axios.png)
+
 ```
 {
-  // 服务器的响应数据
-  data: {},
-
-  // HTTP 状态码
-  status: 200,
-
-  // 来自服务器响应的 HTTP 状态信息
-  statusText: "OK",
-
-  // 服务器响应头
-  headers: {},
-
-  // 为请求提供的配置信息
-  config: {}
+  data: {},         // 服务器的响应数据
+  status: 200,      // HTTP 状态码
+  statusText: "OK", // 来自服务器响应的 HTTP 状态信息
+  headers: {},      // 服务器响应头
+  config: {}        // 为请求提供的配置信息
 }
-
-
-axios.get('/user/12345')
-  .then(function (res) {
-    console.log(res.data);
-    console.log(res.status);
-    console.log(res.statusText);
-    console.log(res.headers);
-    console.log(res.config);
-  });
 ```
 
 

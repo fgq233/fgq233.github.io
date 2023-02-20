@@ -22,6 +22,8 @@ axios.interceptors.request.use(function (config) {
 });
 ```
 
+
+
 #### 2. 响应拦截器
 在响应数据被 `then()` 或 `catch()` 处理前做一些操作
 
@@ -46,6 +48,8 @@ axios.interceptors.response.use(function (response) {
 });
 ```
 
+
+
 #### 3. 取消拦截器
 添加拦截器的方法会返回一个值，可以用于取消拦截器
 
@@ -58,6 +62,8 @@ axios.interceptors.response.eject(myInterceptor2);
 ```
 
 
+
+
 #### 4. axios 实例添加拦截器
 
 ```js
@@ -65,11 +71,45 @@ const instance = axios.create();
 
 // 添加请求拦截器
 instance.interceptors.request.use(function () {/*...*/});
-// 取消所有请求拦截器
+// 清除所有请求拦截器
 instance.interceptors.request.clear(); 
 
 // 添加响应拦截器
 instance.interceptors.response.use(function () {/*...*/});
-// 取消所有响应拦截器
+// 清除所有响应拦截器
 instance.interceptors.response.clear(); 
+```
+
+
+
+#### 5. 拦截器扩展选项 synchronous
+`synchronous` 设置为true，则请求变成同步请求，默认 false
+
+```js
+axios.interceptors.request.use(function (config) {
+    config.headers['Authorization'] = "Bearer xxxxxx";
+    return config;
+}, null, { synchronous: true });
+```
+
+
+
+
+#### 6. 拦截器扩展选项 runWhen 筛选函数
+`runWhen` 筛选函数，默认null，当返回false时，跳过当前拦截器
+
+```js
+function onGetCall(config) {
+    return config.method === 'get';
+}
+axios.interceptors.request.use(function (config) {
+    config.headers['Authorization'] = "Bearer xxxxxx";
+    return config;
+}, null, { runWhen: onGetCall });
+
+
+// 源码中：判断是否存在runWhen函数，通过runWhen执行返回值，判断是否跳过当前拦截器
+if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {
+  return;
+}
 ```
