@@ -15,8 +15,7 @@
 
 
 #### 2. 说明
-`axios.request(config)、axios()、axios.get()、axios.post()`
-方法返回的结果是`ES6`中的`Promise`对象， 因此可以使用`then、catch、finally`方法
+`axios` 的请求方法返回的结果是`ES6`中的`Promise`对象， 因此可以使用`then、catch、finally`方法
 
 
 #### 3. GET请求
