@@ -1,80 +1,155 @@
-### Vue Cli
-`Vue Cli` 是 Vue 开发的标准工具，简化了基于 webpack 创建 Vue 工程化项目的过程
+### Class 与 Style 属性绑定
+* 在将 `v-bind` 用于 `class` 和 `style` 时，Vue 做了专门的增强
+* 表达式结果的类型除了字符串之外，还可以是对象或数组
 
-[https://cli.vuejs.org](https://cli.vuejs.org)
-
-### 一、Vue Cli创建工程化项目
-#### 1. 安装 Vue Cli
-Vue Cli 是 npm 上一个全局包，使用下述命令将它安装到电脑上
-
-```
-npm install -g @vue/cli
-# OR
-yarn global add @vue/cli
-```
- 
-#### 2. 创建项目
-```
-vue create my-project
-# OR
-vue ui
-```
-
-
-#### 3. 项目结构
-![](https://fgq233.github.io/imgs/vue/vue1.png)
-
-* `public` 存放单页面应用程序唯一一个 `html` 页面
-* `src` 源代码目录
-  * `assets` 静态资源，如：css 样式表、图片资源
-  * `components` 可复用的组件
-  * `main.js` 项目的入口文件，整个项目的运行，要先执行 main.js
-  * `App.vue` 项目的根组件
-
-
-#### 4. 启动项目
-* `package.json` 中默认定义了2个`scripts`，一个用于开发阶段，一个用于正式打包
-* `npm run serve` 启动
-* 启动成功，通过 [http://localhost:8080](http://localhost:8080) 访问
+### 一、Class 绑定
+#### 1. 对象语法1
+样式类绑定对象属性值
 
 ```
-"scripts": {
-  "serve": "vue-cli-service serve",
-  "build": "vue-cli-service build"
+ <!-- 单个 -->
+<div v-bind:class="{ cls1: v1 }"></div>
+
+ <!-- 多个 -->
+<div v-bind:class="{ cls1: v1, cls2: v2 }"></div>
+
+ <!-- 可以与普通的 class 共存 -->
+<div class="static" v-bind:class="{ cls1: v1, 'cls3': v3 }"></div>
+
+// 数据
+data: {
+  v1: true,
+  v2: true,
+  v1: false
+}
+
+// 渲染结果
+<div class="cls1"></div>
+<div class="cls1 cls2"></div>
+<div class="static cls1 cls2"></div>
+```
+
+#### 2. 对象语法2
+直接绑定对象数据
+
+```
+<div v-bind:class="classObject"></div>
+
+data: {
+  classObject: {
+    cls1: true,
+    cls2: true,
+    'cls3': false
+  }
+}
+```
+
+#### 3. 对象语法3
+绑定一个返回对象的计算属性
+
+```
+<div v-bind:class="classObject"></div>
+
+data: {
+  v1: true,
+  v2: true
 },
-```
-
-
-### 二、vue 组件构成
-* 在工程化项目中， `vue` 通过 `main.js` 把 组件渲染到 `index.html` 的指定区域中
-* 每个 `.vue` 文件都是一个组件，每个组件都由`template、script、style`三部分组成
-
-```
-<template>
-  <div class="test-box">
-    <p> ﹛﹛ count ﹜﹜</p>
-    <button @click="add">+1</button>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
+computed: {
+  classObject: function () {
     return {
-      count: 0
-    }
-  },
-  methods: {
-    add() {
-      this.count += 1;
+      cls1: this.v1 && this.v2,
+      'cls2': this.v2
     }
   }
 }
-</script>
-
-<style lang="less">
-.test-box {
-  background-color: yellow;
-}
-</style>
 ```
+
+
+#### 4. 数组语法1
+可以把一个数组传给 `v-bind:class`
+
+```
+<div v-bind:class="[v1, v2]"></div>
+
+// 数据
+data: {
+  v1: 'cls1',
+  v2: 'cls2'
+}
+
+// 渲染结果
+<div class="cls1 cls2"></div>
+```
+
+#### 5. 数组语法2
+如果想根据条件切换列表中的 class，可以用三元表达式
+
+```
+<!-- 三元表达式 -->
+<div v-bind:class="[v1 ? cls1 : '', cls2]"></div>
+
+<!-- 数组中使用对象语法 -->
+<div v-bind:class="[{ cls1: v1 }, cls2]"></div>
+```
+
+
+
+
+### 二、Style 绑定
+#### 1. 对象语法1
+```
+<div v-bind:style="{ color: v1, fontSize: v2 + 'px' }"></div>
+
+data: {
+  v1: 'red',
+  v2: 30
+}
+```
+
+#### 2. 对象语法2
+```
+<div v-bind:style="styleObject"></div>
+
+data: {
+  styleObject: {
+    color: 'red',
+    fontSize: '13px'
+  }
+}
+```
+
+
+#### 3. 对象语法3
+```
+<div v-bind:style="classObject"></div>
+
+data: {
+  v1: true,
+  v2: 18
+},
+computed: {
+  classObject: function () {
+    return {
+      color: this.v1 ? 'red' : yellow',
+      fontSize: this.v2 + 'px'
+    }
+  }
+}
+```
+
+
+#### 4. 数组语法
+```
+<div v-bind:style="[baseStyles, highStyles]"></div>
+
+data: {
+  baseStyles: {
+    color: 'red',
+    
+  },
+  highStyles: {
+      fontSize: '13px'
+  }
+}
+```
+

@@ -2,10 +2,12 @@
 1. [Vue 指令][vue01]
 1. [Vue 修饰符][vue02]
 1. [Vue 过滤器、计算属性、侦听器][vue03]
-1. [Vue Cli][vue04]
+1. [Vue 属性绑定指令-Class与Style][vue04]
+1. [Vue Cli][vue05]
 
 
 
+[vue05]: https://fgq233.github.io/md/vue/vue05
 [vue04]: https://fgq233.github.io/md/vue/vue04
 [vue01]: https://fgq233.github.io/md/vue/vue01
 [vue02]: https://fgq233.github.io/md/vue/vue02
