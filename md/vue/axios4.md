@@ -18,7 +18,7 @@ controller.abort()
 #### 2. 方式2：使用 CancelToken
 此API自 v0.22.0 起已弃用，不推荐在项目中使用
 
-* 方式①：使用 `axios.CancelToken.source()` --- 取消所有 `cancelToken` 一样的请求
+* 方式①：使用 `axios.CancelToken.source()` ---→ 取消所有 `cancelToken` 一样的请求
 
 ```js
 const source = axios.CancelToken.source();
@@ -41,7 +41,7 @@ source.cancel();
 // source.cancel('请求被取消了~~~');
 ```
 
-*  方式②：使用 `CancelToken` 构造函数 --- 取消单个请求
+*  方式②：使用 `CancelToken` 构造函数 ---→ 取消单个请求
 
 ```js
 const CancelToken = axios.CancelToken;
