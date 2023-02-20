@@ -95,8 +95,7 @@ axios({
 
 
 ### 二、搭配 ES7 中 aysnc、await
-* 因为 axios 返回的结果是`Promise`对象，因此可以在前面加 `await` 直接获取`then()`中的 `response`
-* `await` 只能用在 `async` 修饰的方法中
+`await` 只能用在 `async` 修饰的方法中
  
 ```
 async function init() {
