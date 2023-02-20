@@ -16,7 +16,7 @@ controller.abort()
 
 
 #### 2. 方式2：使用 CancelToken
-此API自 v0.22.0 起已弃用，不应在项目中使用
+此API自 v0.22.0 起已弃用，不推荐在项目中使用
 
 * 方式①：使用 `axios.CancelToken.source()` --- 取消所有 `cancelToken` 一样的请求
 
