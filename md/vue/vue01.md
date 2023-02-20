@@ -107,25 +107,61 @@ var app = new Vue({
 
 
 ### 四、双向数据绑定指令 v-model
-`v-model`指令一般用于获取表单元素数据（`input、textarea、select`）
-* Vue 数据源 data 变化，会重新渲染页面
-* 页面数据变化，会修改 Vue 数据源 data 数据
+* `v-model`指令一般用于获取表单元素数据
+  * `text` 和 `textarea` 元素使用 value property 和 input 事件
+  * `checkbox` 和 `radio` 使用 checked property 和 change 事件
+  * `select` 字段将 value 作为 prop 并将 change 作为事件
+* Vue 数据源 data 变化，会重新渲染页面，页面数据变化，又会修改 Vue 数据源
 
 ```
 <div id="app">
     <p>请输入内容：﹛﹛ msg ﹜﹜</p>
     <input v-model="msg">
+    
+    <!-- 单行文本 -->
+    <p>请输入内容：﹛﹛ msg ﹜﹜</p>
+    <input v-model="msg">
 
+    <!-- 多行文本 -->
+    <textarea v-model="msg"></textarea>
+
+    <!-- 选择框 -->
     <select v-model="city">
+        <option disabled value="">请选择</option>
         <option value="1">上海</option>
         <option value="2">北京</option>
         <option value="3">深圳</option>
     </select>
+    <span>﹛﹛ city ﹜﹜</span>
+
+    <!-- 选择框(多选) -->
+    <select v-model="citys" multiple>
+        <option disabled value="">请选择</option>
+        <option value="1">上海</option>
+        <option value="2">北京</option>
+        <option value="3">深圳</option>
+    </select>
+    <span>﹛﹛ citys ﹜﹜</span>
+
+
+    <!-- 单个复选框，绑定布尔值 -->
+    <input type="checkbox" id="checkbox" v-model="checked"><label for="checkbox">﹛﹛ checked ﹜﹜</label>
+
+    <!-- 多个复选框，绑定到同一个数组 -->
+    <input type="checkbox" id="c1" value="1" v-model="checkedIds"><label for="c1">A</label>
+    <input type="checkbox" id="c2" value="2" v-model="checkedIds"><label for="c2">B</label>
+    <input type="checkbox" id="c3" value="3" v-model="checkedIds"><label for="c3">C</label>
+    <span> ﹛﹛ checkedIds ﹜﹜</span>
+
+    <!-- 单选按钮 -->
+    <input type="radio" id="r1" value="One" v-model="picked"><label for="r1">One</label>
+    <input type="radio" id="r1" value="Two" v-model="picked"><label for="r2">Two</label>
+    <span> ﹛﹛ picked ﹜﹜</span>
 </div>
 
 var app = new Vue({
     el: '#app',
-    data: {msg: '',city: ''}
+    data: { msg: '', city: '', citys: [], checked: false, checkedIds: [], picked: '' },
 })
 ```
 
@@ -169,35 +205,24 @@ var app = new Vue({
 
 
 ### 六、循环渲染指令 v-for
-* `v-for` 指令基于一个数组来渲染列表结构，需要使用 `item in items` 形式的语法
-  * `items` 是待循环的数组
-  * `item` 是当前数组项
-* 如果要使用到当前项索引，可以使用 `(item, index) in items` 形式
-* 优化：官方推荐在使用到循环指令时，绑定一个 `key` 属性，防止列表状态紊乱
-  * 值为字符串或数字类型
-  * 值要唯一，推荐使用业务数据id
-  * 不要使用索引index，因为数组长度若变更的话，这个值不具有唯一性
-
-
-
+基于一个数组来渲染一个列表，需要使用 `item in items` 或 `item of items`形式的语法
+* `items` 是待循环的数组，`item` 是当前数组项
+* 扩展形式
+  * `(item, index) in items`        数组使用，括号内分别为：`当前项、索引`
+  * `(value, key, index) in obj`    对象使用，括号内分别为：`值、键、索引`
+* 优化：官方推荐在使用到循环指令时，绑定一个 `key` 属性，防止列表状态紊乱 
+#### 1. 循环数组
 ```
 <div id="app">
-  <ol>
-    <li v-for="todo in todos" :key="todo.id">﹛﹛ todo.text ﹜﹜</li>
-  </ol>
-
-  <table>
-    <thead>
-      <th>序号</th>
-      <th>姓名</th>
-    </thead>
-    <tbody>
-      <tr v-for="(item, idx) in girls" :id="'tr-' + idx" :title="item.name">
-        <td>﹛﹛ idx + 1 ﹜﹜</td>
-        <td>﹛﹛ item.name ﹜﹜</td>
-      </tr>
-    </tbody>
-  </table>
+  <ul>
+    <li v-for="todo in todos">﹛﹛ todo.text ﹜﹜</li>
+  </ul>
+  
+  <ul>
+    <li v-for="(todo, idx) in todos" :key="todo.id" :attr="'li' + idx" :title="todo.text">
+      ﹛﹛ todo.text ﹜﹜
+    </li>
+  </ul>
 </div>
 
 var app = new Vue({
@@ -207,13 +232,70 @@ var app = new Vue({
       { id: 1, text: "学习 JavaScript" },
       { id: 2, text: "学习 Vue" },
       { id: 3, text: "整个牛项目" },
-    ],
-    girls: [{ name: "小龙女" }, { name: "黄蓉" }, { name: "赵敏" }],
+    ]
   }
 })
 ```
 
- 
+#### 2. 循环对象
+```
+<div id="app">
+  <ul>
+    <li v-for="val in obj">﹛﹛ val ﹜﹜</li>
+  </ul>
+  <ul>
+    <li v-for="(val, key) in obj">﹛﹛ key ﹜﹜ : ﹛﹛ val ﹜﹜</li>
+  </ul>
+  <ul>
+    <li`` v-for="(val, key, index) in obj">﹛﹛ index ﹜﹜ 、 ﹛﹛ key ﹜﹜ : ﹛﹛ val ﹜﹜</li>
+  </ul>
+</div>
+
+var app = new Vue({
+  el: "#app",
+  data: {obj: { name: "fgq" , time: "2022" , age: "18" }}
+})
+```
+
+#### 3. 循环整数
+```
+<div>
+  <span v-for="n in 10">﹛﹛ n ﹜﹜ </span>
+</div>
+```
+
+
+#### 4. 循环模板
+```
+<ul>
+  <template v-for="item in items">
+    <li>﹛﹛ item.msg ﹜﹜</li>
+    <li class="divider" role="presentation"></li>
+  </template>
+</ul>
+```
+
+
+#### 5. v-for 与 v-if 一同使用
+* 当处于同一节点，`v-for` 的优先级比 `v-if` 更高
+* 不处于同一节点，根据先后顺序
+
+```
+<!-- 只为部分数据项渲染节点时 -->
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  ﹛﹛ todo ﹜﹜
+</li>
+
+<!-- 有条件地跳过循环的执行 -->
+<ul v-if="todos.length">
+  <li v-for="todo in todos">
+    ﹛﹛ todo ﹜﹜
+  </li>
+</ul>
+<p v-else>无数据!</p>
+```
+
+
 #### 七. 动态参数
 #### 1. 使用
 * 从 `2.6.0` 开始，可以用方括号括起来的 JavaScript 表达式作为一个指令的参数
