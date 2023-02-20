@@ -36,7 +36,7 @@ axios.get('/user', {
 axios.post('/user', {name: 'fgq'}, {
   cancelToken: source.token
 });
-// 取消请求，可以传递一个参数，该参数可以在 catch 中通过 thrown.message 拿到
+// 取消请求，可以传递一个参数，该参数可以在 catch() 中通过 thrown.message 拿到
 source.cancel();
 // source.cancel('请求被取消了~~~');
 ```
