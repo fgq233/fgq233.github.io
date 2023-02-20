@@ -4,10 +4,20 @@
 [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
 
 ### 一、使用
-#### 1. 创建 axios 实例
+#### 1. 创建 axios 实例使用
+可以在 `create()` 中传入配置项`config`，也可以在`request()`中传入
+
 ```
-const instance = axios.create({
-  url: 'https://api.github.com/users/fgq233'
+// 创建实例
+const instance = axios.create();
+// 使用
+instance.request({
+    method: 'get',
+    url: 'https://api.github.com/users/fgq233'
+}).then(function (response) {
+    console.log(response)
+}).catch(function (error) {
+    console.log(error)
 });
 ```
 
@@ -183,6 +193,3 @@ instance.defaults.headers.common["Authorization"] = AUTH_TOKEN;
 
 
 
-### 二、拦截器 Interceptors
-可以自定义拦截器，在请求或响应被 then 或 catch 处理前拦截它们
-#### 1. 创建 axios 实例
