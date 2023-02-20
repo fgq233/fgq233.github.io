@@ -7,10 +7,10 @@
 #### 1. 使用步骤
 * 导入 `axios`
 * 调用方法发出请求
-  * 通用 `axios.request(config)`
-  * 通用 `axios(configs)`
   * `axios.get(url, configs)`
   * `axios.post(url, data, configs)`
+  * 通用 `axios(configs)`
+  * 通用 `axios.request(config)`
 * 处理结果
 
 

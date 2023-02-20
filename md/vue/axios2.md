@@ -1,29 +1,44 @@
-### axios 实例配置 
+### axios 实例方法
 `axios.create([config])`
 
 [https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
 
 ### 一、使用
-#### 1. 创建 axios 实例使用
-可以在 `create()` 中传入配置项`config`，也可以在`request()`中传入
+* 创建实例
+* 使用实例发出请求
+  * `axios.get(url, configs)`
+  * `axios.post(url, data, configs)`
+  * 通用 `axios(configs)`
+  * 通用 `axios.request(config)`
 
-```
+```js
 // 创建实例
 const instance = axios.create();
-// 使用
-instance.request({
-    method: 'get',
-    url: 'https://api.github.com/users/fgq233'
-}).then(function (response) {
+
+// get
+instance.get(url, configs).then(function (response) {
     console.log(response)
-}).catch(function (error) {
-    console.log(error)
+});
+// post
+instance.post(url, data, configs).then(function (response) {
+    console.log(response)
+});
+
+// 通用
+var configs = {
+  url: 'https://api.github.com/users/fgq233',
+  method: 'get'
+}
+instance(configs).then(function (response) {
+  console.log(response)
+});
+instance.request(configs).then(function (response) {
+    console.log(response)
 });
 ```
 
-#### 2. config 配置详解
-只有 url 是必需的，如果没有指定 method，请求将默认使用 get 方法
-
+### 二、axios 的 config 配置详解
+只有 `url` 是必需的，如果没有指定 `method`，请求将默认使用 `get` 方法
 
 ```
 {
