@@ -1,8 +1,4 @@
 ### axios 实例方法
-`axios.create([config])`
-
-[https://www.npmjs.com/package/axios](https://www.npmjs.com/package/axios)
-
 ### 一、使用
 * 创建实例
 * 使用实例发出请求
