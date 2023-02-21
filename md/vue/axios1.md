@@ -23,8 +23,6 @@
 // 直接在 url 中传递参数
 axios.get('/user?ID=12345').then(function (response) {
 
-}).catch(function (error) {
-
 });
 
 // configs 中通过 params 传递参数
@@ -33,8 +31,6 @@ axios.get('/user', {
         ID: 12345
     }
 }).then(function (response) {
-
-}).catch(function (error) {
 
 });
 
@@ -47,8 +43,6 @@ axios({
     }
 }).then(function (response) {
     
-}).catch(function (error) {
-
 });
 ```
 
@@ -59,8 +53,6 @@ axios({
 // 第二个参数 data 传参
 axios.post('/user', {ID: 12345}).then(function (response) {
 
-}).catch(function (error) {
-
 });
 
 // 通用方法，configs 中使用 data 传参
@@ -69,8 +61,6 @@ axios({
   url: '/user/12345',
   data: {ID: 12345}
 }).then(function (response) {
-
-}).catch(function (error) {
 
 });
 ```
@@ -89,6 +79,26 @@ axios({
   headers: {},      // 服务器响应头
   config: {}        // 为请求提供的配置信息
 }
+```
+
+#### 6. 捕获异常
+```
+axios.get('/user/12345')
+  .catch(function (error) {
+    if (error.response) {
+      // 请求已发出，但服务器响应码不在 2xx范围内
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // 已提出请求，但未收到响应
+      console.log(error.request);
+    } else {
+      // 请求时触发了错误，请求未能发出去
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });
 ```
 
 
