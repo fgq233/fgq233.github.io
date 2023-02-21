@@ -1,4 +1,8 @@
 1. [webpack 前端工程化][webpack]
+1. [axios-1 get post请求][axios1]
+1. [axios-2 实例方法][axios2]
+1. [axios-3 拦截器][axios3]
+1. [axios-4 取消请求][axios4]
 1. [Vue 指令][vue01]
 1. [Vue 修饰符][vue02]
 1. [Vue 过滤器、计算属性、侦听器][vue03]
@@ -15,5 +19,9 @@
 [vue02]: https://fgq233.github.io/md/vue/vue02
 [vue03]: https://fgq233.github.io/md/vue/vue03
 [webpack]: https://fgq233.github.io/md/vue/webpack
+[axios1]: https://fgq233.github.io/md/vue/axios1
+[axios2]: https://fgq233.github.io/md/vue/axios2
+[axios3]: https://fgq233.github.io/md/vue/axios3
+[axios4]: https://fgq233.github.io/md/vue/axios4
 
  
