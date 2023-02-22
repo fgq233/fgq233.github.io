@@ -27,7 +27,7 @@ var app = new Vue({
 ### 二、属性绑定指令 v-bind
 `v-bind`指令为元素属性动态绑定值，可简写为 `:`
 
-```
+```html
 <div id="app">
     <p :title="msg">简写</p>
     <p v-bind:title="msg">属性绑定指令</p>
