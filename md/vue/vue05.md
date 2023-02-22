@@ -33,7 +33,7 @@ vue ui
 
 #### 4. 启动项目
 * `package.json` 中默认定义了2个`scripts`，一个用于开发阶段，一个用于正式打包
-* 启动命令 `npm run serve` 
+* `npm run serve` 启动 
 * 启动成功，通过 [http://localhost:8080](http://localhost:8080) 访问
 
 ```
