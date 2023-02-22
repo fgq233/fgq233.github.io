@@ -6,7 +6,7 @@
 * `v-html` 把包含`html`标签的字符串渲染为页面的`html`元素
 
 
-```
+```html
 <div id="app">
     <p v-text="name"></p>
     <p>性别：﹛﹛sex﹜﹜</p>
