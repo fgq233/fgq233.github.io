@@ -43,8 +43,8 @@ export default {
 
 * 指令名: bg，通过 v-bg 指令使用
 * `bind` 方法，当指令第一次绑定到元素上，触发 `bind` 方法
-  * 形参 `el`，表示当前指令锁绑定到的 DOM 对象
-  * 形参 `binding`，使用指令时绑定的值
+  * 形参 `el`，当前指令锁绑定到的 DOM 对象
+  * 形参 `binding`，绑定内容，可以通过 `binding.value` 拿到传过来的值
 
 ![](https://fgq233.github.io/imgs/vue/vue5.png)
 
