@@ -127,7 +127,7 @@ export default {
 ```
 
 
-#### 2. 通过 Prop 向子组件传递数据
+#### 2. 通过 prop 向组件传递数据
 ```
 <Counter title="标题"></Counter>
 ```
