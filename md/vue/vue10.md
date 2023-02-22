@@ -50,6 +50,7 @@ export default {
 ```
 
 直接使用`keep-alive`把动态组件包裹起来，这样就实现了组件的缓存
+
 ![](https://fgq233.github.io/imgs/vue/vue4.png)
 
 
