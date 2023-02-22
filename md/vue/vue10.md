@@ -27,7 +27,7 @@ export default {
 </script>
 ```
 
-* 给`<component>`组件定义一个`is`属性，该属性时要渲染的组件的名字`name`
+* 给`<component>`组件定义一个`is`属性，该属性是要渲染的组件的名字`name`
 * 使用`v-bind`指令动态绑定该属性，当属性值变更时，组件会动态切换
 
 
