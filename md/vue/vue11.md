@@ -41,7 +41,7 @@
 </template>
 ```
 
-#### 4. v-slot指令---填充到指定插槽 
+#### 4. v-slot指令填充到指定插槽 
 ```
 <template>
   <div id="app">
