@@ -13,6 +13,9 @@
 
 
 
+[vue10]: https://fgq233.github.io/md/vue/vue10
+[vue09]: https://fgq233.github.io/md/vue/vue09
+[vue08]: https://fgq233.github.io/md/vue/vue08
 [vue07]: https://fgq233.github.io/md/vue/vue07
 [vue06]: https://fgq233.github.io/md/vue/vue06
 [vue05]: https://fgq233.github.io/md/vue/vue05
