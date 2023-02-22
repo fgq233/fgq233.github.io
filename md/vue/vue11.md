@@ -84,17 +84,17 @@
 使用1
 <AlertBox>
     <template #x="obj">
-      <p>{{ obj }}</p>
-      <p>{{ obj.msg }}</p>
-      <p>{{ obj.info }}</p>
+      <p>﹛﹛ obj ﹜﹜</p>
+      <p>﹛﹛ obj.msg ﹜﹜</p>
+      <p>﹛﹛ obj.info ﹜﹜</p>
     </template>
 </AlertBox>
 
 使用2：解构赋值
 <AlertBox>
   <template #x="{ msg, info }">
-    <p>{{ msg }}</p>
-    <p>{{ info }}</p>
+    <p>﹛﹛ msg ﹜﹜</p>
+    <p>﹛﹛ info ﹜﹜</p>
   </template>
 </AlertBox>
 ```

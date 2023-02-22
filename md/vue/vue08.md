@@ -7,7 +7,7 @@
 #### 1. 子组件 Son
 ```
 <template>
-  <p>{{ msg }}</p>
+  <p>﹛﹛ msg ﹜﹜</p>
 </template>
 
 <script>

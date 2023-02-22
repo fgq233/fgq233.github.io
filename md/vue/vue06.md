@@ -11,7 +11,7 @@ Vue.component('Counter', {
       count: 0
     }
   },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+  template: '<button v-on:click="count++">You clicked me ﹛﹛ count ﹜﹜ times.</button>'
 })
 ```
  
@@ -28,7 +28,7 @@ Vue.component('Counter', {
 ```
 <template>
   <div class="container">
-    <p> {{ count }}</p>
+    <p> ﹛﹛ count ﹜﹜</p>
     <button @click="count++">+1</button>
   </div>
 </template>
