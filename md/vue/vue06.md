@@ -110,7 +110,7 @@ export default {
 
 ### 三、 组件的属性 props
 #### 1. 自定义属性
-* `props` 节点中定义的是组件的自定义属性，如下定义了一个 initVal 属性
+* `props` 节点中定义的是组件的自定义属性，如下定义了一个 title 属性
 * 属性中可以声明默认值 `default`、属性值的类型 `type`、必填项校验 `required`
 
 ```
