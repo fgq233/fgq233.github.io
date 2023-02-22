@@ -8,10 +8,12 @@
 1. [Vue 过滤器、计算属性、侦听器][vue03]
 1. [Vue 属性绑定指令-Class与Style][vue04]
 1. [Vue Cli][vue05]
-1. [Vue 组件的生命周期][vue06]
+1. [Vue 组件基础][vue06]
+1. [Vue 组件的生命周期][vue07]
 
 
 
+[vue07]: https://fgq233.github.io/md/vue/vue07
 [vue06]: https://fgq233.github.io/md/vue/vue06
 [vue05]: https://fgq233.github.io/md/vue/vue05
 [vue04]: https://fgq233.github.io/md/vue/vue04
