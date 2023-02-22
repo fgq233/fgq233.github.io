@@ -14,6 +14,7 @@
 1. [Vue ref使用][vue09]
 1. [Vue 动态组件][vue10]
 1. [Vue 插槽][vue11]
+1. [Vue 自定义指令][vue12]
 
 
 
