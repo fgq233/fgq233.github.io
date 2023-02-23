@@ -66,7 +66,7 @@ export default {
 
 
 ### 二、 组件的注册、使用
-#### 1. 全局组件
+#### 1. 全局注册
 通过 Vue.component 注册的组件，就是全局组件
 
 ```
@@ -77,7 +77,7 @@ Vue.component("Counter", Counter);
 ```
 
 
-#### 2. 私有组件
+#### 2. 局部注册
 * 在一个组件中，在`components`节点下注册的组件就是局部组件
   * 先 `import` 导入组件
   * 再在 `components` 节点下注册
@@ -96,7 +96,48 @@ export default {
 </script>
 ```
 
-#### 3. 组件的使用
+#### 3. 自动化全局注册
+* 对于一些通用组件，如果用到的地方很多，每个都全局注册一次太过于麻烦
+* 在`webpack`工程化项目中，可以使用 `require.context` 在入口文件(`src/main.js`)全局注册这些通用的基础组件
+
+```js
+import Vue from 'vue'
+import upperFirst from 'lodash/upperFirst'
+import camelCase from 'lodash/camelCase'
+
+const requireComponent = require.context(
+  './components',                // 组件目录的相对路径
+  false,                         // 是否查询其子目录
+  /Base[A-Z]\w+\.(vue|js)$/     // 匹配基础组件文件名的正则表达式
+)
+
+requireComponent.keys().forEach(fileName => {
+  // 获取组件配置
+  const componentConfig = requireComponent(fileName)
+
+  // 获取组件的 PascalCase 命名
+  const componentName = upperFirst(
+    camelCase(
+      // 获取和目录深度无关的文件名
+      fileName
+        .split('/')
+        .pop()
+        .replace(/\.\w+$/, '')
+    )
+  )
+
+  // 全局注册组件
+  Vue.component(
+    componentName,
+    // 如果这个组件选项是通过 `export default` 导出的，
+    // 那么就会优先使用 .default,否则回退到使用模块的根
+    componentConfig.default || componentConfig
+  )
+})
+```
+
+
+#### 4. 组件的使用
 在 `template` 中，以标签的形式使用组件
 
 ```
@@ -150,3 +191,24 @@ export default {
 }
 </script>
 ```
+
+#### 4. 注意事项
+* 不要修改组件的 prop，不过可以将其赋给data数据源、或计算属性computed
+```
+props: ['initTitle'],
+data: function () {
+  return {
+    title: this.initTitle
+  }
+},
+computed: {
+  lowerTitle: function () {
+    return this.initTitle.trim().toLowerCase()
+  }
+}
+```
+
+* 一个非`prop`的`attribute`传向组件，但是该组件并没有相应`prop`，那么这些`attribute`会被添加到这个组件的**根元素**上
+
+* 对于绝大多数`attribute`，从外部提供给组件的值会**替换**掉组件内部设置好的值，但是`class`和`style`会智能一些，
+两边的值会被**合并**起来

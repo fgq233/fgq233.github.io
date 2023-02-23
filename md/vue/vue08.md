@@ -45,14 +45,14 @@ export default {
 * 子组件可以通过调用内置的 `$emit` 方法，传入事件名称来触发一个事件
 * `$emit()` 方法可以接收2个参数
   * `$emit(事件名称)`  触发一个事件
-  * `$emit(事件名称, 值)` 触发一个事件，并传出一个值
+  * `$emit(事件名称, 值)` 触发一个事件，并抛出一个值
   * 在父级组件监听这个事件的时候，可以通过 `$event` 访问到被抛出的这个值
 
 #### 1. 父组件 
 ```
 <template>
   <div id="app">
-    <Son @sonEvent="getValBySon"></Son>
+    <Son @son-event="getValBySon"></Son>
   </div>
 </template>
 
@@ -60,7 +60,7 @@ export default {
 
 export default {
   methods: {
-    getValBySon(event) {  // 没有传参时，$event 为默认的第一个形参，即子组件传来的值
+    getValBySon(event) {  // 第一个参数即 $emit 抛出的值
       console.log(event)
     }
   }
@@ -81,7 +81,7 @@ export default {
 export default {
   methods: {
     send() {
-      this.$emit('sonEvent', 666);
+      this.$emit('son-event', 666);
     }
   }
 }
@@ -129,7 +129,7 @@ import bus from './eventBus.js'
 export default {
   methods: {
     send() {
-      bus.$emit('shareEvent', 666);
+      bus.$emit('share-event', 666);
     }
   }
 }
@@ -149,7 +149,7 @@ import bus from './eventBus.js'
 
 export default {
   created() {
-    bus.$on('shareEvent', (val) => {
+    bus.$on('share-event', (val) => {
       console.log(val);;
     })
   }
