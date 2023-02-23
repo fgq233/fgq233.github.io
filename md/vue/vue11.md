@@ -99,3 +99,15 @@
   </template>
 </AlertBox>
 ```
+
+
+#### 7. 动态插槽名
+动态指令参数也可以用在 v-slot 上，来定义动态的插槽名
+
+```
+<AlertBox>
+  <template v-slot:[dynamicSlotName]>
+    ...
+  </template>
+</AlertBox>
+```
