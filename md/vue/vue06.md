@@ -98,7 +98,7 @@ export default {
 
 #### 3. 自动化全局注册
 * 对于一些通用组件，如果用到的地方很多，每个都全局注册一次太过于麻烦
-* 对于`webpack`工程化项目，可以使用 `require.context` 在入口文件(`src/main.js`)全局注册这些通用的基础组件
+* 在`webpack`工程化项目中，可以使用 `require.context` 在入口文件(`src/main.js`)全局注册这些通用的基础组件
 
 ```js
 import Vue from 'vue'
