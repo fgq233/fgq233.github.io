@@ -52,7 +52,7 @@ export default {
 ```
 <template>
   <div id="app">
-    <Son @sonEvent="getValBySon"></Son>
+    <Son @son-event="getValBySon"></Son>
   </div>
 </template>
 
@@ -81,7 +81,7 @@ export default {
 export default {
   methods: {
     send() {
-      this.$emit('sonEvent', 666);
+      this.$emit('son-event', 666);
     }
   }
 }
@@ -129,7 +129,7 @@ import bus from './eventBus.js'
 export default {
   methods: {
     send() {
-      bus.$emit('shareEvent', 666);
+      bus.$emit('share-event', 666);
     }
   }
 }
@@ -149,7 +149,7 @@ import bus from './eventBus.js'
 
 export default {
   created() {
-    bus.$on('shareEvent', (val) => {
+    bus.$on('share-event', (val) => {
       console.log(val);;
     })
   }
