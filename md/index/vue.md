@@ -10,11 +10,12 @@
 1. [Vue Cli][vue05]
 1. [Vue 组件基础][vue06]
 1. [Vue 组件的生命周期][vue07]
-1. [Vue 组件之间传值][vue08]
-1. [Vue ref使用][vue09]
-1. [Vue 动态组件][vue10]
-1. [Vue 插槽][vue11]
-1. [Vue 自定义指令][vue12]
+1. [Vue 自定义事件][vue08]
+1. [Vue 组件之间传值][vue09]
+1. [Vue ref使用][vue10]
+1. [Vue 动态组件][vue11]
+1. [Vue 插槽][vue12]
+1. [Vue 自定义指令][vue13]
 
 
 
