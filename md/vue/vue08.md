@@ -45,7 +45,7 @@ export default {
 * 子组件可以通过调用内置的 `$emit` 方法，传入事件名称来触发一个事件
 * `$emit()` 方法可以接收2个参数
   * `$emit(事件名称)`  触发一个事件
-  * `$emit(事件名称, 值)` 触发一个事件，并传出一个值
+  * `$emit(事件名称, 值)` 触发一个事件，并抛出一个值
   * 在父级组件监听这个事件的时候，可以通过 `$event` 访问到被抛出的这个值
 
 #### 1. 父组件 
@@ -60,7 +60,7 @@ export default {
 
 export default {
   methods: {
-    getValBySon(event) {  // 没有传参时，$event 为默认的第一个形参，即子组件传来的值
+    getValBySon(event) {  // 第一个参数即 $emit 抛出的值
       console.log(event)
     }
   }
