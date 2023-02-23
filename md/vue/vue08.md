@@ -82,7 +82,7 @@ export default {
 `model`选项可以手动指定`v-model`要利用到的`prop、event`
 * ① 使用`model`选项声明`v-model`要利用的`prop、event`
 * ② 在组件的`props`属性里定义`model`选项中声明的`prop`，并将其绑定到对应属性上
-* ③ 在其`input`事件被触发时，将新的值通过自定义事件抛出
+* ③ 在其`input`事件被触发时，将新的值通过`$emit()`自定义事件抛出
 
 ```
 <template>
