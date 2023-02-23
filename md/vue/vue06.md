@@ -191,3 +191,24 @@ export default {
 }
 </script>
 ```
+
+#### 4. 注意事项
+* 不要修改组件的 prop，不过可以将其赋给data数据源、或计算属性computed
+```
+props: ['initTitle'],
+data: function () {
+  return {
+    title: this.initTitle
+  }
+},
+computed: {
+  lowerTitle: function () {
+    return this.initTitle.trim().toLowerCase()
+  }
+}
+```
+
+* 一个非`prop`的`attribute`传向组件，但是该组件并没有相应`prop`，那么这些`attribute`会被添加到这个组件的**根元素**上
+
+* 对于绝大多数`attribute`，从外部提供给组件的值会**替换**掉组件内部设置好的值，但是`class`和`style`会智能一些，
+两边的值会被**合并**起来
