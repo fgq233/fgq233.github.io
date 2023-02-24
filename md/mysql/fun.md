@@ -5,7 +5,7 @@ lower(str)     转小写
 upper(str)     转大写
 
 char_length(str)  字符长度，类似Oracle的length
-length(str)       字节长度，类似Oracle lengthb
+length(str)       字节长度，类似Oracle lengthb，utf8格式采用3个byte定义一个汉字、ZHS16GBK格式采用2个byte定义一个汉字
 
 concat(s1, s2, ... sn)                 字符串拼接，参数可以是字符串、数字
 concat_ws(separator, s1, s2, ... sn)   字符串拼接(含分隔符)
