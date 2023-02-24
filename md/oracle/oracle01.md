@@ -5,8 +5,8 @@ lower(str)     转小写
 upper(str)    转大写
 initcap(str)   所有单词首字母转大写，其它全部小写
 
-length   字符串的字符长度，汉字在length时返回的时1
-lengthb  字符串的字节长度，utf8格式采用3个byte定义一个汉字、ZHS16GBK格式采用2个byte定义一个汉字
+length   字符长度，汉字在length时返回的时1
+lengthb  字节长度，utf8格式采用3个byte定义一个汉字、ZHS16GBK格式采用2个byte定义一个汉字
 
 substr(str, start)       从起始位置start开始截取，截取到最后
 substr(str, start, n)    从起始位置start开始截取，截取n个字符
