@@ -1,118 +1,105 @@
-### vue-router 入门
+### vue-router 动态路由
 [官方文档](https://router.vuejs.org/zh/installation.html)
  
-### 一、安装
+* 很多时候，需要将给定匹配模式的路由映射到`同一个组件`
+* 例如，我们可能有一个 User 组件，它应该对所有用户进行渲染，但用户 ID 不同
+* 在`Vue Router`中，可以在路径中使用一个动态字段来实现，称之为**路径参数**
+ 
+ 
+### 一、动态路由
+#### 1. 路由规则中定义路径参数
 ```
-npm install vue-router@4
-or
-yarn add vue-router@4
+const routes = [
+  { path: '/users/:uid', component: User },
+]
 ```
 
+* 用冒号表示路径参数 `:id`
+* 现在像 `/users/fgq` 和 `/users/ym` 这样的 URL 都会映射到同一个路由
+* 当一个路由被匹配时，它的 `params` 的值将在每个组件中以 `this.$route.params` 的形式暴露出来
 
-### 二、组件 App.vue
+#### 2. User.vue
 ```
 <template>
-    <div id="app">
-      <p>
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
-      </p>
-      
-      <router-view></router-view>
-    </div>
+  <div>
+    <h3> {{ $route.params.uid }} </h3>
+    <button @click="showParams">打印路径参数</button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  methods: {
+    showParams() {
+      console.log(this.$route.params)
+    }
+  }
 }
 </script>
 ```
 
-* 使用自定义组件 `router-link` 来创建链接，这使得`Vue Router`可以在不重新加载页面的情况下更改 URL，
-处理 URL 的生成以及编码
-* `router-view` 将显示与 url 对应的组件，类似动态组件
-
-### 二、使用 Vue2.X + Vue Router 3.X
-#### 1.创建路由模块
-* 推荐把路由模块抽取为一个单独的 js，然后导出
-* 对于模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter) 安装插件
+#### 3. 开启 props 传参
+* 路由规则中 `props: true` 开启props 传参
+* 组件中定义 `props` 参数接收路径参数
 
 ```
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-// 1. 导入组件
-import Home from '@/components/Home.vue'
-import About from '@/components/About.vue'
-
-// 2、安装插件
-Vue.use(VueRouter)
-
-// 3. 定义路由和组件对应关系
 const routes = [
-  { path: '/', component: Home },
-  { path: '/home', component: Home },
-  { path: '/about', component: About },
+  { path: '/users/:uid', component: User, props: true},
 ]
-
-// 4. 创建路由实例对象，然后传 routes 配置
-const router = new VueRouter({
-  routes     
-})
-
-export default router
 ```
 
-
-
-#### 2. 单页面应用入口 main.js
 ```
-import Vue from "vue";
-import App from "./App.vue";
-import router from "@/router/index.js";
-
-// 创建并挂载根实例
-new Vue({
-  render: (h) => h(App),
-  router,
-}).$mount("#app");
+export default {
+  props: ['uid']
+}
 ```
 
+#### 4. 多个路径参数
+可以在同一个路由中设置有多个路径参数，它们会映射到 `$route.params` 上的相应字段
+
+| 匹配模式   | 匹配路径         | `$route.params` |
+| ------ | ----------| ---- |
+| /users/:uid | /users/666 | { uid: '666' } |
+| /users/:uid/posts/:pid | /users/666/posts/123 | { uid: '666', pid: '123' } |
 
 
 
-### 三、使用 Vue3.X + Vue Router 4.X
-#### 1.创建路由模块 
-Vue Router 4.X 和 Vue Router 3.X创建路由实例对象方式有所改变
-
-```
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-// 1. 导入组件
-// 2. 安装插件
-// 3. 定义路由和组件对应关系
-
-// 4. 创建路由实例对象，然后传 routes 配置
-const router = VueRouter.createRouter({
-  routes,
-})
-
-export default router
-```
-
-
-
-#### 2. 单页面应用入口 main.js
-Vue 3.X 和 Vue 2.X 创建根实例方式有所改变
+#### 4. 响应路由参数的变化
+* 使用带有参数的路由时需要注意的是，当用户从 /users/666 导航到 /users/888 时，
+相同的组件实例将被重复使用，不过这也意味着组件的生命周期钩子不会被调用
+* 要对同一个组件中参数的变化做出响应的话，可以使用侦听器监听 `$route` 对象上的任意属性
 
 ```
-import Vue from "vue";
-import App from "./App.vue";
-import router from "@/router/index.js";
-
-const app = Vue.createApp({})
-app.use(router)
-app.mount('#app')
+<script>
+export default {
+  created() {
+    this.$watch(
+      () => this.$route.params,
+      (newParams, preParams) => {
+        // 对路由变化做出响应...
+      }
+    )
+  }
+}
+</script>
 ```
+ 
+ 
+#### 5. 捕获所有路由
+```
+{path: '*'}            // 会匹配所有路径
+
+{path: '/user-*'}      // 会匹配以 /user- 开头的任意路径
+
+{path: '/user/*'}      // 会匹配以 /user/ 开头的任意路径
+```
+
+* 常规参数只会匹配被 / 分隔的 URL 片段中的字符。如果想匹配任意路径，可以使用通配符 (*)
+* 使用通配符路由时，确保路由的顺序是正确的，通常含有通配符的路由应该放在最后
+* 路由 `{ path: '*' }` 通常用于客户端 404 错误
+
+
+#### 6. 匹配优先级
+同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：`定义得越早，优先级就越高`
+
+
