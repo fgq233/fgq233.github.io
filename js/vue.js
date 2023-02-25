@@ -19,8 +19,17 @@ const vueList2 = [
     
 ];
 
-const vueList3 = [
 
+const vueList3 = [
+    {url: "https://fgq233.github.io/md/vue/router1", title: "Vue-Router 前端路由原理"},
+    {url: "https://fgq233.github.io/md/vue/router2", title: "Vue-Router 入门"},
+    {url: "https://fgq233.github.io/md/vue/router3", title: "Vue-Router 动态路由"},
+    {url: "https://fgq233.github.io/md/vue/router4", title: "Vue-Router 嵌套路由"},
+    {url: "https://fgq233.github.io/md/vue/router5", title: "Vue-Router 命名路由与编程式导航"},
+    {url: "https://fgq233.github.io/md/vue/router6", title: "Vue-Router 命名视图"},
+    {url: "https://fgq233.github.io/md/vue/router7", title: "Vue-Router 重定向和别名"},
+    {url: "https://fgq233.github.io/md/vue/router8", title: "Vue-Router History 模式"},
+    {url: "https://fgq233.github.io/md/vue/router9", title: "Vue-Router 导航守卫"},
 ];
 
 

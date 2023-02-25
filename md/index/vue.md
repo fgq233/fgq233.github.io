@@ -16,15 +16,20 @@
 1. [Vue 动态组件][vue11]
 1. [Vue 插槽][vue12]
 1. [Vue 自定义指令][vue13]
+1. [Vue-Router 前端路由原理][router1]
+1. [Vue-Router 入门][router2]
+1. [Vue-Router 动态路由][router3]
+1. [Vue-Router 嵌套路由][router4]
+1. [Vue-Router 命名路由与编程式导航][router5]
+1. [Vue-Router 命名视图][router6]
+1. [Vue-Router 重定向和别名][router7]
+1. [Vue-Router History 模式][router8]
+1. [Vue-Router 导航守卫][router9]
 
 
  
 
 
-[vue18]: https://fgq233.github.io/md/vue/vue18
-[vue17]: https://fgq233.github.io/md/vue/vue17
-[vue16]: https://fgq233.github.io/md/vue/vue16
-[vue15]: https://fgq233.github.io/md/vue/vue15
 [vue14]: https://fgq233.github.io/md/vue/vue14
 [vue13]: https://fgq233.github.io/md/vue/vue13
 [vue12]: https://fgq233.github.io/md/vue/vue12
@@ -44,5 +49,13 @@
 [axios2]: https://fgq233.github.io/md/vue/axios2
 [axios3]: https://fgq233.github.io/md/vue/axios3
 [axios4]: https://fgq233.github.io/md/vue/axios4
-
+[router1]: https://fgq233.github.io/md/vue/router1
+[router2]: https://fgq233.github.io/md/vue/router2
+[router3]: https://fgq233.github.io/md/vue/router3
+[router4]: https://fgq233.github.io/md/vue/router4
+[router5]: https://fgq233.github.io/md/vue/router5
+[router6]: https://fgq233.github.io/md/vue/router6
+[router7]: https://fgq233.github.io/md/vue/router7
+[router8]: https://fgq233.github.io/md/vue/router8
+[router9]: https://fgq233.github.io/md/vue/router9
  

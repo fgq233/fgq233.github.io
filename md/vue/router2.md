@@ -36,7 +36,7 @@ export default {
 
 
 
-### 三、使用 Vue2.X + Vue Router 3.X
+### 三、Vue2.X + Vue Router 3.X
 #### 1.创建路由模块
 * 推荐把路由模块抽取为一个单独的 js，然后导出
 * 对于模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter) 安装插件
@@ -85,13 +85,14 @@ new Vue({
 
 
 
-### 四、使用 Vue3.X + Vue Router 4.X
+### 四、Vue3.X + Vue Router 4.X
 #### 1.创建路由模块 
-Vue Router 4.X 和 Vue Router 3.X创建路由实例对象方式有所改变
+* 4.X 的Vue Router 不再是一个类，而是一组函数
+* 4.X 创建路由实例对象方式有所改变
 
 ```
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter } from 'vue-router'
 
 // 1. 导入组件
 // 2. 安装插件
