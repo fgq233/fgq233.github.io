@@ -70,7 +70,7 @@ export default router
 ```
 import Vue from "vue";
 import App from "./App.vue";
-import router from "@/router";
+import router from "@/router/index.js";
 
 // 创建并挂载根实例
 new Vue({
@@ -110,7 +110,7 @@ Vue 3.X 和 Vue 2.X 创建根实例方式有所改变
 ```
 import Vue from "vue";
 import App from "./App.vue";
-import router from "@/router";
+import router from "@/router/index.js";
 
 const app = Vue.createApp({})
 app.use(router)
