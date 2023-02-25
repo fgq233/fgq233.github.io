@@ -32,7 +32,7 @@ function initBlog() {
                 divHtml += `<ol>`;
             }
 
-            if (item.child.length) {
+            if (item.child && item.child.length) {
                 divHtml += `<li><h5>${item.title}</h5>`;
                 item.child.map((childItem, idx) => {
                     if (idx === 0) {
