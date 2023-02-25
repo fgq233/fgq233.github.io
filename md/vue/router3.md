@@ -8,6 +8,7 @@ or
 yarn add vue-router@4
 ```
 
+
 ### 二、组件 App.vue
 ```
 <template>
@@ -32,11 +33,7 @@ export default {
 处理 URL 的生成以及编码
 * `router-view` 将显示与 url 对应的组件，类似动态组件
 
-
-
-
-
-### 三、使用 Vue2.X + Vue Router 3.X
+### 二、使用 Vue2.X + Vue Router 3.X
 #### 1.创建路由模块
 * 推荐把路由模块抽取为一个单独的 js，然后导出
 * 对于模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter) 安装插件
@@ -85,7 +82,7 @@ new Vue({
 
 
 
-### 四、使用 Vue3.X + Vue Router 4.X
+### 三、使用 Vue3.X + Vue Router 4.X
 #### 1.创建路由模块 
 Vue Router 4.X 和 Vue Router 3.X创建路由实例对象方式有所改变
 
