@@ -16,8 +16,11 @@ const routes = [
 
 * 用冒号表示路径参数 `:id`
 * 现在像 `/users/fgq` 和 `/users/ym` 这样的 URL 都会映射到同一个路由
-* 当一个路由被匹配时，它的`路径参数`的值(`/user/666`)将在每个组件中以 `this.$route.params` 的形式暴露出来
-* 当一个路由被匹配时，它的`查询参数`的值(`/usr?id=666`)将在每个组件中以 `this.$route.query` 的形式暴露出来
+* 当一个路由被匹配时，它的相关参数将在每个组件中存储在 `this.$route` 中
+  * 完整路径 `this.$route.fullPath`，如 /user/666?name=fgq
+  * 路径 `this.$route.path`，如 /user
+  * 路径参数 `this.$route.params`，如 {uid: 666}
+  * 查询参数 `this.$route.query`，如 {name: fgq}
 
 #### 2. User.vue
 ```
@@ -32,7 +35,7 @@ const routes = [
 export default {
   methods: {
     showParams() {
-      console.log(this.$route.params)
+      console.log(this.$route)
     }
   }
 }
