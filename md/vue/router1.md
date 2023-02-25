@@ -14,7 +14,7 @@
   <div>
     <a href="#/home">首页</a>
     <a href="#/info">资讯</a>
-    <a href="#/mine">我</a>
+    <a href="#/mine">我的</a>
     
     <component :is="comName"></component>
   </div>
@@ -57,4 +57,6 @@ export default {
 </script>
 ```
 
-当前的 App 组件一被创建，就立即监听 `window` 对象的 `onhashchange` 事件
+* 当前的 App 组件一被创建，就立即监听 `window` 对象的 `onhashchange` 事件
+* 点击a标签，URL地址栏的`Hash值`发生变化，替换动态组件中的组件
+
