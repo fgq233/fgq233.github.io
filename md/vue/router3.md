@@ -43,12 +43,20 @@ export default {
 ```
 
 #### 3. 开启 props 传参
-* 路由规则中 `props: true` 开启props 传参
-* 组件中定义 `props` 参数接收路径参数
+* 路由规则中 `props: true` 开启props 传参，组件中定义 `props` 参数接收路径参数
+* 对于有命名视图的路由，需要为每个命名视图定义 props 选项
 
 ```
 const routes = [
   { path: '/users/:uid', component: User, props: true},
+]
+
+const routes = [
+  {
+    path: '/user/:uid',
+    components: { default: User, sidebar: Sidebar },
+    props: { default: true, sidebar: false }
+  }
 ]
 ```
 
