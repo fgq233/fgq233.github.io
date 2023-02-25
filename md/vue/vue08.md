@@ -50,9 +50,7 @@ export default {
 
 
 
-### 二、自定义事件与 v-model 
-自定义事件也可以用于创建支持 v-model 的自定义输入组件
-
+### 二、在自定义组件上使用 v-model
 #### 1.  v-model 本质
 一个组件上的 `v-model` 默认会利用名为 **value** 的属性和名为 **input** 的事件
 * `text、textarea` 元素使用 value 属性 和 input 事件
@@ -67,28 +65,17 @@ export default {
 
 
 #### 2. 在自定义组件上使用 v-model
-如下是一个自定义组件 `<custom-input>`，直接在上面使用 `v-model`是无效的，因为其本身没有属性和事件
+* 如果自定义组件根节点不是表单元素，直接在上面使用 `v-model`往往是无效的，因为其本身没有属性和事件
+*  `model`选项可以手动指定`v-model`要利用到的`prop、event`
+   * ① 使用`model`选项声明`v-model`要利用的`prop、event`
+   * ② 在组件的`props`属性里定义`model`选项中声明的`prop`，并将其绑定到对应属性上
+   * ③ 在其`input`事件被触发时，将新的值通过`$emit()`自定义事件抛出
 
 ```
 <template>
   <div>
     <p>自定义的输入框</p>
-    <input>
-  </div>
-</template>
-```
-
-#### 3. model选项
-`model`选项可以手动指定`v-model`要利用到的`prop、event`
-* ① 使用`model`选项声明`v-model`要利用的`prop、event`
-* ② 在组件的`props`属性里定义`model`选项中声明的`prop`，并将其绑定到对应属性上
-* ③ 在其`input`事件被触发时，将新的值通过`$emit()`自定义事件抛出
-
-```
-<template>
-  <div class="right-container">
-    <p>自定义的输入框</p>
-    <input :value="val" @input="$emit('my-event', $event.target.value)">
+    <input :value="txt" @input="$emit('my-event', $event.target.value)">
   </div>
 </template>
 
@@ -105,22 +92,46 @@ export default {
 ```
 
 
-现在在这个自定义组件上使用`v-model`就正常了： `<custom-input v-model="xxx"></custom-input>`
+现在在这个自定义组件上使用`v-model`就正常了
 
 
 
 
-### 三、将原生事件绑定到组件
+### 三、将原生事件绑定到自定义组件
+* 如果自定义组件根节点没有原生事件，直接在上面使用 `v-on`往往是无效的
+* Vue 提供了一个 `$listeners` 属性，它是一个对象，里面包含了父组件作用在子组件上的所有监听器
+* 使用 `$listeners` 配合 `v-on="$listeners"` 将所有的事件监听器指向自定义组件的对应子元素
 
 
+```
+<template>
+  <div>
+    <p>自定义的输入框</p>
+    <input v-bind="$attrs" v-bind:value="value" v-on="inputListeners">
+  </div>
+</template>
 
+<script>
 
-### 四、.sync 修饰符
+export default {
+  inheritAttrs: false,    // 禁用 Attribute 继承
+  props: ['value'],
+  computed: {
+    inputListeners: function () {
+      var vm = this
+      return Object.assign({},      // 将所有的监听对象合并为一个新对象
+        this.$listeners,            // 从父级添加所有的监听器
+        {                           // 自定义的监听器或覆写一些监听器的默认行为
+          input: function (event) {
+            vm.$emit('input', event.target.value)
+          }
+        }
+      )
+    }
+  }
+}
+</script>
+```
 
-
-
-
-
-
-
-
+现在在这个自定义组件上所有跟 `<input>` 元素相同的 attribute 和监听器都可以正常工作了
+ 
