@@ -4,7 +4,7 @@
 * [Oracle][oracle]
 * [MySQL][mysql]
 * [JS][js]
-* [Vue][vue]
+* [Vue][vueHtml]                           [~][vueMd]
 * Android
 * React Native
 * [Windows][win]
@@ -19,4 +19,5 @@
 [mysql]: https://fgq233.github.io/md/index/mysql
 [win]: https://fgq233.github.io/md/index/win
 [mode]: https://fgq233.github.io/md/index/mode
-[vue]: https://fgq233.github.io/md/index/vue
+[vueHtml]: https://fgq233.github.io/html/blog?key=vue
+[vueMd]: https://fgq233.github.io/md/index/vue

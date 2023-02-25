@@ -14,6 +14,11 @@ function initBlog() {
         blogList2 = javaList2;
         blogList3 = javaList3;
         blogList4 = javaList4;
+    } else if (key === "vue") {
+        blogList1 = vueList1;
+        blogList2 = vueList2;
+        blogList3 = vueList3;
+        blogList4 = vueList4;
     }
 
     let divHtml = "";
@@ -52,8 +57,6 @@ function initBlog() {
     }
 
     $("#box").append(divHtml);
-
-
 }
 
 
@@ -61,8 +64,8 @@ function initBlog() {
  * 采用正则表达式获取地址栏参数
  */
 function getQueryString(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    let r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
     return null;
 }
