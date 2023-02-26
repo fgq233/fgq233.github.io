@@ -7,7 +7,7 @@ const vueList1 = [
     {url: "https://fgq233.github.io/md/vue/vue06", title: "Vue 组件基础"},
     {url: "https://fgq233.github.io/md/vue/vue07", title: "Vue 组件的生命周期"},
     {url: "https://fgq233.github.io/md/vue/vue08", title: "Vue 自定义事件"},
-    {url: "https://fgq233.github.io/md/vue/vue09", title: "Vue 组件之间传值"},
+    {url: "https://fgq233.github.io/md/vue/vue09", title: "Vue 组件之间共享数据"},
     {url: "https://fgq233.github.io/md/vue/vue10", title: "Vue ref使用"},
     {url: "https://fgq233.github.io/md/vue/vue11", title: "Vue 动态组件"},
     {url: "https://fgq233.github.io/md/vue/vue12", title: "Vue 插槽"},
