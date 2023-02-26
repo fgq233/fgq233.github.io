@@ -4,12 +4,13 @@
   
 
 #### 一、 全局前置守卫  beforeEach
-#### 1. Vue2.X + Vue Router 3.X
 * 每次发生路由跳转前，都会触发全局前置守卫
-* 守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 等待中
+* 守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于等待中
 
 ```
 const router = new VueRouter({ ... })
+
+// const router = createRouter({ ... }) vue-router 4.X 写法
 
 router.beforeEach((to, from, next) => {
   // ...
@@ -20,7 +21,7 @@ router.beforeEach((to, from, next) => {
 * `from`: 当前导航正要离开的路由
 * `next()`: 放行方法，确保在任何给定的导航守卫中都被严格调用一次
   * `next()` 放行 
-  * `next(false)`  取消当前的导航
+  * `next(false)`  取消导航，停留在当前页面
   * `next('/')` 或者 `next({ path: '/' })`  当前的导航被取消，然后进行一个新的导航
   
 ```
@@ -32,20 +33,6 @@ router.beforeEach((to, from, next) => {
 })
 ```
 
-#### 2. Vue3.X + Vue Router 4.X
-```
-const router = createRouter({ ... })
-
-router.beforeEach((to, from, next) => {
-  return false
-})
-```
-
-* `Vue Router 4.X` 版本用 `return` 返回值替代了 `next()` 的部分作用，返回值如下 
-  * `false` 取消当前的导航 
-  * `一个路由地址` 当前的导航被取消，然后进行一个新的导航 
-    * 就像调用 `router.push()` 效果一样，可以设置诸如 `replace: true` 或 `name: 'home'` 之类的配置
-* 对于3.X `next()`，同样支持
 
  
  
