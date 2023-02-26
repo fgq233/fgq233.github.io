@@ -40,8 +40,12 @@ export default {
 ```
 
 * 指令名: bg，通过 v-bg 指令使用
-* `bind` 方法，当指令第一次绑定到元素上，触发该方法
-* `update` 方法，每次DOM更新时，触发该方法
+* `Vue2.x` 版本
+  * `bind()` 当指令第一次绑定到元素上，触发该方法
+  * `update()` 每次DOM更新时，触发该方法
+* `Vue3.x` 版本
+  * `mouted()`  功能同 `bind()`
+  * `updated()`  功能同 `update()`
 * 形参 `el`，当前指令锁绑定到的 DOM 对象
 * 形参 `binding`，绑定内容，可以通过 `binding.value` 拿到传过来的值
 
@@ -65,8 +69,17 @@ export default {
 通过 `Vue.directive() `来声明
 
 ```
-Vue.directive("bg", function (el, binding) {
-  console.log(binding);
-  el.style.backgroundColor = binding.value;
+Vue.directive("bg", { 
+  bind(el) {
+    
+  },
+  update(el) {
+   
+  }
+});
+
+
+Vue.directive("bg", function (el) {
+  
 });
 ```
