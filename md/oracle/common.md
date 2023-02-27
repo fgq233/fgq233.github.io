@@ -5,9 +5,7 @@ select  userenv('language')  from  dual;
 
 结果示例：SIMPLIFIED、CHINESE_CHINA.AL32UTF8
 ```
-* utf-8中文字符占三个字节
-* GB18030、GBK、GB2312中文字符占两个字节
-* ISO8859-1占一个字节
+
 * 客户端(Client)端字符集：在Windows平台就是注册表里面相应OracleHome的NLS_LANG
 
 
