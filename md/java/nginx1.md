@@ -39,9 +39,10 @@
 nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务
 nginx -s quit       平稳关闭Nginx，保存相关信息，有安排的结束web服务
 nginx -s reload     重启Nginx
-nginx -c filename   为Nginx指定配置文件
 
+nginx -c filename   为Nginx指定配置文件
 nginx -t filename   测试配置文件语法的正确性
+
 nginx -v            显示版本
 nginx -V            显示版本、编译器版本、配置参数
 nginx -h            查看帮助信息
