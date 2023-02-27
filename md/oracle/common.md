@@ -6,7 +6,7 @@ select  userenv('language')  from  dual;
 结果示例：SIMPLIFIED、CHINESE_CHINA.AL32UTF8
 ```
 
-客户端(Client)端字符集：在Windows平台就是注册表里面相应OracleHome的NLS_LANG
+客户端字符集：在Windows平台就是注册表里面相应OracleHome的NLS_LANG
 
 
 
