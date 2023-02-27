@@ -53,7 +53,7 @@ worker_processes  1;    生成工作进程的数量，值越大，支持的并�
 #error_log  logs/error.log  notice;   错误日志存储路径，日志级别notice
 #error_log  logs/error.log  info;     错误日志存储路径，日志级别info
 
-#pid        logs/nginx.pid;           当前master进程的进程号PID存储的文件路径
+#pid        logs/nginx.pid;           master进程的进程号PID存储的文件路径
 
 events {
     # accept_mutex  on;         设置Nginx网络连接序列化，主要用来解决惊群问题（推荐开启）
