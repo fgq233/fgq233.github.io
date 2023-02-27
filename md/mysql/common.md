@@ -19,5 +19,5 @@ service mysqld  restart
 select * from mysql.user
 
 -- 表
-select * from information_schema.tables where table_schema='当前数据库'
+select * from information_schema.tables where table_schema='库名'
 ```
