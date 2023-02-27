@@ -27,3 +27,7 @@ select a.program,
    and a.username is not null;
 ```
 
+###### 3、查看库下所有表
+```
+select table_name from dba_tables where owner = '库名';
+```
