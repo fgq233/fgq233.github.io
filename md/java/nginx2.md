@@ -59,7 +59,7 @@ events {
     # accept_mutex  on;         设置Nginx网络连接序列化，主要用来解决惊群问题（推荐开启）
     # multi_accept  on;         设置是否允许同时接收多个网络连接（推荐开启）
     # use  epoll;               设置Nginx服务器选择哪种事件驱动来处理网络消息，如select/poll/epoll/kqueue
-    worker_connections  1024;   单个worker进程最大的连接数
+    worker_connections  1024;   单个worker进程最大的连接数 
 }
 
 http {
