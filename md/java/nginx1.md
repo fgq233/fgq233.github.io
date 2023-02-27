@@ -16,7 +16,7 @@
 * `logs` 日志目录
   * `access.log` 访问日志
   * `error.log`  错误日志
-  * `nginx.pid`  启动后的进程`pid`
+  * `nginx.pid`  启动后的进程`pid`存储文件
 
 #### 3. 检测
 `nginx.conf`默认监听端口为80，检测：`netstat -ano|findstr 80`
