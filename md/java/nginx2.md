@@ -1,6 +1,7 @@
 ### Nginx 核心配置文件 nginx.conf
+`Nginx` 三大功能：**静态资源部署、反向代理、负载均衡**都是通过配置 `nginx.conf` 来实现的
 
-### 一、简要
+### 一、简要说明
 #### 1. 大致结构
 * 全局块：`events` 和 `http` 之外的内容，用来配置影响`nginx`全局的指令
 
@@ -43,7 +44,7 @@ http {
 ```
 
 
-### 二、详细
+### 二、详细说明
 ```
 #user  nobody;          用户或者用户组，用来控制访问权限
 worker_processes  1;    生成工作进程的数量，值越大，支持的并发处理量越多，建议和CPU内核数保持一致
@@ -63,43 +64,43 @@ events {
 }
 
 http {
-    include       mime.types;
-    default_type  application/octet-stream;
+    include       mime.types;                文件扩展名与文件类型映射表
+    default_type  application/octet-stream;  Nginx默认响应前端请求的mime类型，可以配置在http、server、location块
 
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '    自定义日志格式
     #                  '$status $body_bytes_sent "$http_referer" '
     #                  '"$http_user_agent" "$http_x_forwarded_for"';
 
-    #access_log  logs/access.log  main;
+    #access_log  logs/access.log  main;             访问日志
 
-    sendfile        on;
-    #tcp_nopush     on;
+    sendfile        on;       Nginx服务器是否使用sendfile()传输文件，用于提高处理静态资源的性能          
+    #tcp_nopush     on;       该指令必须在sendfile打开的状态下才会生效，是用来提升网络包的传输效率
 
-    #keepalive_timeout  0;
+    #keepalive_timeout  0;   长连接的超时时间(单位：秒)，
     keepalive_timeout  65;
 
-    #gzip  on;
+    #gzip  on;               开启Gzip压缩功能，可以使网站的静态资源文件在传输时进行压缩，提高访问速度
 
     server {
-        listen       80;
-        server_name  localhost;
+        listen       80;            监听的端口
+        server_name  localhost;     服务名称，可以是ip、localhost、域名等
 
         #charset koi8-r;
 
-        #access_log  logs/host.access.log  main;
+        #access_log  logs/host.access.log  main;    访问日志
 
-        location / {
-            root   html;
-            index  index.html index.htm;
+        location / {                        
+            root   html;                    root指令：资源存放的根目录  
+            index  index.html index.htm;    index指令：匹配返回的资源文件
         }
 
-        #error_page  404              /404.html;
+        #error_page  404              /404.html;    服务器返回状态码是 404 时跳转到 /404.html
 
         # redirect server error pages to the static page /50x.html
         #
-        error_page   500 502 503 504  /50x.html;
+        error_page   500 502 503 504  /50x.html;    服务器返回状态码是 500 502 503 504 时跳转到 /50x.html
         location = /50x.html {
-            root   html;
+            root   html;            
         }
 
         # proxy the PHP scripts to Apache listening on 127.0.0.1:80
@@ -162,3 +163,15 @@ http {
 
 }
 ```
+
+
+* `error_log`错误日志级别：`debug|info|notice|warn|error|crit|alert|emerg`
+
+* 常用的`mime`类型，可以配置在 `http、server、location`，就近原则
+  * `default_type  application/octet-stream;`   二进制流，浏览器会以下载附件的方式处理
+  * `default_type  text/plain;`        浏览器会展示文本字符串
+  * `default_type  text/html;`         浏览器会展示文本字符串(`字符串中dom元素会被浏览器解析`)
+  * `default_type  application/json;`  浏览器会展示json数据      
+  
+* `access_log` 访问日志，可以配置在 `http、server、location`，就近原则
+  
