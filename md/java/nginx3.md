@@ -56,7 +56,7 @@ http://127.0.0.1/abcdefg
 http://127.0.0.1/abc?name=fgq
 
 
-3.2 =   表示必须与指定的路径精确匹配，类似于SQL中的 = url
+3.2 =   表示必须与指定的路径精确匹配
 location =/abc {
     default_type text/plain;
     return 200 "222222";
