@@ -143,9 +143,8 @@ location /imgs/ {
 
 
 #### 5. index
-* 设置默认首页，默认值 `index.html`
-* 可以跟多个设置，用空格隔开
-* 如果请求路径没有指定具体资源，则依次进行查找，找到第一个为止
+* 设置网站的默认首页，默认值 `index.html`
+* 可以设置多个值，如果请求路径`没有指定具体资源`，则从左到右依次进行查找，找到第一个为止
 
 ```
 location / {                               
@@ -153,7 +152,7 @@ location / {
     index  index.html index.htm;                          
 }
 请求路径： http://127.0.0.1/
-查找资源： html/index.html、html/index.htm，从左到右找到第一个存在的资源返回   
+查找资源： html/index.html、html/index.htm  
 
 location /imgs {                               
     root  html;                              
@@ -162,6 +161,49 @@ location /imgs {
 请求路径： http://127.0.0.1/imgs/
 查找资源： html/imgs/666.png  
 ```
+
+
+#### 6. error_page
+* 用于当服务器返回对应的响应code后，如何来处理
+* 语法 `error_page code ... [=[response]] uri;` 
+
+```
+① 可以指定具体跳转的地址
+server {
+    error_page   404  https://fgq233.github.io/md/blog;
+}
+
+② 可以指定重定向地址
+server{
+    error_page   500 502 503 504  /50x.html;
+    
+    location = /50x.html {
+        root   html;
+    }
+}
+
+③ 使用location的@符合完成错误信息展示
+server{
+    error_page   404  @go404;
+    
+    location @go404 {
+        default_type text/plain;
+        return 404 '未找到资源';
+    }
+}
+
+④ 可选项=[response]的作用是用来将响应码更改为另外一个响应码
+server{
+    error_page   404 =200 /50x.html;
+    
+    location = /50x.html {
+        root   html;
+    }
+}
+当服务器返回404的时候，在浏览器上看到的响应码是200
+```
+
+
 
 ### 一、静态资源的配置优化
 ### 一、静态资源的压缩配置
