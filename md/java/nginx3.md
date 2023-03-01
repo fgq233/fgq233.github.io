@@ -113,7 +113,7 @@ location /imgs/ {
 
 
 * `alias`别名配置，请求路径替换掉`location`，语法 `alias path`
-* 查找方式 `alias值 + 匹配上url的剩余部分`
+* 查找方式 `alias值 + url匹配的剩余部分`
  
 ```
 location /imgs {                               
