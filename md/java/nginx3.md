@@ -43,7 +43,7 @@ server_name  ~^www\.(\w+)\.com
 
 
 ```
-① 不带符号，表示以指定路径开头，类似于SQL中的 like 'url%'
+3.1 不带符号，表示以指定路径开头，类似于SQL中的 like 'url%'
 location /abc {
     default_type text/plain;
     return 200 "111111";
@@ -56,7 +56,7 @@ http://127.0.0.1/abcdefg
 http://127.0.0.1/abc?name=fgq
 
 
-② =   表示必须与指定的路径精确匹配，类似于SQL中的 = url
+3.2 =   表示必须与指定的路径精确匹配，类似于SQL中的 = url
 location =/abc {
     default_type text/plain;
     return 200 "222222";
@@ -70,8 +70,8 @@ http://127.0.0.1/abc/def
 http://127.0.0.1/abcdefg
 
 
-③ ~    表示当前uri中包含了正则表达式，区分大小写
-  ~*   表示当前uri中包含了正则表达式，不区分大小写
+3.3 ~    表示当前uri中包含了正则表达式，区分大小写
+    ~*   表示当前uri中包含了正则表达式，不区分大小写
 location ~^/abc[a-z]$ {        此处正则：^表示开头为 /abc，[a-z]$表示结尾为[a-z]中一个字符
     default_type text/plain;
     return 200 "333333";
@@ -84,17 +84,11 @@ http://127.0.0.1/abc6
 http://127.0.0.1/abcde
 
 
-④ ^~ : 和 ① 功能一样，区别：如果匹配上，那么就停止匹配其他规则了
+3.4 ^~ : 和 3.1 功能一样，区别：如果匹配上，那么就停止匹配其他规则了
 location ^~/abc {       
     default_type text/plain;
     return 200 "444444";
 }
-可以匹配到
-http://127.0.0.1/abcd
-匹配不到
-http://127.0.0.1/ABC
-http://127.0.0.1/abc6
-http://127.0.0.1/abcde
 ```
 
 
@@ -168,12 +162,12 @@ location /imgs {
 * 语法 `error_page code ... [=[response]] uri;` 
 
 ```
-① 可以指定具体跳转的地址
+6.1 可以指定具体跳转的地址
 server {
     error_page   404  https://fgq233.github.io/md/blog;
 }
 
-② 可以指定重定向地址
+6.2 可以指定重定向地址
 server{
     error_page   500 502 503 504  /50x.html;
     
@@ -182,7 +176,7 @@ server{
     }
 }
 
-③ 使用location的@符合完成错误信息展示
+6.3 使用location的@符合完成错误信息展示
 server{
     error_page   404  @go404;
     
@@ -192,7 +186,7 @@ server{
     }
 }
 
-④ 可选项=[response]的作用是用来将响应码更改为另外一个响应码
+6.4 可选项=[response]的作用是用来将响应码更改为另外一个响应码
 server{
     error_page   404 =200 /50x.html;
     
