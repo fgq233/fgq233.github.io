@@ -56,7 +56,7 @@ http://127.0.0.1/abcdefg
 http://127.0.0.1/abc?name=fgq
 
 
-3.2 =   表示必须与指定的路径精确匹配
+3.2 带 =   表示必须与指定的路径精确匹配
 location =/abc {
     default_type text/plain;
     return 200 "222222";
@@ -70,8 +70,8 @@ http://127.0.0.1/abc/def
 http://127.0.0.1/abcdefg
 
 
-3.3 ~    表示当前uri中包含了正则表达式，区分大小写
-    ~*   表示当前uri中包含了正则表达式，不区分大小写
+3.3 带 ~    表示当前uri中包含了正则表达式，区分大小写
+    带 ~*   表示当前uri中包含了正则表达式，不区分大小写
 location ~^/abc[a-z]$ {        此处正则：^表示开头为 /abc，[a-z]$表示结尾为[a-z]中一个字符
     default_type text/plain;
     return 200 "333333";
@@ -84,7 +84,7 @@ http://127.0.0.1/abc6
 http://127.0.0.1/abcde
 
 
-3.4 ^~ : 和 3.1 功能一样，区别：如果匹配上，那么就停止匹配其他规则了
+3.4 带 ^~ : 和 3.1 功能一样，区别：如果匹配上，那么就停止匹配其他规则了
 location ^~/abc {       
     default_type text/plain;
     return 200 "444444";
