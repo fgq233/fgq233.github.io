@@ -43,7 +43,7 @@ server_name  ~^www\.(\w+)\.com
 
 
 ```
-3.1 不带符号，表示以指定路径开头，类似于SQL中的 like 'url%'
+3.1 不带符号，表示以指定路径开头，类似于SQL中的模糊查询 like 'url%'
 location /abc {
     default_type text/plain;
     return 200 "111111";
