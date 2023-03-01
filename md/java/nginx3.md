@@ -176,7 +176,7 @@ server{
     }
 }
 
-6.3 使用location的@符合完成错误信息展示
+6.3 使用location的@符号完成错误信息展示
 server{
     error_page   404  @go404;
     
