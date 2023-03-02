@@ -52,7 +52,7 @@ spring:
         corsConfigurations:
           '[/**]':
             allowedOrigins:  
-              - "http://localhost:8080"
+              - "*"
             allowedMethods: 
               - "GET"
               - "POST"
@@ -64,8 +64,8 @@ spring:
             maxAge: 360000  
 ```
 
-* `allowedOrigins` 允许哪些网站的跨域请求，可配置单个、多个、所有 `"*"`
-* `allowedMethods` 允许的跨域`ajax`的请求方式
-* `allowedHeaders` 允许在请求中携带的头信息
+* `allowedOrigins` 允许哪些网站的跨域请求，可配置单个、多个、所有`*`
+* `allowedMethods` 允许的跨域`ajax`的请求方式，可配置单个、多个、所有`*`
+* `allowedHeaders` 允许在请求中携带的头信息，可配置单个、多个、所有`*`
 * `allowCredentials` 是否允许携带`cookie`
 * `maxAge` 这次跨域检测的有效期
