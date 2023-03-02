@@ -7,7 +7,7 @@
 -  [Nginx-1 安装、启动][nginx1]
 -  [Nginx-2 nginx.conf][nginx2]
 -  [Nginx-3 静态资源部署][nginx3]
--  [Nginx-4 资源压缩][nginx4]
+-  [Nginx-4 静态资源压缩][nginx4]
 -  [Nginx-5 跨域、防盗链][nginx5]
 
 
