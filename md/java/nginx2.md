@@ -11,40 +11,8 @@
   * `server`块，配置虚拟主机相关内容，可以配置多个`location`块
   * `location`块，配置匹配请求`url`的路由，以及匹配成功后的处理逻辑
 
-#### 2. 大致流程
-* 当前`nginx`监听`localhost`的`80`端口，若请求`url`是`http:localhost:80`，则被拦截下来，交给`location`块
-* 请求的`url` 和`location`块的路由进行匹配
-* 匹配上`location`块后，就取出里面配置的内容，返回给用户
+#### 2. 详解
 
-
-```
-worker_processes  1;        
-
-events {
-    worker_connections  1024;
-}
-
-http {
-    include       mime.types;
-    default_type  application/octet-stream;
-    sendfile        on;
-    server {
-        listen       80;
-        server_name  localhost;
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
-        }
-    }
-}
-```
-
-
-### 二、详细说明
 ```
 #user  nobody;          用户或者用户组，用来控制访问权限
 worker_processes  1;    生成工作进程的数量，值越大，支持的并发处理量越多，建议和CPU内核数保持一致
@@ -119,3 +87,28 @@ http {
   
 * `access_log` 访问日志，可以配置在 `http、server、location`，就近原则
   
+  
+  
+### 二、Nginx 全局变量
+
+* `$args`   请求中的参数
+* `$content_length`   HTTP请求信息里的"Content-Length"
+* `$content_type`   请求信息里的"Content-Type"
+* `$document_root`   针对当前请求的根路径设置值;
+* `$document_uri`   与$uri相同
+* `$host`   请求信息中的"Host"，如果请求中没有Host行，则等于设置的服务器名
+* `$limit_rate`   对连接速率的限制;
+* `$request_method`   请求的方法，比如"GET"、"POST"等
+* `$remote_addr`   客户端地址
+* `$remote_port`   客户端端口号
+* `$remote_user`   客户端用户名，认证用
+* `$request_filename`   当前请求的文件路径名
+* `$request_body_file`   当前请求的文件
+* `$request_uri`   请求的URI，带查询字符串
+* `$query_string`   与$args相同
+* `$scheme`   所用的协议，比如http或者是https
+* `$server_protocol`   请求的协议版本，"HTTP/1.0"或"HTTP/1.1";
+* `$server_addr`   服务器地址
+* `$server_name`   请求到达的服务器名
+* `$server_port`   请求到达的服务器端口号
+* `$uri`   请求的URI，可能和最初的值有不同，比如经过重定向之类的

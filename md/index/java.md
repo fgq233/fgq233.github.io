@@ -1,11 +1,17 @@
 1. ###### [Stream 流][stream]    
-2. ###### [Exception 详细信息获取][exception]    
-3. ###### [Nginx][nginx]
-4. ###### [AOP][aop]
-5. ###### [Keytool][keytool]
-6. ###### [JWT][jwt]
+1. ###### [Exception 详细信息获取][exception]    
+1. ###### [AOP][aop]
+1. ###### [Keytool][keytool]
+1. ###### [JWT][jwt]
+1. ###### Nginx
+-  [Nginx-1 安装、启动][nginx1]
+-  [Nginx-2 nginx.conf][nginx2]
+-  [Nginx-3 静态资源部署][nginx3]
+-  [Nginx-4 资源压缩][nginx4]
+-  [Nginx-5 跨域、防盗链][nginx5]
 
-7. ###### 消息队列
+
+1. ###### 消息队列
 -  [MQ简介][mq]
 -  [RabbitMQ-1 安装][rabbitmq1]
 -  [RabbitMQ-2 五种消息模型][rabbitmq2]
@@ -29,7 +35,7 @@
 -  [RocketMQ-6 事务消息][rocketmq6]
 
  
-8. ###### 全文检索
+1. ###### 全文检索
 -  [Lucene中的基本概念][lucene]
 -  [Elasticsearch-1 基本概念][es1]
 -  [Elasticsearch-2 Windows下环境安装][es2]
@@ -41,14 +47,14 @@
 -  [Elasticsearch-8 自动补全查询][es8]
 
 
-9. ###### Redis
+1. ###### Redis
 -  [Redis-1 安装][redis1]
 -  [Redis-2 持久化][redis2]
 -  [Redis-3 主从集群][redis3]
 -  [Redis-4 哨兵集群][redis4]
 -  [Redis-5 分片集群][redis5]
 
-10. ###### MongoDB
+1. ###### MongoDB
 -  [MongoDB-1 基本概念][mongodb1]
 -  [MongoDB-2 安装启动][mongodb2]
 -  [MongoDB-3 常用命令][mongodb3]
@@ -58,7 +64,7 @@
 -  [MongoDB-7 分片集群搭建][mongodb7]
 -  [MongoDB-8 安全认证][mongodb8]
 
-11. ###### 安全框架
+1. ###### 安全框架
 -  [安全框架基本概念][all]
 -  [Shiro-1 基本概念][shiro1]
 -  [Shiro-2 认证][shiro2]
@@ -76,7 +82,13 @@
 -  [Oauth2 端点接口][oauth2_6]
 
 
-
+[nginx1]: https://fgq233.github.io/md/java/nginx1
+[nginx2]: https://fgq233.github.io/md/java/nginx2
+[nginx3]: https://fgq233.github.io/md/java/nginx3
+[nginx4]: https://fgq233.github.io/md/java/nginx4
+[nginx5]: https://fgq233.github.io/md/java/nginx5
+[nginx6]: https://fgq233.github.io/md/java/nginx6
+[nginx7]: https://fgq233.github.io/md/java/nginx7
 [rocketmq6]: https://fgq233.github.io/md/mq/rocketmq6
 [rocketmq5]: https://fgq233.github.io/md/mq/rocketmq5
 [rocketmq4]: https://fgq233.github.io/md/mq/rocketmq4
@@ -115,7 +127,6 @@
 [mongodb2]: https://fgq233.github.io/md/nosql/mongodb2
 [keytool]: https://fgq233.github.io/md/java/keytool
 [aop]: https://fgq233.github.io/md/java/aop
-[nginx]: https://fgq233.github.io/md/java/nginx
 [redis1]: https://fgq233.github.io/md/nosql/redis1
 [redis2]: https://fgq233.github.io/md/nosql/redis2
 [redis3]: https://fgq233.github.io/md/nosql/redis3

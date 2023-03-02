@@ -86,8 +86,17 @@ const javaList3 = [
 const javaList4 = [
     {url: "https://fgq233.github.io/md/java/stream", title: "Stream 流"},
     {url: "https://fgq233.github.io/md/java/exception", title: "Exception 详细信息获取"},
-    {url: "https://fgq233.github.io/md/java/nginx", title: "Nginx"},
     {url: "https://fgq233.github.io/md/java/aop", title: "AOP"},
     {url: "https://fgq233.github.io/md/security/jwt", title: "JWT"},
     {url: "https://fgq233.github.io/md/java/keytool", title: "Keytool"},
+    {url: "https://fgq233.github.io/md/java/nginx", title: "Nginx"},
+    {
+        url: "", title: "Nginx", child: [
+            {url: "https://fgq233.github.io/md/java/nginx1", title: "Nginx-1 安装、启动"},
+            {url: "https://fgq233.github.io/md/java/nginx2", title: "Nginx-2 nginx.conf"},
+            {url: "https://fgq233.github.io/md/java/nginx3", title: "Nginx-3 静态资源部署"},
+            {url: "https://fgq233.github.io/md/java/nginx4", title: "Nginx-4 静态资源压缩"},
+            {url: "https://fgq233.github.io/md/java/nginx5", title: "Nginx-5 跨域、防盗链"},
+        ]
+    },
 ];

@@ -3,7 +3,7 @@
 * 动态资源：服务器端根据不同条件，返回不同的内容，如：用户数据、报表数据等
 
 
-### 一、静态资源的配置指令
+### 一、ip、端口、路径
 #### 1. listen
 * 用来配置监听的端口
 * 常用语法 listen address [:port] 或 listen port
@@ -38,28 +38,22 @@ server_name  ~^www\.(\w+)\.com
 #### 3. location 
 * 用来配置 `url` 匹配规则
 * 语法 `location [ = | ~ | ~* | ^~ | @]  uri{...}`
-* 匹配规则：先使用不包含正则表达式进行匹配，找到匹配度最高的一个，然后使用包含正则表达式的③进行匹配，
-如果能匹配到直接访问，匹配不到，就使用刚才匹配度最高的那个`location`来处理请求
 
+
+| 优先级   | 匹配规则   | 说明     |
+| ------  | ------- | --------- |
+| 1      | `=`         | 精确匹配                       |
+| 2      | `^~`         |  前缀匹配：以某个字符串开头，类似于SQL中的模糊查询 `like 'url%'`  |
+| 3      | `~`和`~*`    |  正则表达式匹配，区分大小写 `~`、不区分大小写 `~*`          |
+| 4      | `/`         |   通用前缀匹配，类似于SQL中的模糊查询 `like 'url%'` |
+
+* `1、2 `一旦匹配成功，则不再查找其他匹配项
 
 ```
-3.1 不带符号，表示以指定路径开头，类似于SQL中的模糊查询 like 'url%'
-location /abc {
-    default_type text/plain;
-    return 200 "111111";
-}
-以下访问都是正确的
-http://127.0.0.1/abc
-http://127.0.0.1/abc/
-http://127.0.0.1/abc/def
-http://127.0.0.1/abcdefg
-http://127.0.0.1/abc?name=fgq
-
-
-3.2 带 =   必须与指定的路径精确匹配
+3.1  = 
 location =/abc {
     default_type text/plain;
-    return 200 "222222";
+    return 200 "111111";
 }
 可以匹配到
 http://127.0.0.1/abc
@@ -69,25 +63,36 @@ http://127.0.0.1/abc/
 http://127.0.0.1/abc/def
 http://127.0.0.1/abcdefg
 
+3.2  ^~  
+location ^~/abc {       
+    default_type text/plain;
+    return 200 "222222";
+}
+以下访问都是正确的
+http://127.0.0.1/abc
+http://127.0.0.1/abc/
+http://127.0.0.1/abc/def
+http://127.0.0.1/abcdefg
+http://127.0.0.1/abc?name=fgq
 
-3.3 带 ~    正则表达式匹配，区分大小写
-    带 ~*   正则表达式匹配，不区分大小写
-location ~* .*\.(jpg|gif|png|jpeg)$ {      该正则表示所有以 .jpg、.gif .png .jpeg 结尾的资源
+3.3 ~* 
+location ~* .*\.(jpg|gif|png|jpeg)$ {    该正则表示所有以 .jpg、.gif .png .jpeg 结尾的资源
      default_type text/plain;
      return 200 "333333";
 }
 
-
-3.4 带 ^~ : 和 3.1 功能一样，区别：如果匹配上，那么就停止匹配其他规则了
-location ^~/abc {       
+3.4  通用前缀匹配，和 3.2 匹配一样，不过优先级最低
+location /abc {
     default_type text/plain;
     return 200 "444444";
 }
 ```
 
 
-#### 4. root、alias
-* `root` 设置请求的根目录，语法 `root path`，默认值`html`
+
+### 二、资源目录配置
+#### 1. root
+* 设置请求的根目录，语法 `root path`，默认值`html`
 * 查找方式 `root值 + location + url匹配的剩余部分`
 
 ```
@@ -106,7 +111,8 @@ location /imgs/ {
 ```
 
 
-* `alias`别名配置，请求路径替换掉`location`，语法 `alias path`
+#### 2. alias
+* 别名配置，请求路径替换掉`location`，语法 `alias path`
 * 查找方式 `alias值 + url匹配的剩余部分`
  
 ```
@@ -130,7 +136,7 @@ location /imgs/ {
 
 
 
-#### 5. index
+#### 2. index
 * 设置网站的默认首页，默认值 `index.html`
 * 可以设置多个值，如果请求路径`没有指定具体资源`，则从左到右依次进行查找，找到第一个为止
 
@@ -151,17 +157,17 @@ location /imgs {
 ```
 
 
-#### 6. error_page
+### 三、错误页 error_page
 * 用于当服务器返回对应的响应code后，如何来处理
 * 语法 `error_page code ... [=[response]] uri;` 
 
 ```
-6.1 可以指定具体跳转的地址
+可以指定具体跳转的地址
 server {
     error_page   404  https://fgq233.github.io/md/blog;
 }
 
-6.2 可以指定重定向地址
+可以指定重定向地址
 server{
     error_page   500 502 503 504  /50x.html;
     
@@ -170,7 +176,7 @@ server{
     }
 }
 
-6.3 使用location的@符号完成错误信息展示
+使用location的@符号完成错误信息展示
 server{
     error_page   404  @go404;
     
@@ -180,116 +186,12 @@ server{
     }
 }
 
-6.4 可选项=[response]的作用是用来将响应码更改为另外一个响应码
+可选项=[response]的作用是更改响应码，如下：当服务器返回404时，在浏览器上看到的响应码是200
 server{
     error_page   404 =200 /50x.html;
     
     location = /50x.html {
         root   html;
     }
-}
-当服务器返回404的时候，在浏览器上看到的响应码是200
-```
-
-
-
-### 二、静态资源的压缩指令
-#### 1. 压缩相关指令
-* `gzip`   开启后，静态资源文件在传输时会进行压缩，提高访问速度
-
-* `gzip_types`  根据响应资源`mime`类型选择性地开启压缩功能，配置值参考同目录 `mime.types` 文件
-  * 默认只会压缩 `text/html`
-  * 可以配置多个值，以空格分割
-  * `*`表示所有`mime`类型
-  
-* `gzip_comp_level` 压缩级别，范围 1~9，值越大表示压缩程度越高，但是也越费时间
-
-* `gzip_min_length`  针对传输数据的大小`Content-Length`，低于配置大小则不压缩
-
-* `gzip_buffers`  用于处理请求压缩的缓冲区数量和大小
-
-* `gzip_http_version`  针对不同的`HTTP`协议版本，选择性地开启和关闭`gzip`压缩
-
-* `gzip_vary`  开启后，压缩的资源添加了一个`响应头 Vary:Accept-Encoding`
-
-* `gzip_disable`  用于排除一些不支持`gzip`的浏览器
-
-* `gzip_proxied`  设置是否对服务端返回的结果进行`gzip`压缩
-
-
-#### 2. 示例
-``` 
-gzip on;
-gzip_types text/css application/javascript application/json;
-gzip_comp_level 6;
-gzip_min_length 1024;
-gzip_buffers 4 16K;
-gzip_http_version 1.1;
-gzip_vary on;
-gzip_disable "MSIE [1-6]\.";
-gzip_proxied off;
-```
-
-将这些配置单独抽取到一个配置文件`nginx_gzip.conf`，然后通过`include nginx_gzip.conf`加载
-
-
-#### 3. gzip和sendfile共存问题
-`gzip` 和 `sendfile` 默认是冲突的，需要使用`ngx_http_gzip_static_module`模块的`gzip_static`指令来解决
-
-
-
-
-
-### 三、跨域问题
-* 使用`add_header`指令，该指令可以用来添加一些头信息
-* 语法 `add_header name value...`
-* 位置 `http、server、location`
-
-```
-location / {
-    add_header  Access-Control-Allow-Origin *;
-    add_header  Access-Control-Allow-Methods GET,POST;
-    root   html;
-}
-```
-
-当添加了上面2个请求头后，所有`非同源`请求就能访问对应服务器的资源了
-* `Access-Control-Allow-Origin`  允许哪些服务器跨域请求我
-* `Access-Control-Allow-Methods` 允许哪些请求方法跨域请求我
-
-
-
-
-
-### 四、防盗链问题
-#### 1. 概念
-* 资源盗链：指资源不在自己服务器上，通过技术手段绕过别的服务器限制，将其资源放到自己页面上展示给用户
- 
-* 防盗链实现原理
-  * 当浏览器向web服务器发送请求时，一般会带上`Referer`，来告诉浏览器该网页是从哪个页面链接过来的
-  * 服务器获取到这个`Referer`，判断是否为自己信任的网站地址，是则允许访问，否则决绝访问
-  
-![](https://fgq233.github.io/imgs/java/nginx3.png)
-
-#### 2. valid_referers 指令
-* 语法`valid_referers none|blocked|server_names|string...`
-  * `none`  表示`Referer`为空匹配上
-  * `blocked`  表示`Referer`不为空，但是该值被防火墙或代理进行伪装过，如：不带`http://、https://`协议头
-  * `server_names`  指定具体的域名或者IP
-  * `string`  可以支持正则表达式和`*`的字符串。如果是正则表达式，需要以`~`开头表示
-  
-* 匹配方式
-  * `nginx`会通就过`referer`自动和`valid_referers`后面的内容进行匹配，匹配过程不区分大小写
-  * 匹配上了将变量 `$invalid_referer` 置`0`
-  * 没有匹配上将变量` $invalid_referer`置为`1`
-
-
-```
-location /imgs {  
-    valid_referers none  127.0.0.1  www.github.com
-    if ($invalid_referer){
-        return 403;
-    }
-    root html;
 }
 ```
