@@ -238,6 +238,8 @@ gzip_proxied off;
 
 
 
+
+
 ### 三、跨域问题
 * 使用`add_header`指令，该指令可以用来添加一些头信息
 * 语法 `add_header name value...`
@@ -254,6 +256,10 @@ location / {
 当添加了上面2个请求头后，所有`非同源`请求就能访问对应服务器的资源了
 * `Access-Control-Allow-Origin`  允许哪些服务器跨域请求我
 * `Access-Control-Allow-Methods` 允许哪些请求方法跨域请求我
+
+
+
+
 
 ### 四、防盗链问题
 #### 1. 概念
