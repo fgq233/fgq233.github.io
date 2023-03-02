@@ -9,15 +9,15 @@
  
 ####  二. 跨域解决方案 CORS
 #### 1、CORS简介
-*  CORS是一个W3C标准，全称是跨域资源共享(Cross-origin resource sharing),
-它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制
+*  CORS是一个W3C标准，全称是跨域资源共享`(Cross-origin resource sharing)`,
+它允许浏览器向跨源服务器，发出`XMLHttpRequest`请求，从而克服了AJAX只能同源使用的限制
 *  CORS需要浏览器和服务器同时支持，目前所有浏览器都支持该功能，IE浏览器不能低于IE10
 
 因此，实现CORS通信的关键是服务器，只要服务器实现了CORS接口，就可以跨域通信
 
 #### 2、两种请求
-*  浏览器将CORS请求分成两类：简单请求(simple request)和非简单请求(not-so-simple request)
-*  对于简单请求，就是在头信息之中，增加一个Origin字段
+*  浏览器将CORS请求分成两类：简单请求`(simple request)`和非简单请求`(not-so-simple request)`
+*  对于简单请求，就是在头信息之中，增加一个`Origin`字段
 
 ```
 Origin: https://www.spring.io
@@ -34,13 +34,13 @@ Content-Type: text/html; charset=utf-8
 ```
 
 #### 3、与JSONP的比较
-* 使用目的相同，但CORS比JSONP更强大
-* JSONP只支持GET请求，CORS支持所有类型的HTTP请求
-* JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据
+* 使用目的相同，但`CORS`比`JSONP`更强大
+* `JSONP`只支持`GET`请求，`CORS`支持所有类型的`HTTP`请求
+* `JSONP`的优势在于支持老式浏览器，以及可以向不支持`CORS`的网站请求数据
 
 
 ####  三. gateway 使用 CORS 解决跨域问题 
-在服务的application.yml文件中，添加下面的配置：
+在服务的`application.yml`文件中，添加下面的配置：
 
 ``` 
 spring:
@@ -63,8 +63,8 @@ spring:
             maxAge: 360000  
 ```
 
-* allowedOrigins: 允许哪些网站的跨域请求，可配置单个、多个、所有 "*"
-* allowedMethods: 允许的跨域ajax的请求方式
-* allowedHeaders: 允许在请求中携带的头信息
-* allowCredentials: 是否允许携带cookie
-* maxAge: 这次跨域检测的有效期
+* `allowedOrigins` 允许哪些网站的跨域请求，可配置单个、多个、所有 `"*"`
+* `allowedMethods` 允许的跨域`ajax`的请求方式
+* `allowedHeaders` 允许在请求中携带的头信息
+* `allowCredentials` 是否允许携带`cookie`
+* `maxAge` 这次跨域检测的有效期
