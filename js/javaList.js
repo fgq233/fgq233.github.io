@@ -89,7 +89,6 @@ const javaList4 = [
     {url: "https://fgq233.github.io/md/java/aop", title: "AOP"},
     {url: "https://fgq233.github.io/md/security/jwt", title: "JWT"},
     {url: "https://fgq233.github.io/md/java/keytool", title: "Keytool"},
-    {url: "https://fgq233.github.io/md/java/nginx", title: "Nginx"},
     {
         url: "", title: "Nginx", child: [
             {url: "https://fgq233.github.io/md/java/nginx1", title: "Nginx-1 安装、启动"},
