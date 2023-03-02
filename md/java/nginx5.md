@@ -1,7 +1,7 @@
 ### Nginx 跨域、防盗链
 
 ### 一、跨域问题
-* 使用`add_header`指令，该指令可以用来添加一些头信息
+* 使用`add_header`指令来解决，该指令可以用来添加一些头信息
 * 语法 `add_header name value...`
 * 位置 `http、server、location`
 
