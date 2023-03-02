@@ -9,11 +9,12 @@
  
 ####  二. 跨域解决方案 CORS
 #### 1、CORS简介
-*  CORS是一个W3C标准，全称是跨域资源共享`(Cross-origin resource sharing)`,
-它允许浏览器向跨源服务器，发出`XMLHttpRequest`请求，从而克服了AJAX只能同源使用的限制
-*  CORS需要浏览器和服务器同时支持，目前所有浏览器都支持该功能，IE浏览器不能低于IE10
+*  `CORS` 全称是跨域资源共享`(Cross-origin resource sharing)`,它允许浏览器向跨源服务器，
+发出`XMLHttpRequest`请求，从而克服了AJAX只能同源使用的限制
 
-因此，实现CORS通信的关键是服务器，只要服务器实现了CORS接口，就可以跨域通信
+*  `CORS`需要浏览器和服务器同时支持，目前所有浏览器都支持该功能，IE浏览器不能低于`IE10`
+
+因此，实现`CORS`通信的关键是服务器，只要服务器实现了`CORS`接口，就可以跨域通信
 
 #### 2、两种请求
 *  浏览器将CORS请求分成两类：简单请求`(simple request)`和非简单请求`(not-so-simple request)`
