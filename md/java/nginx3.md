@@ -238,12 +238,29 @@ gzip_proxied off;
 
 
 
-### 一、静态资源的缓存处理
-### 一、静态资源的访问控制
-* 跨域问题
-* 防盗链问题
- 
+### 三、跨域问题
+* 使用`add_header`指令，该指令可以用来添加一些头信息
+* 语法 `add_header name value...`
+* 位置 `http、server、location`
 
+```
+location / {
+    add_header  Access-Control-Allow-Origin *;
+    add_header  Access-Control-Allow-Methods GET,POST;
+    root   html;
+}
+```
+
+当添加了上面2个请求头后，所有`非同源`请求就能访问对应服务器的资源了
+* `Access-Control-Allow-Origin`  允许哪些服务器跨域请求我
+* `Access-Control-Allow-Methods` 允许哪些请求方法跨域请求我
+
+### 四、防盗链问题
+* 资源盗链：指资源不在自己服务器上，通过技术手段绕过别的服务器限制，将其资源放到自己页面上展示给用户
+ 
+* 防盗链
+
+![](https://fgq233.github.io/imgs/java/nginx3.png)
 
 
  
