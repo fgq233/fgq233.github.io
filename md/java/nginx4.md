@@ -12,7 +12,7 @@
 
 * `gzip_min_length`  针对传输数据的大小`Content-Length`，低于配置大小则不压缩
 
-* `gzip_buffers`  用于处理请求压缩的缓冲区数量和大小
+* `gzip_buffers`  压缩的缓冲区数量和大小
 
 * `gzip_http_version`  针对不同的`HTTP`协议版本，选择性地开启和关闭`gzip`压缩
 
