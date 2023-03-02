@@ -34,7 +34,7 @@ list.stream().skip(2).forEach(s -> System.out.println(s));
 ```
 
 
-#### 8. 合并 concat
+#### 6. 合并 concat
 ```
 Stream<String> stream = list.stream();
 Stream.concat(stream, stream).forEach(s -> System.out.println(s));
