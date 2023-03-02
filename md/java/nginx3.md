@@ -68,7 +68,7 @@ location ^~/abc {
     default_type text/plain;
     return 200 "222222";
 }
-以下访问都可以匹配到
+都可以匹配到
 http://127.0.0.1/abc
 http://127.0.0.1/abc/
 http://127.0.0.1/abc/def
