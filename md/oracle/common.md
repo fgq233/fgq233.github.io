@@ -25,7 +25,13 @@ select a.program,
    and a.username is not null;
 ```
 
-###### 3、查看库下所有表
+###### 3、所有表
 ```
+-- 库下所有表
 select table_name from dba_tables where owner = '库名';
+
+-- 用户下所有表名、表记录总数量
+select t.table_name, t.num_rows from user_tables t;
 ```
+
+
