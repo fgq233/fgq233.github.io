@@ -20,4 +20,9 @@ select * from mysql.user
 
 -- 表
 select * from information_schema.tables where table_schema='库名'
+
+-- 所有表中记录数量
+select table_rows, table_name
+  from information_schema.TABLES
+ where table_schema = '库名';
 ```
