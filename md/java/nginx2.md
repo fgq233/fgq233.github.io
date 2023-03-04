@@ -93,7 +93,7 @@ http {
 请求URL: `http://127.0.0.1/auth?name=fgq&age=18`  
 
 
-| URL相关变量   | 含义        | 示例 |
+| URL相关   | 含义        | 示例 |
 | ------ | ----------| ---- |
 | `$scheme`        |    访问协议                                       | `127.0.0.1` |
 | `$host`          |    访问服务器的`server_name`值                     | `http` |
@@ -105,16 +105,17 @@ http {
 
 
 
-| 请求头相关变量   | 含义        | 
+| 请求头、响应头相关   | 含义        | 
 | ------ | ----------|
+| `$status`     | 响应的状态码 | 
 | `$http_cookie`     | 客户端的`cookie`信息 | 
-| `$content_length`  | 请求头中的`Content-Length` | 
+| `$content_length`  | 响应头中的`Content-Length` | 
 | `$content_type`    | 请求头中的`Content-Type` | 
 | `$http_user_agent` | 请求头中的`User-Agent` | 
 
 
 
-| 服务端、客户端相关变量   | 含义        | 
+| 服务端、客户端相关   | 含义        | 
 | ------ | ----------|
 | `$server_protocol`     | 客户端请求协议的版本，`HTTP/1.0`或`HTTP/1.1` | 
 | `$server_addr`  | 服务端的地址 | 
@@ -129,7 +130,7 @@ http {
 
 
 
-| `nginx.conf`相关变量   | 含义        | 
+| `nginx.conf`相关   | 含义        | 
 | ------ | ----------|
 | `$document_root`     | 当前请求对应`location`的`root`值，默认指向`Nginx`自带`html`目录所在位置  | 
 | `$limit_rate`  | `Nginx`对网络连接速率的限制，也就是`nginx.conf`中`limit_rate`指令设置的值，默认是0，不限制 | 
