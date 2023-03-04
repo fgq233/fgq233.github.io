@@ -9,9 +9,9 @@
 
 
 #### 2. 相关指令
-* `autoindex on | off;` 启用或禁用目录列表输出，默认为`off`禁用
-* `autoindex_exact_size on | off;` 指定是否在目录列表展示文件的详细大小
-  * 默认为`on`，显示出文件的确切大小，单位是`bytes`
+* `autoindex on | off;` 启用或禁用目录列表输出，默认为`off`
+* `autoindex_exact_size on | off;` 指定是否展示文件的详细大小
+  * 默认为`on`，显示出文件的详细大小，单位是`bytes`
   * 改为`off`后，显示出文件的大概大小，单位是`kB`或`MB`或`GB`
 
 * `autoindex_format html | xml | json | jsonp;` 设置目录列表的格式
