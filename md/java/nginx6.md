@@ -142,10 +142,12 @@ server {
 * 异常模块 [https://error.taobao.com]() 
 
 ```
+正则中  . 表示任意字符，* 表示出现0或者任意次
+
 server{
     listen 80;
     server_name login.taobao.com;
-    rewrite ^(.*) http://www.taobao.com/search$1;
+    rewrite ^(.*) http://www.taobao.com/login$1;
 }
 server{
     listen 80;
@@ -155,7 +157,7 @@ server{
 server{
     listen 80;
     server_name error.taobao.com;
-    rewrite ^(.*) http://www.taobao.com/search$1;
+    rewrite ^(.*) http://www.taobao.com/error$1;
 }
 ```
 
