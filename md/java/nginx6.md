@@ -100,12 +100,13 @@ location /abc {
 访问 localhost/abc/test3
 访问 localhost/abc/test4
 
+# $1表示第1个括号内容，$2表示第2个括号内容......
 location /abc {
     rewrite ^/abc/demo*$   https://www.baidu.com; 
-    rewrite ^/abc/(test1)*$  /$1  last;        # 地址不变，重写的URI匹配到 /test  
-    rewrite ^/abc/(test2)*$  /$1  break;       # 地址不变，重写的URI继续在当前 location块 处理
-    rewrite ^/abc/(test3)*$  /$1  redirect;    # 地址改变，临时重定向到 localhost/test
-    rewrite ^/abc/(test4)*$  /$1  permanent;   # 地址改变，永久重定向到 localhost/test
+    rewrite ^/abc/(test1)*$  /$1  last;             # localhost/abc/test1 地址不变，重写的URI匹配到 /test  
+    rewrite ^/abc/(test2)*$  /imgs/404.png  break;  # localhost/abc/test2 地址不变，重写的URI继续在当前 location块 处理，寻找 html/imgs/404.png
+    rewrite ^/abc/(test3)*$  /$1  redirect;         # 地址改变，临时重定向到 localhost/test
+    rewrite ^/abc/(test4)*$  /$1  permanent;        # 地址改变，永久重定向到 localhost/test
 }
 
 location /test{
@@ -159,35 +160,15 @@ server{
 ```
 
 
-#### 3. 合并目录
-一个完整的项目包含多个模块，为每一个模块设置独立的域名
-* 登录模块 [https://login.taobao.com]() 
-* 搜索模块 [https://s.taobao.com]()     
-* 异常模块 [https://error.taobao.com]() 
+#### 3. 防盗链
+当检测到防盗链时，使用`rewrite`提供更好的提示，如指定一个图片
 
 ```
-server{
-    listen 80;
-    server_name login.taobao.com;
-    rewrite ^(.*) http://www.taobao.com/search$1;
-}
-server{
-    listen 80;
-    server_name s.taobao.com;
-    rewrite ^(.*) http://www.taobao.com/search$1;
-}
-server{
-    listen 80;
-    server_name error.taobao.com;
-    rewrite ^(.*) http://www.taobao.com/search$1;
+location /imgs {  
+    valid_referers  none  blocked  127.0.0.1  www.github.com
+    if ($invalid_referer){
+        rewrite ^/  /imgs/404.png break;
+    }
 }
 ```
-
-
-
-
-
-
-
-
-
+ 
