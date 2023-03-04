@@ -1,5 +1,5 @@
 ### rewrite 功能
-`Rewrite` 主要的作用是用来实现`URL`的重写
+`Rewrite` 主要的作用是重写`URL`
 
 ### 一、相关指令
 #### 1. set 指令
