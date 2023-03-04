@@ -1,4 +1,4 @@
-### Nginx 核心配置文件 nginx.conf
+### 核心配置文件 nginx.conf
 `Nginx` 三大功能：**静态资源部署、反向代理、负载均衡**都是通过配置 `nginx.conf` 来实现的
 
 ### 一、简要说明
