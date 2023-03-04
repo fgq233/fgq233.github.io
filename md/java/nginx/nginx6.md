@@ -139,7 +139,7 @@ server {
 正则中  . 表示任意字符，* 表示出现0或者任意次
 
 server{
-    listen 80;
+    listen 80;  
     server_name login.taobao.com;
     rewrite ^(.*) http://www.taobao.com/login$1;
 }
