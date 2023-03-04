@@ -89,7 +89,7 @@ http {
   
   
   
-### 二、Nginx 全局变量
+### 二、Nginx 常用全局变量
 请求URL: `http://127.0.0.1/auth?name=fgq&age=18`  
 
 
