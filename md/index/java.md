@@ -9,6 +9,10 @@
 -  [Nginx-3 静态资源部署][nginx3]
 -  [Nginx-4 静态资源压缩][nginx4]
 -  [Nginx-5 跨域、防盗链][nginx5]
+-  [Nginx-6 rewrite功能][nginx6]
+-  [Nginx-7 反向代理][nginx7]
+-  [Nginx-8 负载均衡][nginx8]
+-  [Nginx-9 制作下载站点][nginx9]
 
 
 1. ###### 消息队列
@@ -82,13 +86,15 @@
 -  [Oauth2 端点接口][oauth2_6]
 
 
-[nginx1]: https://fgq233.github.io/md/java/nginx1
-[nginx2]: https://fgq233.github.io/md/java/nginx2
-[nginx3]: https://fgq233.github.io/md/java/nginx3
-[nginx4]: https://fgq233.github.io/md/java/nginx4
-[nginx5]: https://fgq233.github.io/md/java/nginx5
-[nginx6]: https://fgq233.github.io/md/java/nginx6
-[nginx7]: https://fgq233.github.io/md/java/nginx7
+[nginx1]: https://fgq233.github.io/md/java/nginx/nginx1
+[nginx2]: https://fgq233.github.io/md/java/nginx/nginx2
+[nginx3]: https://fgq233.github.io/md/java/nginx/nginx3
+[nginx4]: https://fgq233.github.io/md/java/nginx/nginx4
+[nginx5]: https://fgq233.github.io/md/java/nginx/nginx5
+[nginx6]: https://fgq233.github.io/md/java/nginx/nginx6
+[nginx7]: https://fgq233.github.io/md/java/nginx/nginx7
+[nginx8]: https://fgq233.github.io/md/java/nginx/nginx8
+[nginx9]: https://fgq233.github.io/md/java/nginx/nginx9
 [rocketmq6]: https://fgq233.github.io/md/mq/rocketmq6
 [rocketmq5]: https://fgq233.github.io/md/mq/rocketmq5
 [rocketmq4]: https://fgq233.github.io/md/mq/rocketmq4

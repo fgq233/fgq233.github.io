@@ -91,11 +91,15 @@ const javaList4 = [
     {url: "https://fgq233.github.io/md/java/keytool", title: "Keytool"},
     {
         url: "", title: "Nginx", child: [
-            {url: "https://fgq233.github.io/md/java/nginx1", title: "Nginx-1 安装、启动"},
-            {url: "https://fgq233.github.io/md/java/nginx2", title: "Nginx-2 nginx.conf"},
-            {url: "https://fgq233.github.io/md/java/nginx3", title: "Nginx-3 静态资源部署"},
-            {url: "https://fgq233.github.io/md/java/nginx4", title: "Nginx-4 静态资源压缩"},
-            {url: "https://fgq233.github.io/md/java/nginx5", title: "Nginx-5 跨域、防盗链"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx1", title: "Nginx-1 安装、启动"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx2", title: "Nginx-2 nginx.conf"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx3", title: "Nginx-3 静态资源部署"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx4", title: "Nginx-4 静态资源压缩"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx5", title: "Nginx-5 跨域、防盗链"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx6", title: "Nginx-6 rewrite功能"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx7", title: "Nginx-7 反向代理"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx8", title: "Nginx-8 负载均衡"},
+            {url: "https://fgq233.github.io/md/java/nginx/nginx9", title: "Nginx-9 制作下载站点"},
         ]
     },
 ];
