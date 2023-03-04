@@ -98,7 +98,7 @@ location /abc {
 location /abc {
     rewrite ^/abc/demo*$   https://www.baidu.com; 
     rewrite ^/abc/(test1)*$  /$1  last;             # localhost/abc/test1 地址不变，重写的URI匹配到 /test  
-    rewrite ^/abc/(test2)*$  /imgs/404.png  break;  # localhost/abc/test2 地址不变，重写的URI继续在当前 location块 处理，寻找 html/imgs/404.png
+    rewrite ^/abc/(test2)*$  /imgs/404.png  break;  # localhost/abc/test2 地址不变，重写的URI继续在当前location块处理，寻找html/imgs/404.png
     rewrite ^/abc/(test3)*$  /$1  redirect;         # 地址改变，临时重定向到 localhost/test
     rewrite ^/abc/(test4)*$  /$1  permanent;        # 地址改变，永久重定向到 localhost/test
 }
