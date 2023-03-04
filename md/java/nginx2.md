@@ -90,25 +90,53 @@ http {
   
   
 ### 二、Nginx 全局变量
+请求URL: `http://127.0.0.1/auth?name=fgq&age=18`  
 
-* `$args`   请求中的参数
-* `$content_length`   HTTP请求信息里的"Content-Length"
-* `$content_type`   请求信息里的"Content-Type"
-* `$document_root`   针对当前请求的根路径设置值;
-* `$document_uri`   与$uri相同
-* `$host`   请求信息中的"Host"，如果请求中没有Host行，则等于设置的服务器名
-* `$limit_rate`   对连接速率的限制;
-* `$request_method`   请求的方法，比如"GET"、"POST"等
-* `$remote_addr`   客户端地址
-* `$remote_port`   客户端端口号
-* `$remote_user`   客户端用户名，认证用
-* `$request_filename`   当前请求的文件路径名
-* `$request_body_file`   当前请求的文件
-* `$request_uri`   请求的URI，带查询字符串
-* `$query_string`   与$args相同
-* `$scheme`   所用的协议，比如http或者是https
-* `$server_protocol`   请求的协议版本，"HTTP/1.0"或"HTTP/1.1";
-* `$server_addr`   服务器地址
-* `$server_name`   请求到达的服务器名
-* `$server_port`   请求到达的服务器端口号
-* `$uri`   请求的URI，可能和最初的值有不同，比如经过重定向之类的
+
+| URL相关变量   | 含义        | 示例 |
+| ------ | ----------| ---- |
+| `$scheme`        |    访问协议                                       | `127.0.0.1` |
+| `$host`          |    访问服务器的`server_name`值                     | `http` |
+| `$uri`           |    当前请求的URI, 可能和最初的值有不同，比如经过重定向 | `/auth` |
+| `$document_uri`  |    与`$uri`相同                                   |  |
+| `$document_uri`  |    当前请求的URI，并且携带查询参数                  |`/auth?name=fgq&age=18` |
+| `$args`          |    URL中的查询参数                                | `name=fgq&age=18` |
+| `$query_string` |    与`$args`相同                                  |  |
+
+
+
+| 请求头相关变量   | 含义        | 
+| ------ | ----------|
+| `$http_cookie`     | 客户端的`cookie`信息 | 
+| `$content_length`  | 请求头中的`Content-Length` | 
+| `$content_type`    | 请求头中的`Content-Type` | 
+| `$http_user_agent` | 请求头中的`User-Agent` | 
+
+
+
+| 服务端、客户端相关变量   | 含义        | 
+| ------ | ----------|
+| `$server_protocol`     | 客户端请求协议的版本，`HTTP/1.0`或`HTTP/1.1` | 
+| `$server_addr`  | 服务端的地址 | 
+| `$server_name`    | 服务端的名称 | 
+| `$server_port` | 服务端的端口号 |
+|  `$remote_addr` |   客户端的IP地址| 
+|  `$remote_port`  |  客户端与服务端建立连接的端口号| 
+|  `$remote_user`  |  客户端的用户名，需要有认证模块才能获取| 
+| `$request_method`   |客户端的请求方式，比如`GET、POST`等|
+| `$request_filename`   |当前请求的资源文件的路径名|
+| `$request_body_file`   |存储了发给后端服务器的本地文件资源的名称|
+
+
+
+| `nginx.conf`相关变量   | 含义        | 
+| ------ | ----------|
+| `$document_root`     | 当前请求对应`location`的`root`值，默认指向`Nginx`自带`html`目录所在位置  | 
+| `$limit_rate`  | `Nginx`对网络连接速率的限制，也就是`nginx.conf`中`limit_rate`指令设置的值，默认是0，不限制 | 
+
+
+
+
+
+
+
