@@ -118,15 +118,15 @@ http {
 | 服务端、客户端相关   | 含义        | 
 | ------ | ----------|
 | `$server_protocol`     | 客户端请求协议的版本，`HTTP/1.0`或`HTTP/1.1` | 
-| `$server_addr`  | 服务端的地址 | 
-| `$server_name`    | 服务端的名称 | 
-| `$server_port` | 服务端的端口号 |
-|  `$remote_addr` |   客户端的IP地址| 
-|  `$remote_port`  |  客户端与服务端建立连接的端口号| 
-|  `$remote_user`  |  客户端的用户名，需要有认证模块才能获取| 
-| `$request_method`   |客户端的请求方式，比如`GET、POST`等|
-| `$request_filename`   |当前请求的资源文件的路径名|
-| `$request_body_file`   |存储了发给后端服务器的本地文件资源的名称|
+| `$server_addr`     | 服务端的地址 | 
+| `$server_name`     | 服务端的名称 | 
+| `$server_port`     | 服务端的端口号 |
+|  `$remote_addr`    |   客户端的IP地址| 
+|  `$remote_port`    |  客户端与服务端建立连接的端口号| 
+|  `$remote_user`     |  客户端的用户名，需要有认证模块才能获取| 
+| `$request_method`   |  客户端的请求方式，比如`GET、POST`等|
+| `$request_filename`   |  当前请求的资源文件名|
+| `$request_body_file`   |  存储了发给后端服务器的本地文件资源的名称|
 
 
 
