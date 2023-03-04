@@ -104,8 +104,8 @@ location /abc {
 }
 
 location /test{
-	default_type text/plain;
-	return 200 success;
+    default_type text/plain;
+    return 200 success;
 }
 ```
 
