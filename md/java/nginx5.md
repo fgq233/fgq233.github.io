@@ -45,7 +45,7 @@ location / {
 
 ```
 location /imgs {  
-    valid_referers none  127.0.0.1  www.github.com
+    valid_referers  none  blocked  127.0.0.1  www.github.com
     if ($invalid_referer){
         return 403;
     }
