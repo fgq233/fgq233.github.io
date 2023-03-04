@@ -14,9 +14,9 @@
   * 默认为`on`，显示出文件的详细大小，单位是`bytes`
   * 改为`off`后，显示出文件的大概大小，单位是`kB`或`MB`或`GB`
 
-* `autoindex_format html | xml | json | jsonp;` 设置目录列表的格式
+* `autoindex_format html | xml | json | jsonp;` 设置目录列表的格式，默认为`html`
 
-* `autoindex_localtime on | off;` 是否在目录列表上显示时间（在`html`格式中使用）
+* `autoindex_localtime on | off;` 是否在目录列表上显示时间
   * 默认为`off`，显示的文件时间为`GMT`时间
   * 改为`on`后，显示的文件时间为文件的服务器时间
 
