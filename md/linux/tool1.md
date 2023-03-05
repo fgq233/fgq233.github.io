@@ -1,4 +1,4 @@
-#### Notepad++ 远程连接Linux系统
+### Notepad++ 远程连接Linux系统
  
 #### 1. 下载 NppFTP 插件
 [https://sourceforge.net/projects/npp-plugins/files/](https://sourceforge.net/projects/npp-plugins/files/)
