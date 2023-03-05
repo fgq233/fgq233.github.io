@@ -14,6 +14,9 @@
 
 
 #### 4. 配置连接
+* `SSH`连接`Linux`
+* 配置连接内容：名称、主机、用户名、密码
+
 ![](https://fgq233.github.io/imgs/linux/finalshell1.png)
 
 ![](https://fgq233.github.io/imgs/linux/finalshell2.png)
