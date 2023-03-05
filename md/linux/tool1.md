@@ -5,7 +5,7 @@
 
 
 #### 2. 配置插件
-在安装目录的`plugins`目录下新建 `NppFTP` 目录，将 `NppFTP.dll`文件放进去，重启 `Notepad++ `
+在`Notepad++`安装目录的`plugins`目录下新建 `NppFTP`目录，将插件`NppFTP.dll`放进去，重启
 
 
 #### 3. 配置连接
