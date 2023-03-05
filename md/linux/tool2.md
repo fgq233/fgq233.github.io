@@ -13,6 +13,7 @@
 命令行运行 `ifconfig`
 
 
-#### 4. FinalShell
+#### 4. 配置连接
 ![](https://fgq233.github.io/imgs/linux/finalshell1.png)
+
 ![](https://fgq233.github.io/imgs/linux/finalshell2.png)
