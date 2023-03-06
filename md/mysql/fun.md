@@ -112,6 +112,9 @@ nullif(v1, v2)
 isnull(v)
 ```
 
+注意：`MySQL`中空字符串不算`null`，而`Oracle`空字符串算`null`
+
+
 ### 5、转换函数 
 * `cast(value AS datatype)`
 * `convert(value, datatype)`
