@@ -87,6 +87,9 @@ date_sub(date, interval expr unit)   date减法，date_sub(now(), interval 1 yea
 
 extract(unit from date)      提取年、月、日、时、分、秒
 
+date(now())                  [DATE]2022-02-22 日期截断，类似Oracle中的 trunc()
+date('20220202')             [DATE]2022-02-22 字符串转日期
+
 date_format(date, format)    格式化显示日期，date_format(now(),'%Y-%m-%d')，Y、y分别表示4位数、2位数年份
 time_format(date, format)    格式化显示时间，date_format(now(),'%H:%i:%s')，H、h分别表示24、12小时制
 
@@ -111,7 +114,27 @@ nullif(v1, v2)
 isnull(v)
 ```
 
-	
+### 5、转换函数 
+* `cast(value AS datatype)`
+* `convert(value, datatype)`
+
+```
+# 字符串转数字，类似Oracle 中 to_numer() 
+cast('123' as signed);              字符串转数字(整数)
+cast('123.12' as decimal(5,2))      字符串转数字(浮点数)
+convert('123', signed)              字符串转数字(整数)
+convert('123.12', decimal(5,2))     字符串转数字(浮点数)
+
+# 数字转字符串，类似Oracle 中 to_char() 
+cast(123 as char)
+convert(123, char)
+
+# 日期转字符串，类似Oracle 中 to_char() 
+cast(now() as char)
+convert(now(), char)
+```
+
+
 
 ### 5、聚合函数
 ```
