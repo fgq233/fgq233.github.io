@@ -136,7 +136,7 @@ convert(now(), char)
 
 
 
-### 5、聚合函数
+### 6、聚合函数
 ```
 count()、sum()、min()、max()、avg()
 
@@ -150,7 +150,7 @@ select group_concat(username order by cjsj separator '-') from sys_user
 
 
 
-### 6、分区函数 partition by、排名函数
+### 7、分区函数 partition by、排名函数
 * `partition by`：用于给结果集分组，如果没有指定那么它把整个结果集作为一个分组，
 分区函数一般与排名函数一起使用遍历。和 `group by` 不同的在于它能返回一个分组中的多条记录，
 而 `group by` 一般只有一条反映统计值的记录观的数据
