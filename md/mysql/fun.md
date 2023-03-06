@@ -23,7 +23,7 @@ position(substr in str)          返回字符串substr在str中的开始位置
 
 replace(str, old, new)           将str中old字符替换为new
 reverse(str)                     字符串反转
-uuid()                           随机字符串，类似Oracle的
+uuid()                           随机字符串，类似Oracle的sys_guid()
 
 left(str, n)    返回str从左边开始前n个字符
 right(str, n)   返回str从右边开始后n个字符
