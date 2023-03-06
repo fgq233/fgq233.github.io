@@ -28,11 +28,9 @@ uuid()                           随机字符串，类似Oracle的sys_guid()
 left(str, n)    返回str从左边开始前n个字符
 right(str, n)   返回str从右边开始后n个字符
 
-# PS：起始位置从1开始，下面4个等价于Oracle的substr 
+# PS：MySQL中substr效果和substring一样，起始位置从1开始，类似Oracle中的substr 
 substr(str, start)        从起始位置start开始截取，截取到最后
 substr(str, start, n)     从起始位置start开始截取，截取n个字符
-substring(str, start)     从起始位置start开始截取，截取到最后
-substring(str, start, n)  从起始位置start开始截取，截取n个字符
 ```
 
 
