@@ -8,11 +8,11 @@
 
 #### 2.与MySQL区别
 * `Oracle` 将空字符串视为 `null`，而`MySQL`不是
-* 排序时，将`null`值视为最大值，这一点恰好和`MySQL`相反，可以手动指定`null`值顺序
+* 排序时，`Oracle`将`null`值视为最大值，这一点恰好和`MySQL`相反
 
 ```
-order by cjsj desc nulls last  将null值放在最后
-order by cjsj nulls first      将null值放在最前
+order by cjsj desc nulls last  Oracle将null值放在最后
+order by cjsj nulls first      Oracle将null值放在最前
 ```
 
 
