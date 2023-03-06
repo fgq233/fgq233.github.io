@@ -88,7 +88,7 @@ date_sub(date, interval expr unit)   date减法，date_sub(now(), interval 1 yea
 extract(unit from date)      提取年、月、日、时、分、秒
 
 date_format(date, format)    格式化显示日期，date_format(now(),'%Y-%m-%d')，Y、y分别表示4位数、2位数年份
-time_format(date, format)    格式化显示时间，date_format(now(),'%h:%i:%s')，H、h分别表示24、12小时制
+time_format(date, format)    格式化显示时间，date_format(now(),'%H:%i:%s')，H、h分别表示24、12小时制
 
 str_to_date(str, format)     字符串转日期，str_to_date('2022-11-02 12:00:00','%Y-%m-%d %H:%i:%s');
 ```
