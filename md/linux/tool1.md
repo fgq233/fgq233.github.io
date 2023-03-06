@@ -16,5 +16,3 @@
 ![](https://fgq233.github.io/imgs/linux/nppftp2.png)
 
 
-* `Windows` 系统有多个顶级目录，即各个盘符
-* `Linux` 中没有盘符的概念，只有一个顶级目录：根目录 `/`
