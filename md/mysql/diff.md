@@ -37,6 +37,7 @@ select  SUBSTRING('123456', 0, 3);  --输出空字符串
   * `instr(str, binary a)` 区分大小写
 * Oracle：  `instr(str, a)`
 
+
 #### 6. uuid
 * MySQL：`uuid()`
 * Oracle：`sys_guid()`
