@@ -83,19 +83,7 @@ select str_to_date('2023-03-07 14:00:00', '%Y-%m-%d %H:%i:%s')
 select to_date('2023-03-07 14:00:00', 'yyyy-MM-dd HH24:mi:ss') from dual
 ```
 
-#### 5. 字符串转日期
-* MySQL：`str_to_date(str, format)`
-* Oracle：`to_date(str, format)`
-
-```
--- MySQL
-select str_to_date('2023-03-07 14:00:00', '%Y-%m-%d %H:%i:%s')
-
--- Oracle
-select to_date('2023-03-07 14:00:00', 'yyyy-MM-dd HH24:mi:ss') from dual
-```
-
-#### 6. 日期截断
+#### 5. 日期截断
 * MySQL：`date()`
 * Oracle：`trunc()`
 
@@ -107,7 +95,7 @@ select date(now())
 select trunc(sysdate) from dual
 ```
 
-#### 7. 日期加减
+#### 6. 日期加减
 * MySQL：`date()`
   * `adddate(date, n)`     date加n天
   * `subdate(date, n)`     date减n天
@@ -122,7 +110,7 @@ select trunc(sysdate) from dual
 n 的正、负代表加、减
 
 
-#### 8. 计算两个日期相差天数
+#### 7. 计算两个日期相差天数
 * MySQL：`datediff(date1, date2)`
 * Oracle：`date1 - date2`
 
