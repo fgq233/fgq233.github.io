@@ -26,8 +26,8 @@ ltrim(str, A)   左删除：与leading等同
 rtrim(str, A)   右删除：与trailing等同
 trim(str)       字符串左右两端去空格
 
-concat      字符串拼接，也可以使用 || 操作符
-sys_guid()  随机字符串
+concat(s1, s2)  字符串拼接，也可以使用 || 操作符
+sys_guid()      随机字符串
 ```
 
 
