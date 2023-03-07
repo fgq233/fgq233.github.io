@@ -17,8 +17,11 @@ trim(str)    去除两侧空格
 lpad(str,n,a)    左填充：在字符串str的左边用a填充，直到字符串长度为n时停止
 rpad(str,n,a)    右填充：在字符串str的右边用a填充，直到字符串长度为n时停止
 
-field(str, s1, s2, ... )         返回str在列表中的位置
-instr(str, a)                    在字符串中查找是否存在字符串a，存在返回a的位置，不存在返回0
+field(str, s1, s2, ... )         返回str在列表s1, s2 ... 中的位置
+find_in_set(str, string_list)    返回str在string_list中的位置,string_list为一个使用逗号分隔的字符串列表
+
+instr(str, a)                    在字符串中查找是否存在字符串a，存在返回a的位置，不存在返回0(不区分大小写)
+instr(str, binary a)             区分大小写
 position(substr in str)          返回字符串substr在str中的开始位置
 
 replace(str, old, new)           将str中old字符替换为new
