@@ -3,6 +3,7 @@
 1. [变量][variable]
 1. [逻辑控制语句][if_for]
 1. [存储过程][procedure]
+1. [自定义函数][function]
 1. [条件处理程序、游标][handler_cursor]
 1. [DCL 用户管理、权限管理][dcl]
 1. [索引][index]
@@ -47,3 +48,6 @@
 [fun]: https://fgq233.github.io/md/mysql/fun
 [variable]: https://fgq233.github.io/md/mysql/variable
 [if_for]: https://fgq233.github.io/md/mysql/if_for
+[function]: https://fgq233.github.io/md/mysql/function
+[procedure]: https://fgq233.github.io/md/mysql/procedure
+[handler_cursor]: https://fgq233.github.io/md/mysql/handler_cursor
