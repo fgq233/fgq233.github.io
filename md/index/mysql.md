@@ -2,6 +2,8 @@
 1. [常用的函数][fun]
 1. [变量][variable]
 1. [逻辑控制语句][if_for]
+1. [存储过程][procedure]
+1. [条件处理程序、游标][handler_cursor]
 1. [DCL 用户管理、权限管理][dcl]
 1. [索引][index]
 1. [explain 执行计划][explain]
