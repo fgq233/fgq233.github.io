@@ -28,7 +28,7 @@ select SUBSTR('123456', 1, 3), SUBSTR('123456', 0, 3) from dual; -- 输出都是
 
 -- MySQL
 select SUBSTRING('123456', 1, 3);   -- 输出123  
-select  SUBSTRING('123456', 0, 3);  --输出空字符串
+select  SUBSTRING('123456', 0, 3);  -- 输出空字符串
 ```
 
 #### 5. 字符串搜索
