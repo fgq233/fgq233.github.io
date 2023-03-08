@@ -33,7 +33,7 @@ CALL 存储过程名称(参数...);
 ```
 CREATE PROCEDURE xxx () 
 BEGIN
-	SELECT NOW();
+    SELECT NOW();
 END;
 ```
 
