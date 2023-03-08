@@ -20,9 +20,9 @@ END;
 #### 2. 无参函数
 ```
 CREATE FUNCTION fun_xxx () 
-RETURNS VARCHAR ( 20 ) DETERMINISTIC 
+RETURNS VARCHAR(20) DETERMINISTIC 
 BEGIN
-	DECLARE v_now VARCHAR ( 20 );
+	DECLARE v_now VARCHAR(20);
 	SET v_now := date_format( now(), '%Y%m%d%H%i%s' );
 	RETURN v_now;
 END;
@@ -31,7 +31,7 @@ END;
 #### 3. 带参函数
 ```
 CREATE FUNCTION fun_xxx( num1 INT, num2 INT ) 
-RETURNS VARCHAR ( 20 ) DETERMINISTIC 
+RETURNS int DETERMINISTIC 
 BEGIN
     DECLARE v_sum INT;
     SET v_sum := num1 + num2;
