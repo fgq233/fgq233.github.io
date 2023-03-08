@@ -57,8 +57,8 @@
     statement;         -- 循环体
 END LOOP [label];      -- 循环结束标志
 
-LEAVE label;            -- 退出循环
-ITERATE label;          -- 跳过本次循环
+LEAVE label;           -- 退出循环
+ITERATE label;         -- 跳过本次循环
 
 示例：
 CREATE PROCEDURE xxx ( IN n INT ) BEGIN
