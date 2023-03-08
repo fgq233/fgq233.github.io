@@ -1,12 +1,11 @@
 ## MySQL 中自定义函数
 #### 1. 组成结构
 ```
-create function 函数名称
-( param1, param2  ...) 
-returns datatype [characteristic]
-begin
- ... 函数体(至少要包含一条RETURN 语句)
-end;
+CREATE FUNCTION 函数名称 ( param1, param2...) 
+RETURNS datatype [ characteristic ] 
+BEGIN
+	...函数体 (至少要包含一条 RETURN 语句 ) 
+END;
 ```
 
 * 参数：只能有输入参数，且 `in` 省略
