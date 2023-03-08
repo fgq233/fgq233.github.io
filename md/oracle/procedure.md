@@ -10,9 +10,9 @@ begin
 end;
 ```
 * or replace：覆盖同名存储过程
-* 参数：有3类：输入参数(默认)(in)、输出参数(out)、输入输出参数(in out)
+* 参数：输入参数(默认)(in)、输出参数(out)、输入输出参数(in out)
 * datatype：返回值的数据类型
-* {is | as}：二选一、两者没啥区别
+* `{is | as}`：二选一，两者没啥区别
 * 创建存储过程需要有 CREATE PROCEDURE 权限
 
 
