@@ -66,7 +66,7 @@ set @变量名 = 值;
 set @变量名 := 值; 
 
 # 方式2 
-select @变量名 := 表达式 [from 子句]; 
+select @变量名 := 表达式; 
 select 表达式 into @变量名 [from 子句];
 ```
 
