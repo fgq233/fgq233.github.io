@@ -5,7 +5,7 @@
 DECLARE 动作 handler for 条件 statment;
 ```
 
-当满足条件时，触发某个动作，执行动作后，再执行 statment 部分语句
+当满足条件时，触发某个动作，执行动作后，再执行 `statment` 语句
 
 * 动作
     * `CONTINUE`   继续执行当前程序
