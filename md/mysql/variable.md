@@ -111,5 +111,5 @@ BEGIN
     DECLARE v_now datetime;
     set v_now := NOW();
     SELECT v_now;
-END
+END;
 ```

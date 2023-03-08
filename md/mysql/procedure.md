@@ -49,15 +49,15 @@ END;
 
 #### 3、输出参数 out
 ```
-create  procedure xxx
+CREATE PROCEDURE xxx
 (
   in v_num1   int,
   in v_num2   int,
   out v_sum   int
 ) 
-begin
+BEGIN
   set v_sum := v_num1 + v_num2;
-end;
+END;
 ```
 
 * 调用存储过程
@@ -71,10 +71,10 @@ select @result;
 一个参数既是输入参数，又是输出参数，就可以定义为 inout
 
 ```
-create procedure xxx(inout v_now datetime) 
-begin
+CREATE PROCEDURE xxx(inout v_now datetime) 
+BEGIN
   select date(v_now) into v_now;
-end;
+END;
 ```
 
 
