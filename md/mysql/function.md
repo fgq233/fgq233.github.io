@@ -9,7 +9,7 @@ END;
 ```
 
 * 参数：只能有输入参数，且 `in` 省略
-* `datatype` 返回值的数据类型
+* `RETURNS datatype` 返回值的数据类型
 * `characteristic`
   * `deterministic`  相同的输入参数总是产生相同的结果
   * `no sql`  不包含SQL 语句
