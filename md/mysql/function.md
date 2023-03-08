@@ -22,9 +22,9 @@ END;
 CREATE FUNCTION fun_xxx () 
 RETURNS VARCHAR(20) DETERMINISTIC 
 BEGIN
-	DECLARE v_now VARCHAR(20);
-	SET v_now := date_format( now(), '%Y%m%d%H%i%s' );
-	RETURN v_now;
+    DECLARE v_now VARCHAR(20);
+    SET v_now := date_format( now(), '%Y%m%d%H%i%s' );
+    RETURN v_now;
 END;
 ```
 
