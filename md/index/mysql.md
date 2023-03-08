@@ -1,5 +1,6 @@
 1. [数据类型][datatype]
 1. [常用的函数][fun]
+1. [变量][variable]
 1. [DCL 用户管理、权限管理][dcl]
 1. [索引][index]
 1. [explain 执行计划][explain]
@@ -41,3 +42,4 @@
 [index]: https://fgq233.github.io/md/mysql/index
 [datatype]: https://fgq233.github.io/md/mysql/datatype
 [fun]: https://fgq233.github.io/md/mysql/fun
+[variable]: https://fgq233.github.io/md/mysql/variable
