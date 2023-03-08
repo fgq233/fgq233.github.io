@@ -191,3 +191,4 @@ select to_number('666') from dual
 ### 六、其他函数
 * `case when` 在 MySQL、Oracle中都可以使用，`decode()` 函数为 Oracle 独有
 *  Oracle 中递归查询 `start with ... connect by prior`，MySQL不支持
+*  对于分组排序函数 `ron_numer() over`，MySQL在 8.0 之后版本支持
