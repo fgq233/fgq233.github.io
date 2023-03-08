@@ -22,6 +22,8 @@
     END IF; 
 ```
 
+相对于 MySQL 中 `ELSEIF`，Oracle 少一个 `E`
+
 #### 2、条件控制语句CASE
 ```
 简单case语句

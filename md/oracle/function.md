@@ -49,6 +49,7 @@ end xxx;
 
 #### 3、输出参数 out
 一般情况下，函数只需要返回单个数据，当需要返回多个数据时，就需要定义输出参数
+
 ```
 create or replace function xxx
 (param out number)
@@ -65,7 +66,8 @@ end xxx;
 
 
 #### 4、输入输出参数
-一个参数既是输入参数，又是输出参数，就可以定义为 in out .
+一个参数既是输入参数，又是输出参数，就可以定义为 in out
+
 ```
 create or replace function xxx
  param in out number
@@ -79,5 +81,4 @@ begin
   return v_result; 
   
 end xxx;
-
 ```

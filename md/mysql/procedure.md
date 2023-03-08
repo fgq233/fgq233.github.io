@@ -19,6 +19,12 @@ DROP PROCEDURE IF EXISTS 存储过程名称;
 CALL 存储过程名称(参数...);
 ```
 
+#### 4. 参数说明
+| 类型   | 含义         |
+| ------ | ----------| 
+| `in` |输入参数（默认类型，可省略），调用存储过程时需传入值 | 
+| `out` | 输出参数，作为返回值 | 
+| `inout` | 既可以作为输入参数，又可以作为输出参数 | 
 
 
 ### 二、示例
@@ -33,48 +39,49 @@ END;
 
 #### 2、输入参数 in
 ```
-create or replace procedure xxx
-(
-  in_uuid   VARCHAR2,
-  in_name   NUMBER, 
-  in_age    VARCHAR2 DEFAULT '18'
-) 
-is
-begin
-  insert into ppp(uuid, name, age) values(in_uuid, in_name, in_age);
-  commit;
-end xxx;
+CREATE PROCEDURE xxx (IN v_now datetime, IN v_num INT ) 
+BEGIN
+  SELECT v_now, v_num;
+END;
 ```
 
 
 
 #### 3、输出参数 out
-一般情况下，函数只需要返回单个数据，当需要返回多个数据时，就需要定义输出参数
 ```
-create or replace procedure xxx
+create  procedure xxx
 (
-  in_uuid   VARCHAR2,
-  out_age   OUT VARCHAR2
+  in v_num1   int,
+  in v_num2   int,
+  out v_sum   int
 ) 
-is
 begin
-  select age into out_age from ppp where uuid = in_uuid;
-end xxx;
+  set v_sum := v_num1 + v_num2;
+end;
 ```
 
+* 调用存储过程
 
+```
+call xxx(1, 2, @result);
+select @result;
+```
 
 #### 4、输入输出参数
-一个参数既是输入参数，又是输出参数，就可以定义为 in out .
+一个参数既是输入参数，又是输出参数，就可以定义为 inout
+
 ```
-create or replace procedure xxx
-(
-  v_num1   IN OUT  NUMBER,
-  v_num2   IN OUT  NUMBER
-) 
-is
+create procedure xxx(inout v_now datetime) 
 begin
-  v_num1 := v_num1 - v_num2;
-  v_num2 := v_num1 + v_num2;
-end xxx;
+  select date(v_now) into v_now;
+end;
+```
+
+
+* 调用存储过程
+
+```
+set @result := now();
+call xxx(@result);
+select @result;
 ```
