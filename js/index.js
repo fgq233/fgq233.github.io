@@ -6,7 +6,7 @@ function clickBlog() {
     // if(ret !== null && ret === Decrypt(s)) {
     //     window.location.href = "https://fgq233.github.io/md/blog";
     // }
-    if(ret !== null && ret === '帅') {
+    if(ret !== null && ret === Decrypt('帅')) {
         window.location.href = "https://fgq233.github.io/md/blog";
     }
 }
