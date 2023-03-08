@@ -1,6 +1,6 @@
 ## 逻辑控制语句
 ### 一、逻辑控制语句
-#### 1、条件控制语句IF
+#### 1、IF ELSE
 ```
 形式1：
     IF condition THEN
@@ -24,10 +24,9 @@
 
 相对于 MySQL 中 `ELSEIF`，Oracle 少一个 `E`
 
-#### 2、条件控制语句CASE
+#### 2、CASE
 ```
 简单case语句
-        [ <<label_name>> ]
         CASE case_expr              --这是一个变量或者表达式
         WHEN case_value1 THEN
             statement;
@@ -35,9 +34,8 @@
             statement;
         ELSE                        --当所有value都不匹配时执行，可省略
             statment;
-        END CASE [label_name];
+        END CASE;
 搜索式case语句
-        [ <<label_name>> ]
         CASE                        --这里没有表达式
         WHEN boolean_expr1 THEN
             statement;
@@ -45,7 +43,7 @@
             statement;
         ELSE                        --当所有 boolean_expr都不成立时执行，可省略
             statment;
-        END CASE [label_name];  
+        END CASE;  
 ```
 
 
