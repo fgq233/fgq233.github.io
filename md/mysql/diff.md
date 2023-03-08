@@ -60,7 +60,7 @@ select  SUBSTRING('123456', 0, 3);  --输出空字符串
 * Oracle：`sysdate`
 
 #### 3. 日期转字符串
-* MySQL：`date_format(str, format)`
+* MySQL：`date_format(date, format)`
 * Oracle：`to_char(str, format)`
 
 ```
