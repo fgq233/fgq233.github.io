@@ -150,6 +150,11 @@ group_concat([distinct] 字段名 [order by 排序字段 asc/desc] [separator])
 select group_concat(username) from sys_user
 select group_concat(username order by cjsj) from sys_user
 select group_concat(username order by cjsj separator '-') from sys_user
+
+# 列转行，使用 substring_index 和系统表 help_topic实现，拆分拼接的字符串
+SELECT substring_index(substring_index('张三,李四,王五', ',',  help_topic_id + 1), ',', -1) AS Id
+  FROM mysql.help_topic
+ WHERE help_topic_id < (LENGTH('张三,李四,王五') - LENGTH(REPLACE('张三,李四,王五', ',', '')) + 1);
 ```
 
 
