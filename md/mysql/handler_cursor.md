@@ -74,7 +74,7 @@ CREATE PROCEDURE xxx () BEGIN
   DECLARE done TINYINT DEFAULT FALSE;
   -- 声明游标
   DECLARE v_cur CURSOR FOR SELECT id, organ_code FROM sys_organ LIMIT 10;
-  -- 声明条件处理程序
+  -- 声明条件处理程序，必须在声明游标之后
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = true;
   
   -- 建表
