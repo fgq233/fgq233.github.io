@@ -87,14 +87,16 @@ CREATE PROCEDURE xxx () BEGIN
   -- 打开游标
   OPEN v_cur;
   X_LOOP: LOOP
-      -- 提取数据
-      FETCH v_cur INTO v_id, v_code;
-		  -- 控制退出循环
-			IF done THEN
-		    LEAVE X_LOOP;
-			END IF;
-		  -- 业务逻辑
-      INSERT INTO aaa VALUES (v_id, v_code);
+    -- 提取数据
+    FETCH v_cur INTO v_id, v_code;
+    
+    -- 控制退出循环
+    IF done THEN
+      LEAVE X_LOOP;
+    END IF;
+    
+    -- 业务逻辑
+    INSERT INTO aaa VALUES (v_id, v_code);
   END LOOP X_LOOP;
   -- 关闭游标
   CLOSE v_cur;
