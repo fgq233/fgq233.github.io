@@ -20,7 +20,7 @@ DECLARE 动作 handler for 条件 statment;
 #### 2. 示例
 ```
 # 退出游标示例
-DECLARE exit handler for NOT FOUND CLOSE V_CUR;
+DECLARE EXIT HANDLER for NOT FOUND CLOSE V_CUR;
 
 # 捕获异常示例
 CREATE PROCEDURE testErr()
@@ -29,7 +29,7 @@ BEGIN
     DECLARE v_msg TEXT;
 
     #------捕获异常-----START-----#
-    DECLARE exit handler for SQLEXCEPTION
+    DECLARE EXIT HANDLER for SQLEXCEPTION
     BEGIN
         ROLLBACK;
         GET DIAGNOSTICS CONDITION 1 v_code = RETURNED_SQLSTATE, v_msg = MESSAGE_TEXT;
@@ -70,11 +70,11 @@ CREATE PROCEDURE xxx () BEGIN
   DECLARE v_id BIGINT;
   DECLARE v_code VARCHAR (100);
   -- 声明控制循环的变量
-  DECLARE done TINYINT DEFAULT FALSE;
+  DECLARE v_done TINYINT DEFAULT FALSE;
   -- 声明游标
   DECLARE v_cur CURSOR FOR SELECT id, organ_code FROM sys_organ LIMIT 10;
   -- 声明条件处理程序，必须在声明游标之后
-  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = true;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_done = true;
   
   -- 建表
   DROP TABLE IF EXISTS AAA;
@@ -90,7 +90,7 @@ CREATE PROCEDURE xxx () BEGIN
     FETCH v_cur INTO v_id, v_code;
     
     -- 控制退出循环
-    IF done THEN
+    IF v_done THEN
       LEAVE X_LOOP;
     END IF;
     
