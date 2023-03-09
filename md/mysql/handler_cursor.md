@@ -25,16 +25,15 @@ DECLARE exit handler for NOT FOUND CLOSE V_CUR;
 # 捕获异常示例
 CREATE PROCEDURE testErr()
 BEGIN
-    DECLARE err_code CHAR(5) DEFAULT '00000';
-    DECLARE err_msg TEXT;
+    DECLARE v_code CHAR(5) DEFAULT '00000';
+    DECLARE v_msg TEXT;
 
     #------捕获异常-----START-----#
     DECLARE exit handler for SQLEXCEPTION
     BEGIN
         ROLLBACK;
-        GET DIAGNOSTICS CONDITION 1 err_code = RETURNED_SQLSTATE, err_msg = MESSAGE_TEXT;
-        insert into error_log (e_code, e_msg) 
-            values (err_code, err_msg);
+        GET DIAGNOSTICS CONDITION 1 v_code = RETURNED_SQLSTATE, v_msg = MESSAGE_TEXT;
+        insert into error_log (e_code, e_msg) values (v_code, v_msg);
     END;
     #------捕获异常-----END-----#
    
