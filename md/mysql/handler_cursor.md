@@ -85,7 +85,7 @@ CREATE PROCEDURE xxx () BEGIN
   );
   -- 打开游标
   OPEN v_cur;
-  WHILE !DONE DO
+  WHILE !done DO
       -- 提取数据
       FETCH v_cur INTO v_id, v_code;
       INSERT INTO aaa VALUES (v_id, v_code);
