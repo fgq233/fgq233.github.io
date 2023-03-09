@@ -70,10 +70,12 @@ CREATE PROCEDURE xxx () BEGIN
   -- 声明变量
   DECLARE v_id BIGINT;
   DECLARE v_code VARCHAR (100);
-  --声明游标
+  -- 声明控制循环的变量
+  DECLARE done TINYINT DEFAULT FALSE;
+  -- 声明游标
   DECLARE v_cur CURSOR FOR SELECT id, organ_code FROM sys_organ LIMIT 10;
-  --声明条件处理程序
-  DECLARE EXIT HANDLER FOR NOT FOUND CLOSE v_cur;
+  -- 声明条件处理程序
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET DONE = true;
   
   -- 建表
   DROP TABLE IF EXISTS AAA;
@@ -81,14 +83,14 @@ CREATE PROCEDURE xxx () BEGIN
          ID BIGINT PRIMARY KEY AUTO_INCREMENT, 
          CODE VARCHAR (100) 
   );
-  --打开游标
+  -- 打开游标
   OPEN v_cur;
-  WHILE TRUE DO
-      --提取数据
+  WHILE !DONE DO
+      -- 提取数据
       FETCH v_cur INTO v_id, v_code;
       INSERT INTO aaa VALUES (v_id, v_code);
   END WHILE;
-  --关闭游标
+  -- 关闭游标
   CLOSE v_cur;
 END;
 ```
