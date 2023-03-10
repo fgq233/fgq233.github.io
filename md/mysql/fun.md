@@ -186,3 +186,41 @@ select t.organ_name, t.jglx, row_number() over (partition by t.jglx order by t.c
 select t.organ_name, t.jglx, rank() over       (partition by t.jglx order by t.cjsj) 组内跳跃排序   from SYS_ORGAN t ;
 select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.cjsj) 组内连续排序   from SYS_ORGAN t;
 ```
+
+
+### 8、with recursive 递归函数
+将初始语句查询出的结果，循环参与下面的递归
+
+```
+# 语法
+with recursive 表名 AS ( 
+    初始语句（非递归部分） 
+    UNION ALL 
+    递归部分语句
+)
+[SELECT| INSERT | UPDATE | DELETE]
+
+# 示例
+with recursive temp AS(
+    SELECT 1 AS n
+    UNION ALL
+    SELECT n + 1 FROM temp WHERE n < 10
+)
+SELECT * FROM temp;
+
+# 向父递归
+WITH recursive temp AS(
+    SELECT * FROM SYS_ORGAN jg WHERE jg.ID = 153838
+    UNION ALL
+    SELECT jg.* FROM SYS_ORGAN jg, temp t WHERE t.parent_org = jg.ID
+)
+SELECT * FROM temp;
+
+# 向子递归
+WITH recursive temp AS(
+    SELECT * FROM SYS_ORGAN JG WHERE JG.ID = 153838
+    UNION ALL
+    SELECT JG.* FROM SYS_ORGAN jg, temp t WHERE t.id = jg.parent_org
+)
+SELECT * FROM temp;
+```
