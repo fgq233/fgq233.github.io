@@ -76,7 +76,7 @@ localtime()
 localtimestamp()     
 
 curdate()、current_date()    当前日期 YYYY-MM-DD
-curtime()、current_time ()   当前时间 hh-mm-ss
+curtime()、current_time ()   当前时间 hh:mm:ss
 
 # 返回当前年、月、日、时、分、秒
 year(date)、month(date)、day(date) 、hour(date) 、minute(date) 、second(date)     
@@ -101,8 +101,45 @@ time_format(date, format)    格式化显示时间，date_format(now(),'%H:%i:%s
 str_to_date(str, format)     字符串转日期，str_to_date('2022-11-02 12:00:00','%Y-%m-%d %H:%i:%s');
 ```
 
+* 其他常用
 
- 
+```
+# 获取本周一
+select subdate(curdate(),date_format(curdate(),'%w')-1);
+# 获取本周日 (PS：每周的开始是星期天)
+select subdate(curdate(),date_format(curdate(),'%w')-7);
+
+# 获取本月第一天
+select subdate(curdate(),date_format(curdate(),'%e')-1);
+# 获取本月最后一天
+select last_day(now());
+
+# 获取今年第一天
+select subdate(curdate(),date_format(curdate(),'%j')-1);
+```
+
+
+* `%c` 	月份数字 (0..12)
+* `%d` 	月份中的每天的两位数字表示 (00..31)
+* `%e` 	月份中的每天的数字表示 (0..31)
+* `%H` 	小时 (00..23)
+* `%h` 	小时 (01..12)
+* `%I` 	小时 (01..12)
+* `%i` 	分钟 (00..59)
+* `%j` 	一年中的每天 (001..366)
+* `%k` 	小时 (0..23)
+* `%l` 	小时 (1..12)
+* `%m` 	两位数字月份 (00..12)
+* `%r` 	十二小时制时间 (hh:mm:ss 后跟 AM 或 PM)
+* `%S` 	秒 (00..59)
+* `%s` 	秒 (00..59)
+* `%T` 	二十四小时制时间 (hh:mm:ss)
+* `%w` 	星期中的每天 (0=星期天..6=星期六)
+* `%Y` 	四位数字年份
+* `%y` 	两位数字年份
+* `%%` 	转义 `%`
+
+
 
 ### 4、条件判断函数
 ```
