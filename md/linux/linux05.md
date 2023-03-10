@@ -114,4 +114,4 @@
 
 * 示例1：`chown root a.txt`，将`a.txt`所属用户修改为`root`
 * 示例2：`chown :root a.txt`， 将`a.txt`所属用户组修改为`root`
-* 示例2：`chown root:root a.txt`，将`a.txt`所属用户、用户组都修改为`root`
+* 示例3：`chown root:root a.txt`，将`a.txt`所属用户、用户组都修改为`root`
