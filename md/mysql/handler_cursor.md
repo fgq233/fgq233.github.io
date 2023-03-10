@@ -52,14 +52,11 @@ BEGIN
     DECLARE EXIT HANDLER FOR SQLSTATE 'MY_01' 
     BEGIN 
         GET DIAGNOSTICS CONDITION 1 v_code = RETURNED_SQLSTATE, v_msg = MESSAGE_TEXT;
-        ROLLBACK;
         insert into error_log (e_code, e_msg) values (v_code, v_msg);
     END;
     #------捕获异常-----END-----#
    
-    START TRANSACTION; 
-      SIGNAL SQLSTATE 'MY_01' SET MESSAGE_TEXT = '这是一个手动抛出的异常'; 
-    COMMIT; 
+    SIGNAL SQLSTATE 'MY_01' SET MESSAGE_TEXT = '这是一个手动抛出的异常'; 
 END;
 ```
 
