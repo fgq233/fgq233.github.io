@@ -2,7 +2,7 @@
 ### 一、条件处理程序 handler
 #### 1. 声明语法
 ```
-DECLARE 动作 handler for 条件 statment;
+DECLARE 动作 handler FOR 条件 statment;
 ```
 
 当满足条件时，触发某个动作，执行动作后，再执行 `statment` 语句
@@ -20,7 +20,7 @@ DECLARE 动作 handler for 条件 statment;
 #### 2. 示例
 ```
 # 退出游标示例
-DECLARE EXIT HANDLER for NOT FOUND CLOSE V_CUR;
+DECLARE EXIT HANDLER FOR NOT FOUND CLOSE V_CUR;
 
 # 捕获异常示例
 CREATE PROCEDURE testErr()
