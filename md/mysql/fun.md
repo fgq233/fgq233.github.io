@@ -34,6 +34,10 @@ right(str, n)   返回str从右边开始后n个字符
 # PS：MySQL中substr效果和substring一样，起始位置从1开始，类似Oracle中的substr 
 substr(str, start)        从起始位置start开始截取，截取到最后
 substr(str, start, n)     从起始位置start开始截取，截取n个字符
+
+# 从分隔符拼接的字符串中截取，str为需要截取的字符串，delim为分隔符
+# count表示第几个分隔符，count > 0 从左到右截取，count < 0 从右到左截取，count = 0，返回空字符串
+substring_index(str, separator, count)
 ```
 
 
@@ -141,17 +145,29 @@ convert(now(), char)
 
 
 ### 6、聚合函数
+
 ```
+# 统计常用
 count()、sum()、min()、max()、avg()
 
-# 行转列，类似Oracle 中的 wm_concat()，但是功能更强大，可以去重、排序、指定分隔符
+# 行转列 group_concat()
+# 类似Oracle 中的 wm_concat()，但是功能更强大，可以去重、排序、指定分隔符
 group_concat([distinct] 字段名 [order by 排序字段 asc/desc] [separator])
 
 select group_concat(username) from sys_user
 select group_concat(username order by cjsj) from sys_user
 select group_concat(username order by cjsj separator '-') from sys_user
 
-# 列转行，使用 substring_index() 和系统表 help_topic实现，拆分拼接的字符串
+
+# 列转行，返回一个字符串中指定分隔符出现在指定次数之前的子字符串
+# count > 0，从左到右，count < 0，从左到右，count = 0，返回
+substring_index(str, separator, count)
+
+select
+  substring_index('www.mysql.com', '.', 2),
+  substring_index('www.mysql.com', '.', -2),
+  substring_index('www.mysql.com', '.', 0)
+
 SELECT substring_index(substring_index('张三,李四,王五', ',',  help_topic_id + 1), ',', -1) AS Id
   FROM mysql.help_topic
  WHERE help_topic_id < (LENGTH('张三,李四,王五') - LENGTH(REPLACE('张三,李四,王五', ',', '')) + 1);
