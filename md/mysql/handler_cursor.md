@@ -30,9 +30,9 @@ BEGIN
 
     #------捕获异常-----START-----#
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
+    BEGIN 
         GET DIAGNOSTICS CONDITION 1 v_code = RETURNED_SQLSTATE, v_msg = MESSAGE_TEXT;
+        ROLLBACK;
         insert into error_log (e_code, e_msg) values (v_code, v_msg);
     END;
     #------捕获异常-----END-----#
