@@ -159,7 +159,7 @@ select group_concat(username order by cjsj) from sys_user
 select group_concat(username order by cjsj separator '-') from sys_user
 
 
-# substring_index() 搭配 mysql.help_topic 实现列转行效果
+# 列转行：substring_index() 搭配 mysql.help_topic 实现列转行效果
 select substring_index(substring_index('张三,李四,王五', ',',  help_topic_id + 1), ',', -1) AS id
   from mysql.help_topic
  where help_topic_id < (length('张三,李四,王五') - length(replace('张三,李四,王五', ',', '')) + 1);
