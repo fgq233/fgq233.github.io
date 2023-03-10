@@ -1,7 +1,8 @@
 ### 1、分页查询
 Oracle分页查询主要用到伪列：ROWNUM
-* 方式一（常用）
+
 ```
+-- 方式一
 SELECT *
   FROM (SELECT A.*, ROWNUM RN
           FROM (SELECT *
@@ -11,18 +12,17 @@ SELECT *
                 ) A
          WHERE ROWNUM <= 10)
  WHERE RN > 0
-```
-* 方式二
-```
+ 
+-- 方式二
 SELECT *
   FROM (SELECT A.*, ROWNUM RN
           FROM (SELECT * FROM TABLE_NAME ORDER BY CJSJ) A)
  WHERE RN BETWEEN 1 AND 10;
 ```
 
-### 2、with as复用子查询
-对于多次使用的相同子查询语句，可以通过 with as 给子查询指定一个别名，然后通过别名复用，避免了使用临时表/视图
+### 2、with as 临时表
 * 用于查询语句中：
+
 ```
 单个
     with temp as
@@ -37,6 +37,7 @@ SELECT *
 
 
 * 用于插入语句中：
+
 ```
 insert into tab_name
   (...)
@@ -50,9 +51,10 @@ insert into tab_name
 ```
 合并查询指使用集合操作符 UNION、UNION ALL、INTERSECT、MINUS 合并多个 select语句 的结果：
 select 语句1
-{UNION  |  UNION ALL  |  INTERSECT  |  MINUS}
+{UNION  |  UNION ALL |  INTERSECT |  MINUS}
 select 语句2;
 ```
+
 * 要保证合并的select语句查询的列个数、数据类型一致
 * 如果查询的列包含表达式，必须为其指定列别名
 * UNION (并集 + 去重 + 排序)
