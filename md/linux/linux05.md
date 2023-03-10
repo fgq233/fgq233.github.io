@@ -61,4 +61,13 @@
 
 
 ### 三、权限
-#### 1. 
+#### 1. 权限信息
+![](https://fgq233.github.io/imgs/linux/linux03.png)
+![](https://fgq233.github.io/imgs/linux/linux04.png)
+
+
+
+* 1 表示文件、文件夹的权限控制信息
+* 2 表示文件、文件夹所属用户
+* 3 表示文件、文件夹所属用户组
+
