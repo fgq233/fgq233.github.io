@@ -159,16 +159,8 @@ select group_concat(username order by cjsj) from sys_user
 select group_concat(username order by cjsj separator '-') from sys_user
 
 
-# 列转行，返回一个字符串中指定分隔符出现在指定次数之前的子字符串
-# count > 0，从左到右，count < 0，从左到右，count = 0，返回
-substring_index(str, separator, count)
-
-select
-  substring_index('www.mysql.com', '.', 2),
-  substring_index('www.mysql.com', '.', -2),
-  substring_index('www.mysql.com', '.', 0)
-
-SELECT substring_index(substring_index('张三,李四,王五', ',',  help_topic_id + 1), ',', -1) AS Id
+# substring_index() 搭配 mysql.help_topic 实现列转行效果
+SELECT substring_index(substring_index('张三,李四,王五', ',',  help_topic_id + 1), ',', -1) AS id
   FROM mysql.help_topic
  WHERE help_topic_id < (LENGTH('张三,李四,王五') - LENGTH(REPLACE('张三,李四,王五', ',', '')) + 1);
 ```
