@@ -20,7 +20,7 @@ DECLARE 动作 handler FOR 条件 statment;
 #### 2. 示例
 ```
 # 退出游标示例
-DECLARE EXIT HANDLER FOR NOT FOUND CLOSE V_CUR;
+DECLARE CONTINUE HANDLER FOR NOT FOUND CLOSE V_CUR;
 
 # 捕获异常示例
 CREATE PROCEDURE testErr()
@@ -39,6 +39,26 @@ BEGIN
    
     START TRANSACTION; 
     -- 执行逻辑
+    COMMIT; 
+END;
+
+# 手动抛出异常、捕获示例
+CREATE PROCEDURE testErr()
+BEGIN
+    DECLARE v_code CHAR(5) DEFAULT '00000';
+    DECLARE v_msg TEXT;
+
+    #------捕获异常-----START-----#
+    DECLARE EXIT HANDLER FOR SQLSTATE 'MY_01' 
+    BEGIN 
+        GET DIAGNOSTICS CONDITION 1 v_code = RETURNED_SQLSTATE, v_msg = MESSAGE_TEXT;
+        ROLLBACK;
+        insert into error_log (e_code, e_msg) values (v_code, v_msg);
+    END;
+    #------捕获异常-----END-----#
+   
+    START TRANSACTION; 
+      SIGNAL SQLSTATE 'MY_01' SET MESSAGE_TEXT = '这是一个手动抛出的异常'; 
     COMMIT; 
 END;
 ```
