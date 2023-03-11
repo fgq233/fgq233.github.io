@@ -46,7 +46,8 @@ drop user 'fgq'@'localhost';
 
 
 ### 二、权限管理 
-`MySQL` 中权限存储在`mysql`库下`user、db、tables_priv、columns_priv、and procs_priv`这几个表中
+* `MySQL` 中权限存储在`mysql`库下`user、db、tables_priv、columns_priv、and procs_priv`这几个表中
+* 授权、撤销权限后都要执行 `flush privileges;` 让其生效
  
 #### 1、常用的权限
 * `ALL、ALL PRIVILEGES、SUPER` 所有权限
@@ -90,6 +91,7 @@ grant all on nacos.config_info to 'fgq';
 grant all on nacos.* to 'fgq';             
 grant all on *.* to 'fgq';             
 grant select, insert, update, delete, execute, alter on *.* to 'fgq';
+flush privileges;
 ```
 
 
@@ -102,5 +104,6 @@ revoke 权限列表 on 数据库名.表名 from 用户名@主机名;
 # 示例
 revoke all on activemq.* from 'fgq';
 revoke select, insert, update, delete, execute, alter from 'fgq';
+flush privileges;
 ```
 
