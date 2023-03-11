@@ -13,13 +13,11 @@ select * from user;
 create user 用户名@主机名 identified by 密码;
 
 # 示例
-create user 'fgq' identified by '123456';
 create user 'fgq'@'%' identified by '123456';
-create user 'fgq'@'localhost' identified by '123456';
 ```
 
 * 指定主机，则该用户在当前主机访问数据库
-* 不指定主机，或指定为%，则该用户在任意主机可以访问数据库
+* 不指定主机，或指定为`%`，则该用户在任意主机可以访问数据库
 
 
 #### 3、修改用户密码
@@ -29,7 +27,6 @@ alter user 用户名@主机名 identified with mysql_native_password by 新密�
 
 # 示例
 alter user 'fgq'@'%' identified with mysql_native_password by 'A123456';
-# 刷新权限 
 flush privileges;   
 ```
 
@@ -40,8 +37,7 @@ flush privileges;
 drop user 用户名@主机名;
 
 # 示例
-drop user 'fgq';
-drop user 'fgq'@'localhost';   
+drop user 'fgq'@'%';   
 ```
 
 
@@ -87,10 +83,9 @@ show grants for 'fgq';
 grant 权限列表 on 数据库名.表名 to 用户名@主机名;
 
 # 示例
-grant all on nacos.config_info to 'fgq';   
-grant all on nacos.* to 'fgq';             
-grant all on *.* to 'fgq';             
-grant select, insert, update, delete, execute, alter on *.* to 'fgq';
+grant all on nacos.* to 'fgq'@'%';             
+grant select, insert, update, delete, execute, alter on nacos.* to 'fgq'@'%';   
+grant all on *.* to 'fgq'@'%';     
 flush privileges;
 ```
 
@@ -102,8 +97,9 @@ flush privileges;
 revoke 权限列表 on 数据库名.表名 from 用户名@主机名;
 
 # 示例
-revoke all on activemq.* from 'fgq';
-revoke select, insert, update, delete, execute, alter from 'fgq';
+revoke all on nacos.* from 'fgq'@'%'; 
+revoke select, insert, update, delete, execute, alter on nacos.* to 'fgq'@'%'; 
+revoke all on *.* from 'fgq'@'%'; 
 flush privileges;
 ```
 
