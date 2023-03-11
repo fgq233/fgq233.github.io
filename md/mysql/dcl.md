@@ -1,6 +1,6 @@
 ### DCL 
 ### 一、用户管理
-`MySQL` 中用户信息都存储在`mysql`库下`user`表中 
+`MySQL` 中用户信息都存储在`mysql.user`表中 
 #### 1、查询用户
 ```
 user mysql;
@@ -31,7 +31,6 @@ alter user 用户名@主机名 identified with 加密模式 by 新密码;
 
 # 示例
 alter user 'fgq'@'%' identified with mysql_native_password by 'A123456';
-flush privileges;   
 ```
 
 
