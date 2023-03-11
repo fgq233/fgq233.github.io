@@ -18,12 +18,16 @@ create user 'fgq'@'%' identified by '123456';
 
 * 指定主机，则该用户在当前主机访问数据库
 * 不指定主机，或指定为`%`，则该用户在任意主机可以访问数据库
+* 密码加密模式
+  * `caching_sha2_password` MySQL8.X 默认的加密模式
+  * `mysql_native_password` MD5 加密
+  * `sha256_password` 已过时
 
 
 #### 3、修改用户密码
 ```
 # 语法
-alter user 用户名@主机名 identified with mysql_native_password by 新密码;
+alter user 用户名@主机名 identified with 加密模式 by 新密码;
 
 # 示例
 alter user 'fgq'@'%' identified with mysql_native_password by 'A123456';
