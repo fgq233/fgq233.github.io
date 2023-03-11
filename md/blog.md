@@ -8,7 +8,7 @@
 * Android
 * React Native
 * [Windows][win]
-* Linux
+* [Linux][linux]
 
 [cloudHtml]: https://fgq233.github.io/html/blog?key=cloud
 [cloudMd]: https://fgq233.github.io/md/index/cloud
@@ -18,6 +18,7 @@
 [oracle]: https://fgq233.github.io/md/index/oracle
 [mysql]: https://fgq233.github.io/md/index/mysql
 [win]: https://fgq233.github.io/md/index/win
+[linux]: https://fgq233.github.io/md/index/linux
 [mode]: https://fgq233.github.io/md/index/mode
 [vueHtml]: https://fgq233.github.io/html/blog?key=vue
 [vueMd]: https://fgq233.github.io/md/index/vue
