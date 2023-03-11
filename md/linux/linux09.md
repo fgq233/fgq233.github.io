@@ -1,36 +1,23 @@
-### 虚拟机 VMware 中固定Linux操作系统的IP
+### 环境变量
 
-#### 1. 说明
-* 虚拟机中的Linux操作系统，IP地址是通过DHCP服务获取的，重启后可能导致IP地址变更
-* 虚拟机配置固定IP需要2个步骤
-  * 在`VMware Workstation`中配置IP地址网关、网段
-  * 在`Linux`系统中手动修改配置文件，固定IP
+#### 1. env 命令
+* 该命令可查看当前系统中记录的环境变量
+* 环境变量是一种 `key=value` 型结构
 
-#### 2. VMware 配置
-* 编辑 - 虚拟网络编辑器 - `Vmnet8`
-* 子网IP `192.167.18.0` 表示`IP`范围为 `192.167.18.0` 到 `192.167.18.254`
-* 子网掩码 `255.255.255.0`
-* 网关 `192.167.18.0`
+#### 2. PATH 环境变量
+* 当把程序目录配置到`PATH`环境变量，则无论在哪个位置，都能执行该程序
+* 示例：`/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/fgq233/.local/bin`
+* 不同目录通过 `:` 分割
+ 
+ 
+#### 3. 设置环境变量
+* 临时生效：直接在命令行执行 `export 变量名=变量值`
+* 永久生效：在配置文件中添加 `export 变量名=变量值`，执行`source 配置文件名`立刻生效
+  * 针对`当前用户`永久，编辑`~/.bashrc`，编辑完成后执行`source .bashrc`
+  * 针对`所有用户`永久，编辑`/etc/profile`，编辑完成后执行`source profile`
+  
+  
+#### 4. 设置 PATH 环境变量
+* 临时生效：`export PATH=$PATH:目录名`
+* 永久生效：将`export PATH=$PATH:目录名` 放到环境变量配置文件中，执行`source 配置文件名`立刻生效
 
-![](https://fgq233.github.io/imgs/linux/linux05.png)
-
-![](https://fgq233.github.io/imgs/linux/linux06.png)
-
-
-
-#### 3. Linux系统配置
-```
-# 切换到 root 用户
-su
-
-# 使用 vim编辑，内容如图
-vim /etc/sysconfig/network-scripts/ifcfg-ens33
-
-# 重启网卡
-systemctl restart network 
-
-# 检测ip
-ifconfig
-```
-
-![](https://fgq233.github.io/imgs/linux/linux07.png)
