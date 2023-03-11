@@ -1,4 +1,4 @@
-### 虚拟机 VMware Workstation中固定Linux操作系统的IP
+### 虚拟机 VMware 中固定Linux操作系统的IP
 
 #### 1. 说明
 * 虚拟机中的Linux操作系统，IP地址是通过DHCP服务获取的，重启后可能导致IP地址变更
@@ -7,4 +7,13 @@
   * 在`Linux`系统中手动修改配置文件，固定IP
 
 #### 2. VMware 配置
+* 编辑 - 虚拟网络编辑器 - `Vmnet8`
+* 子网IP `192.167.18.0` 表示 IP  范围为 `192.167.18.0` 到 `192.167.18.254`
+
 ![](https://fgq233.github.io/imgs/linux/linux05.png)
+
+![](https://fgq233.github.io/imgs/linux/linux06.png)
+
+
+
+#### 3. VMware 配置
