@@ -8,7 +8,9 @@
 
 #### 2. VMware 配置
 * 编辑 - 虚拟网络编辑器 - `Vmnet8`
-* 子网IP `192.167.18.0` 表示 IP  范围为 `192.167.18.0` 到 `192.167.18.254`
+* 子网IP `192.167.18.0` 表示`IP`范围为 `192.167.18.0` 到 `192.167.18.254`
+* 子网掩码 `255.255.255.0`
+* 网关 `192.167.18.0`
 
 ![](https://fgq233.github.io/imgs/linux/linux05.png)
 
@@ -17,3 +19,18 @@
 
 
 #### 3. VMware 配置
+```
+# 切换到 root 用户
+su
+
+# 使用 vim编辑，内容如图
+vim /etc/sysconfig/network-scripts/ifcfg-ens33
+
+# 重启网卡
+systemctl restart network 
+
+# 检测ip
+ifconfig
+```
+
+![](https://fgq233.github.io/imgs/linux/linux07.png)
