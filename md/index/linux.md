@@ -10,8 +10,10 @@
 1. [Linux - 进程、IP、端口][linux08]
 1. [Linux - 环境变量][linux09]
 1. [Linux - 压缩、解压][linux10]
+1. [CentOS 软件安装 - JDK1.8][sf01]
 
 
+[sf01]: https://fgq233.github.io/md/linux/sf01
 [tool2]: https://fgq233.github.io/md/linux/tool2
 [tool1]: https://fgq233.github.io/md/linux/tool1
 [linux01]: https://fgq233.github.io/md/linux/linux01
