@@ -6,7 +6,6 @@
 * 下载安装包自行安装
   * windows 系统的 .`exe、.msi` 等文件
   * mac 系统的 `.dmg、.pkg` 等文件
-  * CentOS 的 `rpm` 文件，Ubuntu 的 `.deb` 文件
   
 * 系统的应用商店内安装 
   * windows 系统的 Microsoft Store商店
