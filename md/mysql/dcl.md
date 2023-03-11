@@ -3,8 +3,7 @@
 `MySQL` 中用户信息都存储在`mysql.user`表中 
 #### 1、查询用户
 ```
-user mysql;
-select * from user;
+select * from mysql.user;
 ```
 
 #### 2、新增用户
