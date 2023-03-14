@@ -113,3 +113,13 @@ BEGIN
     SELECT v_now;
 END;
 ```
+
+
+#### 四. 扩展
+#### 1. 实现 Oracle 中 ROWNUM 效果
+```
+select
+  @rownum := @rownum + 1 rownum,
+  s.* 
+from sys_organ s, (select @rownum := 0 ) x
+```
