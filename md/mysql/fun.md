@@ -225,12 +225,12 @@ select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.c
 ```
 
 
-### 8、with recursive 递归函数
+### 8、with recursive 实现递归函数
 将初始语句查询出的结果，循环参与下面的递归
 
 ```
 # 语法
-with recursive 表名 AS ( 
+WITH RECURSIVE 临时表名 AS ( 
     初始语句（非递归部分） 
     UNION ALL 
     递归部分语句
@@ -238,7 +238,7 @@ with recursive 表名 AS (
 [SELECT| INSERT | UPDATE | DELETE]
 
 # 示例
-with recursive temp AS(
+WITH RECURSIVE temp AS(
     SELECT 1 AS n
     UNION ALL
     SELECT n + 1 FROM temp WHERE n < 10
@@ -246,7 +246,7 @@ with recursive temp AS(
 SELECT * FROM temp;
 
 # 向父递归
-WITH recursive temp AS(
+WITH RECURSIVE temp AS(
     SELECT * FROM SYS_ORGAN jg WHERE jg.ID = 153838
     UNION ALL
     SELECT jg.* FROM SYS_ORGAN jg, temp t WHERE t.parent_org = jg.ID
@@ -254,7 +254,7 @@ WITH recursive temp AS(
 SELECT * FROM temp;
 
 # 向子递归
-WITH recursive temp AS(
+WITH RECURSIVE temp AS(
     SELECT * FROM SYS_ORGAN JG WHERE JG.ID = 153838
     UNION ALL
     SELECT JG.* FROM SYS_ORGAN jg, temp t WHERE t.id = jg.parent_org
