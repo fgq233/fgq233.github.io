@@ -143,6 +143,7 @@ public class UserController {
 
      @Value("${pattern.dateformat}")
      private String dateformat;
+}   
 ```
 
 ##### 2. 使用SpringBoot读取配置文件的注解 @ConfigurationProperties
