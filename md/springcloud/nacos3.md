@@ -20,20 +20,19 @@ SpringBoot中的bootstrap.yaml配置文件，会在application.yml之前被读�
 * bootstrap.yml支持profiles，如果配置了值，如dev，SpringBoot就会额外加载bootstrap-dev.yaml 
 后合并到bootstrap.yml中，若其中有相同的配置则覆盖掉
 * bootstrap.yml的 profiles 同时也是nacos 配置文件名的规则之一                       
-* 三要素：服务名称、运行环境(可省略)、文件后缀名                           
+* 三要素：`服务名称、运行环境(可省略)、文件后缀名`                           
                            
 ```
 spring:
   application:
-      name:  userservice        # 服务名称
+    name: userservice        # 服务名称
   profiles:
-    active: dev                 # 运行环境
+    active: dev              # 运行环境
   cloud:
     nacos:
       server-addr: http://127.0.0.1:8848
       config:
         file-extension: yaml    # 文件后缀名
-
 ```
 
 #### 3. 在nacos 新增配置文件
@@ -51,7 +50,7 @@ spring:
 * `${服务名}-${spring.profiles.active}.${file-extension}` ，如：userservice-dev.yaml
 * `${服务名}.${file-extension}` ，如：userservice.yaml
 
-第二个就是多环境共享配置，不论 profiles环境值是什么都会读取
+第二个就是多环境共享配置，不论 `profiles`环境值是什么都会读取
 
 
 #### 2、多服务共享配置
@@ -134,15 +133,10 @@ spring:
 * 注意： `共享配置、扩展配置`要支持热更新必须添加 `refresh = true`
 
 ```
-# 共享配置
-shared-configs[0]:
-  dataId: shared.yaml
-  refresh: true
-  
-# 扩展配置 
-extension-configs[0]:
-  dataId: extension.yaml
-  refresh: true 
+# 添加 refresh，支持热更新
+extension-configs:
+  - data-id: db_single.yaml
+    refresh: true
 ```
 
 ##### 1. 在@Value注入的变量所在类上添加注解@RefreshScope
