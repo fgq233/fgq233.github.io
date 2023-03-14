@@ -58,7 +58,7 @@ spring:
 * 方式一：扩展配置
 
 ```
-单个：
+# 单个：
 spring:
   cloud:
     nacos:
@@ -67,7 +67,7 @@ spring:
         file-extension: yaml
         extension-configs: extension.yaml
 
-多个  
+# 多个  
 spring:
   cloud:
     nacos:
@@ -82,6 +82,7 @@ spring:
 * 方式二：共享配置
 
 ```
+# 单个
 spring:
   cloud:
     nacos:
@@ -89,7 +90,7 @@ spring:
       config:
         file-extension: yaml
         shared-configs: shared.yaml
-多个  
+# 多个  
 spring:
   cloud:
     nacos:
