@@ -67,8 +67,8 @@ drop user 'fgq'@'%';
 
 * 子程序
   * `CREATE  ROUTINE`   创建存储过程、函数
-  * `EXECUTE ROUTINE`   调用存储过程、函数
   * `ALTER   ROUTINE`   更新/删除存储过程、函数
+  * `EXECUTE`   调用存储过程、函数
 
 #### 2、查询权限
 ```
