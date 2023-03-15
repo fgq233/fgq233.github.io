@@ -19,6 +19,7 @@
 1. [MyCat 分片规则][mycat4]
 1. [MyCat 读写分离][mycat5]
 1. [常用命令][common]
+1. [MySQL、Oracle 常用函数差异对比][diff]
 
 
 
@@ -29,7 +30,7 @@
 
 
 
-
+[diff]: https://fgq233.github.io/md/mysql/diff
 [mycat5]: https://fgq233.github.io/md/mysql/mycat5
 [mycat4]: https://fgq233.github.io/md/mysql/mycat4
 [mycat3]: https://fgq233.github.io/md/mysql/mycat3
