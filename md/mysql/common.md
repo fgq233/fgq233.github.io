@@ -41,6 +41,9 @@ show status like'Max_used_connections';
 
 -- 默认值为28800(即8小时)，超过8小时内都没有访问数据库，再次访问mysql数据库时会拒绝访问
 show global variables like'%wait_timeout';
+
+-- 默认的事务隔离级别
+select @@transaction_isolation;
 ```
 
 
