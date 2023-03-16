@@ -29,16 +29,18 @@ select table_rows, table_name
  where table_schema = '库名';
 ```
 
-#### 3. 事务
+#### 3. 事务与锁
 ```
 -- 未提交的事务
-select * from information_schema.INNODB_TRX;
-
--- 杀掉未提交事务的线程 (trx_mysql_thread_id 为上面查出来的线程id)
+select * from information_schema.innodb_trx;
+-- 杀掉未提交事务的线程 (trx_mysql_thread_id 为事务的线程id)
 kill trx_mysql_thread_id;
 
--- 处于锁等待的关联事务信息
-select * from sys.innodb_lock_waits 
+-- 数据库锁的持有情况
+select * from performance_schema.data_locks; 
+
+-- 锁等待信息 
+select * from performance_schema.data_lock_waits;
 ```
 
 
