@@ -6,7 +6,7 @@
 net start mysql80
 net stop mysql80
 
--- Linux`系统
+-- Linux系统
 service mysqld  stop
 service mysqld  start
 service mysqld  restart
