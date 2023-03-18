@@ -11,6 +11,7 @@
 1. [Linux - 环境变量][linux09]
 1. [Linux - 压缩、解压][linux10]
 1. [CentOS系统 - 安装JDK1.8][sf01]
+1. [CentOS系统 - 安装MySQL8.X][sf02]
 
 
 [sf05]: https://fgq233.github.io/md/linux/sf05

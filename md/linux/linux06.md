@@ -47,6 +47,9 @@
 * `network`      副网络服务
 * `firewalld`   防火墙服务
   * `systemctl stop firewalld` 关闭防火墙
+  * `firewall-cmd --query-port=3306/tcp` 查询3306端口是否开放
+  * `firewall-cmd --zone=public --add-port=3306/tcp --permanent` 开放3306端口
+  * `firewall-cmd --reload` 重新加载防火墙
 * `sshd，ssh`服务 
   
 #### 3. 注册为服务
