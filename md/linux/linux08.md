@@ -1,4 +1,4 @@
-### 进程、IP、端口
+### 进程、端口、IP
 
 ### 一、 进程
 #### 1. ps命令
@@ -10,19 +10,39 @@
 ![](https://fgq233.github.io/imgs/linux/linux08.png)
 
 #### 2. 查看指定进程
-* 通过 ps命令、管道符、grep 命令查看指定进程信息
-* 语法：`ps -ef | grep 关键字信息`
-  * `ps -ef | grep tail` 查看带`tail`信息的进程
-  * `ps -ef | grep 22` 查看带`22`信息的进程
+通过 ps命令、管道符、grep 命令查看指定进程信息
+* `ps -ef` 查看所有进程信息
+* `ps -ef | grep mysql` 查看带`mysql`信息的进程
+* `ps -ef | grep 3306` 查看带`3306`信息的进程
 
 #### 3. 杀死进程
-* 语法：`kill [-9] 进程PID`，可选项`-9` 表示强制关闭进程
+* 语法：`kill -9 进程的pid`
+* 可选项`-9` 表示强制关闭进程
 
 
-### 二、IP
+
+
+
+### 二、端口
+#### 1. 安装 net-tools 程序
+`yum -y install net-tools`
+
+#### 2. 查看端口号的占用情况
+`netstat -anp | grep 端口号`
+
+#### 3. 查看占用端口的进程
+* 查看：`fuser -v -n tcp 3306`
+* 杀掉：`kill -9 pid`
+
+
+
+
+
+
+### 三、IP
 通过 `ifconfig` 命令查看网络接口配置
 
-#### 1. 说明
+#### 1. IP 固定
 * 虚拟机中的Linux操作系统，IP地址是通过DHCP服务获取的，重启后可能导致IP地址变更
 * 虚拟机配置固定IP需要2个步骤
   * 在`VMware Workstation`中配置IP地址网关、网段
@@ -57,9 +77,5 @@ ifconfig
 
 ![](https://fgq233.github.io/imgs/linux/linux07.png)
 
-### 三、端口
-#### 1. 安装 net-tools 程序
-`yum -y install net-tools`
 
-#### 2. 查看本机指定端口号的占用情况
-`netstat -anp | grep 端口号`
+

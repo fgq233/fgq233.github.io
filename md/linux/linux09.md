@@ -13,8 +13,8 @@
 #### 3. 设置环境变量
 * 临时生效：直接在命令行执行 `export 变量名=变量值`
 * 永久生效：在配置文件中添加 `export 变量名=变量值`，执行`source 配置文件名`立刻生效
-  * 针对`当前用户`永久，编辑`~/.bashrc`，编辑完成后执行`source .bashrc`
-  * 针对`所有用户`永久，编辑`/etc/profile`，编辑完成后执行`source profile`
+  * 针对`当前用户`永久，编辑`~/.bashrc`，重新加载`source ~/.bashrc`
+  * 针对`所有用户`永久，编辑`/etc/profile`，重新加载`source /etc/profile`
   
   
 #### 4. 设置 PATH 环境变量
