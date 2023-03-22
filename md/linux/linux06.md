@@ -1,18 +1,13 @@
 ### Linux 软件安装、启动
 
 ### 一、软件安装
-#### 1. 概念
-安装软件一般有 2 种方式
-* 下载安装包自行安装
-  * windows 系统的 .`exe、.msi` 等文件
-  * mac 系统的 `.dmg、.pkg` 等文件
-  
-* 系统的应用商店内安装 
-  * windows 系统的 Microsoft Store商店
-  * mac系统有AppStore商店
-  * CentOS 的 `yum 命令`、Ubuntu的 `apt 命令`
-  
-  
+#### 1. Linux安装方式
+* 源码安装
+* `rpm`包安装
+* `yum`安装 （RedHat、CentOS）
+* `apt-get`安装 （debian，ubuntu）
+
+
 #### 2. yum 命令
 * `yum` 是RPM包软件管理器，用于自动化安装配置Linux软件，并且可以自动解决依赖问题
 
