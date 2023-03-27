@@ -13,6 +13,7 @@
 1. [CentOS系统 - 安装JDK1.8][sf01]
 1. [CentOS系统 - 安装MySQL8.X][sf02]
 1. [CentOS系统 - 安装Tomcat][sf03]
+1. [CentOS系统 - 安装Nginx][sf04]
 
 
 [sf05]: https://fgq233.github.io/md/linux/sf05
