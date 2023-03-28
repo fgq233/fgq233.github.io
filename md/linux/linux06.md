@@ -3,9 +3,9 @@
 ### 一、软件安装
 #### 1. Linux安装方式
 * 源码安装
-* `rpm`包安装
-* `yum`安装 （RedHat、CentOS）
-* `apt-get`安装 （debian，ubuntu）
+* `rpm`包安装（通过 .rpm 包安装）
+* `yum`安装 （需要联网）
+* `apt-get`安装 （需要联网）
 
 
 #### 2. yum 命令
