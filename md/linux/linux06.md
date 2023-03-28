@@ -42,9 +42,10 @@
 #### 1. systemctl 命令
 * 作用：内置或第三方软件均支持使用 `systemctl` 命令启动/停止/开机自启，被 `systemctl` 管理的软件也称为`服务`
 
-* 语法：`systemctl [start | stop | status | enable | disable] 服务名称`
+* 语法：`systemctl [start | stop | restart | status | enable | disable] 服务名称`
   * `start`    启动
   * `stop`     停止
+  * `restart`  重启
   * `status`   查看状态
   * `enable`   启动开机自启
   * `disable`  关闭开机自启
