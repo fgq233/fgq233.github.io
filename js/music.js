@@ -37,7 +37,8 @@ play.addEventListener("click", () => {
 
 const loadSong = (songs) => {
   title.textContent = songs.title;
-  music.src = "../assets/music/" + songs.url;
+  music.src = songs.url;
+  // music.src = "../assets/music/" + songs.url;
   // img.src = "Images/" + songs.img + ".jpg";
 };
 
@@ -73,13 +74,6 @@ const replaySong = () => {
 
 // 切换歌单
 const changeSongs = () => {
-    if (songs == songs1) {
-        songs = songs2;
-    } else if (songs == songs2) {
-        songs = songs3;
-    } else if (songs == songs3) {
-        songs = songs1;
-    }
     songIndex = 0;
     loadSong(songs[0]);
     playMusic();
