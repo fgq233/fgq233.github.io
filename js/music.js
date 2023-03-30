@@ -19,9 +19,9 @@ function onloadFun() {
 }
 
 // 加载音频
-function loadSong() {
-    title.textContent = songs.title;
-    music.src = songs.url;
+function loadSong(song) {
+    title.textContent = song.title;
+    music.src = song.url;
 }
 
 // 切换播放状态
