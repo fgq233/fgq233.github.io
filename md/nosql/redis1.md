@@ -1,4 +1,4 @@
-### Redis 安装
+### Redis Windows 版本安装
 Redis(Remote Dictionary Server)，即远程字典服务，是一个`基于内存`的`键值对`型noSql数据库
 * 键值型 key-value，key为字符串，value支持多种类型
 * 单线程
@@ -6,7 +6,6 @@ Redis(Remote Dictionary Server)，即远程字典服务，是一个`基于内存
 * 支持数据持久化
 * 支持主从集群、分片集群
 
-### 一、 Windows版本安装启动
 #### 1. 下载
 * redis官方没有提供windows版本，不过 github上有第三方开发提供的 windows 版本
 * windows版本：[https://github.com/tporadowski/redis/releases](https://github.com/tporadowski/redis/releases)
@@ -48,27 +47,4 @@ dir ./
 # 日志文件名，默认为空，不记录日志
 logfile ""
 ```
-
-### 二、 Linux版本安装启动
-#### 1. gcc依赖
-Redis 是 C语言编写的，需要安装 gcc 依赖: `yum install gcc-c++`
-
-#### 2. 下载
-官网：[https://redis.io](https://redis.io)
-
-#### 3. 解压、安装、启动
-* 解压：`tar -zxvf redis-5.0.14.tar.gz`
-* 进入解压目录：`cd redis-5.0.14`
-* 安装：`make && make install`，默认安装路径是: `/usr/local/bin`
-* 进入安装目录：`cd /usr/local/bin/`
-* 启动：`redis-server`
-* 连接：`redis-cli`
-
-#### 4. 配置文件
-* 配置文件为解压目录下的 `redis.conf`
-* 以指定配置文件启动服务 `redis-server redis-5.0.14/redis.conf`
-
-```
-# redis默认不是后台启动，需要修改该配置
-daemonize yes
-```
+ 
