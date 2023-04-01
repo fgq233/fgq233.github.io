@@ -60,12 +60,12 @@
 
 
 
-#### 3. Linux系统配置
+#### 3. 网卡配置
 ```
 # 切换到 root 用户
 su
 
-# 使用 vim编辑，内容如图
+# 使用 vim编辑，内容如下
 vim /etc/sysconfig/network-scripts/ifcfg-ens33
 
 # 重启网卡
@@ -75,7 +75,32 @@ systemctl restart network
 ifconfig
 ```
 
-![](https://fgq233.github.io/imgs/linux/linux07.png)
+
+
+```
+TYPE="Ethernet"
+PROXY_METHOD="none"
+BROWSER_ONLY="no"
+BOOTPROTO="static"      # 静态分配ip
+DEFROUTE="yes"
+IPV4_FAILURE_FATAL="no"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+IPV6_DEFROUTE="yes"
+IPV6_FAILURE_FATAL="no"
+IPV6_ADDR_GEN_MODE="stable-privacy"
+NAME="ens33"
+UUID="a553ac41-f639-44a2-a335-24bb14193d1b"
+DEVICE="ens33"
+ONBOOT="yes"
+
+IPADDR=192.167.18.129  # ip地址（static设置）
+NETMASK=255.255.255.0  # 子网掩码
+GATEWAY=192.167.18.2   # 网关
+DNS1=114.114.114.114   # DNS1 地址解析
+DNS2=8.8.8.8           # DNS2 地址解析
+```
+
 
 
 

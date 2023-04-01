@@ -15,8 +15,10 @@
 1. [CentOS系统 - 安装Tomcat][sf03]
 1. [CentOS系统 - 安装Nginx][sf04]
 1. [CentOS系统 - 安装vsftpd][sf05]
+1. [CentOS系统 - 安装Redis][sf06]
 
 
+[sf06]: https://fgq233.github.io/md/linux/sf06
 [sf05]: https://fgq233.github.io/md/linux/sf05
 [sf04]: https://fgq233.github.io/md/linux/sf04
 [sf03]: https://fgq233.github.io/md/linux/sf03
