@@ -22,3 +22,6 @@
 
 #### 6. 在线听歌
 [https://tool.liumingye.cn/music](https://tool.liumingye.cn/music)
+
+#### 7. AI 工具集
+[https://ai-bot.cn](https://ai-bot.cn)
