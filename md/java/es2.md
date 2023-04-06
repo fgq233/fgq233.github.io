@@ -4,7 +4,7 @@
 * 下载地址：[https://www.elastic.co/cn/downloads/elasticsearch](https://www.elastic.co/cn/downloads/elasticsearch)
 
 * ES 高版本内置jdk，低版本依赖系统安装的jdk
-* 解压后运行 bin\elasticsearch.bat 启动服务
+* 解压后运行 bin 目录下 elasticsearch.bat 启动服务
 * 首次启动服务会显示一些配置信息，包括默认的用户密码，默认访问端口 9200
 * 启动成功后访问：[http://localhost:9200](http://localhost:9200)，会返回一个包含ES配置的json
 
@@ -25,12 +25,21 @@
 配置服务的好处是可以让 Elasticsearch 自动启动
 
 ####  3、elasticsearch.yml 其他配置
-* 节点名称 `node.name: node-1`
-* 端口 `http.port: 9200`
-* ip设置 `network.host: 0.0.0.0`，设置ip后必须开启下列设置之一
-  * `discovery.seed_hosts: ["127.0.0.1", "[::1]"]`
-  * `discovery.seed_providers`
-  * `cluster.initial_master_nodes: ["node-1", "node-2"]` 
+```
+# 节点名称
+node.name: node-1
+
+# 端口
+http.port: 9200
+
+# ip设置
+network.host: 0.0.0.0
+```
+
+设置ip后必须开启下列设置之一
+* `discovery.seed_hosts: ["127.0.0.1", "[::1]"]`
+* `discovery.seed_providers`
+* `cluster.initial_master_nodes: ["node-1", "node-2"]` 
 
 
 
@@ -40,13 +49,18 @@
 * 下载地址：[https://www.elastic.co/cn/downloads/past-releases#kibana](https://www.elastic.co/cn/downloads/past-releases#kibana)
 
 * 安装的 kibana 版本必须和 Elasticsearch 一致
-* 解压后运行 bin\kibana.bat 启动服务
+* 解压后运行 bin 目录下 kibana.bat 启动服务
 * 启动成功后访问：[http://localhost:5601](http://localhost:5601)
 
 
 ####  2、kibana.yml 其他设置
-* 中文界面：`i18n.locale: "zh-CN"`
-* ES的IP：`elasticsearch.hosts: ["http://127.0.0.1:9200"]`,当 ES 和 kibana 不在同一台服务器时需要设置
+```
+# 中文界面
+i18n.locale: "zh-CN"
+
+# ES的IP(当 ES 和 kibana 不在同一台服务器，或者端口不是默认端口，需要该设置)
+elasticsearch.hosts: ["http://127.0.0.1:9200"]
+```
 
 ###  三、 IK中文分词器
 ####  1、 下载、安装
@@ -96,11 +110,14 @@ xpack.security.transport.ssl.enabled: true
 
 ####  2、ES 设置密码
 ```
-bin/elasticsearch-setup-passwords auto                  # 自动生成
-bin/elasticsearch-setup-passwords interactive           # 手动生成
+# 手动生成(推荐)
+bin/elasticsearch-setup-passwords interactive 
+
+# 自动生成     
+bin/elasticsearch-setup-passwords auto                  # 
 ```
 
-* 需要先启动 ES，然后才能为elastic、kibana、logstash等账号设置密码
+* 需要先启动 ES，然后才能设置密码
 * 设置过一次就不能再执行了，按照下面步骤重新设置
   * 注释掉  `xpack.security.enabled: true`, 重启 ES 服务
   * 查询`GET /_cat/indices`，有个索引 `.security-7`，,删除此索引 `DELETE /.security-7` 回到无密码状态

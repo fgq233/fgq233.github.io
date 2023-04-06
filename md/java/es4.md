@@ -17,7 +17,7 @@
  <dependency>
     <groupId>org.elasticsearch.client</groupId>
     <artifactId>elasticsearch-rest-high-level-client</artifactId>
-    <elasticsearch.version>7.12.1</elasticsearch.version>
+    <version>7.12.1</version>
 </dependency>
 
 8.X 依赖的是 co.elastic.clients
