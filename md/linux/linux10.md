@@ -28,12 +28,12 @@
 
 
 #### 3. zip、unzip 命令
-* 作用：`zip、uzip`命令分别用于：压缩、解压`.zip`格式
+* 作用：`zip、unzip`命令分别用于：压缩、解压`.zip`格式
 * 语法
   * `zip [-r] 参数1 参数2...`，`-r` 用于压缩内容包含文件夹的时候
-  * `uzip [-d] 参数1 参数2...`，`-d` 指定要解压去的位置
+  * `unzip [-d] 参数1 参数2...`，`-d` 指定要解压去的位置
   * 
 * 压缩示例：`zip my.zip 1.txt 2.txt 3.txt` 
-* 压缩示例：`unzip my.zip -d /home/fgq233` 
+* 解压示例：`unzip my.zip -d /home/fgq233` 
 
 
