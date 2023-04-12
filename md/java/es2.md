@@ -34,12 +34,14 @@ http.port: 9200
 
 # ip设置
 network.host: 0.0.0.0
+discovery.seed_hosts: ["127.0.0.1"]
+cluster.initial_master_nodes: ["node-1"]
 ```
 
 设置ip后必须开启下列设置之一
-* `discovery.seed_hosts: ["127.0.0.1", "[::1]"]`
-* `discovery.seed_providers`
-* `cluster.initial_master_nodes: ["node-1", "node-2"]` 
+* 集群主机列表 `discovery.seed_hosts: ["127.0.0.1"]`
+* 初始化的主节点 `cluster.initial_master_nodes: ["node-1"]`
+* 基于配置文件配置集群主机列表 `discovery.seed_providers`
 
 
 
