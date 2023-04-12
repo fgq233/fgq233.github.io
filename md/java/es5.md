@@ -22,16 +22,16 @@ GET /索引库名/_search
 ####  2. 简单查询
 * 查询所有：查询出所有数据，match_all
 
-* 全文检索（full text）查询：利用分词器对用户输入内容分词，然后去倒排索引库中匹配
-  * match_query
-  * multi_match_query
-* 精确查询：根据精确词条值查找数据，一般是查找keyword、数值、日期、boolean等类型字段，不会对搜索条件分词
-  * ids
-  * range
-  * term
+* 全文检索（full text）查询：利用分词器**对用户输入内容分词**，然后去倒排索引库中匹配
+  * `match_query`
+  * `multi_match_query`
+* 精确查询：根据精确词条值查找数据，一般是查找keyword、数值、日期、boolean等类型字段，**不会对搜索条件分词**
+  * `ids`
+  * `range`
+  * `term`
 * 地理（geo）查询：根据经纬度查询
-  * geo_distance
-  * geo_bounding_box
+  * `geo_distance`
+  * `geo_bounding_box`
 
   
 ####  3. 复合查询
