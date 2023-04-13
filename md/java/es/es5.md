@@ -1,4 +1,4 @@
-###  RestHighLevelClient 操作ES的索引库、文档
+###  RestHighLevelClient 索引库、文档操作
 ###  一、说明
 * ES官方提供了不同语言的客户端，用来操作ES，这些客户端的本质就是组装DSL语句，通过http请求发送给ES
 

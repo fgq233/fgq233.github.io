@@ -39,16 +39,16 @@
 -  [RocketMQ-6 事务消息][rocketmq6]
 
  
-1. ###### 全文检索
+1. ###### 全文检索 Elasticsearch
 -  [Lucene中的基本概念][lucene]
--  [Elasticsearch-1 基本概念][es1]
--  [Elasticsearch-2 在Windows下搭建环境][es2]
--  [Elasticsearch-3 DSL语法 - 索引库、文档增删改查][es3]
--  [Elasticsearch-4 DSL语法 - 简单查询、复合查询][es4]
--  [Elasticsearch-5 RestHighLevelClient 操作ES的索引库、文档][es5]
--  [Elasticsearch-6 RestHighLevelClient 简单查询、复合查询][es6]
--  [Elasticsearch-7 聚合查询][es7]
--  [Elasticsearch-8 自动补全查询][es8]
+-  [ES-1 基本概念][es1]
+-  [ES-2 在Windows下搭建环境][es2]
+-  [ES-3 DSL语法 - 索引库、文档操作][es3]
+-  [ES-4 DSL语法 - 简单查询、复合查询][es4]
+-  [ES-5 RestHighLevelClient 索引库、文档操作][es5]
+-  [ES-6 RestHighLevelClient 简单查询、复合查询][es6]
+-  [ES-7 聚合查询][es7]
+-  [ES-8 自动补全查询][es8]
 
 
 1. ###### Redis
