@@ -16,8 +16,16 @@
 | SQL       | DSL        | DSL：是ES提供的JSON风格的请求语句，用来操作ES实现增删改查 |
 
 
+#### 3. 操作ElasticSearch 方式
+* 集成 `Spring Data ElasticSearch`
+  * `ElasticsearchRepository`，`API`简洁
+  * `ElasticsearchRestTemplate`，基于`RestHighLevelClient`
+* 集成 `RestHighLevelClient`，API比较繁琐
 
 
+#### 4. 版本对应
+`Spring Data ElasticSearch、ElasticSearch、Spring Boot` 版本有严格的对应关系
 
+![](https://fgq233.github.io/imgs/java/es3.png)
 
 

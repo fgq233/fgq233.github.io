@@ -1,10 +1,8 @@
-###  RestClient 简单查询、复合查询
-* 查询前置： [RestClient](https://fgq233.github.io/md/java/es4)
-* RestClient 查询语法：
-  * 准备request
-  * 准备查询条件，核心是使用 QueryBuilders 构造查询参数
-  * 发送请求，得到响应
-  * 解析响应结果
+###  RestHighLevelClient 简单查询、复合查询
+* 准备查询 request
+* 准备查询条件，核心是使用 QueryBuilders 构造查询参数
+* 发送请求，得到响应
+* 解析响应结果
 
 ###  一、简单查询
 ####  1. match_all

@@ -1,4 +1,4 @@
-###  Elasticsearch 在 Windows下环境安装
+###  Elasticsearch 在Windows下搭建环境
 ###  一、 Elasticsearch
 ####  1、 下载、启动
 * 下载地址：[https://www.elastic.co/cn/downloads/elasticsearch](https://www.elastic.co/cn/downloads/elasticsearch)
@@ -9,22 +9,24 @@
 * 启动成功后访问：[http://localhost:9200](http://localhost:9200)，会返回一个包含ES配置的json
 
 ####  2、配置 Elasticsearch 服务
-* 将 bin 目录安装到系统环境变量
-* 安装服务
-`elasticsearch-service.bat install`
+* 先将 bin 目录安装到系统环境变量
 
- * 启动服务
- `elasticsearch-service.bat start`
+```
+# 安装服务
+elasticsearch-service.bat install
 
- * 停止服务
- `elasticsearch-service.bat stop`
+# 启动服务
+elasticsearch-service.bat start
 
- * 卸载服务
- `elasticsearch-service.bat remove`
+# 停止服务
+elasticsearch-service.bat stop
 
-配置服务的好处是可以让 Elasticsearch 自动启动
+# 卸载服务
+elasticsearch-service.bat remove
+```
 
-####  3、elasticsearch.yml 其他配置
+
+####  3、elasticsearch.yml 常用配置
 ```
 # 节点名称
 node.name: node-1
@@ -55,7 +57,7 @@ cluster.initial_master_nodes: ["node-1"]
 * 启动成功后访问：[http://localhost:5601](http://localhost:5601)
 
 
-####  2、kibana.yml 其他设置
+####  2、kibana.yml 常用设置
 ```
 # 中文界面
 i18n.locale: "zh-CN"

@@ -1,26 +1,24 @@
-###  ES 聚合查询
+###  聚合查询
+[官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html)
+
 ### 一. 分类
 
 ES 聚合常见的有三类：
 * 桶（Bucket）聚合：用来对文档做分组，并统计每组数量，类似于mysql中group by按照字段分组，然后统计每组数量
-  - TermAggregation：按照文档字段值分组
-  - Date Histogram：按照日期阶梯分组，例如一周为一组，或者一月为一组
+    - TermAggregation：按照文档字段值分组
+    - Date Histogram：按照日期阶梯分组，例如一周为一组，或者一月为一组
 
 - 度量（Metric）聚合：对文档数据做计算，得到下列统计值
-  - avg：求平均值
-  - max：求最大值
-  - min：求最小值
-  - stats：同时求avg、max、min、sum
-  
+    - avg：求平均值
+    - max：求最大值
+    - min：求最小值
+    - stats：同时求avg、max、min、sum
+
 - 管道（pipeline）聚合：基于其它聚合结果再做聚合
 
 
 
-> 注意：参加聚合的字段必须是keyword、日期、数值、布尔类型  
-
-
-* [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html)
-提供了大量聚合查询
+> 注意：参加聚合的字段必须是keyword、日期、数值、布尔类型
 
 
 ### 二. 桶（Bucket）聚合
@@ -118,7 +116,7 @@ GET /hotel/_search
 ```
 
 
-#### 4. RestClient 实现聚合
+#### 4. RestHighLevelClient 实现聚合查询
 ```
 // 1.准备请求
 SearchRequest request = new SearchRequest("hotel");
@@ -174,7 +172,22 @@ GET /hotel/_search
 #### 2. 结果
 ``` 
 {
-  ......略
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 201,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  },
   "aggregations" : {
     "brandAgg" : {
       "doc_count_error_upper_bound" : 0,

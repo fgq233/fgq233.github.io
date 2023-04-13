@@ -42,11 +42,11 @@
 1. ###### 全文检索
 -  [Lucene中的基本概念][lucene]
 -  [Elasticsearch-1 基本概念][es1]
--  [Elasticsearch-2 Windows下环境安装][es2]
--  [Elasticsearch-3 DSL语法对索引库、文档操作][es3]
--  [Elasticsearch-4 RestClient对索引库、文档操作][es4]
--  [Elasticsearch-5 DSL查询][es5]
--  [Elasticsearch-6 RestClient查询][es6]
+-  [Elasticsearch-2 在Windows下搭建环境][es2]
+-  [Elasticsearch-3 DSL语法 - 索引库、文档增删改查][es3]
+-  [Elasticsearch-4 DSL语法 - 简单查询、复合查询][es4]
+-  [Elasticsearch-5 RestHighLevelClient 操作ES的索引库、文档][es5]
+-  [Elasticsearch-6 RestHighLevelClient 简单查询、复合查询][es6]
 -  [Elasticsearch-7 聚合查询][es7]
 -  [Elasticsearch-8 自动补全查询][es8]
 
@@ -149,12 +149,12 @@
 [rabbitmq6]: https://fgq233.github.io/md/mq/rabbitmq6
 [rabbitmq7]: https://fgq233.github.io/md/mq/rabbitmq7
 [rabbitmq8]: https://fgq233.github.io/md/mq/rabbitmq8
-[lucene]: https://fgq233.github.io/md/java/lucene
-[es1]: https://fgq233.github.io/md/java/es1
-[es2]: https://fgq233.github.io/md/java/es2
-[es3]: https://fgq233.github.io/md/java/es3
-[es4]: https://fgq233.github.io/md/java/es4
-[es5]: https://fgq233.github.io/md/java/es5
-[es6]: https://fgq233.github.io/md/java/es6
-[es7]: https://fgq233.github.io/md/java/es7
-[es8]: https://fgq233.github.io/md/java/es8
+[lucene]: https://fgq233.github.io/md/java/es/lucene
+[es1]: https://fgq233.github.io/md/java/es/es1
+[es2]: https://fgq233.github.io/md/java/es/es2
+[es3]: https://fgq233.github.io/md/java/es/es3
+[es4]: https://fgq233.github.io/md/java/es/es4
+[es5]: https://fgq233.github.io/md/java/es/es5
+[es6]: https://fgq233.github.io/md/java/es/es6
+[es7]: https://fgq233.github.io/md/java/es/es7
+[es8]: https://fgq233.github.io/md/java/es/es8

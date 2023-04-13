@@ -205,7 +205,7 @@ GET /索引库名/_search
 ```
 
 
-####  4. RestClient 自动补全查询
+####  4. RestHighLevelClient 自动补全查询
 ```
 // 1.准备请求
 SearchRequest request = new SearchRequest("hotel");
@@ -287,14 +287,4 @@ for (CompletionSuggestion.Entry.Option option : suggestion.getOptions()) {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
+ 
