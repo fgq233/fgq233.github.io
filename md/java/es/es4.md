@@ -1,5 +1,5 @@
 ###  DSL语法 - 简单查询、复合查询
-* Elasticsearch提供了基于JSON的DSL（Domain Specific  Language）来定义查询
+* Elasticsearch提供了基于JSON的DSL语法来定义查询
 * [DSL官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
 
 
@@ -120,7 +120,7 @@ GET /hotel/_search
   "query": {
     "geo_distance": {
       "distance": "2km",
-      "location": [121.5,31.21]
+      "location": [121.5,31.21]   
     }
   }
 }
@@ -235,7 +235,9 @@ GET /hotel/_search
     "match_all": {}
   },
   "sort": [
-    {"score": "desc"}
+    {
+      "price": "desc"
+    }
   ]
 }
 ```
@@ -253,11 +255,13 @@ GET /hotel/_search
     * `scroll`：原理将排序后的文档id形成快照，保存在内存，官方不推荐
 
 ```
-GET /索引库名/_search
+GET /hotel/_search
 {
-  "query": {},
+  "query": {
+    "match_all": {}
+  },
   "from": 0,
-  "size": 10
+  "size": 3
 }
 ```
 
@@ -272,18 +276,18 @@ GET /索引库名/_search
   * 如果要对非搜索字段高亮，则需要添加一个属性：`required_field_match=false`
 
 ``` 
-GET /索引库名/_search
+GET /hotel/_search
 {
-  "query": {            // 查询条件：高亮一定要使用全文检索查询
+  "query": {           
     "match": {
-      "FIELD": "TEXT"
+      "name": "外滩"
     }
   },
   "highlight": {      
-    "fields": {                 // 指定要高亮的字段
-      "FIELD": {
-        "pre_tags": "<em>",    // 高亮字段的前置标签
-        "post_tags": "</em>"   // 高亮字段的后置标签
+    "fields": {                 
+      "name": {
+        "pre_tags": "<em>",    
+        "post_tags": "</em>"   
       }
     }
   }
