@@ -285,9 +285,9 @@ GET /hotel/_search
   },
   "highlight": {      
     "fields": {                 
-      "name": {
-        "pre_tags": "<em>",    
-        "post_tags": "</em>"   
+      "name": {                  // 指定要高亮的字段
+        "pre_tags": "<em>",      // 高亮字段的前置标签
+        "post_tags": "</em>"     // 高亮字段的后置标签
       }
     }
   }
