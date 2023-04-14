@@ -30,14 +30,16 @@ const javaList2 = [
     {
         url: "", title: "全文检索 Elasticsearch", child: [
             {url: "https://fgq233.github.io/md/java/es/lucene", title: "Lucene中的基本概念"},
-            {url: "https://fgq233.github.io/md/java/es/es1", title: "ES-1 基本概念"},
-            {url: "https://fgq233.github.io/md/java/es/es2", title: "ES-2 在Windows下搭建环境"},
-            {url: "https://fgq233.github.io/md/java/es/es3", title: "ES-3 DSL语法 - 索引库、文档操作"},
-            {url: "https://fgq233.github.io/md/java/es/es4", title: "ES-4 DSL语法 - 简单查询、复合查询"},
-            {url: "https://fgq233.github.io/md/java/es/es5", title: "ES-5 RestHighLevelClient 索引库、文档操作"},
-            {url: "https://fgq233.github.io/md/java/es/es6", title: "ES-6 RestHighLevelClient 简单查询、复合查询"},
-            {url: "https://fgq233.github.io/md/java/es/es7", title: "ES-7 聚合查询"},
-            {url: "https://fgq233.github.io/md/java/es/es8", title: "ES-8 自动补全查询"}
+            {url: "https://fgq233.github.io/md/java/es/es1", title: "ES-01 基本概念"},
+            {url: "https://fgq233.github.io/md/java/es/es2", title: "ES-02 在Windows下搭建环境"},
+            {url: "https://fgq233.github.io/md/java/es/es3", title: "ES-03 DSL语法 - 索引库、文档操作"},
+            {url: "https://fgq233.github.io/md/java/es/es4", title: "ES-04 DSL语法 - 简单查询、复合查询"},
+            {url: "https://fgq233.github.io/md/java/es/es5", title: "ES-05 RestHighLevelClient 索引库、文档操作"},
+            {url: "https://fgq233.github.io/md/java/es/es6", title: "ES-06 RestHighLevelClient 简单查询、复合查询"},
+            {url: "https://fgq233.github.io/md/java/es/es7", title: "ES-07 聚合查询"},
+            {url: "https://fgq233.github.io/md/java/es/es8", title: "ES-08 自动补全查询"},
+            {url: "https://fgq233.github.io/md/java/es/es9", title: "ES-09 Spring Data ElasticSearch 集成 ES"},
+            {url: "https://fgq233.github.io/md/java/es/es10", title: "ES-10 Spring Data ElasticSearch 操作 ES"}
         ]
     },
     {

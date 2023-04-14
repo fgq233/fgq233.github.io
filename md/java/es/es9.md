@@ -1,4 +1,4 @@
-###  Spring Data ElasticSearch 操作 ES
+###  Spring Data ElasticSearch 通过 ElasticsearchRepository 操作 ES
 [官方文档](https://docs.spring.io/spring-data/elasticsearch/docs/4.0.x/reference/html/#preface)
 
 ###  一、集成

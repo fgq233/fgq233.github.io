@@ -41,14 +41,16 @@
  
 1. ###### 全文检索 Elasticsearch
 -  [Lucene中的基本概念][lucene]
--  [ES-1 基本概念][es1]
--  [ES-2 在Windows下搭建环境][es2]
--  [ES-3 DSL语法 - 索引库、文档操作][es3]
--  [ES-4 DSL语法 - 简单查询、复合查询][es4]
--  [ES-5 RestHighLevelClient 索引库、文档操作][es5]
--  [ES-6 RestHighLevelClient 简单查询、复合查询][es6]
--  [ES-7 聚合查询][es7]
--  [ES-8 自动补全查询][es8]
+-  [ES-01 基本概念][es1]
+-  [ES-02 在Windows下搭建环境][es2]
+-  [ES-03 DSL语法 - 索引库、文档操作][es3]
+-  [ES-04 DSL语法 - 简单查询、复合查询][es4]
+-  [ES-05 RestHighLevelClient 索引库、文档操作][es5]
+-  [ES-06 RestHighLevelClient 简单查询、复合查询][es6]
+-  [ES-07 聚合查询][es7]
+-  [ES-08 自动补全查询][es8]
+-  [ES-09 Spring Data ElasticSearch 集成 ES][es9]
+-  [ES-10 Spring Data ElasticSearch 操作 ES][es10]
 
 
 1. ###### Redis
@@ -158,3 +160,5 @@
 [es6]: https://fgq233.github.io/md/java/es/es6
 [es7]: https://fgq233.github.io/md/java/es/es7
 [es8]: https://fgq233.github.io/md/java/es/es8
+[es9]: https://fgq233.github.io/md/java/es/es9
+[es10]: https://fgq233.github.io/md/java/es/es10
