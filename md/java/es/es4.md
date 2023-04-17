@@ -7,9 +7,10 @@
 ```
 GET /索引库名/_search
 {
-  "query": {},
-  "sort": {},
-  "from": 1,
+  "query": {},          // 搜索，会给文档评分 _score
+  "post_filter":{},     // 过滤，不会给文档评分，效率 > query，可以与 query 共存
+  "sort": {},           
+  "from": 0,
   "size": 10,
   "highlight": {}
 }
