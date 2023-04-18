@@ -42,6 +42,13 @@ drop user 用户名@主机名;
 drop user 'fgq'@'%';   
 ```
 
+#### 5、设置密码永不过期
+```
+alter user 'root'@'localhost' password expire never;
+alter user 'fgq'@'%' password expire never;
+```
+
+
 
 ### 二、权限管理 
 * `MySQL` 中权限存储在`mysql`库下`user、db、tables_priv、columns_priv、and procs_priv`这几个表中
