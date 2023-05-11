@@ -121,7 +121,7 @@
 [springsecurity3]: https://fgq233.github.io/md/security/springsecurity3
 [springsecurity4]: https://fgq233.github.io/md/security/springsecurity4
 [jwt]: https://fgq233.github.io/md/security/jwt
-[thread]: https://fgq233.github.io/md/security/thread
+[thread]: https://fgq233.github.io/md/java/thread
 [shiro4]: https://fgq233.github.io/md/security/shiro4
 [shiro3]: https://fgq233.github.io/md/security/shiro3
 [shiro2]: https://fgq233.github.io/md/security/shiro2
