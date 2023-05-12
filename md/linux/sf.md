@@ -4,7 +4,7 @@
 #### 1.The Red Hat 
 * `Fedora`
 * `CentOS`
-* `Oracle Linux`
+* `Oracle Linux` 
 
 #### 2. SUSE 
 * `SUSE Linux Enterprise Server (SLES)`
