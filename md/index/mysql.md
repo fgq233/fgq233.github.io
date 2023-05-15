@@ -1,3 +1,4 @@
+1. [安装][install]
 1. [数据类型][datatype]
 1. [常用的函数][fun]
 1. [变量][variable]
@@ -26,10 +27,7 @@
 
 
 
-
-
-
-
+[install]: https://fgq233.github.io/md/mysql/install
 [diff]: https://fgq233.github.io/md/mysql/diff
 [mycat5]: https://fgq233.github.io/md/mysql/mycat5
 [mycat4]: https://fgq233.github.io/md/mysql/mycat4
