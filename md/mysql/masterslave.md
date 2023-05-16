@@ -128,7 +128,7 @@ change replication source to source_host='192.168.45.130', source_host=3306,
 -- 8.0.23之后版本
 change master to master_host='192.168.45.130', master_port=3306, 
     master_user='fgq', master_password='123456',
-    master_log_file='binlog.000008', master_log_pos=846;
+    master_log_file='binlog.000008', master_log_pos=866;
 ```
 
 
