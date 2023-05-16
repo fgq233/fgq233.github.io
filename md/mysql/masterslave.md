@@ -48,14 +48,6 @@ systemctl disable firewalld
 
 
 #### 2. 修改主库配置文件
-<details><summary>配置文件位置</summary><pre>
-<code>Window  
-C:\ProgramData\MySQL\MySQL Server 8.0\my.ini
-
-Linux 
-/etc/my.cnf
-</code></pre></details>
-
 ```
 [mysqld]
 # mysql服务id，保证集群环境中唯一
