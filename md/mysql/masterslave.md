@@ -57,6 +57,7 @@ Linux
 </code></pre></details>
 
 ```
+[mysqld]
 # mysql服务id，保证集群环境中唯一
 server-id=1
 
@@ -72,11 +73,6 @@ read-only=0
 
 
 修改完成后，重启MySQL服务
-* Window
-  * `net stop mysql80`
-  * `net start mysql80`
-* Linux
-  * `service restart mysqld`
 
 
 #### 3. 新增主从复制主的账号
@@ -85,7 +81,7 @@ read-only=0
 mysql -u root -p1234;
 
 # 创建任意主机可连接的账号
-create user 'fgq'@'%' identified with mysql_native_password by 'master@666';
+create user 'fgq'@'%' identified by '123456';
 
 # 授予主从复制权限
 grant replication slave on *.* to 'fgq'@'%';
@@ -122,6 +118,7 @@ show master status;
 
 #### 2. 修改从库配置文件
 ```
+[mysqld]
 # mysql服务id，保证集群环境中唯一
 server-id=2
 
