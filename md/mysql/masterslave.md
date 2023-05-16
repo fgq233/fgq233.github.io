@@ -24,7 +24,7 @@
 
 ### 二、 主从复制-主库搭建
 #### 1. 主库服务器准备
-* 准备好主库服务器 `192.168.152.1`，安装MySQL
+* 准备好主库服务器，安装MySQL
 * 关闭防火墙 
 
 
@@ -90,7 +90,7 @@ show master status;
 +----------------+----------+--------------+------------------+-------------------+
 | File           | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
 +----------------+----------+--------------+------------------+-------------------+
-| FGQ-bin.000082 |     1000 |              |                  |                   |
+| binlog.000009  |     866  |              |                  |                   |
 +----------------+----------+--------------+------------------+-------------------+
 ```
 
@@ -124,14 +124,19 @@ read-only=1
 #### 3. 设置主库地址、账号
 ```
 -- 8.0.23之前版本
-change replication source to source_host='192.168.152.1',source_user='fgq',source_password='master@666',source_log_file='FGQ-bin.000082',source_log_pos=1000;
+change replication source to source_host='192.168.45.130', source_host=3306, 
+    source_user='fgq', source_password='123456',
+    source_log_file='binlog.000009', source_log_pos=866;
 
 -- 8.0.23之后版本
-change master to master_host='192.168.152.1',master_user='fgq',master_password='master@666',master_log_file='FGQ-bin.000082',master_log_pos=1000;
+change master to master_host='192.168.152.1', master_port=3306, 
+    master_user='fgq', master_password='123456',
+    master_log_file='binlog.000009', master_log_pos=866;
 ```
 
 
 * 主库地址：`host`
+* 主库端口：`port`
 * 连接主库的用户：`user`
 * 连接主库的密码：`password`
 * binlog日志文件名：`log_file`
