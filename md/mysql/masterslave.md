@@ -120,6 +120,9 @@ read-only=1
 
 #### 3. 设置主库地址、账号
 ```
+# 登录
+mysql -uroot -p;
+
 -- 8.0.23之前版本
 change replication source to source_host='192.168.45.130', source_host=3306, 
     source_user='fgq', source_password='123456',
@@ -128,7 +131,7 @@ change replication source to source_host='192.168.45.130', source_host=3306,
 -- 8.0.23之后版本
 change master to master_host='192.168.45.130', master_port=3306, 
     master_user='fgq', master_password='123456',
-    master_log_file='binlog.000008', master_log_pos=866;
+    master_log_file='binlog.000008', master_log_pos=846;
 ```
 
 
@@ -140,13 +143,15 @@ change master to master_host='192.168.45.130', master_port=3306,
 * binlog日志文件位置：`log_pos`
 
 
-#### 4. 启动主从同步
+#### 4. 启动、停止主从同步
 ```
 -- 8.0.23之前版本
 start slave;
+stop slave;
 
 -- 8.0.23之后版本
 start replica;
+stop replica;
 ```
 
 
