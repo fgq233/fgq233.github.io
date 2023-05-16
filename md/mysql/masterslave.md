@@ -70,7 +70,7 @@ read-only=0
 #### 3. 新增主从复制主的账号
 ```
 # 登录
-mysql -u root -p1234;
+mysql -u root -p;
 
 # 创建任意主机可连接的账号
 create user 'fgq'@'%' identified by '123456';
