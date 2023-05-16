@@ -111,10 +111,7 @@ show master status;
 #### 2. 修改从库配置文件
 ```
 [mysqld]
-# mysql服务id，保证集群环境中唯一
 server-id=2
-
-# 是否制度，1表示只读，0表示读写
 read-only=1
 ```
 
@@ -129,9 +126,9 @@ change replication source to source_host='192.168.45.130', source_host=3306,
     source_log_file='binlog.000009', source_log_pos=866;
 
 -- 8.0.23之后版本
-change master to master_host='192.168.152.1', master_port=3306, 
+change master to master_host='192.168.45.130', master_port=3306, 
     master_user='fgq', master_password='123456',
-    master_log_file='binlog.000009', master_log_pos=866;
+    master_log_file='binlog.000008', master_log_pos=846;
 ```
 
 
