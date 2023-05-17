@@ -60,8 +60,8 @@ read-only=0
 
 * `server-id` 服务id，保证集群环境中唯一
 * `read-only` 1表示只读，0表示读写
-* `binlog-ignore-db` 忽略的数据库(指不需要同步的数据库)
-* `binlog-do-db` 指定同步的数据库
+* `binlog-ignore-db` 不记录指定的数据库的二进制日志
+* `binlog-do-db` 只记录指定数据库的二进制日志，默认是全部记录
 
 修改完成后，重启MySQL服务
 
