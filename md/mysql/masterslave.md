@@ -50,19 +50,18 @@ systemctl disable firewalld
 #### 2. 修改主库配置文件
 ```
 [mysqld]
-# mysql服务id，保证集群环境中唯一
 server-id=1
-
-# 是否制度，1表示只读，0表示读写
 read-only=0
 
-# 忽略的数据库(指不需要同步的数据库)
 # binlog-ignore-db=mysql
-
-# 指定同步的数据库
-# binlog-do-db=nacos
+# binlog-do-db=xxxxxx
 ```
 
+
+* `server-id` 服务id，保证集群环境中唯一
+* `read-only` 1表示只读，0表示读写
+* `binlog-ignore-db` 忽略的数据库(指不需要同步的数据库)
+* `binlog-do-db` 指定同步的数据库
 
 修改完成后，重启MySQL服务
 
@@ -124,9 +123,9 @@ read-only=1
 mysql -uroot -p;
 
 -- 8.0.23之前版本
-change replication source to source_host='192.168.45.130', source_host=3306, 
+change replication source to source_host='192.168.45.130', source_port=3306, 
     source_user='fgq', source_password='123456',
-    source_log_file='binlog.000009', source_log_pos=866;
+    source_log_file='binlog.000009', source_log_pos=2149;
 
 -- 8.0.23之后版本
 change master to master_host='192.168.45.130', master_port=3306, 
