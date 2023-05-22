@@ -55,7 +55,6 @@ read-only=0
 
 # binlog-ignore-db=mysql
 # binlog-do-db=xxxxxx
-# binlog_format=STATMENT
 # log_bin=binlog
 ```
 
@@ -64,7 +63,6 @@ read-only=0
 * `read-only` 1表示只读，0表示读写
 * `binlog-ignore-db` 不记录指定的数据库的二进制日志
 * `binlog-do-db` 只记录指定数据库的二进制日志，默认是全部记录
-* `binlog_format` 日志格式，8.X默认是ROW
 * `log_bin` 二进制日志名，默认binlog
 
 修改完成后，重启MySQL服务
