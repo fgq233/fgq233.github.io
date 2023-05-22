@@ -15,5 +15,6 @@
 * `Linux Mint`
 
 
-### 二、查看版本 
-`hostnamectl`
+### 二、命令 
+* `hostnamectl` 查看版本
+* `uname -r` 查看系统内核
