@@ -248,7 +248,7 @@ var app = new Vue({
     <li v-for="(val, key) in obj">﹛﹛ key ﹜﹜ : ﹛﹛ val ﹜﹜</li>
   </ul>
   <ul>
-    <li`` v-for="(val, key, index) in obj">﹛﹛ index ﹜﹜ 、 ﹛﹛ key ﹜﹜ : ﹛﹛ val ﹜﹜</li>
+    <li v-for="(val, key, index) in obj">﹛﹛ index ﹜﹜ 、 ﹛﹛ key ﹜﹜ : ﹛﹛ val ﹜﹜</li>
   </ul>
 </div>
 
