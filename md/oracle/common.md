@@ -32,6 +32,9 @@ select table_name from dba_tables where owner = '库名';
 
 -- 用户下所有表名、表记录总数量
 select t.table_name, t.num_rows from user_tables t;
+
+-- 表中所有列
+select * from user_tab_cols where table_name = '表名';
 ```
 
 
