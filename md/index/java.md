@@ -145,7 +145,7 @@
 [redis5]: https://fgq233.github.io/md/nosql/redis5
 [stream]: https://fgq233.github.io/md/java/stream
 [exception]: https://fgq233.github.io/md/java/exception
-[exception]: https://fgq233.github.io/md/java/optional
+[optional]: https://fgq233.github.io/md/java/optional
 [mq]: https://fgq233.github.io/md/mq/all
 [rabbitmq1]: https://fgq233.github.io/md/mq/rabbitmq1
 [rabbitmq2]: https://fgq233.github.io/md/mq/rabbitmq2
