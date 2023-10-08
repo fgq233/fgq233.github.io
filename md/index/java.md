@@ -1,4 +1,5 @@
 1. ###### [Stream 流][stream]    
+1. ###### [Optional 判空][optional]    
 1. ###### [Exception 详细信息获取][exception]    
 1. ###### [AOP][aop]
 1. ###### [多线程][thread]
@@ -144,6 +145,7 @@
 [redis5]: https://fgq233.github.io/md/nosql/redis5
 [stream]: https://fgq233.github.io/md/java/stream
 [exception]: https://fgq233.github.io/md/java/exception
+[exception]: https://fgq233.github.io/md/java/optional
 [mq]: https://fgq233.github.io/md/mq/all
 [rabbitmq1]: https://fgq233.github.io/md/mq/rabbitmq1
 [rabbitmq2]: https://fgq233.github.io/md/mq/rabbitmq2
