@@ -61,6 +61,7 @@
 -  [Redis-3 主从集群][redis3]
 -  [Redis-4 哨兵集群][redis4]
 -  [Redis-5 分片集群][redis5]
+-  [Redis-6 缓存穿透、击穿、雪崩][redis6]
 
 1. ###### MongoDB
 -  [MongoDB-1 基本概念][mongodb1]
@@ -143,6 +144,7 @@
 [redis3]: https://fgq233.github.io/md/nosql/redis3
 [redis4]: https://fgq233.github.io/md/nosql/redis4
 [redis5]: https://fgq233.github.io/md/nosql/redis5
+[redis6]: https://fgq233.github.io/md/nosql/redis6
 [stream]: https://fgq233.github.io/md/java/stream
 [exception]: https://fgq233.github.io/md/java/exception
 [optional]: https://fgq233.github.io/md/java/optional
