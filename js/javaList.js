@@ -69,7 +69,8 @@ const javaList3 = [
             {url: "https://fgq233.github.io/md/nosql/redis2", title: "Redis-2 持久化"},
             {url: "https://fgq233.github.io/md/nosql/redis3", title: "Redis-3 主从集群"},
             {url: "https://fgq233.github.io/md/nosql/redis4", title: "Redis-4 哨兵集群"},
-            {url: "https://fgq233.github.io/md/nosql/redis5", title: "Redis-5 分片集群"}
+            {url: "https://fgq233.github.io/md/nosql/redis5", title: "Redis-5 分片集群"},
+            {url: "https://fgq233.github.io/md/nosql/redis6", title: "Redis-6 缓存穿透、击穿、雪崩"}
         ]
     },
     {
