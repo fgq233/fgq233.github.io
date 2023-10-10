@@ -32,7 +32,7 @@ Redis 主从集群中当 master 中断服务后，需要人工将一个从服务
 略
 
 
-### 三. Spring Boot 集成哨兵集群 
+### 三. Spring Boot 集成哨兵 
 * 在Sentinel集群监管下的Redis主从集群，其节点会因为自动故障转移而发生变化，
 Redis的客户端必须感知变化及时更新连接信息
 * RedisTemplate 底层利用 lettuce 实现了节点的感知和自动切换
