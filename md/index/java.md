@@ -59,7 +59,7 @@
 -  [Redis-1 安装][redis1]
 -  [Redis-2 持久化][redis2]
 -  [Redis-3 主从集群][redis3]
--  [Redis-4 哨兵集群][redis4]
+-  [Redis-4 哨兵][redis4]
 -  [Redis-5 分片集群][redis5]
 -  [Redis-6 缓存穿透、击穿、雪崩][redis6]
 
