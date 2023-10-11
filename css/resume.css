@@ -160,14 +160,16 @@ td, th {
     font-family: Helvetica, Helvetica Neue, Microsoft YaHei
 }
 
-
+.xxx{
+    background-color:#1575bf;
+}
 /*  ------ my_cloud */
 
 .my_cloud[data-v-47828444] {
     width: 100%;
     min-width: 830px;
     margin: 0 auto;
-    background-color: #39394d
+    /*background-color: #39394d*/
 }
 
 .my_cloud .resume_main[data-v-47828444] {
@@ -176,17 +178,18 @@ td, th {
 
 .my_cloud .tpl_all[data-v-47828444] {
     padding: 0 0 50px 0;
-    width: 1150px;
-    min-height: 100vh;
+    width: 1250px;
+    /*min-height: 100vh;*/
+    height: 2600px;
     margin: 0 auto;
     position: relative
 }
 
 .my_cloud .tpl_all .tpl_box[data-v-47828444] {
     background-color: #fff;
-    width: 820px;
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    width: 1150px;
+    /*-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .5);*/
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, .5);*/
     position: relative;
     margin: 0 auto
 }
