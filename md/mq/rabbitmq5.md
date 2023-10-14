@@ -128,16 +128,16 @@ public class MqCommonConfig  implements ApplicationContextAware {
 
 ### 二、消费者确认机制
 #### 1. 三种确认模式
-RabbitMQ 通过消费者回执来确认是否成功处理消息，
-在消费者获取消息后，向 RabbitMQ 发送 ack 回执，表明自己已经处理消息，
-而RabbitMQ确认消息被消费后会立刻删除，这就是所谓的阅后即焚
+* RabbitMQ 通过消费者确认机制来确定是否成功处理消息
+* 在消费者获取消息后，向 RabbitMQ 发送 ack 表明已经处理消息， 而RabbitMQ确认消息被消费后会立刻删除，
+这就是所谓的阅后即焚
 
 所以可能存在这种场景：
 
 * 1）RabbitMQ 投递消息给消费者
 * 2）消费者获取消息后，返回 ack 给RabbitMQ
 * 3）RabbitMQ删除消息
-* 4）消费者宕机，消息尚未处理
+* 4）消费者服务宕机，消息尚未处理
 
 这样消息就丢失了，因此消费者返回 ack 的时机非常重要，SpringAMQP允许配置三种确认模式：
 
