@@ -97,7 +97,7 @@ rabbitTemplate.convertAndSend("test.direct", "test", msg, cd);
 
 
 #### 4. 定义 ReturnCallback
-* 为了确认消息已经路由到队列，可以给 RabbitTemplate 设置 ConfirmCallback
+* 为了确认消息已经路由到队列，可以给 RabbitTemplate 设置 ReturnCallback
 * 每个RabbitTemplate只能配置一个ReturnCallback，因此需要在项目加载时配置
 
 ```
