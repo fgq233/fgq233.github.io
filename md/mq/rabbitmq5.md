@@ -41,12 +41,31 @@ spring:
 * `template.mandatory`：定义消息路由失败时的策略，true调用ReturnCallback，false则直接丢弃消息
 
 
-#### 3. 定义 ConfirmCallback
+#### 3. 定义 全局ConfirmCallback
 * 为了监测消息是否到达交换机，可以给 RabbitTemplate 设置 ConfirmCallback
 * ConfirmCallback可以定义成全局的，也可以为单个消息个性化设置
 
+#### 3.1 单个消息 ConfirmCallback
 ```
-// 全局设置
+String msg = "Hello";
+CorrelationData cd = new CorrelationData(UUID.randomUUID().toString());
+cd.getFuture().addCallback(
+    result -> {
+        if(result.isAck()){
+            // ack：消息成功
+            log.debug("消息发送成功, ID:{}", cd.getId());
+        } else{
+            // nack：消息失败
+            log.error("消息发送失败, ID:{}, 原因{}",cd.getId(), result.getReason());
+        }
+    },
+    ex -> log.error("消息发送异常, ID:{}, 原因{}",cd.getId(),ex.getMessage())
+);
+rabbitTemplate.convertAndSend("test.direct", "test", msg, cd);
+```
+
+#### 3.2 全局消息ConfirmCallback
+```
 @Configuration
 public class MqCommonConfig implements ApplicationContextAware {
 
@@ -66,39 +85,19 @@ public class MqCommonConfig implements ApplicationContextAware {
     }
 }
 
-String message = "Hello, Spring AMQP!";
-CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
+String msg = "Hello";
+CorrelationData cd = new CorrelationData(UUID.randomUUID().toString());
+rabbitTemplate.convertAndSend("test.direct", "test", msg, cd);
 ```
 
-全局的需要对correlationData进行判空，因为发送消息时，如果没有传递一个CorrelationData对象，
+* 全局的需要对correlationData进行判空，因为发送消息时，如果没有传递一个CorrelationData对象，
 回调中correlationData参数就为空
-
-```
-// 单个消息设置
-String message = "Hello, Spring AMQP!";
-CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-correlationData.getFuture().addCallback(
-    result -> {
-        if(result.isAck()){
-            // ack：消息成功
-            log.debug("消息发送成功, ID:{}", correlationData.getId());
-        } else{
-            // nack：消息失败
-            log.error("消息发送失败, ID:{}, 原因{}",correlationData.getId(), result.getReason());
-        }
-    },
-    ex -> log.error("消息发送异常, ID:{}, 原因{}",correlationData.getId(),ex.getMessage())
-);
-rabbitTemplate.convertAndSend("test.direct", "test", message, correlationData);
-```
-
-确认机制发送消息时，必须给每个消息指定一个全局唯一ID，用来区分不同消息，避免 ack 冲突
+* 确认机制发送消息时，必须给每个消息指定一个全局唯一ID，用来区分不同消息，避免 ack 冲突
 
 
 
 #### 4. 定义 ReturnCallback
-* 处理消息投递到交换机了，但是没有路由到队列的逻辑
+* 为了确认消息已经路由到队列，可以给 RabbitTemplate 设置 ConfirmCallback
 * 每个RabbitTemplate只能配置一个ReturnCallback，因此需要在项目加载时配置
 
 ```
