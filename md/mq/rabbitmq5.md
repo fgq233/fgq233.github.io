@@ -1,14 +1,15 @@
 ###  RabbitMQ 消息确认机制
 消息从发送到消费者接收会经历多个过程，其中的每一步都可能导致消息丢失，常见的丢失原因包括：
-* 发送时丢失：                  
-  * 生产者发送的消息未送达exchange
-  * 消息到达exchange后未到达queue
-* MQ宕机，queue将消息丢失----------------可以通过MQ持久化保证消息不会丢失
-* consumer接收到消息后未消费就宕机
+* 发送时丢失：生产者发送的消息未送达exchange          
+* 路由时丢失：消息到达exchange后未到达queue
+* 队列中丢失：MQ宕机，queue将消息丢失
+* 消费时丢失：consumer接收到消息后未消费就宕机
 
 针对这些问题，RabbitMQ分别给出了解决方案：
 
-- 发送时：生产者确认机制
+- 发送时：生产者确认机制 ConfirmCallback
+- 路由时：ReturnCallback 退回机制，RabbitMQ 将消息退回给生产者
+- 队列中：MQ持久化保证消息不会丢失
 - 消费时：消费者确认机制、失败重试机制
 
 ![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ7.png)
@@ -115,7 +116,7 @@ public class MqCommonConfig  implements ApplicationContextAware {
             // 路由失败
             log.info("消息路由失败，应答码{}，原因{}，交换机{}，路由键{}，消息{}",
                     replyCode, replyText, exchange, routingKey, message.toString());
-            // 如果有业务需要，可以重发消息
+            // 根据业务需要，可以重发消息、记录日志
             // template.convertAndSend(exchange, routingKey, message.getBody());
         });
     }
