@@ -7,24 +7,18 @@
 
 针对这些问题，RabbitMQ分别给出了解决方案：
 
-- 发送时：生产者确认机制 ConfirmCallback
+- 发送时：生产者确认机制 ConfirmCallback，确保消息到达
 - 路由时：ReturnCallback 退回机制，RabbitMQ 将消息退回给生产者
 - 队列中：MQ持久化保证消息不会丢失
 - 消费时：消费者确认机制、失败重试机制
 
-![RabbitMQ](https://fgq233.github.io/imgs/mq/rabbitMQ7.png)
 
 ### 一、生产者确认机制
 #### 1. 过程
-* RabbitMQ 提供了publisher confirm机制来避免消息发送到MQ过程中丢失，
-消息发送到MQ以后，会返回一个结果给发送者，表示消息是否处理成功，返回结果有两种方式
-
-* `publisher-confirm`，发送者确认
-  * 消息成功投递到交换机，返回 `ack`
-  * 消息未投递到交换机，返回 `nack`
-* `publisher-return`，发送者回执
-  * 消息投递到交换机了，但是没有路由到队列，返回 `ack`，及路由失败原因 `publisher return`
-  
+* ConfirmCallback 是一个回调方法，用来确认消息成功发送到MQ
+  * 消息成功发送到MQ，返回 `ack`
+  * 消息发送到MQ失败，返回 `nack`
+* ReturnCallback 也是一个回调方法，用来解决消息已经发送到MQ，但是未路由到队列的问题
   
   
 #### 2. yml添加配置，开启确认机制 
@@ -32,16 +26,17 @@
 spring:
   rabbitmq:
     publisher-confirm-type: correlated
+    
     publisher-returns: true
     template:
       mandatory: true
 ```
 
-* `publish-confirm-type`：开启publisher-confirm，支持两种类型：
+* `publish-confirm-type`：ConfirmCallback，支持两种类型：
   * `simple`：同步等待confirm结果，直到超时
   * `correlated`：异步回调，定义ConfirmCallback，MQ返回结果时会回调这个ConfirmCallback
   
-* `publish-returns`：开启publish-return功能，同样是基于callback机制，不过是定义ReturnCallback
+* `publish-returns`：定义ReturnCallback
 
 * `template.mandatory`：定义消息路由失败时的策略，true调用ReturnCallback，false则直接丢弃消息
 
