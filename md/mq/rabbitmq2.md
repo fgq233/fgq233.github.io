@@ -46,7 +46,7 @@ publisher、queue、consumer
 * 特点：单个消费者监听一个队列
 
 ```
-声明队列
+生产者和消费者声明队列：
 @Configuration
 public class RabbmitQueueConfig {
     @Bean
