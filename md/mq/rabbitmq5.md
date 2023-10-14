@@ -36,7 +36,7 @@ spring:
   * `simple`：同步等待confirm结果，直到超时
   * `correlated`：异步回调，定义ConfirmCallback，MQ返回结果时会回调这个ConfirmCallback
   
-* `publish-returns`：定义ReturnCallback
+* `publish-returns`：开启 ReturnCallback
 
 * `template.mandatory`：定义消息路由失败时的策略，true调用ReturnCallback，false则直接丢弃消息
 
