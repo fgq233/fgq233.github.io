@@ -92,3 +92,5 @@ explain select * from users where name = 'fgq' and age >= 18 and sex = '1';
 * or
   * 两侧都有索引，索引才会生效
   * 只要有一侧没有索引，那么索引都会失效
+
+* 在索引列上使用 IS NULL 和 IS NOT NULL 会导致索引失效
