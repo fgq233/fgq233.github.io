@@ -51,27 +51,27 @@ docker load -i nginx.tar
 
 #### 1. 创建并运行一个容器
 ```
-docker run -d -p 80:80 --name fgq-ng nginx:latest
+docker run -d -p 80:80 --name fgq nginx:latest
 ```
 
 * `-d`：后台运行容器
 * `-p` ：将宿主机端口与容器端口映射，左侧是宿主机端口，右侧是容器端口
-* `--name` : 给容器起一个名字，比如叫做fgq-ng
+* `--name` : 给容器起一个名字，比如叫做fgq
 * `nginx:latest`：镜像名称
 
 #### 2. 查看所有运行的容器、运行日志
 ```
 docker ps
-docker logs fgq-ng
+docker logs fgq
 ```
 
 #### 3. 进入容器内部
 ```
-docker exec -it fgq-ng bash 
+docker exec -it fgq bash 
 ```
 
 * `-it` : 给当前进入的容器创建一个标准输入、输出终端，允许我们与容器交互
-* `fgq-ng` ：容器的名称
+* `fgq` ：容器的名称
 * `bash`：进入容器后执行的命令，bash是一个linux终端交互命令
 
 #### 4. 容器内部操作
@@ -94,15 +94,15 @@ exit
 
 #### 6. 停止、启动容器运行
 ```
-docker stop fgq-ng
-docker start fgq-ng
+docker stop fgq
+docker start fgq
 ```
 
 #### 7.删除容器
 ```
 # 不能删除运行中的
-docker rm fgq-ng
+docker rm fgq
 
 # 强制删除，可以是运行中的
-docker rm -f fgq-ng
+docker rm -f fgq
 ```
