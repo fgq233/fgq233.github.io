@@ -37,7 +37,7 @@
 
 
 
-### 三、容器使用示例
+### 三、镜像使用示例
 ```
 docker pull nginx
 docker images
@@ -46,7 +46,7 @@ docker rmi nginx:latest
 docker load -i nginx.tar
 ```
 
-### 四、镜像使用示例
+### 四、容器使用示例
 容器的使用一般需要参考官网使用文档
 
 #### 1. 创建并运行一个容器
