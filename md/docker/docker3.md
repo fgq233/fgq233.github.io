@@ -12,7 +12,8 @@
 * docker images：查看已经构建的镜像
 * docker rmi：删除某个构建的镜像
 * docker save：将镜像保存为一个压缩包
-* docker --help：查看帮助
+* docker load：将压缩包加载为镜像
+* `docker --help`：查看帮助
   * 查看`images`命令帮助 `docker images --help`
   * 查看`save`令帮助 `docker save --help`
 
