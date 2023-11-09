@@ -4,7 +4,7 @@
 * 官网文档：https://docs.docker.com/engine/install/
 
 ### 一、CentOS下Docker安装、卸载
-#### 1. 安装 yum工具
+#### 1. 安装 【yum-utils】【device-mapper-persistent-data】【lvm2】
 ```
 yum install -y yum-utils \
            device-mapper-persistent-data \
@@ -23,6 +23,7 @@ yum-config-manager \
     
 sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 
+# 重建 yum 索引
 # CentOS7
 yum makecache fast
 # CentOS8
@@ -62,6 +63,7 @@ systemctl restart docker
 systemctl status docker
 
 # 查看docker版本
+docker version
 docker -v
 ```
 
