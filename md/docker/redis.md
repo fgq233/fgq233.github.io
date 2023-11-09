@@ -15,7 +15,7 @@ mkdir -p /usr/local/redis
 mkdir -p /usr/local/redis/data
 ```
 
-#### 4. 下载同版本redis安装包，解压，并将配置文件上传至 /usr/local/redis
+#### 4. 下载同版本redis安装包，解压
 ```
 # 进入目录
 cd /usr/local/redis
