@@ -22,7 +22,10 @@ yum-config-manager \
     
 sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 
+# CentOS7
 yum makecache fast
+# CentOS8
+yum makecache 
 ```
 
 
