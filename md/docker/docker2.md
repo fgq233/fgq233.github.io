@@ -1,6 +1,7 @@
 ### Docker安装
 * Docker 分为 CE 和 EE 两大版本
 * CE 社区版（免费，支持周期 7 个月），EE 企业版，付费使用，支持周期 24 个月
+* 官网文档：https://docs.docker.com/engine/install/
 
 ### 一、CentOS下Docker安装、卸载
 #### 1. 安装 yum工具
