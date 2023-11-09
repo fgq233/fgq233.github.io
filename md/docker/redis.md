@@ -64,7 +64,7 @@ docker ps
 ```
 docker exec -it redisX /bin/bash
 
-redis-cli -a 123456
+redis-cli -p 6379 -a 123456
 
 set name fgq
 
