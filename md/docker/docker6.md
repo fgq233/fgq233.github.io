@@ -15,7 +15,7 @@ curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compos
 chmod +x /usr/local/bin/docker-compose
 ```
 
-#### 3. Base自动补全命令
+#### 3. bash命令补全
 ```
 curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
 ```
@@ -26,6 +26,16 @@ curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completi
 echo "199.232.68.133 raw.githubusercontent.com" >> /etc/hosts
 ```
 
+
+#### 4. 检测版本
+```
+docker-compose version
+```
+
+#### 5. 卸载
+```
+rm /usr/local/bin/docker-compose
+```
 
 ### 二、 Compose文件
 `docker-compose.yml`是一个文本文件，通过指令定义集群中的每个容器如何运行，示例：
