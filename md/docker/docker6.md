@@ -3,9 +3,9 @@
 * 文档：https://docs.docker.com/compose/gettingstarted/
 
 ### 一、 Docker-Compose 安装
-#### 1. 下载
-* 命令下载
-* 如果下载速度较，可以直接将docker-compose文件上传至`/usr/local/bin/`目录
+#### 1. 从github上下载docker-compose二进制文件安装
+* 下载地址：https://github.com/docker/compose/releases
+* 如果命令下载速度较，可以直接在github将docker-compose文件下载好，然后上传至`/usr/local/bin/`目录
 
 ```
 curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose

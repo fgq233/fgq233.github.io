@@ -35,10 +35,10 @@ docker volume rm myhtml
 * 容器内修改，宿主机同步获得
 * 容器stop，宿主机修改，容器start后数据成功同步
 
-#### 1. Nginx 挂载数据卷示例
+#### 1. Nginx 挂载数据卷示例1
 ```
-# 创建容器时挂载数据卷
-docker run -d -p 80:80 --name fgq -v myhtml:/usr/share/nginx/html nginx:latest
+# 方式1：由docker自己决定宿主机目录
+docker run -d -p 80:80 --name ng -v myhtml:/usr/share/nginx/html nginx:latest
 
 # 查看数据卷信息，找到挂载点Mountpoint目录
 docker volume inspect myhtml
@@ -46,31 +46,12 @@ docker volume inspect myhtml
 # 进入挂载点目录
 cd /var/lib/docker/volumes/myhtml/_data
 ls
+
+
+
+# 方式2：自定义宿主机目录
+docker run -d -p 80:80 --name ng -v /usr/local/nginx/html:/usr/share/nginx/html nginx:latest
 ```
 
 
-#### 2. MySQL8 挂载配置文件、数据目录示例
-```
-# 拉取 mysql8 镜像
-docker pull mysql:8
-
-# 查看镜像
-docker images
-
-# 创建宿主机配置文件目录、数据目录、日志目录
-mkdir -p /usr/local/mysql8/conf
-mkdir -p /usr/local/mysql8/data
-
-# 将 mysql8 配置文件 my.cnf 上传至conf目录
-
-# 创建容器时挂载目录、文件
-docker run \
-  --name fgq-mysql \
-  -d \
-  -p 3306:3306 \
-  -e MYSQL_ROOT_PASSWORD=root \
-  -v /usr/local/mysql8/conf:/etc/mysql/conf.d \
-  -v /usr/local/mysql8/data:/var/lib/mysql \
-  mysql:8
-```
 
