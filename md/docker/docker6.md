@@ -1,5 +1,6 @@
 ### Docker-Compose
-Docker Compose可以基于Compose文件快速部署分布式应用，无需手动一个个创建和运行容器，类似于批量 docker run
+* Docker Compose可以基于Compose文件快速部署分布式应用，无需手动一个个创建和运行容器，类似于批量 docker run
+* 文档：https://docs.docker.com/compose/gettingstarted/
 
 ### 一、 Docker-Compose 安装
 #### 1. 下载
