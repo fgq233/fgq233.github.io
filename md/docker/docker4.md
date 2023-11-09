@@ -35,7 +35,7 @@ docker volume rm myhtml
 * 容器内修改，宿主机同步获得
 * 容器stop，宿主机修改，容器start后数据成功同步
 
-#### 1. Nginx 挂载数据卷示例1
+#### 1. Nginx 挂载数据卷示例
 ```
 # 方式1：由docker自己决定宿主机目录
 docker run -d -p 80:80 --name ng -v myhtml:/usr/share/nginx/html nginx:latest
