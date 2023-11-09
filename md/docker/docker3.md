@@ -2,10 +2,8 @@
 ![](https://fgq233.github.io/imgs/docker/docker3.png)
 
 ### 一、镜像常用命令
-* 镜像名称一般分两部分组成：[repository]:[tag]
-* 在没有指定tag时，默认是latest，代表最新版本的镜像
+镜像名称一般分两部分组成：[repository]:[tag]，没有指定tag时，默认是latest，代表最新版本镜像
 
-#### 1. docker bulid
 * docker bulid：通过`docker bulid`命令、Dockerfile文件来构建一个镜像
 * docker push：推送镜像到服务
 * docker pull：从镜像服务器拉去镜像
