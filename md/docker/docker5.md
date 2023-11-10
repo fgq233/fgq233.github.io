@@ -32,7 +32,7 @@
 | VOLUME     | 容器的数据卷                                         ||
 | ADD        | 将宿主机文件拷贝到镜像指定目录，会自动处理URL和解压tar压缩包              | ADD ./jdk8.tar.gz $JAVA_DIR/                |
 | COPY       | 将宿主机文件拷贝到镜像指定目录                                | COPY ./jdk8.tar.gz $JAVA_DIR/               |
-| CMD        | 镜像中应用的启动命令，在docker run时执行，会被docker run后面的命令覆盖  | 若指定了ENTRYPOINT，则CMD含义变化为给若指定了ENTRYPOINT传递参数 |
+| CMD        | 镜像中应用的启动命令，在docker run时执行，会被docker run后面的命令覆盖  | 若指定了ENTRYPOINT，则CMD含义变化为给ENTRYPOINT传递参数 |
 | ENTRYPOINT | 镜像中应用的启动命令，在docker run时执行，不会被docker run后面的命令覆盖 | ENTRYPOINT java -jar /tmp/demo.jar          |
 
 
