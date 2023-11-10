@@ -73,7 +73,6 @@ docker-compose config -q              检查有问题的配置，没问题则无
 #### 3. vim docker-compose.yml
 ```
 version: "3"
-
 services:
   redis:
     image: redis:6.2.1
