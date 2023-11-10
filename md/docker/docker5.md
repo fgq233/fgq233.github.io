@@ -26,7 +26,7 @@
 | ENV        | 设置环境变量，可在后面指令中通过$引用                            | ENV JAVA_DIR=/usr/local                     |
 | RUN        | 执行Linux的shell命令                                | RUN cd $JAVA_DIR、RUN yum -y install vim     |
 | EXPOSE     | 当前容器对外暴露的端口                                    | EXPOSE 8080                                 |
-| MAINTAINER | 镜像维护者信息                                        | MAINTAINER fgq<182@163.com>                 |
+| MAINTAINER | 镜像维护者信息                                        | MAINTAINER fgq                              |
 | WORKDIR    | 指定在创建容器后，宿主机登录进来的默认工作目录                        | WORKDIR $JAVA_DIR                           |
 | USER       | 镜像以什么用户执行，默认root                               |                                             |
 | VOLUME     | 容器的数据卷                                         ||
