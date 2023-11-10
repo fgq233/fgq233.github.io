@@ -7,7 +7,7 @@
 * 文档：[https://docs.docker.com/compose/install/]()
 * 注意：docker-compose 与 Docker引擎有对应关系
 * 若下载失败，可离线安装
-  * [https://github.com/docker/compose/releases/]() 下载对应版本，如：
+  * [https://github.com/docker/compose/releases/]() 下载对应版本
   * 将文件重命名为 `docker-compose`，然后上传至 /usr/local/bin
 
 ```
