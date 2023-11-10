@@ -34,18 +34,11 @@
 | CMD        | 镜像中应用的启动命令，在docker run时执行，会被docker run后面的命令覆盖  | 若指定了ENTRYPOINT，则CMD含义变化为给若指定了ENTRYPOINT传递参数 |
 | ENTRYPOINT | 镜像中应用的启动命令，在docker run时执行，不会被docker run后面的命令覆盖 | ENTRYPOINT java -jar /tmp/demo.jar          |
 
-更多指令，参考：[https://docs.docker.com/engine/reference/builder]()
-
 
 
 ### 二、制作一个SpringBoot项目的镜像
 #### 1. SpringBoot项目打包
 将项目打包为一个jar包： demo.jar
-
-* 创建目录，在目录中新建Dockerfile文件，内容如下
-* 将 demo.jar上传至该目录
-* 使用`docker build`命令构建镜像，如：`docker build -t demo:1.0 .` 注意`.`不能去除，表示基于当前目录构建
-* 使用`docker run`创建容器并运行，如：`docker run --name demo -p 80:80 -d demo:1.0`
 
 #### 2. 创建目录、将jar包上传至该目录
 ```
