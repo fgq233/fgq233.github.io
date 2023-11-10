@@ -69,6 +69,10 @@ docker run \
   mysql:8
 ```
 
+配置文件的数据卷使用下面两种方式都可以，因为宿主机和容器内数据双向绑定
+* `-v /usr/local/mysql8/conf/my.cnf:/etc/mysql/my.cnf`
+* `-v /usr/local/mysql8/conf:/etc/mysql`
+
 
 #### 7. 查看进程
 ```
