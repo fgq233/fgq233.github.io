@@ -4,8 +4,9 @@
 1. [Docker 数据卷][04]
 1. [Docker 自定义镜像][05]
 1. [Docker Compose][06]
-1. [Docker - MySQL8 安装][07]
-1. [Docker - Redis 安装][08]
+1. [可视化工具 Portainer][07]
+1. [Docker - MySQL8 安装][mysql8]
+1. [Docker - Redis 安装][redis]
 
 
 
@@ -16,7 +17,8 @@
 [04]: https://fgq233.github.io/md/docker/docker4
 [05]: https://fgq233.github.io/md/docker/docker5
 [06]: https://fgq233.github.io/md/docker/docker6
-[07]: https://fgq233.github.io/md/docker/mysql8
-[08]: https://fgq233.github.io/md/docker/redis
+[07]: https://fgq233.github.io/md/docker/docker7
+[mysql8]: https://fgq233.github.io/md/docker/mysql8
+[redis]: https://fgq233.github.io/md/docker/redis
 
 
