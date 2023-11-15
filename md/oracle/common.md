@@ -14,14 +14,14 @@ select  userenv('language')  from  dual;
 
 ```
 -- 表空间名称、总大小(单位：MB)
-select tablespace_name, sum(bytes) / 1024 / 1024
+select tablespace_name "表空间", sum(bytes) / 1024 / 1024 "总大小(MB)"
   from dba_data_files
  group by tablespace_name;
  
 -- 表空间的所有DBF文件、每个文件大小
-select tablespace_name,
-       file_name,
-       round(bytes / (1024 * 1024), 0) total_space
+select tablespace_name "表空间",
+       file_name "DBF文件名",
+       round(bytes / (1024 * 1024), 0) "大小(MB)"
   from dba_data_files
  order by tablespace_name;
  
