@@ -53,7 +53,7 @@ select t.owner "用户",
  group by t.owner, t.segment_name, t.segment_type;
 ```
 
-###### 2、查看当前oracle中正在执行的sql语句
+###### 3、查看当前oracle中正在执行的sql语句
 ```
 select a.program,
        a.MACHINE,
@@ -68,7 +68,7 @@ select a.program,
    and a.username is not null;
 ```
 
-###### 3、所有表
+###### 4、所有表
 ```
 -- 库下所有表
 select table_name from dba_tables where owner = '库名';
