@@ -13,19 +13,19 @@ select  userenv('language')  from  dual;
 * `dba_free_space` 表空间、表空间剩余大小
 
 ```
-# 表空间名称、总大小(单位：MB)
+-- 表空间名称、总大小(单位：MB)
 select tablespace_name, sum(bytes) / 1024 / 1024
   from dba_data_files
  group by tablespace_name;
  
-# 表空间的所有DBF文件、每个文件大小
+-- 表空间的所有DBF文件、每个文件大小
 select tablespace_name,
        file_name,
        round(bytes / (1024 * 1024), 0) total_space
   from dba_data_files
  order by tablespace_name;
  
-# 表空间总大小、已使用/未使用大小
+-- 表空间总大小、已使用/未使用大小
 select a.tablespace_name,
        total as "总大小",
        free as "未使用",
@@ -41,7 +41,7 @@ select a.tablespace_name,
  where a.tablespace_name = b.tablespace_name
  order by a.tablespace_name;
 
-# 用户下某个具体的表所占空间大小
+-- 用户下某个具体的表所占空间大小
 select t.owner "用户",
        t.segment_name "表名",
        t.segment_type "类型",
