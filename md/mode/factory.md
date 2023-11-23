@@ -58,6 +58,10 @@ public class Test {
 * 优点：实现简单
 * 缺点：如果新增一个具体角色的话，需要修改工厂类，不符合开闭原则
 
+
+
+
+
 ### 二、工厂方法模式
 #### 1. 抽象产品(同上)
 #### 2. 具体产品(同上)
@@ -99,7 +103,7 @@ public class Test {
 }
 ```
 
-* 特点：一个抽象工厂类、多个具体工厂类
+* 特点：一个产品抽象类、一个抽象工厂类、多个具体工厂类
 * 优点
     * 符合开闭原则：增加⼀个新的产品，只需要实现其具体产品类、具体产品工厂类
     * 符合单⼀职责原则，每个⼯⼚只负责⽣产对应的产品
@@ -111,61 +115,78 @@ public class Test {
 
 
 ### 三、抽象工厂模式
-#### 1.1 抽象产品Shape(同上)
-#### 1.2 具体产品Shape(同上)
-#### 2.1 具体产品Color
+#### 1.1 抽象产品、具体产品1
 ```java
-public interface Color {
-    void fill();
+public interface Keyboard {
+    void print();
+}
+
+public class DellKeyboard implements Keyboard {
+    @Override
+    public void print() {
+      System.out.println("戴尔制造-键盘");
+    }
+}
+public class HPKeyboard implements Keyboard {
+    @Override
+    public void print() {
+      System.out.println("HP制造-键盘");
+    }
 }
 ```
 
-#### 2.2 具体产品Color
+#### 1.2 抽象产品、具体产品2
 ```java
-public class Red implements Color {
-    @Override
-    public void fill() {
-        System.out.println("填充红色");
-    }
+public interface Monitor {
+    void show();
 }
 
-public class Yellow implements Color {
+public class DellMonitor implements Monitor {
     @Override
-    public void fill() {
-        System.out.println("填充黄色");
+    public void show() {
+      System.out.println("戴尔制造-显示器");
+    }
+}
+public class HPMonitor implements Monitor {
+    @Override
+    public void show() {
+      System.out.println("HP制造-显示器");
     }
 }
 ```
 
 #### 3. 抽象工厂
 ```java
-public abstract class AbstractFactory {
-    public abstract Shape createShape(String shapeType);
-    public abstract Color createColor(String colorType);
+public interface IFactory {
+    Keyboard createKeyboard();
+    Monitor createMonitor();
 }
 ```
 
 #### 4. 具体产品工厂
 ```java
-public class MixedFactory extends AbstractFactory {
+// Dell工厂，负责Dell系列产品
+public class DellFactory implements IFactory {
     @Override
-    public Shape createShape(String shapeType) {
-      if ("circle".equalsIgnoreCase(shapeType)) {
-        return new Circle();
-      } else if ("square".equalsIgnoreCase(shapeType)) {
-        return new Square();
-      }
-      return null;
+    public Keyboard createKeyboard() {
+      return new DellKeyboard();
     }
 
     @Override
-    public Color createColor(String colorType) {
-      if ("red".equalsIgnoreCase(colorType)) {
-        return new Red();
-      } else if ("yellow".equalsIgnoreCase(colorType)) {
-        return new Yellow();
-      }
-      return null;
+    public Monitor createMonitor() {
+      return new DellMonitor();
+    }
+}
+// HP工厂，负责HP系列产品
+public class HPFactory implements IFactory {
+    @Override
+    public Keyboard createKeyboard() {
+      return new HPKeyboard();
+    }
+
+    @Override
+    public Monitor createMonitor() {
+      return new HPMonitor();
     }
 }
 ```
@@ -174,17 +195,15 @@ public class MixedFactory extends AbstractFactory {
 ```java
 public class Test {
     public static void main(String[] args) {
-        ShapeFactory factory = new MixedFactory();
-        Shape cicle = factory.createShape("circle");
-        Color yellow = factory.createColor("yellow");
-        cicle.draw();
-        yellow.fill();
+      IFactory factory1 = new DellFactory();
+      IFactory factory2 = new HPFactory();
     }
 }
 ```
 
-* 特点：基于简单工厂、工厂方法模式，每一个工厂不再只负责一个产品的创建，而是负责一组产品的创建
-* 优点
-  * 符合开闭原则：增加⼀个新的产品，只需要实现其具体产品类、具体产品工厂类
-  * 符合单⼀职责原则，每个⼯⼚只负责⽣产对应的产品
-* 缺点：类的个数容易过多，增加复杂度
+* 特点
+  * 基于工厂方法模式的拓展
+  * 多个产品抽象类、一个抽象工厂类、多个具体工厂类
+  * 具体工厂类负责实现一组产品的实现，当一个产品组只有一个产品，就退化为工厂方法模式
+* 优点：增加⼀个新的产品组比较方便，只需要创建新产品组的 --- 具体产品、实现工厂类
+* 缺点：单独新增一个产品比较麻烦
