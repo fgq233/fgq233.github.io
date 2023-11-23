@@ -1,10 +1,11 @@
 1. [Java 设计模式][designMode]
 2. [单例模式][singleton]
+2. [工厂模式][factory]
 
 
 [designMode]: https://fgq233.github.io/md/mode/designMode
 [singleton]: https://fgq233.github.io/md/mode/singleton
-[mode2]: https://fgq233.github.io/md/mode/mode2
+[factory]: https://fgq233.github.io/md/mode/factory
 [mode3]: https://fgq233.github.io/md/mode/mode3
 [mode4]: https://fgq233.github.io/md/mode/mode4
 [mode5]: https://fgq233.github.io/md/mode/mode5
