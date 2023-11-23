@@ -72,7 +72,7 @@ public abstract class ShapeFactory {
 }
 ```
 
-#### 4. 具体产品工厂
+#### 4. 具体工厂
 ```java
 public class CircleFactory extends ShapeFactory {
     @Override
@@ -163,7 +163,7 @@ public interface IFactory {
 }
 ```
 
-#### 4. 具体产品工厂
+#### 4. 具体工厂
 ```java
 // Dell工厂，负责Dell系列产品
 public class DellFactory implements IFactory {
@@ -204,5 +204,5 @@ public class Test {
 * 特点
   * 基于工厂方法模式的拓展，具体工厂类负责实现一组产品的实现
   * 多个产品抽象类、一个抽象工厂类、多个具体工厂类
-* 优点：增加⼀个新的产品组比较方便，只需要创建新产品组的 --- 具体产品、实现工厂类
+* 优点：增加⼀个新的产品组比较方便，只需要创建新产品组的 --- 具体产品、具体工厂
 * 缺点：单独新增一个产品比较麻烦
