@@ -1,9 +1,9 @@
 1. [Java 设计模式][designMode]
-2. [单例模式][mode1]
+2. [单例模式][singleton]
 
 
 [designMode]: https://fgq233.github.io/md/mode/designMode
-[mode1]: https://fgq233.github.io/md/mode/mode1
+[singleton]: https://fgq233.github.io/md/mode/singleton
 [mode2]: https://fgq233.github.io/md/mode/mode2
 [mode3]: https://fgq233.github.io/md/mode/mode3
 [mode4]: https://fgq233.github.io/md/mode/mode4
