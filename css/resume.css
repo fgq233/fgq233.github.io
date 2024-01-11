@@ -458,7 +458,7 @@ td, th {
 .resume_all .pc_main .resume_box .resume_content_all .resume_content .content_list .list_top li[data-v-fgq]:last-child {
     min-width: inherit;
     margin-right: 0;
-    float: right
+    /*float: right*/
 }
 
 .resume_all .pc_main .resume_box .resume_content_all .resume_content .content_list .list_top li[data-v-fgq]:first-child {
