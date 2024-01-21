@@ -518,3 +518,19 @@ td, th {
     float: left !important
 }
 
+.resume_all .pc_main .resume_box .resume_content_all .resume_content .photo_box[data-v-fgq] {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 3;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-top: 10px;
+    width: 108px;
+    background-color: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+
