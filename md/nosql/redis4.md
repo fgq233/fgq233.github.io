@@ -29,7 +29,97 @@ Redis 主从集群中当 master 中断服务后，需要人工将一个从服务
 
 
 ### 二. 搭建 Sentinel哨兵集群
-略
+架构：一主、二从、三哨兵
+
+#### 1. 下载 Redis 并解压
+```
+# 若没有安装wget，需要安装
+yum -y install wget
+
+cd /tmp
+wget  http://download.redis.io/releases/redis-6.2.4.tar.gz
+tar -xvf redis-6.2.4.tar.gz
+```
+
+#### 2. 安装 单机Redis 并启动测试
+```
+cd redis-6.2.4
+
+# 编译、安装
+make && make install
+
+# 启动Redis
+redis-server redis.conf
+
+# 停止redis服务
+redis-cli shutdown
+
+# 新开一个窗口连接Redis测试
+redis-cli -p 6379
+```
+
+#### 3. 搭建Redis一主、二从集群
+```
+cd /tmp
+mkdir 7001 7002 7003
+
+# 复制配置文件
+cp redis-6.2.4/redis.conf 7001
+cp redis-6.2.4/redis.conf 7002
+cp redis-6.2.4/redis.conf 7003
+
+# 修改3个实例的配置文件(端口、rdb文件保存位置为当前目录)
+sed -i -e 's/6379/7001/g' -e 's/dir .\//dir \/tmp\/7001\//g' 7001/redis.conf
+sed -i -e 's/6379/7002/g' -e 's/dir .\//dir \/tmp\/7002\//g' 7002/redis.conf
+sed -i -e 's/6379/7003/g' -e 's/dir .\//dir \/tmp\/7003\//g' 7003/redis.conf
+
+# 启动
+redis-server /tmp/7001/redis.conf
+redis-server /tmp/7002/redis.conf
+redis-server /tmp/7003/redis.conf
+
+# 开启主从关系
+# 新开窗口 
+redis-cli -p 7002
+slaveof 192.167.18.129 7001
+exit
+redis-cli -p 7003
+slaveof 192.167.18.129 7001
+
+# 连接 7001节点，查看集群状态
+redis-cli -p 7001
+info replication
+```
+
+#### 2. 搭建哨兵集群
+```
+cd /tmp
+mkdir 27001 27002 27003
+
+# 在27001目录新增配置文件 sentinel.conf，内容如下
+port 27001
+sentinel announce-ip 192.167.18.129
+sentinel monitor mymaster 192.167.18.129 7001 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel failover-timeout mymaster 60000
+dir "/tmp/27001"
+
+# 复制配置文件到另外2个目录下
+cp /tmp/27001/sentinel.conf /tmp/27002
+cp /tmp/27001/sentinel.conf /tmp/27003
+
+# 修改配置文件内容
+sed -i -e 's/27001/27002/g' /tmp/27002/sentinel.conf
+sed -i -e 's/27001/27003/g' /tmp/27003/sentinel.conf
+
+
+# 启动
+redis-sentinel /tmp/27001/sentinel.conf
+redis-sentinel /tmp/27002/sentinel.conf
+redis-sentinel /tmp/27003/sentinel.conf
+```
+
+
 
 
 ### 三. Spring Boot 集成哨兵集群
