@@ -21,10 +21,12 @@
 容器有三个状态：运行、暂停、停止
 
 * docker run：创建并运行一个容器，处于运行状态
-* docker pause：让一个运行的容器暂停
-* docker unpause：让一个容器从暂停状态恢复运行
-* docker stop：停止一个运行的容器
-* docker start：让一个停止的容器再次运行
+* docker pause：暂停容器
+* docker unpause：容器从暂停状态恢复运行
+* docker stop：停止容器
+* docker start：启动容器
+* docker restart：重启容器重启
+* docker kill：强制停止容器
 
 
 * docker ps：查看容器、状态
@@ -35,7 +37,16 @@
 * docker rm：删除指定容器
 
 
-
+* docker cp 容器ID:容器内路径 目的主机路径
+  * 作用：将容器内资料复制到宿主机
+  * 示例：`docker cp fgq666:/usr/local/x.txt  /tmp/x.txt`
+* docker export 容器ID > 文件名.tar
+  * 作用：备份容器内容为tar文件
+  * 示例：`docker export 05f8fb76ff48  > /tmp/xxx.tar`
+* docker import 文件名.tar 新镜像名:版本号
+  * 作用：从tar文件创建一个新的镜像，镜像将保存之前容器中所有文件
+  * 示例：`docker import /tmp/xxx.tar my-nginx:1.0`
+  * 注意：重新导入的镜像，运行时一般需要带上之前容器的`COMMAND`，查看之前容器的COMMAND使用：`docker ps --no-trunc`
 
 ### 三、镜像使用示例
 ```
