@@ -12,17 +12,13 @@ yum install -y yum-utils \
 ```
 
 
-#### 2. 更新镜像源
-默认镜像源安装慢，使用阿里云仓库的镜像源
-
+#### 2. 配置镜像仓库(不使用国外的，使用阿里云仓库)
 ```
 # 设置docker镜像源
 yum-config-manager \
     --add-repo \
     https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
     
-sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
-
 # 重建 yum 索引
 # CentOS7
 yum makecache fast
