@@ -54,6 +54,7 @@ CMD ["/etc/nginx/nginx.conf"]
 ```
 
 
+
 | 指令       | 按照Dockerfile编写执行      | 传参运行                                            |
 |----------|:----------------------|:------------------------------------------------|
 | Docker命令 | docker run nginx:test | docker run nginx:test -c /etc/conf/mynginx.conf |
