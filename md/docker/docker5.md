@@ -36,7 +36,7 @@
 | ENTRYPOINT | 容器 docker run启动后要做的事 |      |
 
 
-#### 3. CMD、ENTRYPOINT区别
+#### 4. CMD、ENTRYPOINT区别
 * CMD 
   * Dockerfile中可以有多个 CMD 指令，但是只有最后一个生效
   * CMD 指令会被docker run后面的命令覆盖，如：`docker run -it -p 8080:8080 tomcat8 /bin/bash` 只会启动容器，但是tomcat没有启动，因为默认`CMD ["catalina.sh","run"]` 没有生效
