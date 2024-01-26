@@ -24,7 +24,7 @@
 |------------|:-----------------------------------------------|:----------------------------------------|
 | FROM       | 指定基础镜像，必须在第一行，表明当前镜像时基于哪个镜像的                   | FROM java:8                             |
 | ENV        | 设置环境变量，可在后面指令中通过$引用                            | ENV JAVA_DIR=/usr/local                 |
-| RUN        | 执行Linux的shell命令                                | RUN cd $JAVA_DIR、RUN yum -y install vim |
+| RUN        | 执行Linux的shell命令，在bulid镜像时运行                    | RUN cd $JAVA_DIR、RUN yum -y install vim |
 | EXPOSE     | 当前容器对外暴露的端口                                    | EXPOSE 8080                             |
 | MAINTAINER | 镜像维护者信息                                        | MAINTAINER fgq                          |
 | WORKDIR    | 指定在创建容器后，宿主机登录进来的默认工作目录                        | WORKDIR $JAVA_DIR                       |
@@ -32,8 +32,32 @@
 | VOLUME     | 容器的数据卷                                         ||
 | ADD        | 将宿主机文件拷贝到镜像指定目录，会自动处理URL和解压tar压缩包              | ADD ./jdk8.tar.gz $JAVA_DIR/            |
 | COPY       | 将宿主机文件拷贝到镜像指定目录                                | COPY ./jdk8.tar.gz $JAVA_DIR/           |
-| CMD        | 镜像中应用的启动命令，在docker run时执行，会被docker run后面的命令覆盖  | 若指定了ENTRYPOINT，则CMD含义变化为给ENTRYPOINT传递参数 |
-| ENTRYPOINT | 镜像中应用的启动命令，在docker run时执行，不会被docker run后面的命令覆盖 | ENTRYPOINT java -jar /tmp/demo.jar      |
+| CMD        | 容器 docker run启动后要做的事                           |  |
+| ENTRYPOINT | 容器 docker run启动后要做的事 |      |
+
+
+#### 3. CMD、ENTRYPOINT区别
+* CMD 
+  * Dockerfile中可以有多个 CMD 指令，但是只有最后一个生效
+  * CMD 指令会被docker run后面的命令覆盖，如：`docker run -it -p 8080:8080 tomcat8 /bin/bash` 只会启动容器，但是tomcat没有启动，因为默认`CMD ["catalina.sh","run"]` 没有生效
+* ENTRYPOINT 
+  * 类似 CMD，但是ENTRYPOINT不会被 docker run后面的命令覆盖
+  * ENTRYPOINT 可以与CMD一起使用，一般是变参使用 CMD，固定参数使用 ENTRYPOINT
+  * 指定 ENTRYPOINT后， CMD含义就发生变化，不再是直接运行其命令，而是将CMD内容作为参数传递给ENTRYPOINT指令
+
+
+```
+FROM nginx
+
+ENTRYPOINT ["nginx", "-c"]
+CMD ["/etc/nginx/nginx.conf"]
+```
+
+
+| 指令       | 按照Dockerfile编写执行      | 传参运行                                            |
+|----------|:----------------------|:------------------------------------------------|
+| Docker命令 | docker run nginx:test | docker run nginx:test -c /etc/conf/mynginx.conf |
+| 衍生出的实际命令 | nginx -c  /etc/nginx/nginx.conf            | nginx -c /etc/nginx/mynginx.conf                |
 
 
 
