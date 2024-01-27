@@ -34,6 +34,7 @@
   * `docker ps -a` 查看所有容器
 * docker logs：查看容器运行日志
 * docker exec：进入容器执行指令
+* docker cp：将容器内部文件复制到宿主机
 * docker rm：删除指定容器
 
 
