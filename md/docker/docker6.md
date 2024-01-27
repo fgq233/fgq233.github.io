@@ -116,7 +116,7 @@ networks:
   fgq_net:
 ```
 
-* docker-compose 可能会将数据卷中文件创建为文件夹，造成启动失败，可以自己手动创建 
+* docker-compose.yml中数据卷中的文件，需要手动在宿主机提前创建，不然docker-compose可能自动创建为目录
 
 #### 4. 检测 docker-compose.yml 是否有问题
 ```
