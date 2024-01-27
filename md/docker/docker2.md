@@ -61,13 +61,23 @@ docker version
 docker -v
 ```
 
-#### 6. 卸载Docker
+#### 6. Docker配置开机启动
+```
+# 配置开机启动
+systemctl enable docker 
+
+# 配置开机启动且立马启动docker
+systemctl enable docker --now 
+```
+
+
+#### 7. 卸载Docker
 ```
 yum remove docker*
 ```
 
 
-#### 7. 配置镜像加速器
+#### 8. 配置镜像加速器
 * docker官方镜像仓库网速较差，一般使用国内镜像服务
 
-* 参考阿里云镜像器：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
+* 参考阿里云镜像加速器：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
