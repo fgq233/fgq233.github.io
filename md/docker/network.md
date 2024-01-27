@@ -33,8 +33,8 @@ NETWORK ID     NAME      DRIVER    SCOPE
 * `none`     容器有独立的 network namespace，但没有具体设置（**基本不用**）
 * `container`     新创建的容器不会创建自己的网卡和配置自己的IP，而是和一个指定的容器共享IP、端口范围
 * 自定义网络，本身维护好了主机名与IP对应关系，在容器内部使用IP、域名可以各自ping通（**一个docker中有多个容器时使用**）
-  * `docker network create fgq`
-  * `docker run -d -p 80:80 --network fgq --name ng nginx:latest `
+  * `docker network create fgq_net`
+  * `docker run -d -p 80:80 --network fgq_net --name ng nginx:latest `
 
 
 
