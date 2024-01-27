@@ -1,41 +1,66 @@
-### 可视化工具 Portainer
-[官网](https://www.portainer.io/)
-
-### 一、 安装
-#### 1. 创建 portainer 数据卷目录
+### docker搭建私有仓库
+#### 1. 拉取 registry 镜像
 ```
-mkdir -p /usr/local/portainer
+docker pull registry
 ```
 
 
-#### 2. 拉取镜像
+#### 2. 运行容器
 ```
-# 官方版本
-docker pull portainer/portainer-ce
-
-# 汉化版本(可能不支持最新版本)
-docker pull 6053537/portainer-ce
-```
-
-#### 3. 运行容器
-```
-# 官方版本
-docker run -d  --name portainer  --restart=always \
-    -p 8000:8000 \
-    -p 9000:9000 \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /usr/local/portainer:/data \
-    portainer/portainer-ce:latest
-    
-# 汉化版本 
-docker run -d  --name portainer-zh  --restart=always \
-    -p 8000:8000 \
-    -p 9000:9000 \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /usr/local/portainer:/data \
-    6053537/portainer-ce:latest
+docker run -d  --name registry  --privileged=true  \
+    -p 5000:5000 \
+    -v /usr/local/fgq-registry:/tmp/registry \
+    registry:latest
 ```
 
-#### 4. 访问
-* 访问地址：ip:9000
-* 首次访问需要设置 admin 的密码
+
+#### 3. 查看私有仓库镜像
+```
+curl -XGET http://192.167.18.129:5000/v2/_catalog
+```
+
+
+#### 4. 配置 docker 支持 http 推送镜像 
+```
+vim /etc/docker/daemon.json 
+
+# 文件内容：
+{
+  "registry-mirrors": ["https://tmax29pg.mirror.aliyuncs.com"],
+  "insecure-registries": ["192.167.18.129:5000"]
+}
+```
+
+* 配置完需要重启docker：`systemctl restart docker`
+* 重启完启动registry：`docker start registry`
+
+
+#### 5. 拉取 hello-world 镜像
+```
+docker pull hello-world
+
+# 将镜像修改为符合私有仓库规范的 tag
+docker tag hello-world:latest 192.167.18.129:5000/hello-world:1.0
+```
+
+
+#### 6. 推送镜像到私有仓库
+```
+docker push 192.167.18.129:5000/hello-world:1.0 
+```
+
+
+#### 7. 验证私有仓库镜像
+```
+curl -XGET http://192.167.18.129:5000/v2/_catalog
+```
+
+
+#### 8. 测试从私有仓库拉取镜像
+```
+# 删除原镜像
+docker rmi 192.167.18.129:5000/hello-world:1.0
+
+# 从私有仓库拉取镜像
+docker pull 192.167.18.129:5000/hello-world:1.0
+```

@@ -4,8 +4,8 @@
 1. [Docker 数据卷][04]
 1. [Docker 自定义镜像][05]
 1. [Docker Compose][06]
-1. [可视化工具 Portainer][07]
-1. [Docker 搭建私有仓库][08]
+1. [Docker 搭建私有仓库][07]
+1. [可视化工具 Portainer][08]
 1. [Docker - MySQL8 安装][mysql8]
 1. [Docker - Redis 安装][redis]
 

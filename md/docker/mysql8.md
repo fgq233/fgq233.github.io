@@ -66,6 +66,7 @@ docker run \
   -v /usr/local/mysql8/conf/my.cnf:/etc/mysql/my.cnf  \
   -v /usr/local/mysql8/data:/var/lib/mysql \
   -v /usr/local/mysql8/log:/var/log/mysql \
+  -v /usr/local/mysql8/mysql-files:/var/lib/mysql-files \
   mysql:8
 ```
 
