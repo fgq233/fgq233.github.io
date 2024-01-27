@@ -4,11 +4,9 @@
 * 官网文档：https://docs.docker.com/engine/install/
 
 ### 一、CentOS下Docker安装、卸载
-#### 1. 安装 【yum-utils】【device-mapper-persistent-data】【lvm2】
+#### 1. 安装 yum-utils
 ```
-yum install -y yum-utils \
-           device-mapper-persistent-data \
-           lvm2 --skip-broken
+yum install -y yum-utils
 ```
 
 
