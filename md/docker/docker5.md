@@ -68,8 +68,8 @@ CMD ["/etc/nginx/nginx.conf"]
 
 #### 2. 创建目录、将jar包上传至该目录
 ```
-mkdir -p /usr/local/demo
-cd /usr/local/demo
+mkdir /aaa
+cd /aaa
 ```
 
 #### 3. jar包所在目录编辑Dockerfile
@@ -89,7 +89,7 @@ MAINTAINER fgq
 COPY ./demo.jar /tmp/demo.jar
 
 # 暴露端口
-EXPOSE 8080
+EXPOSE 8888
 
 # 运行jar包
 ENTRYPOINT java -jar /tmp/demo.jar
@@ -105,5 +105,5 @@ docker build -t demo:1.0 .
 
 #### 6.运行容器
 ```
-docker run --name demoX -p 8080:8080 -d demo:1.0
+docker run --name demoX -p 8888:8888 -d demo:1.0
 ```
