@@ -4,63 +4,52 @@
 docker pull redis:6.2.1
 ```
 
+
 #### 2. 查看镜像
 ```
 docker images redis
 ```
 
+
 #### 3. 宿主机数据目录创建
 ```
-mkdir -p /usr/local/redis
-mkdir -p /usr/local/redis/data
+mkdir -p /app/redis/data
 ```
 
-#### 4. 下载同版本redis安装包，解压
+
+#### 4. 宿主机配置文件创建 vim /app/redis/redis.conf
 ```
-# 进入目录
-cd /usr/local/redis
-
-# 下载安装包至当前目录
-wget http://download.redis.io/releases/redis-6.2.1.tar.gz
-
-# 解压
-tar -zxvf redis-6.2.1.tar.gz
-
-# 复制配置文件
-cp redis-6.2.1/redis.conf ./
-```
-
-#### 5. 修改配置文件内容 vim redis.conf
-```
-# 默认127.0.0.1只能本地访问
-bind * -::*
-
-# 后台运行设置为no，因为与 -d 冲突
-daemonize no
+# AOF持久化
+appendonly yes
 
 # 访问密码
 requirepass 123456
+
+# 默认127.0.0.1只能本地访问
+bind * -::*
 ```
 
-#### 6. 启动容器并挂载数据卷
+
+#### 5. 启动容器并挂载数据卷
 ```
 docker run \
   --name redisX \
   --privileged=true \
   -d \
   -p 6379:6379 \
-  -v /usr/local/redis/redis.conf:/etc/redis/redis.conf \
-  -v /usr/local/redis/data:/data \
+  -v /app/redis/data:/data \
+  -v /app/redis/redis.conf:/etc/redis/redis.conf \
   redis:6.2.1 redis-server /etc/redis/redis.conf
 ```
 
 
-#### 7. 查看进程
+#### 6. 查看进程
 ```
 docker ps
 ```
 
-#### 8. 进入容器内部登录redis测试
+
+#### 7. 进入容器内部登录redis测试
 ```
 docker exec -it redisX /bin/bash
 
