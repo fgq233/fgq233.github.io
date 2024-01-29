@@ -28,7 +28,14 @@
 `yum -y install net-tools`
 
 #### 2. 查看端口号的占用情况
-`netstat -anp | grep 端口号`
+* `netstat -anp | grep 端口号`
+  * `-a` 显示所有连接和侦听端口，a是all的首字母。
+  * `-t` 指明显示TCP端口，t是TCP的首字母。
+  * `-u` 指明显示UDP端口，u是UDP的首字母
+  * `-p` 显示进程标识符和程序名称
+  * `-n` 不进行DNS轮询，显示IP(可以加速操作)，n是numeric的首字母，以数字形式显示地址和端口号
+* `ss -tuln | grep 端口号`
+* `sudo lsof -i:端口号`
 
 #### 3. 查看占用端口的进程
 * 查看：`fuser -v -n tcp 3306`
