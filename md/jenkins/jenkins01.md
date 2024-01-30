@@ -42,7 +42,7 @@ vim /etc/gitlab/gitlab.rb   修改默认配置文件
 * 官网：`https://www.jenkins.io/zh/`
 * 需要环境：JDK，参考 [Linux下安装Java8](https://fgq233.github.io/md/linux/sf01)
 * 搭建文档：https://www.jenkins.io/zh/doc/book/installing/
-  * 下载Jenkins WAR包，并上传到服务器，`https://mirrors.jenkins.io/war-stable/`，这里使用2.346.2版本(jdk8)
+  * 下载Jenkins WAR包，并上传到服务器，`https://mirrors.jenkins.io/war-stable/`
   * 服务器运行命令 `java -jar jenkins.war` 启动 `jenkins`
   * 浏览 http://ip:8080，登录
   * 进行后续步骤设置向导，安装插件、创建账号
