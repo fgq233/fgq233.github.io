@@ -27,13 +27,13 @@ vim /etc/gitlab/gitlab.rb   修改默认配置文件
 
 #### 3. 网页登录
 * 登录地址
-  * `sudo EXTERNAL_URL="https://gitlab.example.com" yum install -y gitlab-jh`
-  * 搭建时替换 https://gitlab.example.com 的域名或IP就是登录地址
+  * `sudo EXTERNAL_URL="http://gitlab.example.com" yum install -y gitlab-jh`
+  * 搭建时替换 http://gitlab.example.com 的域名或IP就是登录地址
 * 账号：`root`
 * 密码：存储在 `/etc/gitlab/initial_root_password`，该文件在24h后删除，因此首次登录后需要重置密码(`fgq123456`)
 
 #### 4. 测试 Java 项目提交到 Gitlab
-* Gitlab 创建一个空白项目，复制项目https地址 `https://192.167.18.130/root/SpringBootTest.git`
+* Gitlab 创建一个空白项目，复制项目https地址 `http://192.167.18.130/root/SpringBootTest.git`
 * IDEA 新建项目，关联git
   * VCS - Create Git Repository 
   * 项目名 - Git - Manage Remotes，添加https地址
