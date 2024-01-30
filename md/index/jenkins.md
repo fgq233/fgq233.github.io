@@ -1,4 +1,5 @@
 1. [Gitlab、Jenkins、测试服务器搭建][01]
+1. [Jenkins 使用 Gitlab API token 认证][02]
 
 
 

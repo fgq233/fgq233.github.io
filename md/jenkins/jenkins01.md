@@ -8,6 +8,9 @@
 #### 1. 服务器搭建
 * 官网：`https://about.gitlab.com`
 * 搭建文档：`https://gitlab.cn/install/?/version=ce`
+* 开放80端口
+  * `firewall-cmd --zone=public --add-port=80/tcp --permanent`
+  * `firewall-cmd --reload`
 
 #### 2. gitlab 常用命令
 ```
@@ -45,8 +48,10 @@ vim /etc/gitlab/gitlab.rb   修改默认配置文件
   * 下载Jenkins WAR包，并上传到服务器，`https://mirrors.jenkins.io/war-stable/`
   * 服务器运行命令 `java -jar jenkins.war` 启动 `jenkins`
   * 浏览 http://ip:8080，登录
-  * 进行后续步骤设置向导，安装插件、创建账号
-
+  * 进行设置向导进行后续操作，安装插件、创建账号
+* 注意开放8080端口
+  * `firewall-cmd --zone=public --add-port=8080/tcp --permanent`
+  * `firewall-cmd --reload`
 
 #### 2. 安装 Maven
 * 下载地址：https://maven.apache.org/download.cgi
@@ -59,6 +64,7 @@ tar zxvf apache-maven-3.9.6-bin.tar.gz
 # 移动 
 mv apache-maven-3.9.6 /usr/local/maven
 
+# /usr/local/maven/conf/settings.xml 配置文件中配置阿里云镜像
 # 启动 
 /usr/local/maven/bin/mvn
 ```
