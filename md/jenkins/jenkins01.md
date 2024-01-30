@@ -50,7 +50,7 @@ vim /etc/gitlab/gitlab.rb   修改默认配置文件
   * 浏览 http://ip:8080，登录
   * 进行设置向导进行后续操作，安装插件、创建账号
 * 注意开放8080端口
-  * `firewall-cmd --zone=public --add-port=8080/tcp --permanent`
+  * `firewall-cmd --zone=public --add-port=9000/tcp --permanent`
   * `firewall-cmd --reload`
 
 #### 2. 安装 Maven

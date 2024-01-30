@@ -1,9 +1,11 @@
 ### Jenkins 使用 Gitlab API token 认证
-### 一、前置插件配置
+### 一、Jenkins 软件、插件配置
 * 安装git软件 `yum install -y git`
 * `Dashboard > Manage Jenkins > Plugin - available` 中安装插件
   * `maven` 插件
-  * `GitLab Plugin、Gitlab Authentication、Gitlab API` 插件
+  * `GitLab Plugin` 
+  * `Gitlab Authentication` 
+  * `Gitlab API` 
 * `Dashboard > Manage Jenkins > Tools` 配置相关软件安装地址
   * `Git` `/usr/bin/git`
   * `Maven` `/usr/local/maven`
