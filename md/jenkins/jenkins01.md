@@ -60,7 +60,7 @@ tar zxvf apache-maven-3.9.6-bin.tar.gz
 mv apache-maven-3.9.6 /usr/local/maven
 
 # 启动 
-/usr/local/maven/mvn
+/usr/local/maven/bin/mvn
 ```
 
 
