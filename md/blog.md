@@ -10,6 +10,7 @@
 * [Windows][win]
 * [Linux][linux]
 * [Docker][docker]
+* [Jenkins][jenkins]
 
 [cloudHtml]: https://fgq233.github.io/html/blog?key=cloud
 [cloudMd]: https://fgq233.github.io/md/index/cloud
@@ -24,3 +25,4 @@
 [vueHtml]: https://fgq233.github.io/html/blog?key=vue
 [vueMd]: https://fgq233.github.io/md/index/vue
 [docker]: https://fgq233.github.io/md/index/docker
+[jenkins]: https://fgq233.github.io/md/index/jenkins
