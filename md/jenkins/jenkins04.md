@@ -33,7 +33,7 @@ fi
 rm -rf /root/app
 ```
 
-![11](https://fgq233.github.io/imgs/jenkins/010.png)
+![10](https://fgq233.github.io/imgs/jenkins/010.png)
 
 
 #### 3. Bulid 
