@@ -59,7 +59,7 @@ rm -rf /root/app
   * 根据项目 pom.xml 下载依赖
   * 打包，打好的包在 `/root/.jenkins/workspace/test/target/SpringBootTest-0.0.1-SNAPSHOT.jar`
 * 执行后置步骤
-  * 将打好的jar包传输到目标服务器 (`/root/app/target/SpringBootTest-0.0.1-SNAPSHOT.jar`)
+  * 将打好的jar包传输到目标服务器 (`/root/app/SpringBootTest-0.0.1-SNAPSHOT.jar`)
   * 目标服务器运行命令，启动jar
 
 
