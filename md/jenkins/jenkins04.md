@@ -33,7 +33,7 @@ fi
 rm -rf /root/app
 ```
 
-![11](https://fgq233.github.io/imgs/jenkins/011.png)
+![11](https://fgq233.github.io/imgs/jenkins/010.png)
 
 
 #### 3. Bulid 
@@ -52,9 +52,7 @@ rm -rf /root/app
 
 
 ### 二、 构建
-![10](https://fgq233.github.io/imgs/jenkins/010.png)
-
-* 点击绿色按钮开始构建
+* 点击 Item 绿色按钮开始构建
 * 构建时，会把Gitlab项目源码下载到 `/root/.jenkins/workspace` 目录下
 * 构建过程
   * 拉取 Gitlab 项目源码
