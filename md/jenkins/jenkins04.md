@@ -1,4 +1,4 @@
-### Jenkins + Gitlab  + Maven 自动化构建、部署
+### Jenkins + Gitlab  + Maven 构建、部署
 新建 Item (Maven 项目)
 ### 一、 Item 配置
 #### 1. 源码管理
