@@ -1,4 +1,4 @@
-### Jenkins 触发器 + Gitlab 钩子  自动构建项目
+### Jenkins 触发器 + Gitlab 钩子  自动化构建项目
 新建 Item (Maven 项目)
 ### 一、 触发远程构建
 ![11](https://fgq233.github.io/imgs/jenkins/011.png)
@@ -21,3 +21,36 @@
 ![12](https://fgq233.github.io/imgs/jenkins/012.png)
 
 URL 中填入触发构建的URL，当触发来源做出勾选中的动作，即可完成自动构建
+
+
+### 二、 其他自动构建触发器
+#### 1. Build whenever a SNAPSHOT dependency is built
+当依赖的快照构建时，执行构建job
+
+#### 2. Build after other projects are built
+在其他项目构建后，执行构建job
+
+#### 3. Build periodically
+使用 Cron 表达式定期构建
+
+#### 4. GitHub hook trigger for GITScm polling
+GitHub 项目 hook 触发时，执行构建job
+
+#### 5. Poll SCM
+使用 Cron 表达式定期检查代码是否发生变化，执行构建job
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
