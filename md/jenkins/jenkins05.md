@@ -1,6 +1,6 @@
 ### Jenkins 触发器 + Gitlab 钩子  自动构建项目
 新建 Item (Maven 项目)
-### 一、 远程构建
+### 一、 触发远程构建
 ![11](https://fgq233.github.io/imgs/jenkins/011.png)
 
 #### 1. Jenkins 已登录
