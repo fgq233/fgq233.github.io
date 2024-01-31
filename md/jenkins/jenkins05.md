@@ -62,3 +62,5 @@ ENTRYPOINT java -jar /tmp/demo.jar
 #### 3. Jenkins 构建前置步骤 (首次构建成功之后添加)
 * 新增 1 个 Transfer Set，用来停止容器、删除容器、删除镜像、删除上一次的 jar、Dockerfile
 * PS：首次运行不添加前置步骤，因为此时还不存在镜像、容器
+
+![17](https://fgq233.github.io/imgs/jenkins/017.png)
