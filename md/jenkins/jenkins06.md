@@ -35,3 +35,30 @@ docker run \
 
 ![14](https://fgq233.github.io/imgs/jenkins/014.png)
 
+
+
+### 二、 方式 2
+在 docker 中通过 `Dockerfile` 制作 jar 包镜像，然后运行容器
+
+#### 1. 项目中添加 Dockerfile 文件，提交到 Gitlab
+```
+FROM java:8
+WORKDIR /root/app
+COPY ./SpringBootTest-0.0.1-SNAPSHOT.jar /tmp/demo.jar
+EXPOSE 8888
+ENTRYPOINT java -jar /tmp/demo.jar
+```
+
+#### 2. Jenkins 构建后置步骤
+新增 2 个 Transfer Set
+* 传输 jar 到测试服务器
+* 传输 Dockerfile 到测试服务器，bulid 镜像，启动容器
+
+![15](https://fgq233.github.io/imgs/jenkins/015.png)
+![16](https://fgq233.github.io/imgs/jenkins/016.png)
+
+
+
+#### 3. Jenkins 构建前置步骤 (首次构建成功之后添加)
+* 新增 1 个 Transfer Set，用来停止容器、删除容器、删除镜像、删除上一次的 jar、Dockerfile
+* PS：首次运行不添加前置步骤，因为此时还不存在镜像、容器
