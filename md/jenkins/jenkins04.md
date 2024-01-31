@@ -24,7 +24,7 @@
 
 
 ### 二、 构建
-![10](https://fgq233.github.io/imgs/jenkins/010.jpg)
+![10](https://fgq233.github.io/imgs/jenkins/010.png)
 
 * 点击绿色按钮开始构建
 * 构建时，会把Gitlab项目源码下载到 `/root/.jenkins/workspace` 目录下
@@ -33,8 +33,10 @@
   * 根据项目 pom.xml 下载依赖
   * 打包，打好的包在 `/root/.jenkins/workspace/test/target/SpringBootTest-0.0.1-SNAPSHOT.jar`
 * 执行后置步骤
-  * 将打好的jar包传输到目标服务器
+  * 将打好的jar包传输到目标服务器 (`/root/app/target/SpringBootTest-0.0.1-SNAPSHOT.jar`)
   * 目标服务器运行命令，启动jar
 
 
 
+systemctl stop firewalld
+systemctl disable firewalld
