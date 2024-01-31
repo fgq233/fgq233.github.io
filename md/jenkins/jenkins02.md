@@ -36,7 +36,10 @@ mv apache-maven-3.9.6 /usr/local/maven
 
 
 ### 三、配置
+#### 1. 软件地址配置
 登录Jenkins，`Dashboard > Manage Jenkins > Tools`
 * `Git` `/usr/bin/git`
 * `Maven` `/usr/local/maven`
 
+#### 2. 添加 SSH 服务器连接
+登录Jenkins，`Dashboard > Manage Jenkins > System > Publish over SSH > 点击新增`
