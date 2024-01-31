@@ -32,7 +32,10 @@ mv apache-maven-3.9.6 /usr/local/maven
 用于拉取依赖、打包
 
 #### 3. Publish Over SSH 插件
-用于将打包后的文件传输到测试服务器
+用于 Jenkins 将打包后的文件传输到测试服务器
+
+#### 4. Build Authorization Token Root 插件
+用于 Jenkins 使用触发器时构建时，不用认证
 
 
 ### 三、配置
