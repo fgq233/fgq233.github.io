@@ -36,7 +36,7 @@ vim /etc/gitlab/gitlab.rb   修改默认配置文件
 * Gitlab 创建一个空白项目，复制项目https地址 `http://192.167.18.130/root/SpringBootTest.git`
 * IDEA 新建项目，关联git
   * VCS - Create Git Repository 
-  * 项目名 - Git - Manage Remotes，添加https地址
+  * 项目名 - Git - Manage Remotes，添加http地址
 * 添加代码 commit、push
 
 
