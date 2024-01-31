@@ -2,7 +2,9 @@
 1. [Jenkins 服务器常用软件、插件、配置][02]
 1. [Jenkins 使用 Gitlab API token 认证][03]
 1. [Jenkins + Gitlab  + Maven 构建、部署Java项目][04]
-1. [Jenkins 触发器 + Gitlab 钩子  自动化构建项目][05]
+1. [Jenkins + Gitlab  + Maven 构建、部署到 docker 容器中][05]
+1. [Jenkins 触发器 + Gitlab 钩子  自动化构建项目][06]
+
 
 
 
