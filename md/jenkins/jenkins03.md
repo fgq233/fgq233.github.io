@@ -1,21 +1,23 @@
-### Jenkins + Gitlab  + Maven 自动构建 jar 包
-### 一、新建 Item (Maven 项目)
-#### 1. 配置
-* 源码管理，
-  * 选择git，填入gitlab项目地址
-  * 指定分支
-* `Pre Steps` 前置步骤
-* `Bulid`，项目 pom.xml 路径配置
-* `Post Steps` 后置步骤
+### Jenkins 使用 Gitlab API token 认证
+* Dashboard > Manage Jenkins > Credentials 有多种配置认证方式
+  * `Username with password`
+  * `SSH Username with private key`
+  * `GitLab API token` 安装Gitlab相关插件后出现该方式
 
-#### 2. 构建
-* 点击绿色按钮开始构建
-* 构建时，会把Gitlab项目源码下载到 `/root/.jenkins/workspace` 目录下
-* 构建过程
-  * 拉取 Gitlab 项目源码
-  * 根据项目 pom.xml 下载依赖
-  * 打包，打好的包在 `/root/.jenkins/workspace/test/target/SpringBootTest-0.0.1-SNAPSHOT.jar`
-* 手动启动测试 `java -jar SpringBootTest-0.0.1-SNAPSHOT.jar --server.port=9000`
+#### 1. Gitlab 添加访问令牌
+登录Gitlab界面，点击个人头像图标 - 设置 - 访问令牌来添加访问令牌
+![1](https://fgq233.github.io/imgs/jenkins/001.jpg)
+![2](https://fgq233.github.io/imgs/jenkins/002.jpg)
+![3](https://fgq233.github.io/imgs/jenkins/003.jpg)
 
 
-![7](https://fgq233.github.io/imgs/jenkins/007.jpg)
+#### 2. Jenkins 添加 Gitlab 认证信息
+登录Jenkins，点击 `Dashboard > Manage Jenkins > Credentials` 添加认证信息，将上面访问令牌填入其中
+
+![4](https://fgq233.github.io/imgs/jenkins/004.jpg)
+![5](https://fgq233.github.io/imgs/jenkins/005.jpg)
+
+#### 3. Jenkins 集成 Gitlab
+登录Jenkins，点击 `Dashboard > Manage Jenkins > Syetem`
+
+![6](https://fgq233.github.io/imgs/jenkins/006.jpg)

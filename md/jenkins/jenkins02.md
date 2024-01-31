@@ -1,35 +1,42 @@
-### Jenkins 使用 Gitlab API token 认证
-### 一、Jenkins 软件、插件配置
-* 安装git软件 `yum install -y git`
-* `Dashboard > Manage Jenkins > Plugin - available` 中安装插件
-  * `maven` 插件
-  * `GitLab Plugin` 
-  * `Gitlab Authentication` 
-  * `Gitlab API` 
-* `Dashboard > Manage Jenkins > Tools` 配置相关软件安装地址
-  * `Git` `/usr/bin/git`
-  * `Maven` `/usr/local/maven`
+### Jenkins 服务器常用软件、插件、配置
+### 一、软件
+#### 1. 安装git
+`yum install -y git`
 
-### 二、认证配置
-* Dashboard > Manage Jenkins > Credentials 有多种配置认证方式
-  * `Username with password`
-  * `SSH Username with private key`
-  * `GitLab API token` 安装Gitlab相关插件后出现该方式
+#### 2. 安装 Maven
+* 下载地址：https://maven.apache.org/download.cgi
+* 此处下载 apache-maven-3.9.6-bin.tar.gz 版本，上传到Jenkins服务器
 
-#### 1. Gitlab 添加访问令牌
-登录Gitlab界面，点击个人头像图标 - 设置 - 访问令牌来添加访问令牌
-![1](https://fgq233.github.io/imgs/jenkins/001.jpg)
-![2](https://fgq233.github.io/imgs/jenkins/002.jpg)
-![3](https://fgq233.github.io/imgs/jenkins/003.jpg)
+```
+# 解压
+tar zxvf apache-maven-3.9.6-bin.tar.gz
+
+# 移动 
+mv apache-maven-3.9.6 /usr/local/maven
+
+# /usr/local/maven/conf/settings.xml 配置文件中配置阿里云镜像
+# 启动 
+/usr/local/maven/bin/mvn
+```
+
+### 二、插件
+登录Jenkins，`Dashboard > Manage Jenkins > Plugin - available`
+
+#### 1. GitLab 插件
+用于从gitlab上拉取代码、认证
+* `GitLab Plugin`
+* `Gitlab Authentication`
+* `Gitlab API`
+
+#### 2. maven 插件  
+用于拉取依赖、打包
+
+#### 3. Publish Over SSH 插件
+用于将打包后的文件传输到测试服务器
 
 
-#### 2. Jenkins 添加 Gitlab 认证信息
-登录Jenkins，点击 `Dashboard > Manage Jenkins > Credentials` 添加认证信息，将上面访问令牌填入其中
+### 三、配置
+登录Jenkins，`Dashboard > Manage Jenkins > Tools`
+* `Git` `/usr/bin/git`
+* `Maven` `/usr/local/maven`
 
-![4](https://fgq233.github.io/imgs/jenkins/004.jpg)
-![5](https://fgq233.github.io/imgs/jenkins/005.jpg)
-
-#### 3. Jenkins 集成 Gitlab
-登录Jenkins，点击 `Dashboard > Manage Jenkins > Syetem`
-
-![6](https://fgq233.github.io/imgs/jenkins/006.jpg)

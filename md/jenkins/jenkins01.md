@@ -53,21 +53,7 @@ vim /etc/gitlab/gitlab.rb   修改默认配置文件
   * `firewall-cmd --zone=public --add-port=9000/tcp --permanent`
   * `firewall-cmd --reload`
 
-#### 2. 安装 Maven
-* 下载地址：https://maven.apache.org/download.cgi
-* 此处下载 apache-maven-3.9.6-bin.tar.gz 版本，上传到Jenkins服务器
 
-```
-# 解压
-tar zxvf apache-maven-3.9.6-bin.tar.gz
-
-# 移动 
-mv apache-maven-3.9.6 /usr/local/maven
-
-# /usr/local/maven/conf/settings.xml 配置文件中配置阿里云镜像
-# 启动 
-/usr/local/maven/bin/mvn
-```
 
 
 ### 四、测试服务器
