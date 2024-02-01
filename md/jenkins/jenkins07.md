@@ -20,6 +20,12 @@
   * `Credentials`：节点服务器认证
 
 
-### 3. 其他服务器节点启动成功
+### 3. 等待其他服务器节点启动成功
 ![21](https://fgq233.github.io/imgs/jenkins/021.png)
+
+### 4. 项目添加其他节点构建
+* 在必要的时候并发构建
+* 限制项目的运行节点
+
+![22](https://fgq233.github.io/imgs/jenkins/022.png)
 
