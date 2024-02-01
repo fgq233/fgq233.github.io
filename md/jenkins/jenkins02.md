@@ -37,6 +37,8 @@ mv apache-maven-3.9.6 /usr/local/maven
 #### 4. Build Authorization Token Root 插件
 用于 Jenkins 使用触发器时构建时，不用认证
 
+#### 4.Blue Ocean 插件
+用于流水线 Pipeline 图形化界面查看
 
 ### 三、配置
 #### 1. 软件地址配置
