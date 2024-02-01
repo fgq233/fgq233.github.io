@@ -11,5 +11,6 @@
 ![20](https://fgq233.github.io/imgs/jenkins/020.png)
 
 
-
+### 3. 其他服务器节点启动成功
+![21](https://fgq233.github.io/imgs/jenkins/021.png)
 
