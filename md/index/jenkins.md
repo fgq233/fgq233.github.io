@@ -5,6 +5,7 @@
 1. [Jenkins + Gitlab  + Maven 构建、部署到 docker 容器中][05]
 1. [Jenkins 触发器 + Gitlab 钩子  自动化构建项目][06]
 1. [Jenkins 集群搭建][07]
+1. [Jenkins 流水线 pipeline][08]
 
 
 
