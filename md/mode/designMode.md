@@ -27,8 +27,6 @@
   * 解释器模式
 
 
-![mode](https://fgq233.github.io/imgs/mode/mode.jpg)
-
 ### 二. 设计模式原则
 #### 1. 总原则：开闭原则 
 * 对扩展开放，对修改关闭
