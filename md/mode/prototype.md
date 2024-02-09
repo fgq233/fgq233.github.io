@@ -42,7 +42,7 @@ public class Cat implements Cloneable {
 }
 ```
 
-#### 2. 使用
+#### 2. 测试
 
 ```java
 public class Test {
