@@ -51,4 +51,12 @@ location /imgs {
     }
     root html;
 }
+
+location ~.* \.(gif|jpg|png)$ {  
+    valid_referers  none  blocked  127.0.0.1  www.github.com
+    if ($invalid_referer){
+        return 403;
+    }
+    root html;
+}
 ```
