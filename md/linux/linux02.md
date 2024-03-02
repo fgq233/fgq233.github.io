@@ -40,7 +40,16 @@ cat a.txt | grep -n '666' | wc -l   ↑
 ```
 echo "Hello Linux" > a.txt
 echo "Hello Linux" >> a.txt
+
+nohup java -jar a.jar >a.log 2>& 1 &
+nohup java -jar a.jar >/dev/null 2>& 1 & 
 ```
+
+* 这里nohup放到命令开头表示不挂断，表示即使退出终端该进程也不会掉， & 放在命令到结尾，表示后台运行
+  * 在shell中，每个进程都和三个系统文件相关联：标准输入stdin、标准输出stdout、标准错误stderr，三个系统文件的文件描述符分别为0、1、2
+  * `2>&1` 的意思是将标准错误也输出到标准输出当中
+  * /dev/null 表示空文件 
+
 
 #### 5. 反引号
 被 ` 包围的内容，会被作为命令执行，而非普通字符
