@@ -27,6 +27,6 @@
 [mysql8]: https://fgq233.github.io/md/docker/mysql8
 [redis]: https://fgq233.github.io/md/docker/redis
 [nginx]: https://fgq233.github.io/md/docker/nginx
-[101]: https://fgq233.github.io/md/docker/101
+[101]: https://fgq233.github.io/md/docker/docker101
 
 
