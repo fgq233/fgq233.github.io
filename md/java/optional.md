@@ -6,7 +6,7 @@
 ### 一、Optional 对象创建
 * of()：不允许参数是 null，参数为空则抛出异常
 * ofNullable()：参数无限制
-* empty()：参数固定为null
+* empty()：返回一个空的 Optional 实例
 
 ```
 Optional<String> o1 = Optional.of("fgq");
