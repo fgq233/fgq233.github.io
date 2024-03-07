@@ -18,22 +18,22 @@
 ### 一、常用 API
 | 操作        | 类型   | 返回类型        | 参数类型/函数式接口       | 函数描述符        |
 |-----------|-------|-------------|------------------|--------------|
-| filter    | 中间   | `Stream<T>  ` | Predicate <T>    | T -> boolean |
-| distinct  | 中间   | `Stream<T>  ` | ----             | ----         |
-| skip      | 中间   | `Stream<T>  ` | long             | ----         |
-| map       | 中间   | `Stream<R>  ` | Function <T,R>   | T -> R       |
-| flatMap   | 中间   | `Stream<R>  ` | Function <T,R>   | T -> Stream  |
-| limit     | 中间   | `Stream<T>  ` | long             | ----         |
-| sorted    | 中间   | `Stream<T>  ` | Comparator <T>   | (T,T) -> int |
-| anyMatch  | 终端   | `boolean    ` | Predicate <T>    | T -> boolean |
-| noneMatch | 终端   | `boolean    ` | Predicate <T>    | T -> boolean |
-| allMatch  | 终端   | `boolean    ` | Predicate <T>    | T -> boolean |
-| findAny   | 终端   | `Optional<T>` | Optional<T>      | ----         |
-| findFirst | 终端   | `Optional<T>` | Optional<T>      | ----         |
-| forEach   | 终端   | `void       ` | Consumer<T>      | T -> void    |
-| collect   | 终端   | `R          ` | Collector<T,A,R> |              |
-| reduce    | 终端   | `Optional<T>` | BinaryOperator   | (T,T) -> T   |
-| count     | 终端   | `long       ` | ----             | ----         |
+| filter    | 中间   | `Stream<T>  ` | `Predicate <T>   ` | `T -> boolean` |
+| distinct  | 中间   | `Stream<T>  ` | `----            ` | `----        ` |
+| skip      | 中间   | `Stream<T>  ` | `long            ` | `----        ` |
+| map       | 中间   | `Stream<R>  ` | `Function <T,R>  ` | `T -> R      ` |
+| flatMap   | 中间   | `Stream<R>  ` | `Function <T,R>  ` | `T -> Stream ` |
+| limit     | 中间   | `Stream<T>  ` | `long            ` | `----        ` |
+| sorted    | 中间   | `Stream<T>  ` | `Comparator <T>  ` | `(T,T) -> int` |
+| anyMatch  | 终端   | `boolean    ` | `Predicate <T>   ` | `T -> boolean` |
+| noneMatch | 终端   | `boolean    ` | `Predicate <T>   ` | `T -> boolean` |
+| allMatch  | 终端   | `boolean    ` | `Predicate <T>   ` | `T -> boolean` |
+| findAny   | 终端   | `Optional<T>` | `Optional<T>     ` | `----        ` |
+| findFirst | 终端   | `Optional<T>` | `Optional<T>     ` | `----        ` |
+| forEach   | 终端   | `void       ` | `Consumer<T>     ` | `T -> void   ` |
+| collect   | 终端   | `R          ` | `Collector<T,A,R>` | `----        ` |
+| reduce    | 终端   | `Optional<T>` | `BinaryOperator  ` | `(T,T) -> T  ` |
+| count     | 终端   | `long       ` | `----            ` | `----        ` |
 
 
 #### 1. List 转 Stream
