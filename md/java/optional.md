@@ -102,7 +102,7 @@ System.out.println(filter3.isPresent());    // false
 
 #### 8. map() 加工
 ```
-// 如保存的值存在，就对该值进行函数运算，返回新的 Optional (可以是任何类型)
+// 若保存的值存在，就对该值进行函数运算，返回新的 Optional (可以是任何类型)
 Optional<String> s1 = o1.map((v) -> "key" + v);
 Optional<String> s2 = o2.map((v) -> "key" + v);
 
