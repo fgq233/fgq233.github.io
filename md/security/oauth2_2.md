@@ -133,8 +133,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     * `authorization_code`：授权码模式
     * `password`：密码模式
     * `implicit`：简化模式
-    * `client_credentials`：密码模式
-    * `refresh_token`：通过以上授权获得的 refresh_token 来获取新的 access_token
+    * `client_credentials`：客户端凭证模式
+    * `refresh_token`：刷新toke，通过以上授权获得的 refresh_token 来获取新的 access_token
 
 
 
