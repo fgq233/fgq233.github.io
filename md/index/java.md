@@ -2,6 +2,7 @@
 -  [Lambda 表达式][lambda]
 -  [Optional 判空][optional]
 -  [Stream 流][stream]    
+-  [函数式接口][funInterface]    
    
 
 
@@ -156,6 +157,7 @@
 [stream]: https://fgq233.github.io/md/java/stream
 [exception]: https://fgq233.github.io/md/java/exception
 [optional]: https://fgq233.github.io/md/java/optional
+[funInterface]: https://fgq233.github.io/md/java/funInterface
 [mq]: https://fgq233.github.io/md/mq/all
 [rabbitmq1]: https://fgq233.github.io/md/mq/rabbitmq1
 [rabbitmq2]: https://fgq233.github.io/md/mq/rabbitmq2

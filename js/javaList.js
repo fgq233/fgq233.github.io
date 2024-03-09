@@ -92,6 +92,7 @@ const javaList4 = [
             {url: "https://fgq233.github.io/md/java/lambda", title: "Lambda 表达式"},
             {url: "https://fgq233.github.io/md/java/optional", title: "Optional 判空"},
             {url: "https://fgq233.github.io/md/java/stream", title: "Stream 流"},
+            {url: "https://fgq233.github.io/md/java/funInterface", title: "函数式接口"},
         ]
     },
     {url: "https://fgq233.github.io/md/java/exception", title: "Exception 详细信息获取"},

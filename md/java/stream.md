@@ -42,8 +42,8 @@ Stream<Person> stream = Stream.concat(stream1, stream2);
 
 #### 2. 中间操作、终端操作
 
-| 操作        | 类型   | 返回类型        | 参数类型/函数式接口       | 函数描述符        |
-|-----------|-------|-------------|------------------|--------------|
+| 操作        | 类型   | 返回类型        | 参数类型               | 函数描述符        |
+|-----------|-------|-------------|--------------------|--------------|
 | filter    | 中间   | `Stream<T>  ` | `Predicate <T>   ` | `T -> boolean` |
 | distinct  | 中间   | `Stream<T>  ` | `----            ` | `----        ` |
 | skip      | 中间   | `Stream<T>  ` | `long            ` | `----        ` |
@@ -55,8 +55,8 @@ Stream<Person> stream = Stream.concat(stream1, stream2);
 | count     | 终端   | `long       ` | `----            ` | `----        ` |
 | min       | 终端   | `Optional<T>` | `Comparator <T>  ` | `(T,T) -> int` |
 | max       | 终端   | `Optional<T>` | `Comparator <T>  ` | `(T,T) -> int` |
-| findAny   | 终端   | `Optional<T>` | `Optional<T>     ` | `----        ` |
-| findFirst | 终端   | `Optional<T>` | `Optional<T>     ` | `----        ` |
+| findAny   | 终端   | `Optional<T>` | `----      `       | `----        ` |
+| findFirst | 终端   | `Optional<T>` | `----     `        | `----        ` |
 | anyMatch  | 终端   | `boolean    ` | `Predicate <T>   ` | `T -> boolean` |
 | noneMatch | 终端   | `boolean    ` | `Predicate <T>   ` | `T -> boolean` |
 | allMatch  | 终端   | `boolean    ` | `Predicate <T>   ` | `T -> boolean` |
