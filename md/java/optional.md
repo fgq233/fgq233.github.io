@@ -34,19 +34,9 @@ System.out.println(o2.isPresent());     // false
 
 #### 2. ifPresent(Consumer consumer)  动态调用
 ```
-// 若保存的值不是null，则调用Consumer对象accept()方法，否则不调用
-o1.ifPresent(new Consumer<Integer>() {
-    @Override
-    public void accept(Integer integer) {
-        System.out.println("值为：" + integer);
-    }
-});
-o2.ifPresent(new Consumer<Integer>() {
-    @Override
-    public void accept(Integer integer) {
-        System.out.println("值为：" + integer);
-    }
-});
+// 若保存的值不是null，则调用方法，否则不调用
+o1.ifPresent(integer -> System.out.println("值为：" + integer));
+o2.ifPresent(integer -> System.out.println("值为：" + integer));
 ```
 
 
