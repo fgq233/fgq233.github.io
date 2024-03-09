@@ -140,11 +140,12 @@ list.stream().limit(2).forEach(System.out::println);
 list.stream().sorted().forEach(System.out::println);
 list.stream().sorted(Comparator.comparingInt(Person::getAge)).forEach(System.out::println);
 
-// 转换map()：对流中元素进行计算或转换，一个元素转换成一个元素
+// 转换map()：对流中每个元素进行转换，转换成一个任意新的元素
 list.stream().map(Person::getName).forEach(System.out::println);
 list.stream().map(Person::getAge).map(age -> age + 10).forEach(System.out::println);
 
-// 转换flatMap()：和map()类似，不同之处在于可以将一个元素转换成多个元素
+// 转换flatMap()：对流中每个元素进行转换，转换为一个新的流，然后把所有新的流合并成一个流
+// 和map()类似，不同之处在于元素转换后的结果，map()可以是任意类型，而flatMap()必须为流
 list.stream().flatMap(person -> person.getBooks().stream()).forEach(System.out::println);
 
 list.stream().flatMap(person -> person.getBooks().stream())
