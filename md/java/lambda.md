@@ -55,10 +55,10 @@ list.stream().map(String::toUpperCase).forEach(System.out::println);
 
 
 
-| 类型            | 语法          | 示例                                  |
-|:--------------|-------------|-------------------------------------|
-| 实例方法引用      | 类名::实例方法名   | `System.out::println、String::length、Person::getAge` |
-| 静态方法引用        | 类名::静态方法名   | `Integer::parseInt`                   |
-| 父类实例方法引用      | super::方法名  | `super::methodname`                   |
-| 构造方法引用       | 类名::new     | `ArrayList::new`                      |
-| 数组构造方法引用      | 数组类型[]::new | `String[]:new`                        |
+| 类型            | 语法          | 示例                                                   |
+|:--------------|-------------|------------------------------------------------------|
+| 实例方法引用      | 类名::实例方法名   | `System.out::println、String::length、Person::getAge`  |
+| 静态方法引用        | 类名::静态方法名   | `Integer::parseInt、Integer::sum、Math::max、Math::min` |
+| 父类实例方法引用      | super::方法名  | `super::methodname`                                  |
+| 构造方法引用       | 类名::new     | `ArrayList::new`                                     |
+| 数组构造方法引用      | 数组类型[]::new | `String[]:new`                                       |

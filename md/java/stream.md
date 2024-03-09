@@ -18,7 +18,6 @@
 ```
 // 1、单列集合
 list.stream();
-list.parallelStream();  // 用于并发处理
 
 // 2、数组
 Integer[] arr = {1, 2, 3};
@@ -37,6 +36,10 @@ stream.forEach(System.out::println);
 Stream<Person> stream1 = list1.stream();
 Stream<Person> stream2 = list2.stream();
 Stream<Person> stream = Stream.concat(stream1, stream2);
+
+// 并行流，用于数据量较大情况下并发处理
+list.parallelStream();     
+list.stream().parallel();  
 ```
 
 

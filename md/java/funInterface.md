@@ -14,7 +14,7 @@ public interface Consumer<T> {
 ```
 
 
-#### 1. Function 计算转换接口
+#### 2. Function 计算转换接口
 ```
 @FunctionalInterface
 public interface Function<T, R> {
@@ -24,12 +24,22 @@ public interface Function<T, R> {
 ```
 
 
-#### 1. Predicate 判断接口
+#### 3. Predicate 判断接口
 ```
 @FunctionalInterface
 public interface Predicate<T> {
 
     boolean test(T t);
 
+}
+```
+
+
+#### 4. Supplier 生产接口
+```
+@FunctionalInterface
+public interface Supplier<T> {
+
+    T get();
 }
 ```
