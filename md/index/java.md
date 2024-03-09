@@ -1,7 +1,7 @@
 1. ###### Java8 函数式编程
-1. ###### [Lambda 表达式][lambda]
-1. ###### [Optional 判空][optional]
-1. ###### [Stream 流][stream]    
+-  [Lambda 表达式][lambda]
+-  [Optional 判空][optional]
+-  [Stream 流][stream]    
    
 
 
