@@ -37,7 +37,7 @@ Stream<Person> stream1 = list1.stream();
 Stream<Person> stream2 = list2.stream();
 Stream<Person> stream = Stream.concat(stream1, stream2);
 
-// 并行流，用于数据量较大情况下并发处理
+// 并行流，用于数据量较大情况下并发处理(多线程)
 list.parallelStream();     
 list.stream().parallel();  
 ```
