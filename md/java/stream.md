@@ -92,8 +92,10 @@ public class Person implements Comparable<Person> {
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
+
     private String name;
     private String category;
+    
 }
 
 List<Book> books1 = Arrays.asList(
