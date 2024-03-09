@@ -120,15 +120,6 @@ List<Person> list = Arrays.asList(
 ```
 
 
-#### 2. 操作
-```
-// 转stream
-list.stream();
-
-// 并发处理
-list.parallelStream();
-```
-
 
 #### 2. 中间操作
 ```
