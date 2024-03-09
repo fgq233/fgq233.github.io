@@ -132,7 +132,7 @@ list.stream().distinct().forEach(System.out::println);
 // 跳过skip()：跳过流中前n个元素，返回剩下的元素
 list.stream().skip(2).forEach(System.out::println);
 
-// 截取limit()：设置流最大长度，超出部分被丢弃
+// 截取limit()：截取流中前n个元素
 list.stream().limit(2).forEach(System.out::println);
 
 // 排序sorted()：对流中元素进行排序
