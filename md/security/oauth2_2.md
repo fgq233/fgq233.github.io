@@ -352,4 +352,5 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
   * `grant_type`：授权模式，此处为 `refresh_token`（必选项）
   * `refresh_token`：`98619c42-2652-42b5-a423-d029c1fc1a76`安全认证的用户名（必选项，之前获取的refresh_token）
 
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_9.png)
 ![oauth2](https://fgq233.github.io/imgs/security/oauth2_12.png)
