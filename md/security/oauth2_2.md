@@ -317,7 +317,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .refreshTokenValiditySeconds(864000)    
                 .redirectUris("http://www.baidu.com")   
                 .scopes("all")                         
-                .authorizedGrantTypes("authorization_code", "password"); // 授权模式
+                .authorizedGrantTypes("authorization_code", "password", "refresh_token"); // 授权模式
     }
 
 
@@ -338,13 +338,19 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 #### 3. 测试
 无需获取授权码，直接通过账号、密码获取令牌
 
-![oauth2](https://fgq233.github.io/imgs/security/oauth2_9.png)
-
-* 请求地址：[http://admin:admin123456@localhost:9001/oauth/token](http://admin:admin123456@localhost:9001/oauth/token)
-* body 参数：
+* 请求地址：`http://localhost:9001/oauth/token`
+* 请求头：`Authorization : Basic YWRtaW46YWRtaW4xMjM0NTY= `
+  * 值为 Basic 拼接 `client_id:client_secret 的Base64编码`
+* 表单
   * `grant_type`：授权模式，此处为 `password`（必选项）
   * `username`：`SpringSecurity`安全认证的用户名（必选项）
   * `password`：`SpringSecurity`安全认证的密码（必选项）
+  * `scope`：`all` 权限范围（可选项）
+
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_9.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_11.png)
+
+
 
 ```
 {
