@@ -202,7 +202,7 @@ public class UserController {
 
  
  
-### 四、授权码模式测试
+### 四、授权码模式
 授权码模式(`authorization_code`)主要针对第三方应用，是最为复杂也最为安全的一种模式，操作步骤如下
 * 请求认证服务器 9001 获取授权码
 * 携带授权码，请求认证服务器 9001获取令牌
@@ -305,7 +305,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
-        endpoints.authenticationManager(authenticationManager);
+        endpoints.authenticationManager(authenticationManager)
+                .userDetailsService(userService);   // 使用 refresh_token 模式需要
     }
 
 }
@@ -339,8 +340,16 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 ```
 
 
-### 六、刷新 token
+### 六、刷新 token 模式
 * 刷新token(refresh_token)存在时间会比access_token更长
 * 用于access_token快过期的时候，调用oauth接口获取到刷新后的token以达到token续期的目的
 
 #### 1. 测试
+* 请求地址：`http://localhost:9001/oauth/token`
+* 请求头：`Authorization : Basic YWRtaW46YWRtaW4xMjM0NTY=`
+  * 值为 Basic 拼接 `client_id:client_secret 的Base64编码`
+* 表单
+  * `grant_type`：授权模式，此处为 `refresh_token`（必选项）
+  * `refresh_token`：`98619c42-2652-42b5-a423-d029c1fc1a76`安全认证的用户名（必选项，之前获取的refresh_token）
+
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_12.png)
