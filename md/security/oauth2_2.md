@@ -202,13 +202,14 @@ public class UserController {
 
  
  
-### 四、测试
-* 通过 `GET` 请求认证服务器 9001 获取授权码
-* 通过 `POST` 请求，携带授权码，请求认证服务器 9001获取令牌
-* 使用令牌，访问资源服务器 9002 的资源
+### 四、授权码模式测试
+授权码模式(`authorization_code`)主要针对第三方应用，是最为复杂也最为安全的一种模式，操作步骤如下
+* 请求认证服务器 9001 获取授权码
+* 携带授权码，请求认证服务器 9001获取令牌
+* 携带令牌，访问资源服务器 9002 的资源
 
 #### 1. 请求认证服务器，获取授权码 
-在浏览器访问地址：[http://localhost:9001/oauth/authorize?response_type=code&client_id=admin](http://localhost:9001/oauth/authorize?response_type=code&client_id=admin)
+在浏览器访问地址：http://localhost:9001/oauth/authorize?response_type=code&client_id=admin
 * `response_type`：授权模式，授权码模式是 `code`（必选项）
 * `client_id`：客户端ID `client_id`（必选项）
 * `redirect_uri`：获取授权码成功后的重定向URI（可选项）
@@ -221,7 +222,7 @@ public class UserController {
 
 * 请求授权码，需要资源拥有者先认证，所以会跳转到 `SpringSecurity` 认证地址
 * 类似于：网页中使用微信扫码登录，这个前置是需要用户登录自己的微信账号
-* 认证后，跳转到下面授权界面，选择 `Approve` 同意授权
+* 认证后，跳转到下面授权界面，选择 `Approve`，点击 `Authorize` 同意授权
 
 ![oauth2](https://fgq233.github.io/imgs/security/oauth2_5.png)
 
@@ -231,35 +232,24 @@ public class UserController {
 * 同意授权后，自动重定向到 `redirect_uri`，并且携带授权码 `code`
 
 
-#### 4. postman 请求认证服务器，获取令牌
-![oauth2](https://fgq233.github.io/imgs/security/oauth2_6.png)
-![oauth2](https://fgq233.github.io/imgs/security/oauth2_7.png)
-
-* 请求地址：[http://localhost:9001/oauth/token](http://localhost:9001/oauth/token)
-
-* `body` 参数：
+#### 4. 请求认证服务器，获取令牌
+* 请求地址：http://localhost:9001/oauth/token
+* 请求头：`Authorization : Basic YWRtaW46YWRtaW4xMjM0NTY=`
+  * 值为 Basic 拼接 `client_id:client_secret 的Base64编码`
+* 表单
   * `grant_type`：授权模式，此处为 `authorization_code`（必选项）
   * `code`：上一步获得的授权码（必选项，授权码只能使用一次）
-  
-* 该接口需要`Basic Auth`认证，`username` 和 `password` 为客户端的`client_id`和`client_secret` 
-  * 方式1：使用`Postman` 的`Basic Auth` 生成`Authorization`
-  * 方式2：在`body`参数中携带`client_id、client_secret`
-  * 方式3：直接请求： [http://admin:admin123456@localhost:9001/oauth/token](http://admin:admin123456@localhost:9001/oauth/token)
-
-```
-// Basic Auth逻辑：Basic 拼接 client_id:client_secret 进行Base64加密的结果
-"Basic " + Base64.encode("admin:admin123456".getBytes());
-```
 
 
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_9.png)
+![oauth2](https://fgq233.github.io/imgs/security/oauth2_7.png)
 
-
-  
 
 ```
 {
     "access_token": "713ea91e-80d7-4d48-95d0-0be601bf0ae5",
     "token_type": "bearer",
+    "refresh_token": "e42e02cc-4e99-4c2d-b2d9-14f724e9a489",
     "expires_in": 3599,
     "scope": "all"
 }
