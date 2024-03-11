@@ -354,8 +354,9 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 ```
 {
-    "access_token": "5030a5f9-88bc-45b3-ae9e-356776808eb4",
+    "access_token": "234b4c74-be85-4a84-8841-c1a5bc271298",
     "token_type": "bearer",
+    "refresh_token": "98619c42-2652-42b5-a423-d029c1fc1a76",
     "expires_in": 3599,
     "scope": "all"
 }
