@@ -113,7 +113,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .redirectUris("http://www.baidu.com")   
                 .scopes("all")                          
                 .autoApprove(false)                       
-                .authorizedGrantTypes("authorization_code"); 
+                .authorizedGrantTypes("authorization_code", "password", "refresh_token"); // 授权模式
     }
 }
 ```
@@ -305,21 +305,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 @EnableAuthorizationServer
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()                              
-                .withClient("admin")            
-                .secret(passwordEncoder.encode("admin123456"))  
-                .accessTokenValiditySeconds(3600)       
-                .refreshTokenValiditySeconds(864000)    
-                .redirectUris("http://www.baidu.com")   
-                .scopes("all")                         
-                .authorizedGrantTypes("authorization_code", "password", "refresh_token"); // 授权模式
-    }
-
+    ......
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -339,7 +325,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 无需获取授权码，直接通过账号、密码获取令牌
 
 * 请求地址：`http://localhost:9001/oauth/token`
-* 请求头：`Authorization : Basic YWRtaW46YWRtaW4xMjM0NTY= `
+* 请求头：`Authorization : Basic YWRtaW46YWRtaW4xMjM0NTY=`
   * 值为 Basic 拼接 `client_id:client_secret 的Base64编码`
 * 表单
   * `grant_type`：授权模式，此处为 `password`（必选项）
@@ -363,3 +349,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 ```
 
 
+### 六、刷新 token
+* 刷新token(refresh_token)存在时间会比access_token更长
+* 用于access_token快过期的时候，调用oauth接口获取到刷新后的token以达到token续期的目的
+
+#### 1. 测试
