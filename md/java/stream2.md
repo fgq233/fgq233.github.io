@@ -103,7 +103,7 @@ list.stream().forEach(System.out::println);
 #### 2. 统计 count()、min()、max()
 * `count()`  获取流中元素个数
 * `min()`    获取流中元素的最小值，返回的是`Optional`
-* `max()`    获取流中元素的最小值，返回的是`Optional`
+* `max()`    获取流中元素的最大值，返回的是`Optional`
 
 ```
 long count = list.stream().count();
