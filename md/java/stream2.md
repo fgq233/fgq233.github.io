@@ -25,7 +25,7 @@ public class Book {
     private String category;
 }
 
-List<Book> books1 = Arrays.asList(new Book("三国演义", "文学"), new Book("水浒传", "文学"), new Book("西游记", "文学"), new Book("红楼梦", "文学"));
+List<Book> books1 = Arrays.asList(new Book("三国演义", "文学"), new Book("水浒传", "文学"), new Book("西游记", "文学"));
 List<Book> books2 = Arrays.asList(new Book("哈姆雷特", "文学"), new Book("语文书", "教育"), new Book("相对论", "知识"));
 List<Book> books3 = Arrays.asList(new Book("物种起源", "科学"), new Book("数学书", "教育"), new Book("英语书", "教育"));
 List<Person> list = Arrays.asList(
