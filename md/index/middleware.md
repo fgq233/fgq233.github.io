@@ -66,6 +66,56 @@
 -  [MongoDB-8 安全认证][mongodb8]
 
 
+[mq]: https://fgq233.github.io/md/middleware/mq /all
+[rabbitmq1]: https://fgq233.github.io/md/middleware/mq/rabbitmq1
+[rabbitmq2]: https://fgq233.github.io/md/middleware/mq/rabbitmq2
+[rabbitmq3]: https://fgq233.github.io/md/middleware/mq/rabbitmq3
+[rabbitmq4]: https://fgq233.github.io/md/middleware/mq/rabbitmq4
+[rabbitmq5]: https://fgq233.github.io/md/middleware/mq/rabbitmq5
+[rabbitmq6]: https://fgq233.github.io/md/middleware/mq/rabbitmq6
+[rabbitmq7]: https://fgq233.github.io/md/middleware/mq/rabbitmq7
+[rabbitmq8]: https://fgq233.github.io/md/middleware/mq/rabbitmq8
+[rocketmq6]: https://fgq233.github.io/md/middleware/mq/rocketmq6
+[rocketmq5]: https://fgq233.github.io/md/middleware/mq/rocketmq5
+[rocketmq4]: https://fgq233.github.io/md/middleware/mq/rocketmq4
+[rocketmq3]: https://fgq233.github.io/md/middleware/mq/rocketmq3
+[rocketmq2]: https://fgq233.github.io/md/middleware/mq/rocketmq2
+[rocketmq1]: https://fgq233.github.io/md/middleware/mq/rocketmq1
+[activemq6]: https://fgq233.github.io/md/middleware/mq/activemq6
+[activemq5]: https://fgq233.github.io/md/middleware/mq/activemq5
+[activemq4]: https://fgq233.github.io/md/middleware/mq/activemq4
+[activemq3]: https://fgq233.github.io/md/middleware/mq/activemq3
+[activemq2]: https://fgq233.github.io/md/middleware/mq/activemq2
+[activemq1]: https://fgq233.github.io/md/middleware/mq/activemq1
+
+
+[lucene]: https://fgq233.github.io/md/md/middleware/es /lucene
+[es1]: https://fgq233.github.io/md/md/middleware/es /es1
+[es2]: https://fgq233.github.io/md/md/middleware/es /es2
+[es3]: https://fgq233.github.io/md/md/middleware/es /es3
+[es4]: https://fgq233.github.io/md/md/middleware/es /es4
+[es5]: https://fgq233.github.io/md/md/middleware/es /es5
+[es6]: https://fgq233.github.io/md/md/middleware/es /es6
+[es7]: https://fgq233.github.io/md/md/middleware/es /es7
+[es8]: https://fgq233.github.io/md/md/middleware/es /es8
+[es9]: https://fgq233.github.io/md/md/middleware/es /es9
+[es10]: https://fgq233.github.io/md/md/middleware/es /es10
+
+
+[redis1]: https://fgq233.github.io/md/middleware/redis/redis1
+[redis2]: https://fgq233.github.io/md/middleware/redis /redis2
+[redis3]: https://fgq233.github.io/md/middleware/redis /redis3
+[redis4]: https://fgq233.github.io/md/middleware/redis /redis4
+[redis5]: https://fgq233.github.io/md/middleware/redis /redis5
+[redis6]: https://fgq233.github.io/md/middleware/redis /redis6
+[mongodb1]: https://fgq233.github.io/md/middleware/mongodb/mongodb1
+[mongodb2]: https://fgq233.github.io/md/middleware/mongodb/mongodb2
+[mongodb3]: https://fgq233.github.io/md/middleware/mongodb/mongodb3
+[mongodb4]: https://fgq233.github.io/md/middleware/mongodb/mongodb4
+[mongodb5]: https://fgq233.github.io/md/middleware/mongodb/mongodb5
+[mongodb6]: https://fgq233.github.io/md/middleware/mongodb/mongodb6
+[mongodb7]: https://fgq233.github.io/md/middleware/mongodb/mongodb7
+[mongodb8]: https://fgq233.github.io/md/middleware/mongodb/mongodb8
 
 
 [nginx1]: https://fgq233.github.io/md/middleware/nginx/nginx1
@@ -77,49 +127,3 @@
 [nginx7]: https://fgq233.github.io/md/middleware/nginx/nginx7
 [nginx8]: https://fgq233.github.io/md/middleware/nginx/nginx8
 [nginx9]: https://fgq233.github.io/md/middleware/nginx/nginx9
-[rocketmq6]: https://fgq233.github.io/md/mq/rocketmq6
-[rocketmq5]: https://fgq233.github.io/md/mq/rocketmq5
-[rocketmq4]: https://fgq233.github.io/md/mq/rocketmq4
-[rocketmq3]: https://fgq233.github.io/md/mq/rocketmq3
-[rocketmq2]: https://fgq233.github.io/md/mq/rocketmq2
-[rocketmq1]: https://fgq233.github.io/md/mq/rocketmq1
-[activemq6]: https://fgq233.github.io/md/mq/activemq6
-[activemq5]: https://fgq233.github.io/md/mq/activemq5
-[activemq4]: https://fgq233.github.io/md/mq/activemq4
-[activemq3]: https://fgq233.github.io/md/mq/activemq3
-[activemq2]: https://fgq233.github.io/md/mq/activemq2
-[activemq1]: https://fgq233.github.io/md/mq/activemq1
-[mongodb8]: https://fgq233.github.io/md/nosql/mongodb8
-[mongodb7]: https://fgq233.github.io/md/nosql/mongodb7
-[mongodb6]: https://fgq233.github.io/md/nosql/mongodb6
-[mongodb5]: https://fgq233.github.io/md/nosql/mongodb5
-[mongodb4]: https://fgq233.github.io/md/nosql/mongodb4
-[mongodb3]: https://fgq233.github.io/md/nosql/mongodb3
-[mongodb1]: https://fgq233.github.io/md/nosql/mongodb1
-[mongodb2]: https://fgq233.github.io/md/nosql/mongodb2
-[redis1]: https://fgq233.github.io/md/nosql/redis1
-[redis2]: https://fgq233.github.io/md/nosql/redis2
-[redis3]: https://fgq233.github.io/md/nosql/redis3
-[redis4]: https://fgq233.github.io/md/nosql/redis4
-[redis5]: https://fgq233.github.io/md/nosql/redis5
-[redis6]: https://fgq233.github.io/md/nosql/redis6
-[mq]: https://fgq233.github.io/md/mq/all
-[rabbitmq1]: https://fgq233.github.io/md/mq/rabbitmq1
-[rabbitmq2]: https://fgq233.github.io/md/mq/rabbitmq2
-[rabbitmq3]: https://fgq233.github.io/md/mq/rabbitmq3
-[rabbitmq4]: https://fgq233.github.io/md/mq/rabbitmq4
-[rabbitmq5]: https://fgq233.github.io/md/mq/rabbitmq5
-[rabbitmq6]: https://fgq233.github.io/md/mq/rabbitmq6
-[rabbitmq7]: https://fgq233.github.io/md/mq/rabbitmq7
-[rabbitmq8]: https://fgq233.github.io/md/mq/rabbitmq8
-[lucene]: https://fgq233.github.io/md/middleware/es/lucene
-[es1]: https://fgq233.github.io/md/middleware/es/es1
-[es2]: https://fgq233.github.io/md/middleware/es/es2
-[es3]: https://fgq233.github.io/md/middleware/es/es3
-[es4]: https://fgq233.github.io/md/middleware/es/es4
-[es5]: https://fgq233.github.io/md/middleware/es/es5
-[es6]: https://fgq233.github.io/md/middleware/es/es6
-[es7]: https://fgq233.github.io/md/middleware/es/es7
-[es8]: https://fgq233.github.io/md/middleware/es/es8
-[es9]: https://fgq233.github.io/md/middleware/es/es9
-[es10]: https://fgq233.github.io/md/middleware/es/es10
