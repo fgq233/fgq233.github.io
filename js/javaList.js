@@ -25,7 +25,8 @@ const javaList2 = [
         url: "", title: "Java8 新特性", child: [
             {url: "https://fgq233.github.io/md/java/lambda", title: "Lambda 表达式"},
             {url: "https://fgq233.github.io/md/java/optional", title: "Optional 判空"},
-            {url: "https://fgq233.github.io/md/java/stream", title: "Stream 流"},
+            {url: "https://fgq233.github.io/md/java/stream1", title: "Stream流 简介"},
+            {url: "https://fgq233.github.io/md/java/stream2", title: "Stream流 使用"},
             {url: "https://fgq233.github.io/md/java/funInterface", title: "函数式接口"},
         ]
     },

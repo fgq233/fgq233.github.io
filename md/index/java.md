@@ -1,7 +1,8 @@
 1. ###### Java8 函数式编程
 -  [Lambda 表达式][lambda]
 -  [Optional 判空][optional]
--  [Stream 流][stream]    
+-  [Stream流 简介][stream1]    
+-  [Stream流 使用][stream2]    
 -  [函数式接口][funInterface]    
 
 
@@ -32,7 +33,8 @@
 
 [lambda]: https://fgq233.github.io/md/java/lambda
 [optional]: https://fgq233.github.io/md/java/optional
-[stream]: https://fgq233.github.io/md/java/stream
+[stream1]: https://fgq233.github.io/md/java/stream1
+[stream2]: https://fgq233.github.io/md/java/stream2
 [funInterface]: https://fgq233.github.io/md/java/funInterface
 
 [thread]: https://fgq233.github.io/md/java/thread
