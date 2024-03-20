@@ -19,6 +19,11 @@ function initBlog() {
         blogList2 = vueList2;
         blogList3 = vueList3;
         blogList4 = vueList4;
+    } else if (key === "middleware") {
+        blogList1 = middlewareList1;
+        blogList2 = middlewareList2;
+        blogList3 = middlewareList3;
+        blogList4 = middlewareList4;
     }
 
     let divHtml = "";

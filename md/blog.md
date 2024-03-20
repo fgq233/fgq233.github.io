@@ -1,5 +1,6 @@
 * [SpringCloud微服务系列][cloudHtml]  [~][cloudMd]
-* [Java中间件 & 框架][javaHtml]       [~][javaMd]
+* [Java][javaHtml]                  [~][javaMd]
+* [常用中间件][middlewareHtml]        [~][middlewareMd]
 * [Java设计模式][mode]           
 * [Oracle][oracle]
 * [MySQL][mysql]
@@ -16,6 +17,8 @@
 [cloudMd]: https://fgq233.github.io/md/index/cloud
 [javaHtml]: https://fgq233.github.io/html/blog?key=java
 [javaMd]: https://fgq233.github.io/md/index/java
+[middlewareHtml]: https://fgq233.github.io/html/blog?key=middleware
+[middlewareMd]: https://fgq233.github.io/md/index/middleware
 [js]: https://fgq233.github.io/md/index/js
 [oracle]: https://fgq233.github.io/md/index/oracle
 [mysql]: https://fgq233.github.io/md/index/mysql
