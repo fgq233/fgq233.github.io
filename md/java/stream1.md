@@ -57,13 +57,6 @@ list.stream().parallel();
 
 | 操作        | 类型   | 返回类型        | 参数类型               | 函数描述符        |
 |-----------|-------|-------------|--------------------|--------------|
-| filter    | 中间   | `Stream<T>  ` | `Predicate <T>   ` | `T -> boolean` |
-| distinct  | 中间   | `Stream<T>  ` | `----            ` | `----        ` |
-| skip      | 中间   | `Stream<T>  ` | `long            ` | `----        ` |
-| limit     | 中间   | `Stream<T>  ` | `long            ` | `----        ` |
-| sorted    | 中间   | `Stream<T>  ` | `Comparator <T>  ` | `(T,T) -> int` |
-| map       | 中间   | `Stream<R>  ` | `Function <T,R>  ` | `T -> R      ` |
-| flatMap   | 中间   | `Stream<R>  ` | `Function <T,R>  ` | `T -> Stream ` |
 | forEach   | 终端   | `void       ` | `Consumer<T>     ` | `T -> void   ` |
 | count     | 终端   | `long       ` | `----            ` | `----        ` |
 | min       | 终端   | `Optional<T>` | `Comparator <T>  ` | `(T,T) -> int` |
