@@ -89,17 +89,17 @@
 [activemq1]: https://fgq233.github.io/md/middleware/mq/activemq1
 
 
-[lucene]: https://fgq233.github.io/md/md/middleware/es/lucene
-[es1]: https://fgq233.github.io/md/md/middleware/es/es1
-[es2]: https://fgq233.github.io/md/md/middleware/es/es2
-[es3]: https://fgq233.github.io/md/md/middleware/es/es3
-[es4]: https://fgq233.github.io/md/md/middleware/es/es4
-[es5]: https://fgq233.github.io/md/md/middleware/es/es5
-[es6]: https://fgq233.github.io/md/md/middleware/es/es6
-[es7]: https://fgq233.github.io/md/md/middleware/es/es7
-[es8]: https://fgq233.github.io/md/md/middleware/es/es8
-[es9]: https://fgq233.github.io/md/md/middleware/es/es9
-[es10]: https://fgq233.github.io/md/md/middleware/es/es10
+[lucene]: https://fgq233.github.io/md/middleware/es/lucene
+[es1]: https://fgq233.github.io/md/middleware/es/es1
+[es2]: https://fgq233.github.io/md/middleware/es/es2
+[es3]: https://fgq233.github.io/md/middleware/es/es3
+[es4]: https://fgq233.github.io/md/middleware/es/es4
+[es5]: https://fgq233.github.io/md/middleware/es/es5
+[es6]: https://fgq233.github.io/md/middleware/es/es6
+[es7]: https://fgq233.github.io/md/middleware/es/es7
+[es8]: https://fgq233.github.io/md/middleware/es/es8
+[es9]: https://fgq233.github.io/md/middleware/es/es9
+[es10]: https://fgq233.github.io/md/middleware/es/es10
 
 
 [redis1]: https://fgq233.github.io/md/middleware/redis/redis1
