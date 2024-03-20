@@ -66,7 +66,7 @@
 -  [MongoDB-8 安全认证][mongodb8]
 
 
-[mq]: https://fgq233.github.io/md/middleware/mq /all
+[mq]: https://fgq233.github.io/md/middleware/mq/all
 [rabbitmq1]: https://fgq233.github.io/md/middleware/mq/rabbitmq1
 [rabbitmq2]: https://fgq233.github.io/md/middleware/mq/rabbitmq2
 [rabbitmq3]: https://fgq233.github.io/md/middleware/mq/rabbitmq3
@@ -89,25 +89,25 @@
 [activemq1]: https://fgq233.github.io/md/middleware/mq/activemq1
 
 
-[lucene]: https://fgq233.github.io/md/md/middleware/es /lucene
-[es1]: https://fgq233.github.io/md/md/middleware/es /es1
-[es2]: https://fgq233.github.io/md/md/middleware/es /es2
-[es3]: https://fgq233.github.io/md/md/middleware/es /es3
-[es4]: https://fgq233.github.io/md/md/middleware/es /es4
-[es5]: https://fgq233.github.io/md/md/middleware/es /es5
-[es6]: https://fgq233.github.io/md/md/middleware/es /es6
-[es7]: https://fgq233.github.io/md/md/middleware/es /es7
-[es8]: https://fgq233.github.io/md/md/middleware/es /es8
-[es9]: https://fgq233.github.io/md/md/middleware/es /es9
-[es10]: https://fgq233.github.io/md/md/middleware/es /es10
+[lucene]: https://fgq233.github.io/md/md/middleware/es/lucene
+[es1]: https://fgq233.github.io/md/md/middleware/es/es1
+[es2]: https://fgq233.github.io/md/md/middleware/es/es2
+[es3]: https://fgq233.github.io/md/md/middleware/es/es3
+[es4]: https://fgq233.github.io/md/md/middleware/es/es4
+[es5]: https://fgq233.github.io/md/md/middleware/es/es5
+[es6]: https://fgq233.github.io/md/md/middleware/es/es6
+[es7]: https://fgq233.github.io/md/md/middleware/es/es7
+[es8]: https://fgq233.github.io/md/md/middleware/es/es8
+[es9]: https://fgq233.github.io/md/md/middleware/es/es9
+[es10]: https://fgq233.github.io/md/md/middleware/es/es10
 
 
 [redis1]: https://fgq233.github.io/md/middleware/redis/redis1
-[redis2]: https://fgq233.github.io/md/middleware/redis /redis2
-[redis3]: https://fgq233.github.io/md/middleware/redis /redis3
-[redis4]: https://fgq233.github.io/md/middleware/redis /redis4
-[redis5]: https://fgq233.github.io/md/middleware/redis /redis5
-[redis6]: https://fgq233.github.io/md/middleware/redis /redis6
+[redis2]: https://fgq233.github.io/md/middleware/redis/redis2
+[redis3]: https://fgq233.github.io/md/middleware/redis/redis3
+[redis4]: https://fgq233.github.io/md/middleware/redis/redis4
+[redis5]: https://fgq233.github.io/md/middleware/redis/redis5
+[redis6]: https://fgq233.github.io/md/middleware/redis/redis6
 [mongodb1]: https://fgq233.github.io/md/middleware/mongodb/mongodb1
 [mongodb2]: https://fgq233.github.io/md/middleware/mongodb/mongodb2
 [mongodb3]: https://fgq233.github.io/md/middleware/mongodb/mongodb3
