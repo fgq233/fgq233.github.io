@@ -140,23 +140,18 @@ boolean b3 = list.stream().noneMatch(person -> person.getAge() > 20);
 * `Collectors.toList()`
 * `Collectors.toSet()`  可以起到集合无序、去重效果
 * `Collectors.toMap()`
-  * 当`key`为`null`或`value`为`null`的时候会抛出异常，所以需要判空
-  * 2个参数：需要先去重，不然如果有重复 key 会抛出异常
-  * 3个参数：第3个参数是一个 lambda 表达式，参数1、2分别为重复key上一个值、下一个值，根据返回值决定使用哪个
+  * **当有重复key会抛出异常，当value为null的时候也会抛出异常**
+  * 2个参数：分别为key、value，一般为了防止重复key不使用这个
+  * 3个参数：第3个参数是一个lambda表达式，参数1、2分别为重复key上一个值、下一个值，根据返回值决定使用哪个
 
 ```
 List<String> nameList = list.stream().map(Person::getName).collect(Collectors.toList());
 Set<String> nameSet = list.stream().map(Person::getName).collect(Collectors.toSet());
 
 // toMap() 2个参数
-Map<Integer, Person> personMap = list.stream()
-        .filter(person -> person.getId() != null)
-        .distinct()
-        .collect(Collectors.toMap(Person::getId, Function.identity()));
-Map<Integer, List<Book>> booksMap = list.stream()
-        .filter(person -> person.getId() != null)
-        .distinct()
-        .collect(Collectors.toMap(Person::getId, Person::getBooks));
+Map<Integer, Person> personMap = list.stream().collect(Collectors.toMap(Person::getId, Function.identity()));
+Map<Integer, List<Book>> booksMap = list.stream().collect(Collectors.toMap(Person::getId, Person::getBooks));
+
 // toMap() 3个参数
 Map<Integer, Person> personMap = list.stream()
         .filter(person -> person.getId() != null)
@@ -164,6 +159,7 @@ Map<Integer, Person> personMap = list.stream()
 Map<Integer, List<Book>> booksMap = list.stream()
         .filter(person -> person.getId() != null)
         .collect(Collectors.toMap(Person::getId, Person::getBooks, (oldVal, newVal) -> newVal));
+        
 // toMap() 分组
 // 按照 id 分组，将相同id的元素放到一个val中
 Map<Integer, List<Person>> idMap = list.stream().collect(Collectors.groupingBy(Person::getId));
