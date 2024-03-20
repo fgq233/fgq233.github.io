@@ -168,7 +168,7 @@ Map<Integer, List<Person>> idMap = list.stream().collect(Collectors.groupingBy(P
 ![stream](https://fgq233.github.io/imgs/java/stream.png)
 
 
-#### 5. 结果归并 reduce()
+#### 6. 结果归并 reduce()
 传入一个初始值，然后和流中元素进行计算，计算结果再和后面元素进行计算，直到最后一个元素，类似迭代
 
 ```
