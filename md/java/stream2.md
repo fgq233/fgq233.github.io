@@ -161,7 +161,7 @@ Map<Integer, List<Book>> booksMap = list.stream()
         .collect(Collectors.toMap(Person::getId, Person::getBooks, (oldVal, newVal) -> newVal));
         
 // toMap() 分组
-// 按照 id 分组，将相同id的元素放到一个val中, val为集合
+// 按照 id 分组，将相同id的元素放到一个val中, 如下：key为id，val为相同id的集合
 Map<Integer, List<Person>> idMap = list.stream().collect(Collectors.groupingBy(Person::getId));
 ```
 
