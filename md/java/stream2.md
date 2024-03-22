@@ -160,9 +160,12 @@ Map<Integer, List<Book>> booksMap = list.stream()
         .filter(person -> person.getId() != null)
         .collect(Collectors.toMap(Person::getId, Person::getBooks, (oldVal, newVal) -> newVal));
         
-// toMap() 分组
+// 分组转 Map
 // 按照 id 分组，将相同id的元素放到一个val中, 如下：key为id，val为相同id的集合
 Map<Integer, List<Person>> idMap = list.stream().collect(Collectors.groupingBy(Person::getId));
+
+// 转 String
+String ids = list.stream().map(Person::getId).map(String::valueOf).collect(Collectors.joining(","));
 ```
 
 ![stream](https://fgq233.github.io/imgs/java/stream.png)
