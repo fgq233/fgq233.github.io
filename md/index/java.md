@@ -4,7 +4,7 @@
 -  [Stream流 简介][stream1]    
 -  [Stream流 使用][stream2]    
 -  [函数式接口][funInterface]    
--  [Java8 新增方法][java8]    
+-  [JDK8 中好用的方法][jdk8]    
 
 
 1. ###### [多线程][thread]
@@ -37,7 +37,7 @@
 [stream1]: https://fgq233.github.io/md/java/stream1
 [stream2]: https://fgq233.github.io/md/java/stream2
 [funInterface]: https://fgq233.github.io/md/java/funInterface
-[java8]: https://fgq233.github.io/md/java/java8
+[jdk8]: https://fgq233.github.io/md/java/jdk8
 
 [thread]: https://fgq233.github.io/md/java/thread
 [exception]: https://fgq233.github.io/md/java/exception
