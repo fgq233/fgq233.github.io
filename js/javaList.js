@@ -28,6 +28,7 @@ const javaList2 = [
             {url: "https://fgq233.github.io/md/java/stream1", title: "Stream流 简介"},
             {url: "https://fgq233.github.io/md/java/stream2", title: "Stream流 使用"},
             {url: "https://fgq233.github.io/md/java/funInterface", title: "函数式接口"},
+            {url: "https://fgq233.github.io/md/java/java8", title: "Java8 新增方法"},
         ]
     },
 ];
