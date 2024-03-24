@@ -136,13 +136,14 @@ boolean b3 = list.stream().noneMatch(person -> person.getAge() > 20);
 
 
 #### 5. 收集结果 collect()
-* 将流中元素收集起来形成为一个新集合(List、Set、Map)
+* 将流中元素收集起来
 * `Collectors.toList()`
 * `Collectors.toSet()`  可以起到集合无序、去重效果
 * `Collectors.toMap()`
   * **当有重复key会抛出异常，当value为null的时候也会抛出异常**
   * 2个参数：分别为key、value，一般为了防止重复key不使用这个
   * 3个参数：第3个参数是一个lambda表达式，参数1、2分别为重复key上一个值、下一个值，根据返回值决定使用哪个
+* `Collectors.joining()`
 
 ```
 List<String> nameList = list.stream().map(Person::getName).collect(Collectors.toList());
