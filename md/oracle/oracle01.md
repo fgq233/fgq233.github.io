@@ -122,7 +122,7 @@ decode (expression, search_1, result_1, search_2, result_2, ...., search_n, resu
 
 #### 7. 分区函数 partition by、排名函数
 * `partition by`：给结果集分区，如果没有指定那么它把整个结果集作为一个分区，一般与排名函数一起使用
-* 与`group by`不同的在于它能返回一个分组中的多条记录，而`group by`一般只有一条反映统计值的数据
+* 分区函数与`group by`区别在于它能返回一个分组中的多条记录，而`group by`一般只有一条反映统计值的数据
 * 排名函数
   * 排序函数：`row_number()`
   * 跳跃排序函数：`rank()`
@@ -164,3 +164,12 @@ select t.code, listagg(t.dict_value, ',') within group(order by t.creation_date)
   from RABBIT_SYSTEM_DICT t
  where t.code = 'weather';
 ```
+
+#### 9. 统计函数 + over(partition by XXX)
+*  `count(AAA) over(partition by BBB)`  区内数量
+*  `sum(AAA) over(partition by BBB)`    区内求和
+*  `max(AAA) over(partition by BBB)`    区内最大值
+*  `min(AAA) over(partition by BBB)`    区内最小值
+*  `avg(AAA) over(partition by BBB)`    区内平均值
+
+先分区，然后使用统计函数计算区内数据
