@@ -145,15 +145,9 @@ select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.c
   * `DDD` 分组
 * `listagg (AAA, BBB) over(partition by CCC)`
   * 不分组，而是分区，将同一个分区内的列聚合起来
-  * `AAA` 聚合的列，可以是表达式
-  * `BBB` 聚合的分隔符(可选)
   * `CCC` 分区字段
-* `listagg (AAA, BBB) within group(order by CCC) over(partition by DDD) `
-    * 不分组，而是分区，区内排序，然后将区内列聚合起来
-    * `AAA` 聚合的列，可以是表达式
-    * `BBB` 聚合的分隔符(可选)
-    * `CCC` 区内排序
-    * `DDD` 分区
+* `listagg (AAA, BBB) within group(order by CCC) over(partition by DDD)`
+  * 比上面多了个分区内排序，影响聚合字段的内容
 
 ```
 select t.code,
