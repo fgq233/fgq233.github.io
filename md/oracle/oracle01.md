@@ -1,5 +1,5 @@
 ### Oracle中函数
-### 1、字符串相关函数
+#### 1. 字符串相关函数
 ```
 lower(str)     转小写
 upper(str)    转大写
@@ -32,7 +32,7 @@ sys_guid()      随机字符串
 
 
 
-### 2、数值相关函数
+#### 2. 数值相关函数
 ```
 abs(n)      绝对值函数，n是任何可以转换为数值的数据
 mod(a,b)    取余函数，返回a除以b的余数，若b=0，则返回a
@@ -48,7 +48,7 @@ trunc(n,x)  截断函数，x为保留的小数位数
 ```
 
 
-### 3、日期相关函数
+#### 3. 日期相关函数
 ```
 sysdate                  返回系统当前日期时间
 
@@ -65,7 +65,7 @@ extract(day from sysdate)    截取日
 ```
 
 
-### 4、转换相关函数
+#### 4. 转换相关函数
 ```
 to_char(date, format)    日期转为字符串，YYYY-MM-DD HH24:Mi:SS
 to_char(num, format)     数值转为字符串，format：9代表有一位数字、0代表0、$代表美元、L代表本地货币符号¥、.代表小数点
@@ -82,7 +82,7 @@ select to_number('666') from dual;    结果：  666
 
 
 
-### 5、case when 与 decode
+#### 5. case when 与 decode
 ```
 用于=对比：
     case expr when value1 then return_1
@@ -103,7 +103,7 @@ decode (expression, search_1, result_1, search_2, result_2, ...., search_n, resu
 * Oracle中也提供了一个内置函数：decode函数，可以快速的实现case语句的效果
 * 对比表达式 expression 和 搜索值 search_n 是否相等，相等返回result_n，都不匹配的话返回默认值，没有定义默认值返回 null
 
-### 6、层次查询
+#### 6. 层次查询  start with ... connect by ...
 * 当一张表数据具有层次结构，使用层次查询可以得到更加直观的数据
 * start with：指定启始条件，从哪个根元素开始遍历
 * connect by ：用于指定父行与子行之间的关系，并不重要，
@@ -120,7 +120,7 @@ decode (expression, search_1, result_1, search_2, result_2, ...., search_n, resu
 * 层次查询：是单表查询，效率高，但是得到的结果不是很直观
 
 
-### 7、分区函数 partition by、排名函数
+#### 7. 分区函数 partition by、排名函数
 * `partition by`：用于给结果集分组，如果没有指定那么它把整个结果集作为一个分组，
 分区函数一般与排名函数一起使用遍历。和 `group by` 不同的在于它能返回一个分组中的多条记录，
 而 `group by` 一般只有一条反映统计值的记录观的数据
@@ -135,3 +135,38 @@ select t.organ_name, t.jglx, rank() over       (partition by t.jglx order by t.c
 select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.cjsj) 组内连续排序   from SYS_ORGAN t;
 ```
 
+
+#### 8. 分组聚合 listagg，组内列转行
+* `listagg (AAA, BBB) within group(order by CCC)` + `group by DDD`
+  * 先分组，组内排序，然后将组内列聚合起来
+  * `AAA` 聚合的列，可以是表达式
+  * `BBB` 聚合的分隔符(可选)
+  * `CCC` 组内排序
+  * `DDD` 分组
+* `listagg (AAA, BBB) over(partition by CCC)`
+  * 不分组，而是分区，将同一个分区内的列聚合起来
+  * `AAA` 聚合的列，可以是表达式
+  * `BBB` 聚合的分隔符(可选)
+  * `CCC` 分区字段
+* `listagg (AAA, BBB) within group(order by CCC) over(partition by DDD) `
+    * 不分组，而是分区，区内排序，然后将区内列聚合起来
+    * `AAA` 聚合的列，可以是表达式
+    * `BBB` 聚合的分隔符(可选)
+    * `CCC` 区内排序
+    * `DDD` 分区
+
+```
+select t.code,
+       listagg(t.dict_value, ',') within group(order by t.creation_date)
+  from RABBIT_SYSTEM_DICT t
+ where t.code = 'weather'
+ group by t.code;
+
+select t.code, listagg(t.dict_value, ',') over(partition by t.code)
+  from RABBIT_SYSTEM_DICT t
+ where t.code = 'weather';
+
+select t.code, listagg(t.dict_value, ',') within group(order by t.creation_date) over(partition by t.code)
+  from RABBIT_SYSTEM_DICT t
+ where t.code = 'weather';
+```
