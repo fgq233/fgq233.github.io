@@ -26,3 +26,5 @@ public static String exception3(Exception ex) {
     return out.toString();
 }
 ```
+
+![](https://fgq233.github.io/imgs/java/exception.png)
