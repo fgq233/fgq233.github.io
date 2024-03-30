@@ -194,6 +194,7 @@ export default {
 
 #### 4. 注意事项
 * 不要修改组件的 prop，不过可以将其赋给data数据源、或计算属性computed
+
 ```
 props: ['initTitle'],
 data: function () {
