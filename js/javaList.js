@@ -35,7 +35,7 @@ const javaList2 = [
         url: "", title: "JDK8 时间处理", child: [
             {url: "https://fgq233.github.io/md/java/jdk8/locaDateTime", title: "时间类 LocaDate、LocalTime、LocaDateTime"},
             {url: "https://fgq233.github.io/md/java/jdk8/dateTimeFormatter", title: "时间格式化、解析 DateTimeFormatter"},
-            {url: "https://fgq233.github.io/md/java/jdk8/zone]", title: "时区类 ZoneId、ZonedDateTime"},
+            {url: "https://fgq233.github.io/md/java/jdk8/zone", title: "时区类 ZoneId、ZonedDateTime"},
             {url: "https://fgq233.github.io/md/java/jdk8/instant", title: "时间戳 Instant"},
             {url: "https://fgq233.github.io/md/java/jdk8/periodDuration", title: "时间间隔 Period、Duration"},
         ]
