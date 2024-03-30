@@ -1,10 +1,15 @@
-1. ###### Java8 函数式编程
+1. ###### JDK8 新特性
 -  [Lambda 表达式][lambda]
 -  [Optional 判空][optional]
 -  [Stream流 简介][stream1]    
 -  [Stream流 使用][stream2]    
 -  [函数式接口][funInterface]    
--  [JDK8 中好用的方法][jdk8]    
+-  [集合新增的方法][jdk8]    
+-  [时间类 LocaDate、LocalTime、LocaDateTime][locaDateTime]    
+-  [时间格式化、解析 DateTimeFormatter][dateTimeFormatter]
+-  [时区 ZoneId、ZonedDateTime][zone]
+-  [时间戳 Instant][instant]    
+-  [时间间隔 Period、Duration][periodDuration]    
 
 
 1. ###### [多线程][thread]
@@ -32,12 +37,17 @@
 -  [Oauth2 端点接口][oauth2_6]
 
 
-[lambda]: https://fgq233.github.io/md/java/lambda
-[optional]: https://fgq233.github.io/md/java/optional
-[stream1]: https://fgq233.github.io/md/java/stream1
-[stream2]: https://fgq233.github.io/md/java/stream2
-[funInterface]: https://fgq233.github.io/md/java/funInterface
-[jdk8]: https://fgq233.github.io/md/java/jdk8
+[lambda]: https://fgq233.github.io/md/java/jdk8/lambda
+[optional]: https://fgq233.github.io/md/java/jdk8/optional
+[stream1]: https://fgq233.github.io/md/java/jdk8/stream1
+[stream2]: https://fgq233.github.io/md/java/jdk8/stream2
+[funInterface]: https://fgq233.github.io/md/java/jdk8/funInterface
+[jdk8]: https://fgq233.github.io/md/java/jdk8/list
+[locaDateTime]: https://fgq233.github.io/md/java/jdk8/locaDateTime
+[zone]: https://fgq233.github.io/md/java/jdk8/zone
+[instant]: https://fgq233.github.io/md/java/jdk8/instant
+[dateTimeFormatter]: https://fgq233.github.io/md/java/jdk8/dateTimeFormatter
+[periodDuration]: https://fgq233.github.io/md/java/jdk8/periodDuration
 
 [thread]: https://fgq233.github.io/md/java/thread
 [exception]: https://fgq233.github.io/md/java/exception

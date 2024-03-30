@@ -23,12 +23,21 @@ const javaList1 = [
 const javaList2 = [
     {
         url: "", title: "JDK8 新特性", child: [
-            {url: "https://fgq233.github.io/md/java/lambda", title: "Lambda 表达式"},
-            {url: "https://fgq233.github.io/md/java/optional", title: "Optional 判空"},
-            {url: "https://fgq233.github.io/md/java/stream1", title: "Stream流 简介"},
-            {url: "https://fgq233.github.io/md/java/stream2", title: "Stream流 使用"},
-            {url: "https://fgq233.github.io/md/java/funInterface", title: "函数式接口"},
-            {url: "https://fgq233.github.io/md/java/jdk8", title: "JDK8 中好用的方法"},
+            {url: "https://fgq233.github.io/md/java/jdk8/lambda", title: "Lambda 表达式"},
+            {url: "https://fgq233.github.io/md/java/jdk8/optional", title: "Optional 判空"},
+            {url: "https://fgq233.github.io/md/java/jdk8/stream1", title: "Stream流 简介"},
+            {url: "https://fgq233.github.io/md/java/jdk8/stream2", title: "Stream流 使用"},
+            {url: "https://fgq233.github.io/md/java/jdk8/funInterface", title: "函数式接口"},
+            {url: "https://fgq233.github.io/md/java/jdk8/list", title: "集合新增的方法"},
+        ]
+    },
+    {
+        url: "", title: "JDK8 时间处理", child: [
+            {url: "https://fgq233.github.io/md/java/jdk8/locaDateTime", title: "时间类 LocaDate、LocalTime、LocaDateTime"},
+            {url: "https://fgq233.github.io/md/java/jdk8/dateTimeFormatter", title: "时间格式化、解析 DateTimeFormatter"},
+            {url: "https://fgq233.github.io/md/java/jdk8/zone]", title: "时区类 ZoneId、ZonedDateTime"},
+            {url: "https://fgq233.github.io/md/java/jdk8/instant", title: "时间戳 Instant"},
+            {url: "https://fgq233.github.io/md/java/jdk8/periodDuration", title: "时间间隔 Period、Duration"},
         ]
     },
 ];

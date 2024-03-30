@@ -1,6 +1,6 @@
-###  JDK8 中好用的方法  
+###  JDK8 中集合新增的方法 
 
-### 一、 集合
+### 一、 Collection
 #### 1. removeIf()
 * `boolean removeIf(Predicate<? super E> filter)`
 * 根据条件删除集合中的对象
