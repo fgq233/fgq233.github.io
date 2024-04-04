@@ -29,3 +29,9 @@ Flowable官方提供了一个基于web应用的流程设计器 flowable-ui，提
 ![](https://fgq233.github.io/imgs/workflow/flow01.png)
 
 
+#### 5. 一个简单的流程使用步骤
+* IDM 创建用户、授权
+* Modeler 创建流程，创建应用程序发布流程
+* Task 中启动流程
+* 流程中各个用户在 Task 中完成任务，直到流程结束
+
