@@ -1,7 +1,7 @@
 ###  JBPM、Activiti、Flowable
 
 #### 1. 发展历史
-![](https://fgq233.github.io/imgs/workflow/flow1.png)
+![](https://fgq233.github.io/imgs/workflow/index.png)
 
 * Activiti和Flowable都是来自于一个叫JBPM的开源工作流
 * 在早期Jboss发行JBPM4的时候，其中一个核心人员离职，加入了Alfresco(Activiti所在的公司)，在同一年发布了Activiti的第一个版本即Activiti5.0.alpha1
