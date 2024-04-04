@@ -81,3 +81,7 @@ select * from user_tab_cols where table_name = '表名';
 ```
 
 
+###### 5、误删表恢复
+```
+flashback table 表名 to before drop
+```
