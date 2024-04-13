@@ -103,14 +103,6 @@ void completeTask() {
     // 完成任务环节
     taskService.complete("bc2748ad-f968-11ee-98ce-00ff306296e3");
 }
-
-@Test
-void completeTask() {
-    // 完成任务环节时，存在变量
-    Map<String, Object> variables = new HashMap<>();
-    variables.put("approved", false); // 拒绝请假
-    taskService.complete("bc2748ad-f968-11ee-98ce-00ff306296e3", variables);
-}
 ```
 
 * 流程启动后会进入到开始环节后的第一个任务节点：组长审批

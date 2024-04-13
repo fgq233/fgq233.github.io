@@ -48,17 +48,48 @@ public class User {
 ### 二、测试固定用户、值表达式、方法表达式
 ![](https://fgq233.github.io/imgs/workflow/flow05.png)
 
-#### 1. 部署流程
+#### 1. 部署流程(略)
 #### 2. 启动流程实例
-* 若第一个环节是固定用户，启动流程无需传递变量
-* 若第一个环节是表达式，则启动流程时需要传递变量
+* 若第一个任务环节是固定用户，启动流程无需传递变量
+* 若第一个任务环节是表达式，则启动流程时需要传递变量，变量记录在`ACT_RU_VARIABLE`表中
 
 ```
 runtimeService.startProcessInstanceByKey("X2");
 
-Map<String, Object> var = new HashMap<>();
-var.put("name", "XXX");
-ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("X2", var);
+// Map<String, Object> var = new HashMap<>();
+// var.put("name", "XXX");
+// runtimeService.startProcessInstanceByKey("X2", var);
 ```
 
-#### 3. 启动流程实例(略)
+此处由于第一个任务环节是固定用户，无需传递变量
+
+
+#### 3. AAA 用户完成任务
+```
+Map<String, Object> variables = new HashMap<>();
+variables.put("name", "BBB");
+taskService.complete("taskAAAId", variables);
+```
+
+下一环节用户为值表达式`${name}`，所以在完成任务时需要传递变量，指定用户
+
+
+#### 4. BBB 用户完成任务
+```
+@Component
+public class User {
+    public String getName() { return "CCC"; }
+}
+
+taskService.complete("taskBBBId");
+```
+
+下一环节用户为方法表达式`${user.getName()}`，所以需要定义JavaBean注入到Spring容器
+
+
+#### 4. CCC 用户完成任务
+```
+taskService.complete("taskCCCId");
+```
+
+下一环节为结束，所以此处无需传递变量
