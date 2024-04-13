@@ -77,7 +77,7 @@ void startProcessInstance() {
 * 启动流程实例成功后，会记录以下信息
   * `act_hi_procinst` 记录流程实例历史，每启动一次流程实例，就记录一条(流程实例id、关联的流程定义id......)
   * `act_ru_task`  记录流程实例的任务信息，即当前待办  (任务id、环节名称、当前待办人)
-  * `act_ru_execution` 流程分支
+  * `act_ru_execution` 流程执行信息
 
 
 ### 四、待办任务、完成任务 TaskService
