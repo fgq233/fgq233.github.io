@@ -1,46 +1,57 @@
-###  Flowable 启动流程实例
+###  Flowable 流程的挂起、激活
 
-#### 1. 非 Spring 环境部署
-```
-@Test
-void deployFlow() {
-    // 1.流程引擎的配置
-    ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration()
-            .setJdbcUrl("jdbc:mysql://127.0.0.1:3306/flowable?serverTimezone=UTC&nullCatalogMeansCurrent=true")
-            .setJdbcDriver("com.mysql.cj.jdbc.Driver")
-            .setJdbcUsername("root")
-            .setJdbcPassword("123456")
-            .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
-    // 2.构建流程引擎对象
-    ProcessEngine processEngine = cfg.buildProcessEngine();
-    // 3. 部署流程
-    Deployment deploy = processEngine.getRepositoryService().createDeployment()
-            .addClasspathResource("xml/flow1.bpmn20.xml")
-            .name("第一个流程案例")
-            .deploy();
-    System.out.println(deploy.getId());
-}
-```
+### 一、 流程挂起、激活
+流程部署后，**act_re_procdef** 表 `SUSPENSION_STATE_` 字段表示流程是否挂起
+* `SUSPENSION_STATE = 1` 激活状态
+* `SUSPENSION_STATE = 2` 挂起状态
 
-
-#### 2. Spring 环境部署
 ```
 @Autowired
 private RepositoryService repositoryService;
 
 @Test
-void deployFlow(){
-    Deployment deploy = repositoryService.createDeployment()
-            .addClasspathResource("xml/flow1.bpmn20.xml") 
-            .name("第一个流程案例")
-            .deploy();
-    System.out.println(deploy.getId());
+void suspended() {
+    String processDefId = "X1:1:ad3301c4-f968-11ee-ab3f-00ff306296e3";
+    // 查询流程定义信息
+    ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
+            .processDefinitionId(processDefId)
+            .singleResult();
+    // 获取流程定义的状态
+    boolean suspended = processDefinition.isSuspended();
+    System.out.println("流程当前状态：" + (suspended ? "挂起" : "激活"));
+    if (suspended) {
+        System.out.println("激活流程");
+        repositoryService.activateProcessDefinitionById(processDefId);
+    } else {
+        System.out.println("挂起流程");
+        repositoryService.suspendProcessDefinitionById(processDefId);
+    }
 }
 ```
 
+* 流程挂起后，不能再启动流程实例，但是不影响已经启动的流程实例中任务执行
 
-#### 3. 部署结果
-部署成功后，会在下面三张表中记录流程部署的信息
-* `act_ge_bytearray` 记录流程定义的资源信息，xml和流程图的图片信息
-* `act_re_deployment` 流程部署表，记录这次的部署行为
-* `act_re_procdef` 流程定义表，记录这次部署动作对应的流程定义信息
+
+
+### 二、 流程实例挂起、激活
+流程任务表，**act_ru_task** 表 `SUSPENSION_STATE_` 字段表示**流程实例**是否挂起
+* `SUSPENSION_STATE = 1` 激活状态
+* `SUSPENSION_STATE = 2` 挂起状态
+
+```
+@Autowired
+private RuntimeService runtimeService;
+
+@Test
+void suspendedInstance() {
+    String processInstanceId = "38ab1ceb-f972-11ee-ad6b-00ff306296e3";
+    // 挂起流程实例
+    runtimeService.suspendProcessInstanceById(processInstanceId);
+    
+    // 激活流程实例
+    // runtimeService.activateProcessInstanceById(processInstanceId);
+}
+```
+
+* 流程实例挂起后，不能再完成任务
+
