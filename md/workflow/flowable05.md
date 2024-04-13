@@ -2,8 +2,8 @@
 * `ACT_GE_` (General)，通用数据
 * `ACT_RE_` (Repository)，流程定义和流程静态资源
 * `ACT_RU_` (Runtime)，运行时的表，包含流程实例、任务、变量、异步任务，在流程实例结束时会删除数据
-* `ACT_HI_` (History)，历史数据，如历史流程实例， 变量，任务...
-* `ACT_ID_` (Identity)，身份信息，如用户，用户组
+* `ACT_HI_` (History)，历史数据，如历史流程实例、变量，任务...
+* `ACT_ID_` (Identity)，身份信息，如用户、用户组
 
 ### 一、General
 
