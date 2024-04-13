@@ -19,16 +19,14 @@ ProcessEngine processEngine = cfg.buildProcessEngine();
 
 若是`Spring`环境，只要在`application.yml`配置好数据库、`flowable`相关配置，即可注入`ProcessEngine`对象使用
 
-#### 2. 四大服务
-````
-// 用于部署流程，操作数据保存在 act_re_... 相关表
-RepositoryService repositoryService = processEngine.getRepositoryService();
-// 用于启动流程实例，操作数据保存在 act_ru_... 相关表
-RuntimeService runtimeService = processEngine.getRuntimeService();
-// 用于启动流程实例，操作数据保存在 act_ru_... 相关表
-TaskService taskService = processEngine.getTaskService();
-HistoryService historyService = processEngine.getHistoryService();
-````
+#### 2. 常用的四大服务
+
+| 服务                | 作用                    | 表            |
+|-------------------|-----------------------|--------------|
+| RepositoryService | 资源管理，如：部署流程           | act_re_...   |
+| RuntimeService    | 流程运行管理，如：启动流程实例       | act_ru_...   |
+| TaskService       | 任务管理，如：查询待办任务、完成任务    | act_ru_task  |
+| HistoryService    | 历史管理，如：查询流程任务完成历史     | act_hi_...   |
 
 若是`Spring`环境，这些服务可以直接注入使用
 
@@ -77,9 +75,9 @@ void startProcessInstance() {
   *  流程定义：Java中的类
   *  流程实例：Java中的对象
 * 启动流程实例成功后，会记录以下信息
-  * `act_hi_procinst` 每启动一次流程实例，就在该表记录一条流程实例信息(流程实例id、关联的流程定义id......)
+  * `act_hi_procinst` 记录流程实例历史，每启动一次流程实例，就记录一条(流程实例id、关联的流程定义id......)
   * `act_ru_task`  记录流程实例的任务信息，即当前待办  (任务id、环节名称、当前待办人)
-  * `act_ru_execution` 流程实例执行表，流程实例中每一个环节都会记录一条信息（开始、结束也会记录）
+  * `act_ru_execution` 流程分支
 
 
 ### 四、待办任务、完成任务 TaskService
@@ -109,10 +107,10 @@ void completeTask() {
   * 环节名称：`act_ru_task.NAME_ = 组长审批`
   * 分配用户：`act_ru_task.Assignee_ = A`
 * 调用 complete(任务id) 完成组长审批环节，此时环节流传到经理审批
-  * 任务id：**不变**
+  * 任务id：`act_ru_task.ID_ = ab4e1f79-f969-11ee-a1c7-00ff306296e3`
   * 环节名称：`act_ru_task.NAME_ = 经理审批`
   * 分配用户：`act_ru_task.Assignee_ = B`
 * 再次调用 complete(任务id) 完成经理审批环节，此时环节流传到结束，流程实例结束
-
+* PS：任务完成后，act_ru_task 任务数据会删除
 
 
