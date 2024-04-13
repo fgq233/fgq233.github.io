@@ -47,3 +47,18 @@ public class User {
 
 ### 二、测试固定用户、值表达式、方法表达式
 ![](https://fgq233.github.io/imgs/workflow/flow05.png)
+
+#### 1. 部署流程
+#### 2. 启动流程实例
+* 若第一个环节是固定用户，启动流程无需传递变量
+* 若第一个环节是表达式，则启动流程时需要传递变量
+
+```
+runtimeService.startProcessInstanceByKey("X2");
+
+Map<String, Object> var = new HashMap<>();
+var.put("name", "XXX");
+ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("X2", var);
+```
+
+#### 3. 启动流程实例(略)
