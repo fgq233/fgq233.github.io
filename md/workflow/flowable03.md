@@ -41,7 +41,7 @@ private RepositoryService repositoryService;
 @Test
 void deployFlow(){
     Deployment deploy = repositoryService.createDeployment()
-            .addClasspathResource("xml/flow1.bpmn20.xml") 
+            .addClasspathResource("xml/X1.bpmn20.xml") 
             .name("第一个流程案例")
             .deploy();
     System.out.println(deploy.getId());
@@ -77,8 +77,8 @@ void startProcessInstance() {
   *  流程定义：Java中的类
   *  流程实例：Java中的对象
 * 启动流程实例成功后，会记录以下信息
-  * `act_hi_procinst` 每启动一次流程实例，就在该表记录一条流程实例信息(流程实例ID、关联的流程定义ID、启动时间......)
-  * `act_ru_task`  记录流程实例的任务信息，即当前待办
+  * `act_hi_procinst` 每启动一次流程实例，就在该表记录一条流程实例信息(流程实例id、关联的流程定义id......)
+  * `act_ru_task`  记录流程实例的任务信息，即当前待办  (任务id、环节名称、当前待办人)
   * `act_ru_execution` 流程实例执行表，流程实例中每一个环节都会记录一条信息（开始、结束也会记录）
 
 
@@ -88,18 +88,31 @@ void startProcessInstance() {
 private TaskService taskService;
 
 @Test
-void startProcessInstance() {
-    ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("X1");
-    System.out.println("ProcessInstanceId:" + processInstance.getProcessInstanceId());
+void queryTask() {
+    List<Task> list = taskService.createTaskQuery()
+            .taskAssignee("A")
+            .list();
+    for (Task task : list) {
+        System.out.println("任务id：" + task.getId());
+        System.out.println("环节名称：" + task.getName());
+    }
+}
+
+@Test
+void completeTask() {
+    taskService.complete("bc2748ad-f968-11ee-98ce-00ff306296e3");
 }
 ```
 
-* 流程启动后会进入到开始环节后的第一个任务节点：
-  *  流程定义：Java中的类
-  *  流程实例：Java中的对象
-* 启动流程实例成功后，会记录以下信息
-  * `act_hi_procinst` 每启动一次流程实例，就在该表记录一条流程实例信息(流程实例ID、关联的流程定义ID、启动时间......)
-  * `act_ru_task`  记录流程实例的任务信息，即当前待办
-  * `act_ru_execution` 流程实例执行表，流程实例中每一个环节都会记录一条信息（开始、结束也会记录）
+* 流程启动后会进入到开始环节后的第一个任务节点：组长审批
+  * 任务id：`act_ru_task.ID_ = bc2748ad-f968-11ee-98ce-00ff306296e3`
+  * 环节名称：`act_ru_task.NAME_ = 组长审批`
+  * 分配用户：`act_ru_task.Assignee_ = A`
+* 调用 complete(任务id) 完成组长审批环节，此时环节流传到经理审批
+  * 任务id：**不变**
+  * 环节名称：`act_ru_task.NAME_ = 经理审批`
+  * 分配用户：`act_ru_task.Assignee_ = B`
+* 再次调用 complete(任务id) 完成经理审批环节，此时环节流传到结束，流程实例结束
+
 
 
