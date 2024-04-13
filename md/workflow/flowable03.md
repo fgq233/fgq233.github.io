@@ -1,9 +1,10 @@
-###  Flowable 流程部署、启动流程实例
+###  Flowable 一个简单的流程使用步骤
+![](https://fgq233.github.io/imgs/workflow/flow02.png)
 
 ### 一、流程引擎 ProcessEngine
 流程操作都需要使用到流程引擎对象`ProcessEngine`，然后通过`ProcessEngine`获取对应服务来进行具体操作
 
-#### 1. 非Spring环境  --- 构建流程引擎对象 
+#### 1. 非Spring环境构建流程引擎对象 
 ```
 // 1.流程引擎的配置
 ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration()
@@ -16,20 +17,15 @@ ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration()
 ProcessEngine processEngine = cfg.buildProcessEngine();
 ```
 
-#### 2. Spring 环境  
-````
-@Autowired
-private ProcessEngine processEngine;
-````
+若是`Spring`环境，只要在`application.yml`配置好数据库、`flowable`相关配置，即可注入`ProcessEngine`对象使用
 
-只要在`application.yml`配置好数据库、`flowable`相关配置，即可注入`ProcessEngine`对象
-
-#### 3. 四大服务
+#### 2. 四大服务
 ````
 // 用于部署流程，操作数据保存在 act_re_... 相关表
 RepositoryService repositoryService = processEngine.getRepositoryService();
 // 用于启动流程实例，操作数据保存在 act_ru_... 相关表
 RuntimeService runtimeService = processEngine.getRuntimeService();
+// 用于启动流程实例，操作数据保存在 act_ru_... 相关表
 TaskService taskService = processEngine.getTaskService();
 HistoryService historyService = processEngine.getHistoryService();
 ````
@@ -78,6 +74,27 @@ void startProcessInstance() {
 ```
 
 * 流程定义和流程实例的关系
+  *  流程定义：Java中的类
+  *  流程实例：Java中的对象
+* 启动流程实例成功后，会记录以下信息
+  * `act_hi_procinst` 每启动一次流程实例，就在该表记录一条流程实例信息(流程实例ID、关联的流程定义ID、启动时间......)
+  * `act_ru_task`  记录流程实例的任务信息，即当前待办
+  * `act_ru_execution` 流程实例执行表，流程实例中每一个环节都会记录一条信息（开始、结束也会记录）
+
+
+### 四、待办任务、完成任务 TaskService
+```
+@Autowired
+private TaskService taskService;
+
+@Test
+void startProcessInstance() {
+    ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("X1");
+    System.out.println("ProcessInstanceId:" + processInstance.getProcessInstanceId());
+}
+```
+
+* 流程启动后会进入到开始环节后的第一个任务节点：
   *  流程定义：Java中的类
   *  流程实例：Java中的对象
 * 启动流程实例成功后，会记录以下信息
