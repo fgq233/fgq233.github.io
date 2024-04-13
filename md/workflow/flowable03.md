@@ -87,7 +87,7 @@ private TaskService taskService;
 
 @Test
 void queryTask() {
-    // 查询某个流程定义、某个用户的待办任务
+    // 查询某个流程定义下某个用户的待办任务
     List<Task> list = taskService.createTaskQuery()
             .processDefinitionId("X1:1:ad3301c4-f968-11ee-ab3f-00ff306296e3")
             .taskAssignee("A")
