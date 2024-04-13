@@ -88,6 +88,7 @@ private TaskService taskService;
 @Test
 void queryTask() {
     List<Task> list = taskService.createTaskQuery()
+            .processDefinitionId("X1:1:ad3301c4-f968-11ee-ab3f-00ff306296e3")
             .taskAssignee("A")
             .list();
     for (Task task : list) {
