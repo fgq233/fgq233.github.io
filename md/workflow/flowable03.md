@@ -87,6 +87,7 @@ private TaskService taskService;
 
 @Test
 void queryTask() {
+    // 查询某个流程定义、某个用户的待办任务
     List<Task> list = taskService.createTaskQuery()
             .processDefinitionId("X1:1:ad3301c4-f968-11ee-ab3f-00ff306296e3")
             .taskAssignee("A")
@@ -99,7 +100,16 @@ void queryTask() {
 
 @Test
 void completeTask() {
+    // 完成任务环节
     taskService.complete("bc2748ad-f968-11ee-98ce-00ff306296e3");
+}
+
+@Test
+void completeTask() {
+    // 完成任务环节时，存在变量
+    Map<String, Object> variables = new HashMap<>();
+    variables.put("approved", false); // 拒绝请假
+    taskService.complete("bc2748ad-f968-11ee-98ce-00ff306296e3", variables);
 }
 ```
 
@@ -113,5 +123,4 @@ void completeTask() {
   * 分配用户：`act_ru_task.Assignee_ = B`
 * 再次调用 complete(任务id) 完成经理审批环节，此时环节流传到结束，流程实例结束
 * PS：任务完成后，act_ru_task 任务数据会删除
-
 
