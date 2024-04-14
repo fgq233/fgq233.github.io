@@ -4,6 +4,7 @@
 1. [Flowable 流程的挂起、激活][04]
 1. [Flowable 数据库常用表的作用][05]
 1. [Flowable 分配用户][06]
+1. [Flowable 流程变量][07]
 
 
 
