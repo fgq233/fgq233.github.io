@@ -37,7 +37,7 @@ public class User {
 ![](https://fgq233.github.io/imgs/workflow/flow04.png)
 
 * 使用Java类作为任务监听器，设置任务处理人
-* 监听器事件分为 5 种
+* 监听器事件分为 4 种
   * `create`      当任务环节**创建**时触发
   * `assignment`  当任务环节**分配**时触发
   * `complete`    当**完成**任务环节时触发
