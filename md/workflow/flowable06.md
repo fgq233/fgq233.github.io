@@ -92,8 +92,9 @@ public class UserListener implements TaskListener {
 
     @Override
     public void notify(DelegateTask delegateTask) {
-        if (EVENTNAME_CREATE.equals(delegateTask.getName())) {
-            // 任务节点的创建时，指定处理人
+        System.out.println("触发UserListener");
+        if (EVENTNAME_CREATE.equals(delegateTask.getEventName())) {
+            System.out.println("任务节点创建事件触发，指定处理人");
             delegateTask.setAssignee("DDD");
         }
     }
