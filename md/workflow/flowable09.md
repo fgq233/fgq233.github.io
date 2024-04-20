@@ -77,7 +77,7 @@ for (Task task : list) {
     System.out.println("任务id：" + task.getId());
     System.out.println("环节名称：" + task.getName());
     // 拾取任务
-    taskService.claim(task.getId(), "1");
+    taskService.claim(task.getId(), "user_1");
 }
 ```
 
