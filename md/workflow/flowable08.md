@@ -42,15 +42,22 @@ group.setName("开发组");
 identityService.saveGroup(group);
 ```
 
-#### 2. 删除用户
+#### 2. 删除用户组
 ```
 identityService.deleteGroup("group_1");
 ```
 
-#### 3. 查询用户
+#### 3. 查询用户组
 ```
-List<Group> list = identityService.createGroupQuery().list();
-list.forEach(group -> System.out.println(group.getName()));
+// 查询所有
+List<Group> list1 = identityService.createGroupQuery().list();
+list1.forEach(group -> System.out.println(group.getName()));
+// 通过用户组id查询
+Group group = identityService.createGroupQuery().groupId("group_1").singleResult();
+System.out.println(group.getName());
+// 通过用户id查询
+Group group2 = identityService.createGroupQuery().groupMember("1").singleResult();
+System.out.println(group2.getName());
 ```
 
 
