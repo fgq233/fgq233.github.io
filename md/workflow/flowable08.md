@@ -50,8 +50,8 @@ identityService.deleteGroup("group_1");
 #### 3. 查询用户组
 ```
 // 查询所有
-List<Group> list1 = identityService.createGroupQuery().list();
-list1.forEach(group -> System.out.println(group.getName()));
+List<Group> list = identityService.createGroupQuery().list();
+list.forEach(group -> System.out.println(group.getName()));
 // 通过用户组id查询
 Group group = identityService.createGroupQuery().groupId("group_1").singleResult();
 System.out.println(group.getName());
