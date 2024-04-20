@@ -56,7 +56,7 @@ list1.forEach(group -> System.out.println(group.getName()));
 Group group = identityService.createGroupQuery().groupId("group_1").singleResult();
 System.out.println(group.getName());
 // 通过用户id查询
-Group group2 = identityService.createGroupQuery().groupMember("1").singleResult();
+Group group2 = identityService.createGroupQuery().groupMember("user_1").singleResult();
 System.out.println(group2.getName());
 ```
 
