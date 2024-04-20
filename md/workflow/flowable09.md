@@ -46,12 +46,15 @@ if (task != null) {
 
 
 #### 5. 候选人交接任务
-当候选人拾取后，如果不想操作、也不想归还，还可以直接交接给另外一个人来处理
+* 当候选人拾取后，如果不想操作、也不想归还，还可以直接交接给另外一个人来处理
+* `setAssignee()`  指派任务
+* `delegateTask(taskId, userId)、resolveTask(taskId)`  委派任务、撤销委派
 
 ```
 Task task = taskService.createTaskQuery().taskAssignee("A").singleResult();
 if (task != null) {
-    taskService.setAssignee(task.getId(), "B");
+    taskService.delegateTask(task.getId(), "B");
+    // taskService.setAssignee(task.getId(), "B");
     System.out.println("交接任务成功");
 }
 ```
