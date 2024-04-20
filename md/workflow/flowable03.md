@@ -19,14 +19,15 @@ ProcessEngine processEngine = cfg.buildProcessEngine();
 
 若是`Spring`环境，只要在`application.yml`配置好数据库、`flowable`相关配置，即可注入`ProcessEngine`对象使用
 
-#### 2. 常用的四大服务
+#### 2. 常用的服务
 
-| 服务                | 作用                   | 表            |
-|-------------------|----------------------|--------------|
-| RepositoryService | 资源管理，如：部署流程，流程的挂起与激活 | act_re_...   |
-| RuntimeService    | 流程运行管理，如：启动流程实例      | act_ru_...   |
-| TaskService       | 任务管理，如：查询待办任务、完成任务   | act_ru_task  |
-| HistoryService    | 历史管理，如：查询流程任务完成历史    | act_hi_...   |
+| 服务               | 作用                   | 表           |
+|------------------|----------------------|-------------|
+| RepositoryService | 资源管理，如：部署流程，流程的挂起与激活 | act_re_...  |
+| RuntimeService   | 流程运行管理，如：启动流程实例      | act_ru_...  |
+| TaskService      | 任务管理，如：查询待办任务、完成任务   | act_ru_task |
+| HistoryService   | 历史管理，如：查询流程任务完成历史    | act_hi_...  |
+| IdentityService  | 用户、用户组管理             | act_id_...  |
 
 若是`Spring`环境，这些服务可以直接注入使用
 
