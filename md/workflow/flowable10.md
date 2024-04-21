@@ -31,8 +31,7 @@ taskService.complete("task1_id_......", var);
 ![](https://fgq233.github.io/imgs/workflow/flow09.png)
 
 
-* 如图流程
-* 当第一个环节完成后，通过并行网关，产生了 2 个分支
+* 如图流程，当第一个环节完成后，通过并行网关，产生了 2 个分支
   * 任务表`act_ru_task`产生2条记录，2条记录的执行实例`execution_id`不一样
   * 然后在`act_ru_execution`中同时有三条记录，一个任务对应的有两个执行实例
 * 当2个分支任务都完成后，才会通过第二个并行网关，进行下一环节
