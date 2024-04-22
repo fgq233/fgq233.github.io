@@ -15,7 +15,7 @@ select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.c
 ```
 
 ### 二、 分区函数 partition by、排名函数
-![](https://fgq233.github.io/imgs/other/listagg01.png)
+![](https://fgq233.github.io/imgs/oracle/listagg01.png)
 
 #### 1. 基础用法
 * listagg 函数主要用于将多行数据聚合为一行
@@ -28,7 +28,7 @@ select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.c
 select listagg(t.dict_value, ',') within group(order by t.dict_key) from RABBIT_SYSTEM_DICT t;
 ```
 
-![](https://fgq233.github.io/imgs/other/listagg02.png)
+![](https://fgq233.github.io/imgs/oracle/listagg02.png)
 
 
 #### 2. 搭配 group by 使用(聚合)
@@ -39,7 +39,7 @@ select t.code,
  group by t.code;
 ```
 
-![](https://fgq233.github.io/imgs/other/listagg03.png)
+![](https://fgq233.github.io/imgs/oracle/listagg03.png)
 
 #### 3. 搭配 over(partition by XXX) 使用(开窗)
 ```
@@ -49,7 +49,7 @@ select t.code,
   from RABBIT_SYSTEM_DICT t;
 ```
 
-![](https://fgq233.github.io/imgs/other/listagg04.png)
+![](https://fgq233.github.io/imgs/oracle/listagg04.png)
 
 
 聚合和开窗的区别：
