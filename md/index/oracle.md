@@ -1,4 +1,5 @@
 1. [Oracle中函数][oracle01]
+1. [Oracle中复杂函数][highFun]
 1. [分页查询、合并查询、with as][oracle02]
 1. [Oracle中的null值][oracle03]
 1. [逻辑控制语句][oracle04]
@@ -22,6 +23,7 @@
 
 
 [oracle01]: https://fgq233.github.io/md/oracle/oracle01
+[highFun]: https://fgq233.github.io/md/oracle/highFunction
 [oracle02]: https://fgq233.github.io/md/oracle/oracle02
 [oracle03]: https://fgq233.github.io/md/oracle/oracle03
 [oracle04]: https://fgq233.github.io/md/oracle/oracle04
