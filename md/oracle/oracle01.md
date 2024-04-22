@@ -137,33 +137,41 @@ select t.organ_name, t.jglx, dense_rank() over (partition by t.jglx order by t.c
 
 
 #### 8. 分组聚合 listagg，组内列转行
-* `listagg (AAA, BBB) within group(order by CCC)` + `group by DDD`
-  * 先分组，组内排序，然后将组内列聚合起来
-  * `AAA` 聚合的列，可以是表达式
-  * `BBB` 聚合的分隔符(可选)
-  * `CCC` 组内排序
-  * `DDD` 分组
+* `listagg (AAA, BBB) within group(order by CCC)` + ...... + `group by DDD`
+  * 先分组group，组内排序within group，然后将组内列聚合起来listagg(列, 分隔符)
 * `listagg (AAA, BBB) over(partition by CCC)`
-  * 不分组，而是分区，将同一个分区内的列聚合起来
-  * `CCC` 分区字段，可以是多个
+  * 先分区，再聚合
 * `listagg (AAA, BBB) within group(order by CCC) over(partition by DDD)`
-  * 比上面多了个分区内排序，影响聚合字段的内容
+  * 先分区，区内排序，再聚合
+* 各段SQL作用
+  * `group by ...` 分组
+  * `over(partition by ...)` 分区
+  * `within group(order by ...)` 区内排序
+  * `listagg (AAA, BBB)`  聚合
+  
+![](https://fgq233.github.io/imgs/other/listagg.png)
 
 ```
-select t.code,
-       listagg(t.dict_value, ',') within group(order by t.creation_date)
+select t.code, 
+       listagg(t.dict_value, ',') within group(order by t.dict_key)
   from RABBIT_SYSTEM_DICT t
  where t.code = 'weather'
  group by t.code;
 
-select t.code, listagg(t.dict_value, ',') over(partition by t.code)
+select t.code,
+       t.dict_key,
+       listagg(t.dict_value, ',') over(partition by t.code)
   from RABBIT_SYSTEM_DICT t
  where t.code = 'weather';
 
-select t.code, listagg(t.dict_value, ',') within group(order by t.creation_date) over(partition by t.code)
+select t.code,
+       t.dict_key,
+       listagg(t.dict_value, ',') within group(order by t.id) over(partition by t.code)
   from RABBIT_SYSTEM_DICT t
  where t.code = 'weather';
 ```
+
+PS：分组会影响数据数量，分区不会
 
 #### 9. 统计函数 + over(partition by XXX)
 *  `count(AAA) over(partition by BBB)`  区内数量
