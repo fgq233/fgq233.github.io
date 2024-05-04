@@ -1,5 +1,5 @@
-###  定时器启动事件
-#### 1. 作用
+###  定时器启动事件 
+#### 1. 说明
 * 作用：在指定时间创建流程实例，不需要调用`startProcessInstanceByXXX`
 * 注意
   * 子流程不能有定时器启动事件
@@ -8,10 +8,10 @@
 
 
 #### 2. 流程图
-![](https://fgq233.github.io/imgs/workflow/flow13.png)
+![](https://fgq233.github.io/imgs/workflow/flow12.png)
 
 ```
-<startEvent id="sid-605D4213-D687-47F1-822B-E04FF57D2A89" isInterrupting="false">
+<startEvent>
   <timerEventDefinition>
     <timeCycle>R6/PT10S</timeCycle>
   </timerEventDefinition>

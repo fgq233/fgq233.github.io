@@ -14,8 +14,6 @@
 * 中间抛出事件
 * 结束事件
 
-![](https://fgq233.github.io/imgs/workflow/flow12.png)
-
 
 ### 三、按功能划分
 * 定时器事件
@@ -24,15 +22,15 @@
 * 信号事件
 * 其他的事件
 
-#### 1.定时器事件
-* 定时器事件（timer event definition），是由定时器所触发的事件
+#### 1.定时器事件 timer event definition
+* 由定时器所触发的事件
 * 定时器定义必须且只能包含下列的一种元素
   * `timeDate` 开始时间，ISO 8601格式的`固定时间`，在这个时间就会触发触发器
   * `timeDuration` 等待时间，定时器需要`等待多长时间`再触发
   * `timeCycle` 循环时间，有2种方式
     * 标准的ISO 8601格式，指定重复周期、触发次数、结束时间
     * cron 表达式
-* 定时器只有在异步执行器启用时才能触发，在配置文件将`async-executor-activate`置为 true
+* 定时器只有在异步执行器启用时才能触发，需要在配置文件将`async-executor-activate`置为 true
 * 在触发前，`act_ru_timer_job` 中可以查询到定时器信息
 
 ```
@@ -56,4 +54,20 @@
 <timerEventDefinition>
     <timeCycle>0 0/5 * * * ?</timeCycle>
 </timerEventDefinition>0 0/5 * * * ?
+```
+
+
+#### 2.消息事件 message event
+* 引用具名消息的事件
+* 消息事件定义使用`messageEventDefinition`元素声明，其`messageRef`属性引用一个`message`元素
+* 消息事件只有一个接收者
+
+```
+<message id="newInvoice" name="newInvoiceMessage" />
+
+<process id="invoiceProcess">
+  <startEvent id="messageStart" >
+  	<messageEventDefinition messageRef="newInvoice" />
+  </startEvent>
+</process>
 ```
