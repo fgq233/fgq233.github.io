@@ -33,7 +33,7 @@ ProcessInstance startProcessInstanceByMessage(String messageName, String busines
 </process>
 ```
 
-#### 3. 测试
+#### 4. 测试
 ```
 repositoryService.createDeployment()
         .addClasspathResource("xml/StartMessageEvent.bpmn20.xml")
@@ -43,5 +43,4 @@ runtimeService.startProcessInstanceByMessage("启动消息");
 Thread.sleep(Integer.MAX_VALUE);
 ```
 
-* 部署流程后，每隔 10s 自动启动流程实例，一共6次
 
