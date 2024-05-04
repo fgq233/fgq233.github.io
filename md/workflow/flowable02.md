@@ -49,7 +49,7 @@ spring:
     username: root
     password: 123456
 flowable:
-  async-executor-activate: true  # 关闭定时任务JOB
+  async-executor-activate: false 
   database-schema-update: true    
 ```
 
