@@ -12,7 +12,7 @@
 * [Linux][linux]
 * [Docker][docker]
 * [Jenkins][jenkins]
-* [工作流][workflow]
+* [工作流 Flowable][workflowHtml]    [~][workflowMd]
 
 [cloudHtml]: https://fgq233.github.io/html/blog?key=cloud
 [cloudMd]: https://fgq233.github.io/md/index/cloud
@@ -30,4 +30,5 @@
 [vueMd]: https://fgq233.github.io/md/index/vue
 [docker]: https://fgq233.github.io/md/index/docker
 [jenkins]: https://fgq233.github.io/md/index/jenkins
-[workflow]: https://fgq233.github.io/md/index/workflow
+[workflowHtml]: https://fgq233.github.io/html/blog?key=flowable
+[workflowMd]: https://fgq233.github.io/md/index/workflow

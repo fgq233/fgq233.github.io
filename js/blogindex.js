@@ -24,8 +24,12 @@ function initBlog() {
         blogList2 = middlewareList2;
         blogList3 = middlewareList3;
         blogList4 = middlewareList4;
+    }  else if (key === "flowable") {
+        blogList1 = flowable1;
+        blogList2 = flowable2;
+        blogList3 = flowable3;
+        blogList4 = flowable4;
     }
-
     let divHtml = "";
 
     for (let i = 1; i < 5; i++) {
