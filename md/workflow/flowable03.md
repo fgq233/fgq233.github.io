@@ -31,6 +31,7 @@ ProcessEngine processEngine = cfg.buildProcessEngine();
 
 若是`Spring`环境，这些服务可以直接注入使用
 
+![](https://fgq233.github.io/imgs/workflow/flow11.png)
 
 ### 二、流程部署 RepositoryService
 #### 1. 部署
