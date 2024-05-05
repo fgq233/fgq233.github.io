@@ -39,6 +39,7 @@ repositoryService.createDeployment()
         .addClasspathResource("xml/StartMessageEvent.bpmn20.xml")
         .name("消息启动事件")
         .deploy();
+        
 runtimeService.startProcessInstanceByMessage("启动消息");
 Thread.sleep(Integer.MAX_VALUE);
 ```

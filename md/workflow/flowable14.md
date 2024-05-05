@@ -34,6 +34,7 @@ repositoryService.createDeployment()
         .addClasspathResource("xml/StartSignalEvent.bpmn20.xml")
         .name("信号启动事件")
         .deploy();
+        
 // 发送信号
 runtimeService.signalEventReceived("启动信号");
 Thread.sleep(Integer.MAX_VALUE);

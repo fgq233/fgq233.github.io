@@ -140,3 +140,15 @@ List<Execution> executions = runtimeService.createExecutionQuery()
       .signalEventSubscriptionName("alert")
       .list();
 ```
+
+
+### 六、 错误事件 error event definition
+* BPMN错误与Java异常不是一回事
+  * BPMN错误事件是建模业务异常（business exceptions）
+  * Java异常会按它们自己的方式处理
+  
+```
+<endEvent id="myErrorEndEvent">
+  <errorEventDefinition errorRef="myError" />
+</endEvent>
+```
