@@ -159,7 +159,8 @@ List<Execution> executions = runtimeService.createExecutionQuery()
 * BPMN错误与Java异常不是一回事
   * BPMN错误事件是建模业务异常（business exceptions）
   * Java异常会按它们自己的方式处理
-  
+* FlowableUI 上无法定义错误`<error/>`，需要手动在 bpmn.xml 中加上
+
 ```
 <error id="myError" errorCode="404" />
 
