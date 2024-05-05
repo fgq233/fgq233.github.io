@@ -1,9 +1,9 @@
 ###  边界定时器事件 
 #### 一、 说明
 * 当执行到达边界事件所依附的任务时，将启动定时器
-* 当定时器触发时，并沿着边界事件的出口顺序流继续执行
+* 当定时器触发时，沿着边界事件的出口顺序流继续执行
   * 中断定时器：默认`cancelActivity="true"`，图标为实线，原任务会被中断
-  * 非中断定时器：图标为虚线，`cancelActivity="false"`
+  * 非中断定时器：图标为虚线，`cancelActivity="false"`，原任务仍存在
 
 ```
 <boundaryEvent id="escalationTimer" cancelActivity="false" attachedToRef="firstLineSupport"/>
