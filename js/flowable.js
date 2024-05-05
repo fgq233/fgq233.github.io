@@ -26,7 +26,7 @@ const flowable2 = [
             {url: "https://fgq233.github.io/md/workflow/flowable13-1", title: "边界定时器事件"},
             {url: "https://fgq233.github.io/md/workflow/flowable13-2", title: "边界消息事件"},
             {url: "https://fgq233.github.io/md/workflow/flowable13-3", title: "边界信号事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable13-4", title: "边界错误事件 ×"},
+            {url: "https://fgq233.github.io/md/workflow/flowable13-4", title: "边界错误事件"},
             {url: "https://fgq233.github.io/md/workflow/flowable13-5", title: "边界补偿事件"},
         ]
     },
