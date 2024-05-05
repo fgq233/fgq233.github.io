@@ -17,6 +17,7 @@ const flowable2 = [
         url: "", title: "启动事件", child: [
             {url: "https://fgq233.github.io/md/workflow/flowable12", title: "定时器启动事件"},
             {url: "https://fgq233.github.io/md/workflow/flowable13", title: "消息启动事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable14", title: "信号启动事件"},
         ]
     },
 ];
