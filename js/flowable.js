@@ -43,6 +43,11 @@ const flowable2 = [
             {url: "https://fgq233.github.io/md/workflow/flowable15-2", title: "中间补偿投掷事件"},
         ]
     },
+    {
+        url: "", title: "结束事件", child: [
+            {url: "https://fgq233.github.io/md/workflow/flowable16-1", title: "结束错误事件"},
+        ]
+    },
 ];
 
 
