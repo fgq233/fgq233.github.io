@@ -60,7 +60,7 @@ Thread.sleep(Integer.MAX_VALUE);
 #### 三 边界消息事件(不中断任务)
 #### 1. 定义消息(略)
 #### 2. 流程图
-![](https://fgq233.github.io/imgs/workflow/flow19.png)
+![](https://fgq233.github.io/imgs/workflow/flow22.png)
 
 ```
 <message id="boundMsg" name="边界消息"></message>
