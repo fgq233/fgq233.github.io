@@ -6,7 +6,7 @@
 
 
 #### 2. 流程图
-![](https://fgq233.github.io/imgs/workflow/flow28.png)
+![](https://fgq233.github.io/imgs/workflow/flow29.png)
 
 ```
 <message id="midMsg" name="中间消息"></message>
