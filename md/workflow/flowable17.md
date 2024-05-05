@@ -1,4 +1,6 @@
 ###  边界消息事件 
+依附在任务活动上的消息事件
+
 #### 一、 说明
 * 当执行到达边界事件所依附的任务时
 * 此时任务如果还没有完成，若收到了订阅的消息，则沿着边界事件的出口顺序流继续执行
@@ -31,16 +33,20 @@ void messageEventReceived(String messageName, String executionId, Map<String, Ob
 
 #### 3. 测试
 ```
+// 部署流程
 repositoryService.createDeployment()
         .addClasspathResource("xml/BoundMessageEvent1.bpmn20.xml")
         .name("边界消息事件")
         .deploy();
+// 启动流程实例 
 ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("BoundMessageEvent1");
 
+// 获取订阅了消息的执行实例
 Execution execution = runtimeService.createExecutionQuery()
         .processInstanceId(processInstance.getProcessInstanceId())
         .messageEventSubscriptionName("边界消息")
         .singleResult();
+// 发送消息  
 runtimeService.messageEventReceived("边界消息", execution.getId());
 Thread.sleep(Integer.MAX_VALUE);
 ```
@@ -69,27 +75,6 @@ Thread.sleep(Integer.MAX_VALUE);
 
 不中断任务 `cancelActivity="false"`
 
-#### 3. 测试
-```
-// 部署流程
-repositoryService.createDeployment()
-        .addClasspathResource("xml/BoundMessageEvent2.bpmn20.xml")
-        .name("边界消息事件2")
-        .deploy();
-// 启动流程实例      
-ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("BoundMessageEvent2");
-
-// 获取订阅了消息的执行实例
-Execution execution = runtimeService.createExecutionQuery()
-        .processInstanceId(processInstance.getProcessInstanceId())
-        .messageEventSubscriptionName("边界消息")
-        .singleResult();
-// 发送消息     
-runtimeService.messageEventReceived("边界消息", execution.getId());
-
-// 完成人工任务
-taskService.complete("人工任务taskId");
-```
-
-区别在于边界消息依附的任务仍存在，需要完成
+#### 3. 说明
+非中断的区别在于边界消息依附的任务仍存在，需要完成
 
