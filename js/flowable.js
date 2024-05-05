@@ -46,6 +46,7 @@ const flowable2 = [
     {
         url: "", title: "结束事件", child: [
             {url: "https://fgq233.github.io/md/workflow/flowable16-1", title: "结束错误事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable16-2", title: "结束终止事件"},
         ]
     },
 ];
