@@ -37,6 +37,12 @@ const flowable2 = [
             {url: "https://fgq233.github.io/md/workflow/flowable14-3", title: "中间信号捕获事件"},
         ]
     },
+    {
+        url: "", title: "中间抛出事件", child: [
+            {url: "https://fgq233.github.io/md/workflow/flowable15-1", title: "中间信号抛出事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable15-2", title: "中间补偿投掷事件"},
+        ]
+    },
 ];
 
 
