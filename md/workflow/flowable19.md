@@ -53,3 +53,60 @@ taskService.complete("人工任务A");
 * 错误服务抛出异常，被边界错误事件捕获
 * 流程执行将沿着边界事件的出口顺序人工任务A继续
 * 完成人工任务A
+
+
+
+#### 三、 边界错误事件(嵌套子流程上)
+#### 1. 流程图、定义异常
+![](https://fgq233.github.io/imgs/workflow/flow26.png)
+
+```
+<error id="myError" errorCode="404" />
+
+<process id="BoundErrorEvent2" name="BoundErrorEvent2" isExecutable="true">
+  <documentation>边界错误事件（嵌套子流程）</documentation>
+  <subProcess id="sid-57F36522-CC3D-459B-BFFF-84BDD3039B83" name="subProcess">
+     ...
+  </subProcess>
+  <boundaryEvent id="sid-660DB354-7687-4873-8A27-F7B9C118A989" attachedToRef="sid-57F36522-CC3D-459B-BFFF-84BDD3039B83">
+    <errorEventDefinition errorRef="myError" flowable:errorVariableLocalScope="true" flowable:errorVariableTransient="true"></errorEventDefinition>
+  </boundaryEvent>
+</process>
+```
+
+#### 2. JavaDelegate
+```
+public class ErrorDelegate implements JavaDelegate {
+    @Override
+    public void execute(DelegateExecution execution) {
+        System.out.println("异常服务任务ErrorDelegate：" + LocalDateTime.now());
+        throw new BpmnError("404");
+    }
+}
+public class MyJavaDelegate1 implements JavaDelegate {
+    @Override
+    public void execute(DelegateExecution execution) {
+        System.out.println("自动服务1：" + LocalDateTime.now());
+    }
+}
+public class MyJavaDelegate2 implements JavaDelegate {
+    @Override
+    public void execute(DelegateExecution execution) {
+        System.out.println("自动服务2：" + LocalDateTime.now());
+    }
+}
+```
+
+
+#### 3. 测试
+```
+repositoryService.createDeployment()
+        .addClasspathResource("xml/BoundErrorEvent2.bpmn20.xml")
+        .name("边界错误事件2")
+        .deploy();
+runtimeService.startProcessInstanceByKey("BoundErrorEvent2");
+Thread.sleep(Integer.MAX_VALUE);
+```
+
+* 嵌套子流程错误服务抛出异常，被边界错误事件捕获
+* 沿着边界事件的出口顺序，执行自动服务2
