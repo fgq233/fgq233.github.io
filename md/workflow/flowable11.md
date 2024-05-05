@@ -167,3 +167,8 @@ List<Execution> executions = runtimeService.createExecutionQuery()
   <errorEventDefinition errorRef="myError" />
 </endEvent>
 ```
+
+
+* 如果省略了errorRef，错误边界事件会捕获所有错误事件，无论error的errorCode是什么
+* 如果提供了errorRef，并且其引用了存在的error，则边界事件只会捕获相同错误代码的错误
+* 如果提供了errorRef，但BPMN文件中没有定义error，则errorRef会用作errorCode
