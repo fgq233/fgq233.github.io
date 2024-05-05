@@ -67,8 +67,8 @@ Thread.sleep(Integer.MAX_VALUE);
 打印结果
 
 ```
-异常服务任务ErrorDelegate：2024-05-05T18:40:08.828
-补偿服务：2024-05-05T18:40:08.890
+异常服务任务ErrorDelegate：......
+补偿服务：......
 ```
 
 * 完成人工任务，流向异常服务任务 `ErrorDelegate`
