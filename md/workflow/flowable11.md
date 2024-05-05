@@ -7,22 +7,23 @@
   * 抛出: 当流程执行到达这个事件时，会触发一个触发器
 
 
-### 二、Flowable-UI 中分类
+### 二、功能分类
+#### 1. Flowable-UI 中分类
 * 启动事件
 * 边界事件
 * 中间捕捉事件
 * 中间抛出事件
 * 结束事件
 
-
-### 三、按功能划分
+#### 2. 按事件功能分类
 * 定时器事件
 * 消息事件
 * 错误事件
 * 信号事件
 * 其他的事件
 
-#### 1.定时器事件 timer event definition
+
+### 三、定时器事件 timer event definition
 * 由定时器所触发的事件
 * 定时器定义必须且只能包含下列的一种元素
   * `timeDate` 开始时间，ISO 8601格式的`固定时间`，在这个时间就会触发触发器
@@ -57,17 +58,85 @@
 ```
 
 
-#### 2.消息事件 message event
+### 四、消息事件 message event
 * 引用具名消息的事件
 * 消息事件定义使用`messageEventDefinition`元素声明，其`messageRef`属性引用一个`message`元素
-* 消息事件只有一个接收者
+* 与信号不同，消息事件只有一个接收者
 
 ```
-<message id="newInvoice" name="newInvoiceMessage" />
+<definitions ...>
+  <!-- 声明消息 -->
+  <message id="newInvoice" name="newInvoiceMessage" />
+  <message id="payment" name="paymentMessage" />
 
-<process id="invoiceProcess">
-  <startEvent id="messageStart" >
-  	<messageEventDefinition messageRef="newInvoice" />
-  </startEvent>
-</process>
+  <process id="invoiceProcess">
+    <startEvent id="messageStart" >
+        <!-- 消息事件定义 -->
+    	<messageEventDefinition messageRef="newInvoice" />
+    </startEvent>
+    ...
+    <intermediateCatchEvent id="paymentEvt" >
+        <!-- 消息事件定义 -->
+    	<messageEventDefinition messageRef="payment" />
+    </intermediateCatchEvent>
+    ...
+  </process>
+
+</definitions>
+```
+
+
+### 五、信号事件 signal event
+#### 1. 定义
+* 引用具名信号的事件
+* 信号事件定义使用`signalEventDefinition`元素声明，其`signalRef`属性引用一个`signal`元素
+
+```
+<definitions... >
+    <!-- 声明信号 -->
+    <signal id="alertSignal" name="alert" />
+
+    <process id="catchSignal">
+        <intermediateThrowEvent id="throwSignalEvent" name="Alert">
+            <!-- 信号事件定义 -->
+            <signalEventDefinition signalRef="alertSignal" />
+        </intermediateThrowEvent>
+        ...
+        <intermediateCatchEvent id="catchSignalEvent" name="On Alert">
+            <!-- 信号事件定义 -->
+            <signalEventDefinition signalRef="alertSignal" />
+        </intermediateCatchEvent>
+        ...
+    </process>
+</definitions>
+```
+
+#### 2. 信号事件的范围
+* 默认情况，信号事件在流程引擎全局广播
+  * 在一个流程实例中抛出一个信号事件，而不同流程定义的不同流程实例都会响应这个事件
+* 限制信号事件的范围（scope），可以在信号事件定义中添加（非BPMN 2.0标准！）scope属性
+  * `scope="global" `默认全局
+  * `scope="processInstance"` 代表流程实例范围
+
+```
+<signal id="alertSignal" name="alert" flowable:scope="processInstance"/>
+```
+
+#### 3. Java API抛出信号
+信号可以由流程实例使用BPMN结构抛出（throw），也可以通过编程方式使用Java API抛出
+
+```
+// 在全局范围为所有已订阅处理器抛出信号
+RuntimeService.signalEventReceived(String signalName);
+
+// 只为指定的执行实例传递信号，搭配 scope="processInstance" 使用
+RuntimeService.signalEventReceived(String signalName, String executionId);
+```
+
+#### 4. 查询信号事件订阅
+```
+// 查询订阅了某一信号事件的所有执行实例
+List<Execution> executions = runtimeService.createExecutionQuery()
+      .signalEventSubscriptionName("alert")
+      .list();
 ```
