@@ -12,6 +12,7 @@
   * 信号在被捕获后不会被消耗，如果有两个激活的信号边界事件，捕获相同的信号事件，则两个边界事件都会被触发，哪怕它们不在同一个流程实例里
 
 ```
+RuntimeService
 void signalEventReceived(String signalName);
 void signalEventReceived(String signalName, String executionId);
 ```

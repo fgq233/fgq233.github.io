@@ -7,11 +7,6 @@
   * 中断定时器：默认`cancelActivity="true"`，图标为实线，原任务会被中断
   * 非中断定时器：图标为虚线，`cancelActivity="false"`，原任务仍存在
 
-```
-<boundaryEvent id="escalationTimer" cancelActivity="false" attachedToRef="firstLineSupport"/>
-<boundaryEvent id="escalationTimer" cancelActivity="true" attachedToRef="firstLineSupport"/>
-```
-
 
 
 #### 二、 边界定时器事件(中断任务)

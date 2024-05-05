@@ -8,6 +8,7 @@
   * 非中断：图标为虚线，`cancelActivity="false"`，原任务仍存在
   
 ```
+RuntimeService
 void messageEventReceived(String messageName, String executionId);
 void messageEventReceived(String messageName, String executionId, Map<String, Object> processVariables);
 ```
