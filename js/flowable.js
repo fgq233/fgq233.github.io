@@ -15,18 +15,18 @@ const flowable2 = [
     {url: "https://fgq233.github.io/md/workflow/flowable11", title: "事件分类"},
     {
         url: "", title: "启动事件", child: [
-            {url: "https://fgq233.github.io/md/workflow/flowable12", title: "定时器启动事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable13", title: "消息启动事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable14", title: "信号启动事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable15", title: "异常启动事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable12-1", title: "定时器启动事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable12-2", title: "消息启动事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable12-3", title: "信号启动事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable12-4", title: "异常启动事件"},
         ]
     },
     {
         url: "", title: "边界事件", child: [
-            {url: "https://fgq233.github.io/md/workflow/flowable16", title: "边界定时器事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable17", title: "边界消息事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable18", title: "边界信号事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable19", title: "边界错误事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable13-1", title: "边界定时器事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable13-2", title: "边界消息事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable13-3", title: "边界信号事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable13-4", title: "边界错误事件"},
         ]
     },
 ];
