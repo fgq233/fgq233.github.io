@@ -148,6 +148,8 @@ List<Execution> executions = runtimeService.createExecutionQuery()
   * Java异常会按它们自己的方式处理
   
 ```
+<error id="myError" errorCode="404" />
+
 <endEvent id="myErrorEndEvent">
   <errorEventDefinition errorRef="myError" />
 </endEvent>
