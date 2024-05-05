@@ -18,8 +18,6 @@
 
 ```
 <definitions ....>
-  <error id="myError" errorCode="404" />
-
   <process id="BoundCompensationEvent" name="BoundCompensationEvent" isExecutable="true">
     <!-- 边界补偿事件依附的活动任务 -->
     <userTask id="sid-A412A6F5-47C2-4165-B0AC-1428D3FF65CC" name="人工任务" flowable:formFieldValidation="true"></userTask>
@@ -27,16 +25,9 @@
     <boundaryEvent id="sid-E34F4255-2D76-4D79-BE35-0E8CD47F2C1E" attachedToRef="sid-A412A6F5-47C2-4165-B0AC-1428D3FF65CC" cancelActivity="false">
       <compensateEventDefinition></compensateEventDefinition>
     </boundaryEvent>
-    <!-- 边界错误事件 -->
-    <boundaryEvent id="sid-0CC58310-99CD-49D6-B1F4-65EED68730DA" attachedToRef="sid-A4F4DF01-440D-4F1C-9683-62CDC04BBB26">
-      <errorEventDefinition errorRef="myError" flowable:errorVariableLocalScope="true" flowable:errorVariableTransient="true"></errorEventDefinition>
-    </boundaryEvent>
-    <intermediateThrowEvent id="sid-31DD632F-545D-44D7-8573-DB9F8FB36758">
-      <compensateEventDefinition></compensateEventDefinition>
-    </intermediateThrowEvent>
-    <!-- 边界边界错误事件依附的活动任务 -->
-    <serviceTask id="sid-A4F4DF01-440D-4F1C-9683-62CDC04BBB26" name="异常服务" flowable:class="com.fgq.demo.delegate.ErrorDelegate"></serviceTask>
+    <!-- 补偿活动 -->
     <serviceTask id="sid-0F6CC7A9-D7C7-45C1-B8AB-053B599B9F7A" name="补偿服务" isForCompensation="true" flowable:class="com.fgq.demo.delegate.MyJavaDelegate"></serviceTask>
+    <!-- 关联边界补偿事件、补偿活动 -->
     <association id="sid-AB1C8EB1-0F55-42B1-AFDD-3F05149C8F80" sourceRef="sid-E34F4255-2D76-4D79-BE35-0E8CD47F2C1E" 
                  targetRef="sid-0F6CC7A9-D7C7-45C1-B8AB-053B599B9F7A" associationDirection="None"></association>
   </process>
