@@ -23,7 +23,7 @@ const flowable2 = [
     },
     {
         url: "", title: "边界事件", child: [
-            {url: "https://fgq233.github.io/md/workflow/flowable16", title: "定时器启动事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable16", title: "边界定时器事件"},
         ]
     },
 ];
