@@ -22,6 +22,19 @@
 * 信号事件
 * 其他的事件
 
+### 二、边界事件 boundary event
+* 边界事件是捕获型事件，依附在活动（activity）上
+* 边界事件永远不会抛出，当活动运行时，事件将监听特定类型的触发器，当捕获到事件时，会终止活动，并沿该事件的出口顺序流继续
+* 边界事件定义
+  * `id` 流程范围内唯一的标识符
+  * `attachedToRef` 对该事件所依附活动的引用
+  * 边界事件的类型，形如XXXEventDefinition的XML子元素
+
+```
+<boundaryEvent id="myBoundaryEvent" attachedToRef="theActivity">
+      <XXXEventDefinition/>
+</boundaryEvent>
+```
 
 ### 三、定时器事件 timer event definition
 * 由定时器所触发的事件
