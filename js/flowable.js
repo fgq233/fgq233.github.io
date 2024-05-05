@@ -33,7 +33,8 @@ const flowable2 = [
     {
         url: "", title: "中间捕获事件", child: [
             {url: "https://fgq233.github.io/md/workflow/flowable14-1", title: "中间定时器捕获事件"},
-            {url: "https://fgq233.github.io/md/workflow/flowable14-1", title: "中间消息捕获事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable14-2", title: "中间消息捕获事件"},
+            {url: "https://fgq233.github.io/md/workflow/flowable14-3", title: "中间信号捕获事件"},
         ]
     },
 ];
