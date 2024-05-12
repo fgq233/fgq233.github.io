@@ -8,7 +8,6 @@ const flowable1 = [
     {url: "https://fgq233.github.io/md/workflow/flowable07", title: "流程变量"},
     {url: "https://fgq233.github.io/md/workflow/flowable08", title: "用户、用户组"},
     {url: "https://fgq233.github.io/md/workflow/flowable09", title: "候选人、候选人组"},
-    {url: "https://fgq233.github.io/md/workflow/flowable10", title: "网关"},
     {
         url: "", title: "网关", child: [
             {url: "https://fgq233.github.io/md/workflow/flowable10-1", title: "排他网关、并行网关、包容网关"},
