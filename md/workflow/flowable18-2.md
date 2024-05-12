@@ -37,6 +37,7 @@ public class MyTaskListener implements TaskListener {
     }
 }
 
+// 事件
 public interface BaseTaskListener extends Serializable {
     String EVENTNAME_CREATE = "create";
     String EVENTNAME_ASSIGNMENT = "assignment";
