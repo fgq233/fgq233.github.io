@@ -2,7 +2,7 @@ const flowable1 = [
     {url: "https://fgq233.github.io/md/workflow/flowable01", title: "Flowable 资源"},
     {url: "https://fgq233.github.io/md/workflow/flowable02", title: "SpringBoot 集成 Flowable"},
     {url: "https://fgq233.github.io/md/workflow/flowable03", title: "一个简单流程使用步骤"},
-    {url: "https://fgq233.github.io/md/workflow/flowable04", title: "流程、流程实例的挂起、激活"},
+    {url: "https://fgq233.github.io/md/workflow/flowable04", title: "流程定义、流程实例的挂起、激活"},
     {url: "https://fgq233.github.io/md/workflow/flowable05", title: "数据库常用表的作用"},
     {url: "https://fgq233.github.io/md/workflow/flowable06", title: "分配用户"},
     {url: "https://fgq233.github.io/md/workflow/flowable07", title: "流程变量"},
@@ -58,7 +58,15 @@ const flowable2 = [
 
 
 const flowable3 = [
-
+    {
+        url: "", title: "任务", child: [
+            {url: "https://fgq233.github.io/md/workflow/flowable17-1", title: "用户任务"},
+            {url: "https://fgq233.github.io/md/workflow/flowable17-2", title: "服务任务"},
+            {url: "https://fgq233.github.io/md/workflow/flowable17-3", title: "手动任务"},
+            {url: "https://fgq233.github.io/md/workflow/flowable17-4", title: "接收任务"},
+            {url: "https://fgq233.github.io/md/workflow/flowable17-5", title: "邮件任务"},
+        ]
+    },
 ];
 
 const flowable4 = [
