@@ -86,5 +86,6 @@ const flowable4 = [
     {url: "https://fgq233.github.io/md/workflow/flowable20", title: "用户任务委派、转办"},
     {url: "https://fgq233.github.io/md/workflow/flowable21", title: "多人会签(多实例任务)"},
     {url: "https://fgq233.github.io/md/workflow/flowable22", title: "任务驳回、回退"},
+    {url: "https://fgq233.github.io/md/workflow/flowable23", title: "任务分配给流程发起人"},
 
 ];
