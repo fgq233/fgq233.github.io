@@ -32,14 +32,14 @@ taskService.complete(taskId2);
 
 #### 3、过程
 
-| 环节                     | `act_ru_task.OWNER_ ` | `act_ru_task.Assignee` | 委托状态`act_ru_task.DELEGATION_`  | 说明                |
-|------------------------|----------|------------|---------|-------------------|
-| 启动流程实例后                | 空     | `A`   |         | 出现任务1             |
-| A委派任务给B后`delegateTask` | `A`   | `B`   |   `PENDING`  | 委托后A查询不到任务，B可以查询到 |
-| B处理任务后`resolveTask`    | `A`    | `A`   |    `RESOLVED`    | 任务1回到A            |
-| A完成任务后`complete`       |       |       |  | 任务1数据删除，出现任务2     |
-| B将任务转办给C后`setAssignee` |  空     | `C`     |  |                   |
-| C完成任务                  |       |       |     | 任务2数据删除，流程实例结束        |
+| 环节                      | `act_ru_task.OWNER_ ` | `act_ru_task.Assignee` | 委托状态`act_ru_task.DELEGATION_`  | 说明                |
+|-------------------------|----------|------------|---------|-------------------|
+| 启动流程实例后                 | 空     | `A`   |         | 出现任务1             |
+| A委派任务给B后`delegateTask`  | `A`   | `B`   |   `PENDING`  | 委托后A查询不到任务，B可以查询到 |
+| B处理任务后`resolveTask`     | `A`    | `A`   |    `RESOLVED`    | 任务1回到A            |
+| A完成任务后`complete`        |       |       |  | 任务1数据删除，出现任务2     |
+| B将任务转办给C后`setAssignee`  |  空     | `C`     |  |                   |
+| C完成任务后`complete`        |       |       |     | 任务2数据删除，流程实例结束        |
 
 
 
