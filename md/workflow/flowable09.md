@@ -45,21 +45,7 @@ if (task != null) {
 ```
 
 
-#### 5. 候选人交接任务
-* 当候选人认领后，如果不想操作、也不想归还，还可以直接交接给另外一个人来处理
-* `setAssignee()`  指派任务
-* `delegateTask(taskId, userId)、resolveTask(taskId)`  委派任务、撤销委派
-
-```
-Task task = taskService.createTaskQuery().taskAssignee("A").singleResult();
-if (task != null) {
-    taskService.delegateTask(task.getId(), "B");
-    // taskService.setAssignee(task.getId(), "B");
-    System.out.println("交接任务成功");
-}
-```
-
-#### 6. 第一环节完成任务
+#### 5. 第一环节完成任务
 ```
 Map<String, Object> variables = new HashMap<>();
 variables.put("candidateGroup", "group_1");
@@ -72,7 +58,7 @@ taskService.complete("task1-id-xxxxxx", variables);
 * 候选组在`act_ru_identitylink`表，通过`GROUP_ID_`关联`act_ru_task`任务 
 
 
-#### 7. 候选组中用户查询任务、认领任务
+#### 6. 候选组中用户查询任务、认领任务
 ```
 Group group = identityService.createGroupQuery().groupId("group_1").singleResult();
 List<Task> list = taskService.createTaskQuery().taskCandidateGroup(group.getId()).list();
@@ -86,7 +72,7 @@ for (Task task : list) {
 
 * 候选组认领任务也是先到先得，此时任务表中`act_ru_task`的`Assignee`就会更新为该用户，其他用户无法认领
 
-#### 8. 第二环节完成任务
+#### 7. 第二环节完成任务
 ```
 taskService.complete("task2-id-xxxxxx");
 ```
