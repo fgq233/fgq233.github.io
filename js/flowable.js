@@ -84,5 +84,6 @@ const flowable3 = [
 
 const flowable4 = [
     {url: "https://fgq233.github.io/md/workflow/flowable20", title: "用户任务委派、转办"},
+    {url: "https://fgq233.github.io/md/workflow/flowable20", title: "多人会签(多实例任务)"},
 
 ];
