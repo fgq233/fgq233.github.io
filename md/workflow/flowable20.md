@@ -7,11 +7,6 @@
 #### 1、委派
 * 将任务节点分给其他人处理，等其他人处理好之后，委派任务还会自动回到委派人的任务中
 
-
-* 启动流程实例后，第一个任务 `act_ru_task.OWNER_` 为空，`act_ru_task.Assignee` 为 A
-* 委派给用户B，此时第一个任务 `act_ru_task.OWNER_` 为A，`act_ru_task.Assignee` 为 B，a
-* 用户B处理任务
-
 ```
 // 委派任务
 taskService.delegateTask(taskId1, "B");
