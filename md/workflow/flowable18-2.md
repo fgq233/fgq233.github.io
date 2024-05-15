@@ -19,6 +19,7 @@
   * `delete`（删除）：在任务即将被删除前触发，请注意：任务由`completeTask()`正常完成时也会触发。
 * `class`：需要调用的委托类，这个类必须实现org.flowable.engine.delegate.TaskListener接口
 
+![](https://fgq233.github.io/imgs/workflow/flow52.png)
 
 
 #### 2、监听器类
@@ -35,15 +36,6 @@ public class MyTaskListener implements TaskListener {
             delegateTask.setAssignee("fgq");
         } 
     }
-}
-
-// 事件
-public interface BaseTaskListener extends Serializable {
-    String EVENTNAME_CREATE = "create";
-    String EVENTNAME_ASSIGNMENT = "assignment";
-    String EVENTNAME_COMPLETE = "complete";
-    String EVENTNAME_DELETE = "delete";
-    String EVENTNAME_ALL_EVENTS = "all";
 }
 ```
 
