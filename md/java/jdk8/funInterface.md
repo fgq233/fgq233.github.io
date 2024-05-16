@@ -50,9 +50,7 @@ public interface Supplier<T> {
 public class InterfaceTest {
 
     public static void main(String[] args) {
-        testConsumer(s -> {
-            System.out.println(s);
-        });
+        testConsumer(s -> { System.out.println(s); });
         Integer function = testFunction(s -> Integer.valueOf(s));
         boolean predicate = testPredicate(num -> num > 0, 0);
         String supplier = testSupplier(() -> "666");
