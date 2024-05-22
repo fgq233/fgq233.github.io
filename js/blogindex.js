@@ -42,7 +42,11 @@ function initBlog() {
             }
 
             if (item.child && item.child.length) {
-                divHtml += `<li><h5>${item.title}</h5>`;
+                if (item.url) {
+                    divHtml += `<li><h5><a href="${item.url}">${item.title}</a></h5>`;
+                } else {
+                    divHtml += `<li><h5>${item.title}</h5>`;
+                }
                 item.child.map((childItem, idx) => {
                     if (idx === 0) {
                         divHtml += `<ul>`;
