@@ -131,7 +131,7 @@ public class FlowableEventConfig implements ApplicationListener<ContextRefreshed
 
 
 
-```
+```java
 @Configuration
 @RequiredArgsConstructor
 public class FlowableEventConfig {
