@@ -19,4 +19,6 @@
 #### 5. 在线听歌
 [https://tool.liumingye.cn/music](https://tool.liumingye.cn/music)
 
- 
+#### 6. AI 生成PPT
+[https://chat-ppt.com/](https://chat-ppt.com/)
+
