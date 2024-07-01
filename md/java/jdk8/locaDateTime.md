@@ -63,13 +63,15 @@ int second1 = localTime.getSecond();
 int second2 = localTime.get(ChronoField.SECOND_OF_MINUTE);
 ```
 
-#### 4. LocalDateTime 获取年月日时分秒
+#### 4. 相互转换
 * LocalDate、LocalTime 获取相关的API LocalDateTime 基本都有
 * LocalDateTime 也可以转化为另外2个对象
 
 ```
 LocalDate localDate = localDateTime.toLocalDate();
 LocalTime localTime = localDateTime.toLocalTime();
+
+LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
 ```
 
 
@@ -115,3 +117,27 @@ LocalDateTime localDateTime3 = localDateTime.withDayOfMonth(31);
 
 
 
+### 三、 Date 与 LocalDate、LocalDateTime 互相转换
+#### 1. Date、LocalDate
+```
+// Date -> LocalDate
+Date date = new Date();
+LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+// LocalDate -> Date
+LocalDate localDate = LocalDate.now();
+ZonedDateTime zdt = localDate.atStartOfDay(ZoneId.systemDefault());
+Date date = Date.from(zdt.toInstant());
+```
+
+
+#### 2. Date、LocalDateTime
+```
+// Date -> LocalDateTime
+Date date = new Date();
+LocalDateTime dateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+
+// LocalDateTime -> Date
+LocalDateTime localDateTime = LocalDateTime.now();
+Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+```
