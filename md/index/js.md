@@ -1,6 +1,7 @@
 1. [JS 中的假值][js01]
 1. [数组常用方法][js02]
-1. [函数定义][js03]
+1. [日期常用方法][js03]
+1. [函数定义][js04]
 1. [BOM- window][bom01]
 1. [BOM- location][bom02]
 1. [BOM- navigator、screen、history][bom03]
@@ -10,9 +11,10 @@
 1. [ES6- 数据结构Map][es04]
 
 
-[js03]: https://fgq233.github.io/md/js/js03
-[js02]: https://fgq233.github.io/md/js/js02
 [js01]: https://fgq233.github.io/md/js/js01
+[js02]: https://fgq233.github.io/md/js/array
+[js03]: https://fgq233.github.io/md/js/date
+[js04]: https://fgq233.github.io/md/js/function
 [es04]: https://fgq233.github.io/md/js/es04
 [es03]: https://fgq233.github.io/md/js/es03
 [es02]: https://fgq233.github.io/md/js/es02
