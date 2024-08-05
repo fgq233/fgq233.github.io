@@ -31,3 +31,8 @@ BigDecimal divide2 = v1.divide(v2, 2, BigDecimal.ROUND_UP);
 #### 3. 转 double
 * `public double doubleValue()`
 
+#### 4. 保留几位小数
+```
+BigDecimal b = new BigDecimal("12");
+BigDecimal b2 = b.setScale(2, RoundingMode.HALF_UP);
+```
