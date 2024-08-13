@@ -4,6 +4,7 @@
 -  [Stream流 简介][stream1]    
 -  [Stream流 使用][stream2]    
 -  [函数式接口][funInterface]    
+-  [CompletableFuture][completableFuture]    
 -  [集合新增的方法][jdk8]    
 -  [时间类 LocaDate、LocalTime、LocaDateTime][locaDateTime]    
 -  [时间格式化、解析 DateTimeFormatter][dateTimeFormatter]
@@ -42,6 +43,7 @@
 [stream1]: https://fgq233.github.io/md/java/jdk8/stream1
 [stream2]: https://fgq233.github.io/md/java/jdk8/stream2
 [funInterface]: https://fgq233.github.io/md/java/jdk8/funInterface
+[completableFuture]: https://fgq233.github.io/md/java/jdk8/completableFuture
 [jdk8]: https://fgq233.github.io/md/java/jdk8/list
 [locaDateTime]: https://fgq233.github.io/md/java/jdk8/locaDateTime
 [zone]: https://fgq233.github.io/md/java/jdk8/zone
