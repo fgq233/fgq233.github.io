@@ -10,8 +10,11 @@ Instant 对象可以拿到当前的时间，该时间由两部分组成
 // 获取当前时间的 Instant 对象
 Instant now = Instant.now();
 
-//  从 1970-01-01 00:00:00 开始走到此刻的总秒数
-long epochSecond = now.getEpochSecond();
+//  从 1970-01-01 00:00:00 走到此刻的总秒数
+long second = now.getEpochSecond();
+
+//  从 1970-01-01 00:00:00 走到此刻的毫秒数，相当于以前的 System.currentTimeMillis()
+long millisecond = now.toEpochMilli();
 
 // 不够 1 秒的纳秒数
 int nano = now.getNano();
