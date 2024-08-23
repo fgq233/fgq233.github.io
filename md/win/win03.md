@@ -6,6 +6,7 @@
 #### 2. 图片压缩
 * [https://tinypng.com](https://tinypng.com)
 * [https://imagecompressor.com](https://imagecompressor.com)
+* [http://v.yalijuda.com:32723](http://v.yalijuda.com:32723)
 
 
 #### 3. Windows 系统下载
