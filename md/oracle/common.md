@@ -85,3 +85,13 @@ select * from user_tab_cols where table_name = '表名';
 ```
 flashback table 表名 to before drop
 ```
+
+###### 6、误删数据恢复
+```
+-- 查询误删数据
+select * from 表名 as of timestamp (systimestamp - interval '10' minute) where 条件;
+
+-- 恢复误删数据
+alter table 表名 enable row movement;
+flashback table 表名 to timestamp (systimestamp - interval '10' minute);
+```
